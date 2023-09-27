@@ -1,0 +1,51 @@
+.slideshow {
+    position: relative;
+    width: 100vw; /* This will make it stretch the full width of the viewport */
+    height: 100vh; /* You can adjust this as needed */
+    overflow: hidden;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2; /* ensures buttons are always on top */
+}
+
+.prev-button {
+    left: 0;
+}
+
+.next-button {
+    right: 0;
+}
+
+/* Styles added for the sliding effect */
+.slideshow {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.images-container {
+    position: relative;
+    display: flex;
+    transition: all 1s;
+}
+
+.slide-image {
+    flex: 0 0 100%;
+    transition: transform 1s;
+}
