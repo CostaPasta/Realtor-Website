@@ -1,0 +1,90 @@
+.about-me-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+
+    background-image: url('../images/AboutmeBackground.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    background-position: center;  /* Centers the image in the div */
+}
+.profile-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-details h2 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+
+    position: relative;
+    display: inline-block; /* Ensures the pseudo-element spans only the width of the content */
+}
+
+.profile-details h1 {
+    font-size: 14px;
+    color: gray;
+    font-style: italic;
+    padding-bottom: 10px;
+}
+
+.profile-details h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Adjust this value to increase or decrease the space between the text and the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: rgb(0, 111, 185); /* Color of the underline */
+}
+
+.profile-details p {
+    font-size: 26px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.contact-details a {
+    display: inline-block;
+    color: #0077b6;
+    text-decoration: none;
+    font-size: 26px;
+    padding: 0 10px;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.custom-bullets {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+}
+
+.custom-bullets li {
+    margin-bottom: 8px; /* Space between bullet points */
+    font-size: 24px; /* Adjust as needed */
+    line-height: 1.5; /* Adjust as needed */
+    position: relative; /* Needed for custom bullet positioning */
+    padding-left: 30px; /* Space for the custom bullet (emoji) */
+}
+
+/* If you want to further style or position the custom bullets (emojis), you can target them specifically */
+.custom-bullets li::before {
+    content: ""; /* This will ensure only the emojis inside the <li> tags serve as bullets */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}

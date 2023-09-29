@@ -41,7 +41,9 @@ function Slideshow(props) {
         <div className="slideshow">
             <div className="images-container" style={{ left: `${offset}%` }}>
                 {props.images.map((img, index) => (
-                    <img key={index} src={img} alt={`slide ${index}`} className="slide-image" />
+                    <div key={index} className="slide">
+                        <img src={img} alt={`slide ${index}`} className="slide-image" />
+                    </div>
                 ))}
             </div>
             <button onClick={prevSlide} className="prev-button">Prev</button>
