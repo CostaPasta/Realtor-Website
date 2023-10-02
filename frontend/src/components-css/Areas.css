@@ -1,11 +1,72 @@
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* This will make it take the full viewport height */
+    margin: 50px 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    max-width: 70%; /* This should be the width of your grid container */
+    width: 100%;
+    justify-content: space-between; /* This pushes the h1 and button to the edges */
+    margin-bottom: 20px; /* Adjust based on your design needs */
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0; /* Remove any default margin */
+    flex-grow: 1; /* This allows h1 to take up the available space */
+}
+
+.view-all-btn {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    padding: 14px 24px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    width: 65%;
-    margin: auto;
+    width: 70%;
+    margin: 30px;
   }
   
+  .grid-box::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%; /* covers the bottom 25% of the grid box */
+    background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1)); /* Gradient effect */
+    z-index: -1;
+    }
+
+  .grid-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 250px;
+    min-height: 120px;
+    border: none;
+    padding: 16px;
+    font-size: 1.6em;
+    background-color: #f7f7f7;
+    background-size: cover; /* This ensures the image covers the entire grid box */
+    background-position: center; /* This centers the image in the grid box */
+    color: white; /* Adjust text color if needed */
+    position: relative;
+    z-index: 0;
+  }
+
   /* For medium-sized screens: 2 boxes per row */
   @media (max-width: 800px) {
     .grid-container {
@@ -19,16 +80,47 @@
       grid-template-columns: repeat(1, 1fr);
     }
   }
-  
-  .grid-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 220px;
-    min-height: 120px;
-    border: 1px solid black;
-    padding: 16px;
-    font-size: 1.2em;
-    background-color: #f7f7f7;
-  }
-  
+
+/* For medium-sized screens */
+@media (max-width: 800px) {
+    .header-container {
+        flex-direction: column; /* Stack the H1 and button vertically */
+        align-items: flex-start; /* Align items to the start (left) */
+        gap: 10px; /* space between the H1 and button */
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust the font size */
+    }
+
+    .view-all-btn {
+        padding: 8px 16px; /* Adjust padding */
+        font-size: 14px; /* Adjust the font size */
+    }
+}
+
+/* For smaller screens */
+@media (max-width: 500px) {
+    .header-container {
+        max-width: 90%; /* Give a bit more width for better readability */
+    }
+
+    .grid-container {
+        width: 90%; /* Adjust the width to match the header container */
+        margin: 20px 0; /* Reduce the margin */
+    }
+
+    h1 {
+        font-size: 20px; /* Further reduce the font size */
+    }
+
+    .view-all-btn {
+        padding: 6px 12px; /* Further reduce padding */
+        font-size: 12px; /* Further reduce the font size */
+    }
+
+    .grid-box {
+        font-size: 1em; /* Adjust the font size for the grid box */
+        padding: 10px; /* Adjust padding */
+    }
+}

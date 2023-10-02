@@ -1,19 +1,47 @@
 import React from 'react';
+import '../components-css/Listings.css'
+import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
+import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
+import singerIslandIMG from '../images/Areas/singerisland.jpeg'
+import jupiterIMG from '../images/Areas/jupiter.jpeg'
+import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
+import bocaIMG from '../images/Areas/boca.jpeg'
 
 function Listings() {
-  return (
-    <div>
-      {/* Sample property preview */}
-      <div className="property-preview">
-        <img src="sample-image.jpg" alt="Property" />
-        <div className="property-info">
-          <h2>Sample Property</h2>
-          <p>$500,000</p>
-        </div>
+  const items = [
+    {name: "DOWNTOWN WEST PALM BEACH", image: downTownWPBIMG}, 
+    {name: "PALM BEACH GARDENS", image: palmBeachGardensIMG }, 
+    {name: "SINGER ISLAND", image: singerIslandIMG},
+    {name: "JUPITER", image: jupiterIMG},
+    {name: "PALM BEACH", image: palmBeachIMG},
+    {name: "BOCA RATON", image: bocaIMG}];
+
+    return (
+      <div className="flex-wrapper">
+          <div className="header-container">
+              <h1>LISTINGS</h1>
+              <button className="view-all-btn">VIEW ALL</button>
+          </div>
+          <div className="grid-container">
+              {items.map((item, index) => (
+                  <div key={index} className="listing-container">
+                      <div 
+                          className="grid-box"
+                          style={{ backgroundImage: `url(${item.image})` }}
+                      >
+                          {item.name}
+                      </div>
+                      <div className="listing-details">
+                          <p className="price">{item.price}$ Price</p>
+                          <p className="address">{item.address}Address</p>
+                          <p className="room-details">{item.bedrooms} beds, {item.bathrooms} baths, {item.sqft} sqft</p>
+                      </div>
+                  </div>
+              ))}
+          </div>
       </div>
-      {/* Add more property previews or implement pagination */}
-    </div>
   );
+  
 }
 
 export default Listings;

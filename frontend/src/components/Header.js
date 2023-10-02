@@ -4,12 +4,12 @@ import '../components-css/Header.css';
 function Header() {
   return (
     <header className="header">
-      <div className="logo">Your Logo Here</div>
+      <div className="logo">JOSE COSTA</div>
       <nav className="nav">
-        <a href="/search">Search</a>
-        <a href="/listings">Listings</a>
-        <a href="/property-details">PropertyDetails</a>
-        <a href="/contact">Contact</a>
+        <a href="/#">SEARCH</a>
+        <a href="/#">LISTINGS</a>
+        <a href="/#">ABOUT ME</a>
+        <a href="/#">CONTACT</a>
       </nav>
     </header>
   );
