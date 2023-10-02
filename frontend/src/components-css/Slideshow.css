@@ -78,4 +78,35 @@
 }
 
 
+@media (max-width: 768px) {
+    .prev-button, .next-button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prev-button, .next-button {
+        padding: 8px 12px;
+        bottom: 10%; /* Adjust button position for better visibility on smaller screens */
+    }
+
+    .prev-button {
+        transform: translateY(50%) translateX(-125%);  /* Adjust position slightly */
+    }
+
+    .next-button {
+        transform: translateY(50%) translateX(25%);  /* Adjust position slightly */
+    }
+}
+
+@media (max-width: 768px) {
+    .slideshow {
+        height: 50vh; /* Adjust to a smaller height on mobile devices */
+    }
+
+    .slide-image {
+        max-width: 100vw;
+        height: 50vh; /* Match the slideshow height */
+    }
+}
 

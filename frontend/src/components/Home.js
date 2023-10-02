@@ -9,6 +9,7 @@ import Listings from './Listings';
 import Contact from './Contact';
 import AboutMe from './About';
 import Search from './Search';
+import Areas from './Areas';
 
 function Home() {
 
@@ -50,6 +51,7 @@ function Home() {
             <Slideshow images={images} />
             <AboutMe />
             <Search/>
+            <Areas/>
             <Listings />
             <Contact />
         </div>
