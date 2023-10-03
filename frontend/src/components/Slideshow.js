@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'; // Add useRef import
 import '../components-css/Slideshow.css';
+import {BsArrowLeft} from 'react-icons/bs'
+import {BsArrowRight} from 'react-icons/bs'
 
 function Slideshow(props) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,8 +48,11 @@ function Slideshow(props) {
                     </div>
                 ))}
             </div>
-            <button onClick={prevSlide} className="prev-button">Prev</button>
-            <button onClick={nextSlide} className="next-button">Next</button>
+            <div className="welcome-message">
+                <p className="text-border">"Happiness is just one click away"</p>
+            </div>
+            <button onClick={prevSlide} className="prev-button"><BsArrowLeft/></button>
+            <button onClick={nextSlide} className="next-button"><BsArrowRight/></button>
         </div>
     );
 }

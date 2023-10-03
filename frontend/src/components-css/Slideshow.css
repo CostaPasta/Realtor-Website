@@ -16,7 +16,7 @@
 
 
 .prev-button, .next-button {
-    font-size: 24px;
+    font-size: 50px;
     position: absolute;
     bottom: 15%;
     left: 50%;
@@ -24,11 +24,15 @@
     background-color: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
     z-index: 2; /* ensures buttons are always on top */
-    transform: translateY(50%);  /* Adjusts vertically */
     border: 2px solid white;  /* Add a border for more emphasis */
+
+    /* Centering Styles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .prev-button {
@@ -78,6 +82,21 @@
     z-index: 1;  /* ensures gradient is above the image */
 }
 
+.welcome-message {
+    color: white;
+    font-size: 48px;
+    position: absolute;
+    bottom: 22%; /* adjust this value as needed */
+    left: 50%;
+    transform: translateX(-50%); /* centers the text */
+    z-index: 2;
+}
+
+.text-border {
+    padding: 10px;
+    display: inline-block; /* Keeps the border snug to the text */
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
+}
 
 @media (max-width: 768px) {
     .prev-button, .next-button {
@@ -111,3 +130,10 @@
     }
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-message {
+        font-size: 18px; /* adjust for smaller screens */
+        bottom: 18%; /* adjust for smaller screens */
+    }
+}
