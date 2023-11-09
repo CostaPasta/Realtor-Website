@@ -6,7 +6,7 @@ import PierImage from '../images/pier.jpeg';
 import CityImage from '../images/city.jpeg';
 import LuxImage from '../images/lux.jpeg'
 import Listings from './Listings';
-import Contact from './Contact';
+//import Contact from './Contact';
 import AboutMe from './About';
 import Search from './Search';
 import Areas from './Areas';
@@ -14,6 +14,7 @@ import Footer from './Footer'
 
 function Home() {
 
+    
     const images = [
         BeachImage,
         PierImage,
@@ -21,6 +22,7 @@ function Home() {
         LuxImage
         // ... add as many images as you'd like
     ];
+    
 
     useEffect(() => {
         function adjustSlideshowHeight() {
@@ -46,11 +48,12 @@ function Home() {
         };
     }, []);
 
+    
     return (
         <div className="home-container">
             <Header />
             <Slideshow images={images} />
-            <Search/>
+            <Search />
             <Areas/>
             <AboutMe />
             <Listings />

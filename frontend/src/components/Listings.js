@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../components-css/Listings.css'
 import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
 import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
@@ -16,6 +16,11 @@ function Listings() {
     {name: "PALM BEACH", image: palmBeachIMG},
     {name: "BOCA RATON", image: bocaIMG}];
 
+    useEffect(() => {
+        // This code will run after the component has mounted
+        // You can add any initialization code for the Buying Buddy widget here
+    }, []);
+  
     return (
       <div className="flex-wrapper">
           <div className="header-container">
@@ -39,6 +44,7 @@ function Listings() {
                   </div>
               ))}
           </div>
+          <div id="MBBv3_FeaturedGallery" filter="agent_id:276518619+listing_status:active,under-contract,sold"></div>
       </div>
   );
   

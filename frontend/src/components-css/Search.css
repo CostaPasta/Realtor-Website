@@ -1,46 +1,15 @@
 .search-wrapper {
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    justify-content: center;
+    align-items: center;
     background-color: #e8e8e8;
     padding: 20px 0;
-}
-
-/* Make sure each direct child in the search-box-container takes up the full height of its parent */
-.search-box-container > * {
-    height: 100%;
-}
-
-.search-title {
-    align-self: flex-start;
-}
-
-.search-title h2 {
-    font-size: 46px;
-    margin: 0;
-}
-
-.search-title p {
-    font-size: 16px;
-    margin: 0;
-    color: #4a4a4a;
-}
-
-/* Additional styles to ensure the input field doesn't have a height beyond its parent */
-.search-container input {
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    flex: 1;
-    height: 100%; /* Ensure input takes the full height of its parent */
-    box-sizing: border-box; /* Ensure padding is included in the height calculation */
 }
 
 .search-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align children to the left */
+    justify-content: flex-start;
     align-items: center;
     padding: 20px;
     background-color: #e8e8e8;
@@ -55,7 +24,8 @@
     flex: 1;
 }
 
-.search-container button {
+.search-container button,
+.listing-dropdown {
     padding: 18px 25px;
     font-size: 15px;
     cursor: pointer;
@@ -64,7 +34,7 @@
 
 .search-box-container {
     display: flex;
-    justify-content: center; /* Keep it centered */
+    justify-content: center;
     align-items: stretch;
     width: 100%;
     height: 60px;
@@ -72,7 +42,7 @@
 }
 
 .listing-btn-container {
-    align-self: flex-start; /* Align to the left of its parent container */
+    align-self: flex-start;
     padding: 15px 0;
 }
 
@@ -84,11 +54,11 @@
 .filter::after {
     content: "";
     position: absolute;
-    top: 25%;  /* Start the border a quarter way down */
-    left: 0;  /* Position it on the right side */
-    width: 2px;  /* Width of the border */
-    height: 50%;  /* Half the height of the parent element */
-    background-color: #ccc;  /* Color of the border */
+    top: 25%;
+    left: 0;
+    width: 2px;
+    height: 50%;
+    background-color: #ccc;
 }
 
 .search-button {
@@ -96,11 +66,11 @@
     color: white;
 }
 
-
-.listing-active, .listing-sold {
-    background-color: white; /* Default color */
+.listing-active,
+.listing-sold,
+.listing-dropdown {
+    background-color: white;
     color: #333;
-    /* ... other styles ... */
 }
 
 .active {
@@ -108,42 +78,121 @@
     color: white;
 }
 
+/* DropdownComponent.css */
 
-/* For smaller screens */
+.dropdown-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    height: 100%;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.dropdown-container::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 2px;
+    height: 50%;
+    background-color: #ccc;
+}
+
+.selected-option {
+    display: flex;
+    align-items: center;
+}
+
+.selected-option svg {
+    margin-left: 5px;
+}
+
+.options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 1;
+}
+
+.option {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+
+.option:hover {
+    background-color: #f6f6f6;
+}
+
+.dropdown-container:hover .selected-option,
+.dropdown-container:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .search-container {
-        width: 90%; /* Increase the width on mobile for better usage of space */
+        width: 90%;
         padding: 10px;
     }
 
     .search-title h2 {
-        font-size: 24px; /* Reduce font size on mobile */
+        font-size: 24px;
     }
 
     .search-title p {
-        font-size: 14px; /* Reduce font size on mobile */
+        font-size: 14px;
     }
 
     .search-box-container {
-        flex-direction: column; /* Stack elements vertically */
+        flex-direction: column;
     }
 
     .listing-btn-container {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center the buttons */
+        flex-direction: column;
+        align-items: center;
     }
 
     .listing-btn-container button {
-        margin-bottom: 10px; /* Provide some spacing between buttons */
+        margin-bottom: 10px;
     }
-}
 
-@media (max-width: 768px) {
     .search-box-container {
-        gap: 10px; /* Add some space between stacked elements */
+        gap: 10px;
     }
 
     .search-container button {
-        margin-bottom: 10px; /* Space between buttons */
+        margin-bottom: 10px;
+    }
+
+    .dropdown-container {
+        font-size: 18px;
+    }
+
+    .dropdown-container {
+        padding: 0 10px;
+    }
+
+    .option {
+        padding: 15px;
+    }
+
+    .options-container {
+        width: 100%;
+        left: 0;
+        right: 0;
+        box-sizing: border-box;
     }
 }
