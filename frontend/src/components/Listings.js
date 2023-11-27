@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import '../components-css/Listings.css'
-import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
-import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
-import singerIslandIMG from '../images/Areas/singerisland.jpeg'
-import jupiterIMG from '../images/Areas/jupiter.jpeg'
-import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
-import bocaIMG from '../images/Areas/boca.jpeg'
+// import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
+// import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
+// import singerIslandIMG from '../images/Areas/singerisland.jpeg'
+// import jupiterIMG from '../images/Areas/jupiter.jpeg'
+// import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
+// import bocaIMG from '../images/Areas/boca.jpeg'
 
 function Listings() {
-  const items = [
-    {name: "DOWNTOWN WEST PALM BEACH", image: downTownWPBIMG}, 
-    {name: "PALM BEACH GARDENS", image: palmBeachGardensIMG }, 
-    {name: "SINGER ISLAND", image: singerIslandIMG},
-    {name: "JUPITER", image: jupiterIMG},
-    {name: "PALM BEACH", image: palmBeachIMG},
-    {name: "BOCA RATON", image: bocaIMG}];
+//   const items = [
+//     {name: "DOWNTOWN WEST PALM BEACH", image: downTownWPBIMG}, 
+//     {name: "PALM BEACH GARDENS", image: palmBeachGardensIMG }, 
+//     {name: "SINGER ISLAND", image: singerIslandIMG},
+//     {name: "JUPITER", image: jupiterIMG},
+//     {name: "PALM BEACH", image: palmBeachIMG},
+//     {name: "BOCA RATON", image: bocaIMG}];
 
     useEffect(() => {
         // This code will run after the component has mounted
