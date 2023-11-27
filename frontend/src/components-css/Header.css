@@ -26,6 +26,7 @@
   .nav a:hover {
     text-decoration: underline;
   }
+ 
   
   /* Responsive Styles */
 @media (max-width: 768px) {
@@ -47,5 +48,61 @@
   
   .nav a {
     font-size: 1em; /* Reduce font size for smaller screens */
+  }
+}
+
+.header.open .nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  position: absolute;
+  top: 85px; /* Adjust this value to position the menu below the header */
+  bottom: 160px;
+  left: 0;
+  right: 0;
+  opacity: 0.95;
+  visibility: visible;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.header.open .menu-icon .bar:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.header.open .menu-icon .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .menu-icon .bar:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.menu-icon {
+  display: none; /* Initially hide the burger icon */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add this CSS to style the burger icon on smaller screens */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav {
+    display: none; /* Initially hide the navigation menu */
   }
 }
