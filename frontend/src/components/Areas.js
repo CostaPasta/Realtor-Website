@@ -6,19 +6,28 @@ import singerIslandIMG from '../images/Areas/singerisland.jpeg'
 import jupiterIMG from '../images/Areas/jupiter.jpeg'
 import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
 import bocaIMG from '../images/Areas/boca.jpeg'
-import { Link } from 'react-router-dom';
+import wellingtonIMG from '../images/Areas/wellingtonIMG.jpeg'
+import delrayBeachIMG from '../images/Areas/delrayBeachIMG.jpeg'
+import boyntonBeachIMG from '../images/Areas/boyntonBeachIMG.jpeg'
+import lakeWorthIMG from '../images/Areas/lakeWorthIMG.jpeg'
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 
 
 const Areas = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const items = [
-        { name: 'DOWNTOWN WEST PALM BEACH', image: downTownWPBIMG },
+        { name: 'PALM BEACH', image: palmBeachIMG},
         { name: 'PALM BEACH GARDENS', image: palmBeachGardensIMG },
-        { name: 'SINGER ISLAND', image: singerIslandIMG },
-        { name: 'JUPITER', image: jupiterIMG },
-        { name: 'PALM BEACH', image: palmBeachIMG },
-        { name: 'BOCA RATON', image: bocaIMG },
+        { name: 'WEST PALM BEACH', image: downTownWPBIMG},
+        { name: 'WELLINGTON', image: wellingtonIMG},
+        { name: 'JUPITER', image: jupiterIMG},
+        { name: 'BOCA RATON', image: bocaIMG},
+        { name: 'DELRAY BEACH', image: delrayBeachIMG},
+        { name: 'BOYNTON BEACH', image: boyntonBeachIMG},
+        { name: 'LAKE WORTH BEACH', image: lakeWorthIMG},
     ];
 
     // function refreshPage(){ 
@@ -26,25 +35,46 @@ const Areas = () => {
     // }
 
     // const handleGridBoxClick = () => {
-        
-    //     // navigate("/west-palm-beach")
-    //     //navigate('/listing-results', { state: { filterCriteria: 'city: west palm beach' } });
-    //     // refreshPage();
+    //     //window.location.href = '/listing-results'
+    //     //navigate(location.href = "/list-results")
+    //     navigate(location.href = '/listing-results', { state: { filterCriteria: 'city: west palm beach' } });
+    //     refreshPage();
     // };
 
+    // Define custom paths for specific areas
+    const customPaths = {
+        // Add more custom paths as needed
+        'PALM BEACH': 'Palm Beach',
+        'WEST PALM BEACH': 'West Palm Beach',
+        'PALM BEACH GARDENS': 'Palm Beach Gardens',
+        'JUPITER': 'Jupiter',
+        'WELLINGTON': 'Wellington',
+        'BOCA RATON': 'Boca Raton',
+        'DELRAY BEACH': 'Delray Beach',
+        'BOYNTON BEACH': 'Boynton Beach',
+        'LAKE WORTH': 'Lake Worth',
+    };
+    
     return (
         <div className="flex-wrapper">
             <div className="header-container">
                 <h1>AREAS IN PALM BEACH</h1>
-                <Link reloadDocument to="/listing-results"><button>VIEW ALL</button></Link>
+                
+                {/* <Link 
+                    //reloadDocument 
+                    to="/listing-results"
+                    state={{filterCriteria: 'city: jupiter'}}
+                    reloadDocument
+                    >
+                    <button>VIEW ALL</button>
+                </Link> */}
             </div>
             <div className="grid-container">
                 {items.map((item, index) => (
                     <Link
                         key={index}
                         reloadDocument
-                        to={{pathname: '/west-palm-beach'}}
-                        state={{filterCriteria: 'city: west palm beach'}}
+                        to={`/listing-results/${customPaths[item.name]}`}
                         className="grid-box"
                         style={{ backgroundImage: `url(${item.image})` }}
                     >
