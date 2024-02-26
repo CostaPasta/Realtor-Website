@@ -67,6 +67,10 @@ h1 {
     z-index: 0;
   }
 
+  .grid-box:hover {
+    transform: translateY(-5px);
+}
+
   /* For medium-sized screens: 2 boxes per row */
   @media (max-width: 800px) {
     .grid-container {
