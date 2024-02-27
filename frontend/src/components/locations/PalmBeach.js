@@ -11,6 +11,49 @@ import ArtIcon from './icons/theatre.png';
 import EducationIcon from './icons/mortarboard.png';
 
 const PalmBeach = () => {
+
+    // Define your fact cards data
+    const factCards = [
+        {
+            image: palmbeachbanner,
+            icon: BeachIcon,
+            alt: "Beach",
+            heading: "PRISTINE BEACHES",
+            description: "Over 47 miles of stunning coastline, making it a paradise for beach lovers."
+        },
+        {
+            icon: CityIcon,
+            alt: "City",
+            heading: "VIBRANT CITY LIFE",
+            description: "The largest county in Florida by area, offering diverse living environments."
+        },
+        {
+            icon: OutdoorIcon,
+            alt: "Outdoors",
+            heading: "OUTDOOR PARADISE",
+            description: "Home to more than 160 golf courses and extensive parks and natural areas."
+        },
+        {
+            icon: ConservationIcon,
+            alt: "Conservation",
+            heading: "COMMITMENT TO CONSERVATION",
+            description: "Over 31,000 acres of parks and natural areas, ideal for exploring Florida's wildlife."
+        },
+        {
+            icon: ArtIcon,
+            alt: "Cultural Masks",
+            heading: "RICH CULTURAL SCENE",
+            description: "Vibrant arts and entertainment districts with numerous museums, theaters, and galleries."
+        },
+        {
+            icon: EducationIcon,
+            alt: "Education",
+            heading: "TOP-RATED EDUCATION",
+            description: "Boasting some of the highest-rated public schools in the state."
+        }
+        // Add more fact cards following the same structure
+    ];
+
     return (
         <div className="palmBeachContainer">
             {/* Hero Section */}
@@ -29,54 +72,16 @@ const PalmBeach = () => {
 
                 {/* Facts Grid */}
                 <div className="facts-grid">
-                    {/* Beach */}
-                    <div className="fact-card">
-                        <img src={BeachIcon} alt="Beach" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">PRISTINE BEACHES</h3>
-                        <p className="fact-description">Over 47 miles of stunning coastline, making it a paradise for beach lovers.</p>
-                    </div>
-
-                    {/* City Facts */}
-                    <div className="fact-card">
-                        <img src={CityIcon} alt="City" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">VIBRANT CITY LIFE</h3>
-                        <p className="fact-description">The largest county in Florida by area, offering diverse living environments.</p>
-                    </div>
-
-                    {/* Outdoor Activities */}
-                    <div className="fact-card">
-                        <img src={OutdoorIcon} alt="Outdoor" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">OUTDOOR PARADISE</h3>
-                        <p className="fact-description">Home to more than 160 golf courses and extensive parks and natural areas.</p>
-                    </div>
-
-                    {/* Conservation */}
-                    <div className="fact-card">
-                        <img src={ConservationIcon} alt="Conservation" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">COMMITMENT TO CONSERVATION</h3>
-                        <p className="fact-description">Over 31,000 acres of parks and natural areas, ideal for exploring Florida's wildlife.</p>
-                    </div>
-
-                    {/* Arts and Culture */}
-                    <div className="fact-card">
-                        <img src={ArtIcon} alt="Art" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">RICH CULTURAL SCENE</h3>
-                        <p className="fact-description">Vibrant arts and entertainment districts with numerous museums, theaters, and galleries.</p>
-                    </div>
-
-                    {/* Education */}
-                    <div className="fact-card">
-                        <img src={EducationIcon} alt="Education" className="fact-icon" />
-                        <div className="spacer"></div>
-                        <h3 className="fact-heading">TOP-RATED EDUCATION</h3>
-                        <p className="fact-description">Boasting some of the highest-rated public schools in the state.</p>
-                    </div>
+                    {factCards.map((card, index) => (
+                        <div className="fact-card" key={index} >
+                            <img src={card.icon} alt={card.alt} className="fact-icon" />
+                            <div className="spacer"></div>
+                            <h3 className="fact-heading">{card.heading}</h3>
+                            <p className="fact-description">{card.description}</p>
+                        </div>
+                    ))}
                 </div>
+                
                 <div className="extra-facts">
                     <a href="https://discover.pbcgov.org/pages/pbc_facts.aspx"><h3 className="facts-link">Click Here for Additional Facts</h3></a>
                 </div>
