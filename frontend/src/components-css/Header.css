@@ -1,16 +1,38 @@
+body {
+  overflow-x: hidden;
+}
+
+.entire-header, .login-panel, .entire-header * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.entire-header {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+}
+
+.login-panel {
+  width: 100%;
+  top: 0;
+  z-index: 2000;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 20px;
-    background-color: #333;
+    background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%);
     color: white;
-    position: sticky;
-    top: 0;
     left: 0;
     right: 0; /* Ensure the header extends to the right edge */
     z-index: 1000; /* Ensure the header is above other content */
-    opacity: 75%;
+    width: 100%;
   }
   
   .logo {
@@ -61,13 +83,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #333;
+  background: linear-gradient(to bottom, rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 1) 18% );
   position: absolute;
-  top: 85px; /* Adjust this value to position the menu below the header */
+  top: 120px; /* Adjust this value to position the menu below the header */
   padding-bottom: 15px;
   left: 0;
   right: 0;
-  opacity: 0.95;
   visibility: visible;
   transform: translateY(0);
   transition: all 0.3s ease-in-out;
