@@ -134,8 +134,12 @@ h1.title {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 35%; /* covers the bottom 25% of the grid box */
-    background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1)); /* Gradient effect */
+    height: 50%; /* covers the bottom 25% of the grid box */
+    background: linear-gradient(
+        rgba(0, 0, 0, 0), /* Start with low opacity */
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 1)
+    ); /* Gradient effect */
     z-index: -1;
     }
 
