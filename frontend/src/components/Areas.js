@@ -53,7 +53,7 @@ const Areas = () => {
     };
     
     return (
-        <div className="flex-wrapper">
+        <div id='areasComponent' className="flex-wrapper">
             <div className="header-container">
                 <h1>AREAS IN PALM BEACH</h1>
                 
