@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  margin-top: -50px;
 }
 
 .entire-header, .login-panel, .entire-header * {
@@ -20,6 +20,8 @@ body {
   width: 100%;
   top: 0;
   z-index: 2000;
+  padding: 0 20px 0 20px;
+  background-color: #333333;
 }
 
 .header {
@@ -33,10 +35,32 @@ body {
     right: 0; /* Ensure the header extends to the right edge */
     z-index: 1000; /* Ensure the header is above other content */
     width: 100%;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    transform-origin: top;
   }
   
+.header.shrink {
+  /* padding: 8px 25px;
+  font-size: 0.9em; */
+  transform: scaleY(0.7);
+  padding: 15px 20px 15px 20px; /* top right bottom left */
+}
+
+.header.shrink .logo {
+  font-size: 1.5em;
+  transition: font-size 0.3s ease;
+}
+
+.header.shrink .nav,
+.header.shrink .nav a {
+  transform-origin: top;
+  transform: scaleY(calc(1 / 0.95));
+  transition: transform 0.3s ease;
+  gap: 20px;
+}
+
   .logo {
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: bold;
   }
   
@@ -59,7 +83,7 @@ body {
   /* Responsive Styles */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
@@ -77,6 +101,16 @@ body {
   .nav a {
     font-size: 1em; /* Reduce font size for smaller screens */
   }
+
+  .login-panel {
+    padding: 0;
+  }
+
+  .header.shrink.open .nav {
+    transition: transform 0.3s ease;
+    transform: none;
+    top: 35px;
+  }
 }
 
 .header.open .nav {
@@ -85,7 +119,7 @@ body {
   align-items: center;
   background: linear-gradient(to bottom, rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 1) 18% );
   position: absolute;
-  top: 120px; /* Adjust this value to position the menu below the header */
+  top: 85px; /* Adjust this value to position the menu below the header */
   padding-bottom: 15px;
   left: 0;
   right: 0;
@@ -112,7 +146,7 @@ body {
   cursor: pointer;
   background: transparent;
   border: none;
-  padding: 0;
+  padding-bottom: 12px;
 }
 
 .menu-icon .bar {

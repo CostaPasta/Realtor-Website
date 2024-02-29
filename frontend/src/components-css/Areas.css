@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: auto; /* This will make it take the full viewport height */
-    margin: 50px 0;
+    padding: 50px 0;
 }
 
 .header-container {

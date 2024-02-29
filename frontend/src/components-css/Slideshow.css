@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .slideshow {
     position: relative;
     width: 100vw;
