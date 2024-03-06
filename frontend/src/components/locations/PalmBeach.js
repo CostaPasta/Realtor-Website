@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../Footer";
+import BackHeader from "../BackHeader";
 import './css/PalmBeachGardens.css'; // Make sure the CSS file path is correct
 import palmbeachbanner from '../../images/Areas/palmbeachHEADER.jpeg'
 
@@ -69,6 +70,7 @@ const PalmBeach = () => {
 
     return (
         <div className="palmBeachContainer">
+            <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Palm Beach" />

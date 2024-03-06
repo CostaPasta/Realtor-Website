@@ -1,4 +1,5 @@
 import React from "react";
+import BackHeader from "../BackHeader";
 import Footer from "../Footer";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
 import gardensbanner from '../../images/Areas/pbgardensHEADER.jpeg'
@@ -13,6 +14,7 @@ import EducationIcon from './icons/mortarboard.png';
 const PalmBeachGardens = () => {
     return (
         <div className="palmBeachContainer">
+            <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={gardensbanner} alt="Palm Beach Gardens" />

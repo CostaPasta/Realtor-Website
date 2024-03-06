@@ -1,0 +1,33 @@
+.back-header-container {
+    margin-top: 50px;
+    padding: 0 20px 0 20px;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 20000;
+    background: linear-gradient(to bottom, #333333 75%, rgba(51, 51, 51, 0.8) 100%);
+}
+
+.back-button {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: 0;
+    -webkit-appearance: none; /* For WebKit browsers */
+    -moz-appearance: none; /* For Mozilla browsers */
+    appearance: none; /* Standard syntax */
+    display: inline-block;
+    
+}
+
+.back-button img {
+    padding: 5px 0 5px 0;
+    height: 30px;
+    width: 120%;
+}
+
+.back-button:active {
+    transform: scale(0.90);
+}
+
