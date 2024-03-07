@@ -75,7 +75,7 @@ const Areas = () => {
                         className="grid-box"
                         style={{ backgroundImage: `url(${item.image})` }}
                     >
-                        {item.name}
+                        <span className="item-name">{item.name}</span> {/* Wrap item.name in a span */}
                     </Link>
                 ))}
             </div>

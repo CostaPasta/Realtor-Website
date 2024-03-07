@@ -83,8 +83,8 @@ h1.title {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    padding: 0;
-    max-width: 1500px;
+    width: 70%;
+    margin: 30px;
 }
 
 .fact-card {
@@ -114,7 +114,7 @@ h1.title {
     justify-content: flex-start;
     text-align: left;
     
-    height: 282px;
+    height: 250px;
     min-height: 120px;
     border: none;
     padding: 16px;
@@ -153,7 +153,7 @@ h1.title {
 }
 
 .fact-heading{
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 0;
 }
 

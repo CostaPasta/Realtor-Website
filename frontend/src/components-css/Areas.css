@@ -58,14 +58,17 @@ h1 {
     min-height: 120px;
     border: none;
     padding: 16px;
-    font-size: 1.6em;
+    font-size: 24px;
     background-color: #f7f7f7;
     background-size: cover; /* This ensures the image covers the entire grid box */
     background-position: center; /* This centers the image in the grid box */
     color: white; /* Adjust text color if needed */
     position: relative;
     z-index: 0;
+    text-decoration: none;
+    font-weight: bold;
   }
+  
 
   .grid-box:hover {
     transform: translateY(-5px);
