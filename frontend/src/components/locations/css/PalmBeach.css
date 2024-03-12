@@ -21,14 +21,18 @@
     justify-content: center;
     height: auto; /* This will make it take the full viewport height */
     width: 100%;
-    margin: 50px 0;
+    padding: 0;
+    margin-top: 20px;
 }
 
-h1.title {
+.introduction .intro-content a {
+    text-decoration: none;
+}
+
+.introduction a h1.title {
     font-size: 48px;
     margin: 0; /* Remove any default margin */
     color: black;
-    text-decoration: none;
 }
 
 .introduction, .facts-grid {
@@ -47,7 +51,7 @@ h1.title {
     width: 70%;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 51px;
+    margin-bottom: 20px;
 }
 
 .intro-content {
@@ -227,8 +231,8 @@ h1.title {
         gap: 10px; /* space between the H1 and button */
     }
 
-    h1 {
-        font-size: 24px; /* Adjust the font size */
+    .introduction .intro-content a {
+        font-size: 15px; /* Adjust the font size */
     }
 
 }
@@ -236,7 +240,10 @@ h1.title {
 /* For smaller screens */
 @media (max-width: 500px) {
     .introduction {
-        max-width: 90%; /* Give a bit more width for better readability */
+        
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
     }
 
     .facts-grid {
@@ -244,13 +251,18 @@ h1.title {
         margin: 20px 0; /* Reduce the margin */
     }
 
-    h1 {
-        font-size: 20px; /* Further reduce the font size */
+    .introduction a h1.title {
+        font-size: 26px; /* Further reduce the font size */
     }
 
     .fact-card {
         font-size: 1em; /* Adjust the font size for the grid box */
         padding: 10px; /* Adjust padding */
     }
+
+    .flex-wrapper {
+        width: 100%;
+    }
+
 }
 
