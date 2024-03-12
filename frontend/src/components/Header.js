@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {debounce} from 'lodash';
 import { Link } from 'react-scroll';
 import '../components-css/Header.css';
+import Slideshow from './Slideshow';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
