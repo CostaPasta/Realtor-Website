@@ -14,7 +14,7 @@
     object-fit: cover;
 }
 
-.flex-wrapper {
+.flex-wrapper-locations {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,7 +260,7 @@
         padding: 10px; /* Adjust padding */
     }
 
-    .flex-wrapper {
+    .flex-wrapper-locations {
         width: 100%;
     }
 

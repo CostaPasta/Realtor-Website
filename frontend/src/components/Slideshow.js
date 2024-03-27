@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../components-css/Slideshow.css';
+import { useScrollContext } from './ScrollContext';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import BeachImage from '../images/beach.jpg';
 import PierImage from '../images/pier.jpeg';
 import CityImage from '../images/city.jpeg';
 import LuxImage from '../images/lux.jpeg'
 
-function Slideshow(props) {
+function Slideshow() {
     const [currentIndex, setCurrentIndex] = useState(1); // Start from the first "real" slide
     const [isTransitioning, setIsTransitioning] = useState(true);
     const slidesRef = useRef(null);
+    const { isScrolled } = useScrollContext();
 
 
     // USED FOR SLIDESHOW
@@ -59,9 +61,9 @@ function Slideshow(props) {
     const offset = -currentIndex * 100; // Calculate the offset based on the current index
 
     return (
-        <div className="slideshow">
+        <div className='slideshow'>
             <div
-                className={`images-container ${props.isHeaderShrunk ? 'shrunk-header' : ''}`}
+                className="images-container"
                 style={{
                     left: `${offset}%`,
                     transition: isTransitioning ? 'left 250ms ease-in-out' : 'none',
