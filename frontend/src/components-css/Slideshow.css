@@ -13,7 +13,6 @@ body {
 
 .slide-image {
     width: 100vw;
-
     object-fit: cover;
     object-position: center center;
     position: relative;

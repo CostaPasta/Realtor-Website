@@ -77,7 +77,7 @@ function Slideshow() {
                 ))}
             </div>
             <div className="welcome-message">
-                <p className="text-border">"Your dream home is one click away"</p>
+                <p className="text-border">Your dream home is one click away</p>
             </div>
             <button onClick={prevSlide} className="prev-button"><BsArrowLeft/></button>
             <button onClick={nextSlide} className="next-button"><BsArrowRight/></button>
