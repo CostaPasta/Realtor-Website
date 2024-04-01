@@ -1,9 +1,9 @@
 .site-footer {
-    background-color: black;
+    background-color: #333;
 }
 
 .footer-container {
-    background-color: black;
+    background-color: #333;
     width: 70%; /* Set the width to 60% of the parent container/screen */
     margin: 0 auto; /* This will center the container horizontally */
     padding: 20px 0; /* Adjust the padding as per your preference */

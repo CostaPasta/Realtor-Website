@@ -24,7 +24,7 @@ const Areas = () => {
         { name: 'BOCA RATON', image: bocaIMG},
         { name: 'DELRAY BEACH', image: delrayBeachIMG},
         { name: 'BOYNTON BEACH', image: boyntonBeachIMG},
-        { name: 'LAKE WORTH BEACH', image: lakeWorthIMG},
+        { name: 'BROWARD', image: lakeWorthIMG},
     ];
 
     // function refreshPage(){ 
@@ -49,7 +49,7 @@ const Areas = () => {
         'BOCA RATON': 'BocaRaton',
         'DELRAY BEACH': 'DelrayBeach',
         'BOYNTON BEACH': 'BoyntonBeach',
-        'LAKE WORTH': 'LakeWorth',
+        'BROWARD': 'Broward',
     };
     
     return (

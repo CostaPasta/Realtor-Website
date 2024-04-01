@@ -1,12 +1,21 @@
 .listings-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: auto; /* This will make it take the full viewport height */
-    margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* This will make it take the full viewport height */
+  padding: 0;
+  width: auto;
+  background-color: white;
+}
 
-
+.listing-title {
+  display: flex;
+  align-items: center;
+  max-width: 70%; /* This should be the width of your grid container */
+  width: 100%;
+  justify-content: space-between; /* This pushes the h1 and button to the edges */
+  margin: 50px 0 30px 0;
 }
 
 #MBBv3_FeaturedGallery {

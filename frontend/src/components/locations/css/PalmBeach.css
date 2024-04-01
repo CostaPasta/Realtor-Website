@@ -14,6 +14,11 @@
     object-fit: cover;
 }
 
+p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
 .flex-wrapper-locations {
     display: flex;
     flex-direction: column;

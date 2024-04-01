@@ -5,6 +5,7 @@
     justify-content: center;
     height: auto; /* This will make it take the full viewport height */
     padding: 0;
+    background-color: white;
 }
 
 .header-container {
