@@ -22,8 +22,8 @@ function Listings() {
     }, []);
   
     return (
-      <div className="flex-wrapper">
-        <div id="MBBv3_FeaturedGallery" filter="agent_id:276518619+listing_status:active"></div>
+      <div className="listings-wrapper">
+        <div className='listings-gallery' id="MBBv3_FeaturedGallery" filter="agent_id:276518619+listing_status:active"></div>
           {/* <div className="header-container">
               <h1>LISTINGS</h1>
               <button className="view-all-btn">VIEW ALL</button>

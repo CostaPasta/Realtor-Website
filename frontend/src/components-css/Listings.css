@@ -1,26 +1,25 @@
-.flex-wrapper {
+.listings-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: auto; /* This will make it take the full viewport height */
     margin: 50px 0;
+
+
 }
 
-.header-container {
+#MBBv3_FeaturedGallery {
+  outline: 10px solid red;
+}
+/* .header-container {
     display: flex;
     align-items: center;
-    max-width: 70%; /* This should be the width of your grid container */
+    max-width: 70%; 
     width: 100%;
-    justify-content: space-between; /* This pushes the h1 and button to the edges */
-    margin-bottom: 20px; /* Adjust based on your design needs */
-}
+    justify-content: space-between; 
+} */
 
-h1 {
-    font-size: 48px;
-    margin: 0; /* Remove any default margin */
-    flex-grow: 1; /* This allows h1 to take up the available space */
-}
 
 .view-all-btn {
     cursor: pointer;

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     height: auto; /* This will make it take the full viewport height */
-    padding: 50px 0;
+    padding: 0;
 }
 
 .header-container {
@@ -13,12 +13,12 @@
     max-width: 70%; /* This should be the width of your grid container */
     width: 100%;
     justify-content: space-between; /* This pushes the h1 and button to the edges */
-    margin-bottom: 20px; /* Adjust based on your design needs */
+    margin: 50px 0 0 0;
 }
 
 h1 {
     font-size: 48px;
-    margin: 0; /* Remove any default margin */
+    margin: 0; 
     flex-grow: 1; /* This allows h1 to take up the available space */
 }
 

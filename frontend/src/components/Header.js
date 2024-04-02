@@ -3,6 +3,8 @@ import {debounce} from 'lodash';
 import { Link } from 'react-scroll';
 import '../components-css/Header.css';
 import Slideshow from './Slideshow';
+import { ScrollProvider } from './ScrollContext'; // Adjust path as necessary
+
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,7 +49,6 @@ function Header() {
 
 
   const componentAdditionalHeights = {
-    SlideShowComponent: 0, // No additional height for this component
     aboutMeComponent: 0, // Extra 50 pixels due to padding or styling
     
   };
@@ -69,72 +70,73 @@ function Header() {
   
 
   return (
-    <div className='entire-header'>
-      <div id="MBBv3_LoginPanel" className="login-panel"></div>
-      <header className={`header ${menuOpen ? 'open' : ''} ${isScrolled ? 'shrink' : ''}`}>
-        {/* This is the div that visually appears on top of the header */}
-       
-        <div className="logo">
-          <Link 
-            to="SlideShowComponent" 
-            smooth={true} 
-            duration={600} 
-            offset={-calculateTotalOffsetHeight('SlideShowComponent')} 
-            onClick={() => {
-              if (window.innerWidth <= 768) {
-                setTimeout((500));
-              }
-            }}>
-            JOSE COSTA
-          </Link>
-        </div>
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <Link 
-            to="aboutMeComponent" 
-            smooth={true} 
-            duration={600} 
-            offset={-calculateTotalOffsetHeight('aboutMeComponent')} 
-            onClick={() => {
-              if (window.innerWidth <= 768) {
-                setTimeout(() => toggleMenu(), 500);
-              }
-            }}>
-            ABOUT ME
-          </Link>
-          <Link 
-            to="areasComponent" 
-            smooth={true} 
-            duration={600} 
-            offset={-calculateTotalOffsetHeight('areasComponent')} 
-            onClick={() => {
-              if (window.innerWidth <= 768) {
-                setTimeout(() => toggleMenu(), 500);
-              }
-            }}>
-            AREAS
-          </Link>
-          <Link 
-            to="searchComponent" 
-            smooth={true} 
-            duration={600} 
-            offset={-calculateTotalOffsetHeight('searchComponent')} 
-            onClick={() => {
-              if (window.innerWidth <= 768) {
-                setTimeout(() => toggleMenu(), 500);
-              }
-            }}>
-            SEARCH
-          </Link>
-          <a href="/contact" onClick={toggleMenu}>CONTACT</a>
-        </nav>
-        <button className="menu-icon" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
-        </button>
-      </header>
-    </div>
-    
+    <ScrollProvider>
+      <div className='entire-header'>
+        <div id="MBBv3_LoginPanel" className="login-panel"></div>
+        <header className={`header ${menuOpen ? 'open' : ''} ${isScrolled ? 'shrink' : ''}`}>
+          {/* This is the div that visually appears on top of the header */}
+        
+          <div className="logo">
+            <Link 
+              to="SlideShowComponent" 
+              smooth={true} 
+              duration={600} 
+              offset={'SlideShowComponent'} 
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  setTimeout((500));
+                }
+              }}>
+              JOSE COSTA
+            </Link>
+          </div>
+          <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+            <Link 
+              to="aboutMeComponent" 
+              smooth={true} 
+              duration={600} 
+              offset={-calculateTotalOffsetHeight('aboutMeComponent')} 
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  setTimeout(() => toggleMenu(), 500);
+                }
+              }}>
+              ABOUT ME
+            </Link>
+            <Link 
+              to="areasComponent" 
+              smooth={true} 
+              duration={600} 
+              offset={-calculateTotalOffsetHeight('areasComponent')} 
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  setTimeout(() => toggleMenu(), 500);
+                }
+              }}>
+              AREAS
+            </Link>
+            <Link 
+              to="searchComponent" 
+              smooth={true} 
+              duration={600} 
+              offset={-calculateTotalOffsetHeight('searchComponent')} 
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  setTimeout(() => toggleMenu(), 500);
+                }
+              }}>
+              SEARCH
+            </Link>
+            <a href="/contact" onClick={toggleMenu}>CONTACT</a>
+          </nav>
+          <button className="menu-icon" onClick={toggleMenu}>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+            <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          </button>
+        </header>
+      </div>
+    </ScrollProvider>
   );
 }
 

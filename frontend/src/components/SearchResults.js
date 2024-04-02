@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Footer from "./Footer";
+import BackHeader from "./BackHeader";
 
 const SearchResults = () => {
   let location = useLocation();
@@ -12,7 +13,7 @@ const SearchResults = () => {
   
   return (
     <div className="search_container">
-        <div id="MBBv3_LoginPanel"></div>
+        <BackHeader></BackHeader>
         <div id="MBBv3_ListingResults"></div>
         <Footer/>
     </div>

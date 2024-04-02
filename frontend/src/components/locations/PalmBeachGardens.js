@@ -20,7 +20,7 @@ const PalmBeachGardens = () => {
                 <img src={gardensbanner} alt="Palm Beach Gardens" />
             </div>
 
-            <div className="flex-wrapper">
+            <div className="flex-wrapper-locations">
                 {/* Introduction */}
                 <div className="introduction">
                     <div className="intro-content">
