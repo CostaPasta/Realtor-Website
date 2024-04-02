@@ -81,7 +81,7 @@ const DelrayBeach = () => {
                 <div className="introduction">
                     <div className="intro-content">
                         <a href="https://www.thepalmbeaches.com/"><h1 className="title">WELCOME TO DELRAY BEACH</h1></a>
-                        <p>Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
+                        <p className="description">Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
                     </div>
                 </div>
 
