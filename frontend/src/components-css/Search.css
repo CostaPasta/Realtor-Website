@@ -1,0 +1,109 @@
+.search-wrapper {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    background-color: #e8e8e8;
+    padding: 20px 0;
+}
+
+/* Make sure each direct child in the search-box-container takes up the full height of its parent */
+.search-box-container > * {
+    height: 100%;
+}
+
+.search-title {
+    align-self: flex-start;
+}
+
+.search-title h2 {
+    font-size: 46px;
+    margin: 0;
+}
+
+.search-title p {
+    font-size: 16px;
+    margin: 0;
+    color: #4a4a4a;
+}
+
+/* Additional styles to ensure the input field doesn't have a height beyond its parent */
+.search-container input {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    flex: 1;
+    height: 100%; /* Ensure input takes the full height of its parent */
+    box-sizing: border-box; /* Ensure padding is included in the height calculation */
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align children to the left */
+    align-items: center;
+    padding: 20px;
+    background-color: #e8e8e8;
+    width: 50%;
+}
+
+.search-container input {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.search-container button {
+    padding: 18px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.search-box-container {
+    display: flex;
+    justify-content: center; /* Keep it centered */
+    align-items: stretch;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.listing-btn-container {
+    align-self: flex-start; /* Align to the left of its parent container */
+    padding: 15px 0;
+}
+
+.filter {
+    position: relative;
+    background-color: white;
+}
+
+.filter::after {
+    content: "";
+    position: absolute;
+    top: 25%;  /* Start the border a quarter way down */
+    left: 0;  /* Position it on the right side */
+    width: 2px;  /* Width of the border */
+    height: 50%;  /* Half the height of the parent element */
+    background-color: #ccc;  /* Color of the border */
+}
+
+.search-button {
+    background-color: #333;
+    color: white;
+}
+
+
+.listing-active, .listing-sold {
+    background-color: white; /* Default color */
+    color: #333;
+    /* ... other styles ... */
+}
+
+.active {
+    background-color: #333;
+    color: white;
+}

@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Roboto';  /* You can name it whatever you prefer */
+  src: url('../public/fonts/Roboto-Regular.ttf') format('truetype');  /* Adjust the path and format accordingly */
+  /* Add other formats if available, for better compatibility, e.g., woff, woff2 */
+}
+body, html, h1, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
 }

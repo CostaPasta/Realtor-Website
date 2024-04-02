@@ -2,18 +2,20 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Slideshow from './Slideshow';
 import BeachImage from '../images/beach.jpg';
-import ClockImage from '../images/clock.jpg';
 import PierImage from '../images/pier.jpeg';
+import CityImage from '../images/city.jpeg';
 import LuxImage from '../images/lux.jpeg'
 import Listings from './Listings';
 import Contact from './Contact';
+import AboutMe from './About';
+import Search from './Search';
 
 function Home() {
 
     const images = [
         BeachImage,
-        ClockImage,
         PierImage,
+        CityImage,
         LuxImage
         // ... add as many images as you'd like
     ];
@@ -46,7 +48,8 @@ function Home() {
         <div className="home-container">
             <Header />
             <Slideshow images={images} />
-            <div className="hero">Welcome to Modern Living RE</div>
+            <AboutMe />
+            <Search/>
             <Listings />
             <Contact />
         </div>

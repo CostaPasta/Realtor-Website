@@ -1,0 +1,68 @@
+/* DropdownComponent.css */
+
+.dropdown-container {
+    position: relative;  /* Essential for positioning the pseudo-element */
+    display: flex; 
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    height: 100%;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.dropdown-container::after {
+    content: "";
+    position: absolute;
+    top: 25%;  /* Start the border a quarter way down */
+    right: 0;  /* Position it on the right side */
+    width: 2px;  /* Width of the border */
+    height: 50%;  /* Half the height of the parent element */
+    background-color: #ccc;  /* Color of the border */
+}
+
+
+.selected-option {
+    display: flex;  /* Align text and icon */
+    align-items: center;  /* Center them vertically */
+}
+
+/* Add space between the text and the icon (assuming you're using an SVG icon) */
+.selected-option svg {
+    margin-left: 5px;  /* Adjust as needed */
+}
+
+.options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 1;
+}
+
+.option {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.option:last-child {
+    border-bottom: none;
+}
+
+.option:hover {
+    background-color: #f6f6f6;
+}
+
+/* New hover styles */
+.dropdown-container:hover .selected-option {
+    background-color: #333;  /* Black background on hover */
+    color: white;  /* Text color changes to white on hover */
+}
+
+.dropdown-container:hover {
+    background-color: #333;
+}
