@@ -11,19 +11,17 @@ import AboutMe from './About';
 import Search from './Search';
 import Areas from './Areas';
 import Footer from './Footer'
+import { Element } from 'react-scroll'; // Import Element from react-scroll
 
 function Home() {
 
-    
+    // USED FOR SLIDESHOW
     const images = [
         BeachImage,
         PierImage,
         CityImage,
         LuxImage
-        // ... add as many images as you'd like
     ];
-    
-
     useEffect(() => {
         function adjustSlideshowHeight() {
             const header = document.querySelector('.header');
@@ -47,16 +45,25 @@ function Home() {
             window.removeEventListener('resize', adjustSlideshowHeight);
         };
     }, []);
+    //END SLIDWSHOW 
 
     
     return (
         <div className="home-container">
             <Header />
             <Slideshow images={images} />
-            <Search />
-            <Areas/>
-            <AboutMe />
-            <Listings />
+            <Element name="searchComponent" >
+                <Search />
+            </Element>
+            <Element name="areasComponent">
+                <Areas/>
+            </Element>
+            <Element name="aboutMeComponent">
+                <AboutMe />
+            </Element>
+            <Element name="listingsComponent">
+                <Listings />
+            </Element>
             <Footer/>
         </div>
     );

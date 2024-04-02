@@ -23,7 +23,8 @@ function Listings() {
   
     return (
       <div className="flex-wrapper">
-          <div className="header-container">
+        <div id="MBBv3_FeaturedGallery" filter="agent_id:276518619+listing_status:active,sold"></div>
+          {/* <div className="header-container">
               <h1>LISTINGS</h1>
               <button className="view-all-btn">VIEW ALL</button>
           </div>
@@ -43,8 +44,8 @@ function Listings() {
                       </div>
                   </div>
               ))}
-          </div>
-          <div id="MBBv3_FeaturedGallery" filter="agent_id:276518619+listing_status:active,under-contract,sold"></div>
+          </div> */}
+          
       </div>
   );
   

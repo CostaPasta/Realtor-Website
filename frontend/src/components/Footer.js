@@ -1,9 +1,24 @@
 import React from 'react';
 import '../components-css/Footer.css';
+import { Link } from 'react-router-dom';
+import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
 import {FaFacebook} from 'react-icons/fa6'
 import {FaInstagram} from 'react-icons/fa6'
 
 const Footer = () => {
+    const customPaths = {
+        // Add more custom paths as needed
+        'PALM BEACH': 'Palm Beach',
+        'WEST PALM BEACH': 'West Palm Beach',
+        'PALM BEACH GARDENS': 'Palm Beach Gardens',
+        'JUPITER': 'Jupiter',
+        'WELLINGTON': 'Wellington',
+        'BOCA RATON': 'Boca Raton',
+        'DELRAY BEACH': 'Delray Beach',
+        'BOYNTON BEACH': 'Boynton Beach',
+        'LAKE WORTH': 'Lake Worth',
+    };
+
     return (
         <div className="site-footer">
             <footer className="footer-container">
@@ -12,11 +27,21 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>Areas</h4>
                         <ul>
-                            <li><a href="#">DOWNTOWN WEST PALM BEACH</a></li>
-                            <li><a href="#">SINGER ISLAND</a></li>
-                            <li><a href="#">PALM BEACH</a></li>
-                            <li><a href="#">JUPITER</a></li>
-                            <li><a href="#">PALM BEACH GARDENS</a></li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["PALM BEACH"]}`}>PALM BEACH</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["WEST PALM BEACH"]}`}>WEST PALM BEACH</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["PALM BEACH GARDENS"]}`}>PALM BEACH GARDENS</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["JUPITER"]}`}>JUPITER</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["WELLINGTON"]}`}>WELLINGTON</Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -24,9 +49,18 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>MORE AREAS</h4>
                         <ul>
-                            <li><a href="#">BOCA RATON</a></li>
-                            <li><a href="#">DELRAY BEACH</a></li>
-                            <li><a href="#">WEST PALM BEACH</a></li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["BOCA RATON"]}`}>BOCA RATON</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["DELRAY BEACH"]}`}>DELRAY BEACH</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["BOYNTON BEACH"]}`}>BOYNTON BEACH</Link>
+                            </li>
+                            <li>
+                                <Link reloadDocument to={`/listing-results/${customPaths["LAKE WORTH"]}`}>LAKE WORTH</Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -34,9 +68,22 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>MORE LINKS</h4>
                         <ul>
-                            <li><a href="#">ABOUT US</a></li>
-                            <li><a href="#">SEARCH LISTINGS</a></li>
-                            <li><a href="#">FEATURED LISTINGS</a></li>
+                            <li>
+                                <LinkScroll to="searchComponent" smooth={true} duration={500}>
+                                    SEARCH
+                                </LinkScroll>
+                            </li>
+                            <li>
+                                <LinkScroll to="aboutMeComponent" smooth={true} duration={500}>
+                                    ABOUT ME
+                                </LinkScroll>
+                            </li>
+                            <li>
+                                <LinkScroll to="listingsComponent" smooth={true} duration={500}>
+                                    LISTINGS
+                                </LinkScroll>
+                            </li>
+                            <li><a href="/contact">CONTACT</a></li>
                         </ul>
                     </div>
 
