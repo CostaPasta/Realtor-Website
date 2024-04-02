@@ -41,7 +41,7 @@ const Areas = () => {
     // Define custom paths for specific areas
     const customPaths = {
         // Add more custom paths as needed
-        'PALM BEACH': 'Palm Beach',
+        'PALM BEACH': 'PalmBeach',
         'WEST PALM BEACH': 'West Palm Beach',
         'PALM BEACH GARDENS': 'Palm Beach Gardens',
         'JUPITER': 'Jupiter',
@@ -71,7 +71,7 @@ const Areas = () => {
                     <Link
                         key={index}
                         reloadDocument
-                        to={`/listing-results/${customPaths[item.name]}`}
+                        to={`/${customPaths[item.name]}`}
                         className="grid-box"
                         style={{ backgroundImage: `url(${item.image})` }}
                     >

@@ -51,15 +51,17 @@ function Home() {
     return (
         <div className="home-container">
             <Header />
-            <Slideshow images={images} />
-            <Element name="searchComponent" >
-                <Search />
+            <Element name="SlideShowComponent">
+                <Slideshow images={images} />
+            </Element>
+            <Element name="aboutMeComponent">
+                <AboutMe />
             </Element>
             <Element name="areasComponent">
                 <Areas/>
             </Element>
-            <Element name="aboutMeComponent">
-                <AboutMe />
+            <Element name="searchComponent" >
+                <Search />
             </Element>
             <Element name="listingsComponent">
                 <Listings />
