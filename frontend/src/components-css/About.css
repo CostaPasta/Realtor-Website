@@ -2,12 +2,12 @@
     display: flex;
     align-items: center;
     gap: 50px;
-    padding: 20px 287px;
+    padding: 50px 120px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-
+    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
+    background-size: 100% 100%;
     background-image: url('../images/AboutmeBackground.jpeg');
-    background-size: cover;
+
     background-repeat: no-repeat;  /* Prevents the image from repeating */
     background-position: center;  /* Centers the image in the div */
 }
@@ -55,10 +55,16 @@
 
 .contact-details a {
     display: inline-block;
-    color: #0077b6;
+    color: #408aae;
     text-decoration: none;
     font-size: 26px;
     padding: 0 10px;
+
+    text-shadow: 
+        -0.5px -0.5px 0 #fff,  
+         0.5px -0.5px 0 #fff,
+        -0.5px  0.5px 0 #fff,
+         0.5px  0.5px 0 #fff;
 }
 
 .contact-details a:hover {
@@ -93,10 +99,11 @@
         flex-direction: column; /* Stack image and profile details vertically */
         padding: 30px 20px; /* Reduce padding for mobile */
         text-align: center; /* Center the text for a cleaner mobile look */
+        gap: 0px;
     }
 
     .profile-image {
-        margin-bottom: 20px; /* Add some space between the image and the details */
+        margin-bottom: 0px; /* Add some space between the image and the details */
     }
 }
 
