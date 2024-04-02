@@ -22,6 +22,7 @@ body {
   z-index: 2000;
   padding: 0 20px 0 20px;
   background-color: #333333;
+  position: relative;
 }
 
 .header {
@@ -35,29 +36,37 @@ body {
     right: 0; /* Ensure the header extends to the right edge */
     z-index: 1000; /* Ensure the header is above other content */
     width: 100%;
-    transition: transform 0.3s ease, font-size 0.3s ease;
+    transition: transform 0.2s ease;
     transform-origin: top;
+    position: relative;
   }
-  
-.header.shrink {
-  /* padding: 8px 25px;
-  font-size: 0.9em; */
-  transform: scaleY(0.7);
-  padding: 15px 20px 15px 20px; /* top right bottom left */
+
+/* Existing CSS remains unchanged */
+
+.header.hidden {
+  transform: translateY(-100%); /* Move the header out of view */
 }
 
-.header.shrink .logo {
+  
+/* .header.shrink {
+  /* padding: 8px 25px;
+  font-size: 0.9em; 
+  transform: scaleY(0.7);
+  padding: 15px 20px 15px 20px; /* top right bottom left 
+} */
+
+/* .header.shrink .logo {
   font-size: 1.5em;
   transition: font-size 0.3s ease;
-}
+} */
 
-.header.shrink .nav,
+/* .header.shrink .nav,
 .header.shrink .nav a {
   transform-origin: top;
   transform: scaleY(calc(1 / 0.95));
   transition: transform 0.3s ease;
   gap: 20px;
-}
+} */
 
   .logo {
     font-size: 2em;

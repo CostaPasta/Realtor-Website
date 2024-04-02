@@ -1,133 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import {debounce} from 'lodash';
+import React, { useState, useEffect, useRef } from 'react';
+import { debounce } from 'lodash';
 import { Link } from 'react-scroll';
 import '../components-css/Header.css';
-import Slideshow from './Slideshow';
-import { ScrollProvider } from './ScrollContext'; // Adjust path as necessary
-
+import Slideshow from './Slideshow'; // Assuming you have this component, adjust the path if necessary
+import { ScrollProvider } from './ScrollContext'; // Adjust the path as necessary
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  const [showHeader, setShowHeader] = useState(true);
+  const [navClicked, setNavClicked] = useState(false);
+  const lastScrollY = useRef(window.scrollY);
+  const navClickTimeout = useRef(null);
 
   const toggleMenu = () => {
-    if (window.innerWidth <= 768) {
-      setMenuOpen(!menuOpen);
-    }
+    setMenuOpen(!menuOpen);
   };
 
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
 
-  // Function to close the menu when screen width is greater than 768px
-  const closeMenuOnResize = () => {
-    if (window.innerWidth > 768 && menuOpen) {
-      setMenuOpen(false);
+    if (!navClicked) {
+      setShowHeader(currentScrollY < lastScrollY.current);
     }
+
+    lastScrollY.current = currentScrollY;
   };
 
-
-  // Add an event listener for window resize
-  window.addEventListener('resize', closeMenuOnResize);
-
-  
-  const handleScroll = debounce(() => {
-    const position = window.pageYOffset;
-    setIsScrolled(position > 75);
-
-    console.log("ITS WORKING!!!")
-  }, 100);
-
+  const debouncedHandleScroll = debounce(handleScroll, 100);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', debouncedHandleScroll);
 
     return () => {
-      handleScroll.cancel();
-      window.removeEventListener('scroll', handleScroll);
+      debouncedHandleScroll.cancel();
+      window.removeEventListener('scroll', debouncedHandleScroll);
     };
-  }, [handleScroll]);
+  }, [navClicked]); // Reacting to changes in navClicked
 
+  const handleNavClick = () => {
+    setNavClicked(true);
+    setShowHeader(false);
 
-  const componentAdditionalHeights = {
-    aboutMeComponent: 0, // Extra 50 pixels due to padding or styling
-    
+    if (navClickTimeout.current) {
+      clearTimeout(navClickTimeout.current); // Clear any existing timeout
+    }
+
+    navClickTimeout.current = setTimeout(() => {
+      setNavClicked(false);
+    }, 1000); // Adjust the timeout to match your scrolling duration
   };
-
-
-  const calculateTotalOffsetHeight = (componentKey) => {
-    handleScroll();
-    const headerHeight = document.querySelector('.entire-header') ? document.querySelector('.entire-header').offsetHeight : 0;
-    const isMobile = window.innerWidth <= 768;
-  
-    const visualAdjustment = isScrolled ? (headerHeight * 0.7) : headerHeight;
-    
-
-    const componentSpecificHeight = componentAdditionalHeights[componentKey] || 0;
-
-    return visualAdjustment +  componentSpecificHeight;
-  }
-
-  
 
   return (
     <ScrollProvider>
       <div className='entire-header'>
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
-        <header className={`header ${menuOpen ? 'open' : ''} ${isScrolled ? 'shrink' : ''}`}>
-          {/* This is the div that visually appears on top of the header */}
-        
+        <header className={`header ${menuOpen ? 'open' : ''} ${showHeader ? '' : 'hidden'}`}>
           <div className="logo">
-            <Link 
-              to="SlideShowComponent" 
-              smooth={true} 
-              duration={600} 
-              offset={'SlideShowComponent'} 
-              onClick={() => {
-                if (window.innerWidth <= 768) {
-                  setTimeout((500));
-                }
-              }}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={'SlideShowComponent'} onClick={handleNavClick}>
               JOSE COSTA
             </Link>
           </div>
           <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-            <Link 
-              to="aboutMeComponent" 
-              smooth={true} 
-              duration={600} 
-              offset={-calculateTotalOffsetHeight('aboutMeComponent')} 
-              onClick={() => {
-                if (window.innerWidth <= 768) {
-                  setTimeout(() => toggleMenu(), 500);
-                }
-              }}>
-              ABOUT ME
-            </Link>
-            <Link 
-              to="areasComponent" 
-              smooth={true} 
-              duration={600} 
-              offset={-calculateTotalOffsetHeight('areasComponent')} 
-              onClick={() => {
-                if (window.innerWidth <= 768) {
-                  setTimeout(() => toggleMenu(), 500);
-                }
-              }}>
-              AREAS
-            </Link>
-            <Link 
-              to="searchComponent" 
-              smooth={true} 
-              duration={600} 
-              offset={-calculateTotalOffsetHeight('searchComponent')} 
-              onClick={() => {
-                if (window.innerWidth <= 768) {
-                  setTimeout(() => toggleMenu(), 500);
-                }
-              }}>
-              SEARCH
-            </Link>
-            <a href="/contact" onClick={toggleMenu}>CONTACT</a>
+            <Link to="aboutMeComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>ABOUT ME</Link>
+            <Link to="areasComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>AREAS</Link>
+            <Link to="searchComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>SEARCH</Link>
+            <Link to="contactComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>CONTACT</Link>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
@@ -139,6 +76,5 @@ function Header() {
     </ScrollProvider>
   );
 }
-
 
 export default Header;
