@@ -22,13 +22,17 @@ function Header() {
 
   return (
     <header className={`header ${menuOpen ? 'open' : ''}`}>
-      <div className="logo">JOSE COSTA</div>
-      <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-        <Link to="searchComponent" smooth={true} duration={500} onClick={toggleMenu}>
-          SEARCH
+      <div className="logo">
+        <Link to="SlideShowComponent" smooth={true} duration={500} onClick={toggleMenu}>
+          JOSE COSTA
         </Link>
+      </div>
+      <nav className={`nav ${menuOpen ? 'open' : ''}`}>
         <Link to="aboutMeComponent" smooth={true} duration={500} onClick={toggleMenu}>
           ABOUT ME
+        </Link>
+        <Link to="searchComponent" smooth={true} duration={500} onClick={toggleMenu}>
+          SEARCH
         </Link>
         <Link to="listingsComponent" smooth={true} duration={500} onClick={toggleMenu}>
           LISTINGS

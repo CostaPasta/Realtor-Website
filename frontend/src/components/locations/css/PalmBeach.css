@@ -1,0 +1,120 @@
+/* PalmBeach.css */
+a > .title {
+    text-decoration: none;
+}
+
+.title:hover {
+    color: rgb(80, 80, 80);
+}
+
+.palmBeachContainer {
+    
+    background-color: #edecec;
+}
+
+.bannerImage img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Updated content styles */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 10%;
+}
+
+.content h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Facts grid centered with 3 facts per row */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 facts per row */
+    gap: 20px; /* Adjust gap between cards as needed */
+    justify-content: center; /* Center the grid */
+    padding: 20px;
+    margin: 0 13%; /* Center the grid horizontally */
+    max-width: 1200px; /* Adjust max width as needed */
+    padding-bottom: 0;
+}
+
+.fact-card {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: #6fadef;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+}
+
+.fact-icon {
+    max-width: 80px; /* Adjust based on your icon sizes */
+    
+}
+
+.fact-heading{
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.fact-description {
+    font-size: 18px;
+}
+
+.extra-facts {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Makes it clear it's clickable */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 25px;
+    padding: 20px 150px; /* Adjust padding to make it look more like a button */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #6fadef;
+    text-align: center; /* Ensure text is centered if it wraps */
+    margin: 0 auto; /* Centers the div horizontally */
+    max-width: 250px; /* Optional: Set a max-width for aesthetics */
+    margin-bottom: 10%;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.search:hover {
+    background-color: #5c9dd9; /* Slightly darker on hover for a button-like feel */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
