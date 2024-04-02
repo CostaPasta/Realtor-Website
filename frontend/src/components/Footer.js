@@ -1,7 +1,7 @@
 import React from 'react';
 import '../components-css/Footer.css';
 import { Link } from 'react-router-dom';
-import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
+import { Link as LinkScroll, } from "react-scroll";
 import {FaFacebook} from 'react-icons/fa6'
 import {FaInstagram} from 'react-icons/fa6'
 
@@ -91,9 +91,9 @@ const Footer = () => {
                     <div className="footer-column">
                         <h4>MY COMPANY</h4>
                         <ul>
-                            <li><a href="#">(954) 614-1351</a></li>
-                            <li><a href="#">USARealtor1@gmail.com</a></li>
-                            <li><a href="#">Terms of Service</a></li>
+                            <li><a>(954) 614-1351</a></li>
+                            <li><a>USARealtor1@gmail.com</a></li>
+                            <li><a>Terms of Service</a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,8 +110,8 @@ const Footer = () => {
                         </linearGradient>
                     </svg>
                     <div className="social-icons">
-                        <a href="#"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
-                        <a href="#"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
+                        <a href="https://www.instagram.com/josecosta.realtor/"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
+                        <a href="https://www.facebook.com/profile.php?id=100090548027826"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
                         {/* Add other icons as needed */}
                     </div>
                 </div>

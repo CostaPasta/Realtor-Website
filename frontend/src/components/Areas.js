@@ -2,7 +2,6 @@ import React from 'react';
 import '../components-css/Areas.css'
 import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
 import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
-import singerIslandIMG from '../images/Areas/singerisland.jpeg'
 import jupiterIMG from '../images/Areas/jupiter.jpeg'
 import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
 import bocaIMG from '../images/Areas/boca.jpeg'
@@ -10,13 +9,11 @@ import wellingtonIMG from '../images/Areas/wellingtonIMG.jpeg'
 import delrayBeachIMG from '../images/Areas/delrayBeachIMG.jpeg'
 import boyntonBeachIMG from '../images/Areas/boyntonBeachIMG.jpeg'
 import lakeWorthIMG from '../images/Areas/lakeWorthIMG.jpeg'
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 const Areas = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
 
     const items = [
         { name: 'PALM BEACH', image: palmBeachIMG},

@@ -11,6 +11,7 @@ const ListingResultsWidget = () => {
     return (
         <div className="properties-container">
             <h1>{city}</h1>
+            <div id="MBBv3_LoginPanel"></div>
             <div id="MBBv3_ListingResults" filter={cityFilter}></div>
             <Footer/>
         </div>
