@@ -51,6 +51,7 @@ function Header() {
   const handleNavClick = () => {
     setNavClicked(true);
     setShowHeader(false);
+    toggleMenu()
     
 
     if (navClickTimeout.current) {
@@ -85,7 +86,7 @@ function Header() {
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>ABOUT ME</Link>
             <Link to="areasComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>AREAS</Link>
             <Link to="searchComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>SEARCH</Link>
-            <Link to="contactComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>CONTACT</Link>
+            <a href="/contact" >CONTACT</a>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
