@@ -14,8 +14,8 @@
     object-fit: cover;
 }
 
-p {
-    font-size: 20px;
+.description, .closing{
+    font-size: 24px;
     margin-bottom: 0;
 }
 
@@ -38,9 +38,10 @@ p {
     font-size: 48px;
     margin: 0; /* Remove any default margin */
     color: black;
+    text-decoration: underline;
 }
 
-.introduction, .facts-grid {
+.introduction, .facts-grid, .conclusion{
     width: 70%;
     margin-left: 30px;
     margin-right: 30px;
@@ -175,6 +176,7 @@ p {
 .spacer {
     flex-grow: 1;
 }
+
 
 .extra-facts {
     display: flex;
