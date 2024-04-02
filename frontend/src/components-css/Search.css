@@ -3,22 +3,50 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto; /* This will make it take the full viewport height */
+    height: auto;
     padding: 0;
     width: auto;
+    background-color: white;
+
 }
 
 .title-container {
     display: flex;
     align-items: center;
-    max-width: 70%; /* This should be the width of your grid container */
+    max-width: 70%;
     width: 100%;
-    justify-content: space-between; /* This pushes the h1 and button to the edges */
+    justify-content: space-between;
     margin: 50px 0 30px 0;
-
 }
 
 #MBBv3_QuickSearch {
-    width: 70%;
-    /* outline: 0.5px solid #333; */
+    width: 73.5%;
+}
+
+/* Responsive adjustments */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+    .title-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the left */
+        margin: 20px 0 0; /* Reduce margin for smaller screens */
+    }
+
+    #MBBv3_QuickSearch {
+        width: 76%; /* Increase width to use more of the smaller viewport */
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .title-container {
+        max-width: 100%; /* Use full width on very small screens */
+        align-items: flex-start; /* Align items to the left */
+        padding-left: 40px;
+    }
+
+    #MBBv3_QuickSearch {
+        width: 102%; /* Use the full width of the screen */
+    }
 }

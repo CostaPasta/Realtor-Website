@@ -15,6 +15,7 @@ import Jupiter from './components/locations/Jupiter';
 import BocaRaton from './components/locations/BocaRaton';
 import DelrayBeach from './components/locations/DelrayBeach';
 import BoyntonBeach from './components/locations/BoyntonBeach';
+import Broward from './components/locations/Broward';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/BocaRaton" element={<BocaRaton/>} />
         <Route path="/DelrayBeach" element={<DelrayBeach/>} />
         <Route path="/BoyntonBeach" element={<BoyntonBeach/>} />
+        <Route path="/Broward" element={<Broward/>} />
         <Route path="/contact/" element={<Contact/>} />
       </Routes>
     </Router>
