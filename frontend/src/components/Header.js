@@ -21,31 +21,38 @@ function Header() {
   window.addEventListener('resize', closeMenuOnResize);
 
   return (
-    <header className={`header ${menuOpen ? 'open' : ''}`}>
-      <div className="logo">
-        <Link to="SlideShowComponent" smooth={true} duration={500} onClick={toggleMenu}>
-          JOSE COSTA
-        </Link>
-      </div>
-      <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-        <Link to="aboutMeComponent" smooth={true} duration={500} onClick={toggleMenu}>
-          ABOUT ME
-        </Link>
-        <Link to="searchComponent" smooth={true} duration={500} onClick={toggleMenu}>
-          SEARCH
-        </Link>
-        <Link to="listingsComponent" smooth={true} duration={500} onClick={toggleMenu}>
-          LISTINGS
-        </Link>
-        <a href="/contact" onClick={toggleMenu}>CONTACT</a>
-      </nav>
-      <button className="menu-icon" onClick={toggleMenu}>
-        <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        <div className={`bar ${menuOpen ? 'open' : ''}`} />
-        <div className={`bar ${menuOpen ? 'open' : ''}`} />
-      </button>
-    </header>
+    <div className='entire-header'>
+      <div id="MBBv3_LoginPanel" className="login-panel"></div>
+      <header className={`header ${menuOpen ? 'open' : ''}`}>
+        {/* This is the div that visually appears on top of the header */}
+       
+        <div className="logo">
+          <Link to="SlideShowComponent" smooth={true} duration={500} onClick={toggleMenu}>
+            JOSE COSTA
+          </Link>
+        </div>
+        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+          <Link to="aboutMeComponent" smooth={true} duration={500} onClick={toggleMenu}>
+            ABOUT ME
+          </Link>
+          <Link to="searchComponent" smooth={true} duration={500} onClick={toggleMenu}>
+            SEARCH
+          </Link>
+          <Link to="listingsComponent" smooth={true} duration={500} onClick={toggleMenu}>
+            LISTINGS
+          </Link>
+          <a href="/contact" onClick={toggleMenu}>CONTACT</a>
+        </nav>
+        <button className="menu-icon" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
+        </button>
+      </header>
+    </div>
+    
   );
 }
+
 
 export default Header;
