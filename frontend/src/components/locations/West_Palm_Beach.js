@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 import Footer from "../Footer";
 
 const West_Palm_Beach = () => {
-    let location = useLocation();
 
-    console.log(location)
     return (
         <div className="properties-container">
             <h1>West Palm</h1>
