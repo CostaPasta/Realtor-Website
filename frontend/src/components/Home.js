@@ -10,6 +10,7 @@ import Contact from './Contact';
 import AboutMe from './About';
 import Search from './Search';
 import Areas from './Areas';
+import Footer from './Footer'
 
 function Home() {
 
@@ -49,11 +50,11 @@ function Home() {
         <div className="home-container">
             <Header />
             <Slideshow images={images} />
-            <AboutMe />
             <Search/>
             <Areas/>
+            <AboutMe />
             <Listings />
-            <Contact />
+            <Footer/>
         </div>
     );
 }

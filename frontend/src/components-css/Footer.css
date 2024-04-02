@@ -1,0 +1,90 @@
+.site-footer {
+    background-color: black;
+}
+
+.footer-container {
+    background-color: black;
+    width: 70%; /* Set the width to 60% of the parent container/screen */
+    margin: 0 auto; /* This will center the container horizontally */
+    padding: 20px 0; /* Adjust the padding as per your preference */
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    flex-basis: 20%; /* Adjust according to the number of columns */
+}
+
+.footer-column h4 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #777;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.social-icons a {
+    margin-left: 10px;
+    font-size: 20px; /* Adjust as needed */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    .footer-container {
+        width: 90%; /* Increase width for mobile to give a bit more breathing space */
+    }
+
+    .footer-top {
+        flex-direction: column; /* Stack columns vertically on mobile */
+        align-items: start; /* Align items to the start on mobile */
+    }
+
+    .footer-column {
+        margin-bottom: 20px; /* Add space between columns on mobile */
+    }
+
+    .footer-bottom {
+        flex-direction: column; /* Stack footer bottom contents vertically on mobile */
+        align-items: center; /* Center align items for mobile */
+        margin-top: 20px; /* Add space between footer-top and footer-bottom on mobile */
+    }
+
+    .social-icons a {
+        display: block; /* Each social icon on a new line */
+        margin-left: 0; 
+        margin-bottom: 10px; /* Space between icons */
+    }
+
+}
