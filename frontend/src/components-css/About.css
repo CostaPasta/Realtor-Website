@@ -88,3 +88,42 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+@media (max-width: 768px) {
+    .about-me-container {
+        flex-direction: column; /* Stack image and profile details vertically */
+        padding: 30px 20px; /* Reduce padding for mobile */
+        text-align: center; /* Center the text for a cleaner mobile look */
+    }
+
+    .profile-image {
+        margin-bottom: 20px; /* Add some space between the image and the details */
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-details h2 {
+        font-size: 30px; /* Reduce font size for mobile */
+    }
+
+    .profile-details p, .contact-details a, .custom-bullets li {
+        font-size: 18px; /* Reduce font size for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-bullets li {
+        margin-bottom: 6px; /* Reduce space between bullet points for mobile */
+    }
+
+    .profile-details h1 {
+        padding-bottom: 5px; /* Adjust padding for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-image img {
+        width: 200px;
+        height: 200px;
+    }
+}

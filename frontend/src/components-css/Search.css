@@ -107,3 +107,43 @@
     background-color: #333;
     color: white;
 }
+
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .search-container {
+        width: 90%; /* Increase the width on mobile for better usage of space */
+        padding: 10px;
+    }
+
+    .search-title h2 {
+        font-size: 24px; /* Reduce font size on mobile */
+    }
+
+    .search-title p {
+        font-size: 14px; /* Reduce font size on mobile */
+    }
+
+    .search-box-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .listing-btn-container {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center the buttons */
+    }
+
+    .listing-btn-container button {
+        margin-bottom: 10px; /* Provide some spacing between buttons */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box-container {
+        gap: 10px; /* Add some space between stacked elements */
+    }
+
+    .search-container button {
+        margin-bottom: 10px; /* Space between buttons */
+    }
+}
