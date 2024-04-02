@@ -1,17 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../components-css/Slideshow.css';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import BeachImage from '../images/beach.jpg';
+import PierImage from '../images/pier.jpeg';
+import CityImage from '../images/city.jpeg';
+import LuxImage from '../images/lux.jpeg'
 
 function Slideshow(props) {
     const [currentIndex, setCurrentIndex] = useState(1); // Start from the first "real" slide
     const [isTransitioning, setIsTransitioning] = useState(true);
     const slidesRef = useRef(null);
 
+
+    // USED FOR SLIDESHOW
+    const images = [
+        BeachImage,
+        PierImage,
+        CityImage,
+        LuxImage
+    ];
+
     // Include both duplicated last and first slides
-    const slides = [props.images[props.images.length - 1], ...props.images, props.images[0]];
+    const slides = [images[images.length - 1], ...images, images[0]];
 
     const nextSlide = () => {
-        if (currentIndex >= props.images.length) {
+        if (currentIndex >= images.length) {
             // Transition to the first duplicated slide then reset to the first real slide
             setCurrentIndex(currentIndex + 1);
             setTimeout(() => {
@@ -29,7 +42,7 @@ function Slideshow(props) {
             setCurrentIndex(0); // The last duplicated slide
             setTimeout(() => {
                 setIsTransitioning(false); // Disable transition for the reset
-                setCurrentIndex(props.images.length); // Reset to the last real slide
+                setCurrentIndex(images.length); // Reset to the last real slide
             }, 300); // Transition duration
         } else {
             setCurrentIndex(currentIndex - 1);
@@ -37,7 +50,7 @@ function Slideshow(props) {
     };
 
     useEffect(() => {
-        if ((currentIndex === 1 || currentIndex === props.images.length) && !isTransitioning) {
+        if ((currentIndex === 1 || currentIndex === images.length) && !isTransitioning) {
             // Re-enable transition after resetting
             setTimeout(() => setIsTransitioning(true), 50); // A slight delay to ensure re-enabling happens after the reset
         }
@@ -48,7 +61,7 @@ function Slideshow(props) {
     return (
         <div className="slideshow">
             <div
-                className="images-container"
+                className={`images-container ${props.isHeaderShrunk ? 'shrunk-header' : ''}`}
                 style={{
                     left: `${offset}%`,
                     transition: isTransitioning ? 'left 250ms ease-in-out' : 'none',
