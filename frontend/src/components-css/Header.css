@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  margin-top: -50px;
 }
 
 .entire-header, .login-panel, .entire-header * {

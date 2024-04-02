@@ -27,50 +27,45 @@ function Header() {
   window.addEventListener('resize', closeMenuOnResize);
 
   
-  
+  const handleScroll = debounce(() => {
+    const position = window.pageYOffset;
+    setIsScrolled(position > 75);
+
+    console.log("ITS WORKING!!!")
+  }, 100);
 
 
   useEffect(() => {
-    const handleScroll = debounce(() => {
-      const position = window.pageYOffset;
-      setIsScrolled(position > 75);
-  
-      console.log("ITS WORKING!!!")
-    }, 10);
-
-    
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       handleScroll.cancel();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
 
-  const handleNavLinkClick = (targetId) => {
-    if (window.innerWidth <= 768 && menuOpen) {
-      toggleMenu();
-    }
+  const componentAdditionalHeights = {
+    SlideShowComponent: 0, // No additional height for this component
+    aboutMeComponent: 0, // Extra 50 pixels due to padding or styling
+    
+  };
+
+
+  const calculateTotalOffsetHeight = (componentKey) => {
+    handleScroll();
+    const headerHeight = document.querySelector('.entire-header') ? document.querySelector('.entire-header').offsetHeight : 0;
+    const isMobile = window.innerWidth <= 768;
+  
+    const visualAdjustment = isScrolled ? (headerHeight * 0.7) : headerHeight;
     
 
-    setTimeout(() => {
-      const headerHeight = document.querySelector('.header').offsetHeight;
-      //const headerHeightShrink = document.querySelector('.header.shrink').offsetHeight;
-      const targetElement = document.getElementById(targetId);
-  
-      if (targetElement) {
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = targetPosition - headerHeight;
-  
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
-    }, menuOpen ? 300 : 0);
+    const componentSpecificHeight = componentAdditionalHeights[componentKey] || 0;
 
-  };
+    return visualAdjustment +  componentSpecificHeight;
+  }
+
+  
 
   return (
     <div className='entire-header'>
@@ -79,19 +74,55 @@ function Header() {
         {/* This is the div that visually appears on top of the header */}
        
         <div className="logo">
-          <Link to="SlideShowComponent" smooth={true} duration={500} onClick={handleNavLinkClick}>
+          <Link 
+            to="SlideShowComponent" 
+            smooth={true} 
+            duration={600} 
+            offset={-calculateTotalOffsetHeight('SlideShowComponent')} 
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                setTimeout((500));
+              }
+            }}>
             JOSE COSTA
           </Link>
         </div>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          <Link to="aboutMeComponent" smooth={true} duration={500} onClick={handleNavLinkClick}>
+          <Link 
+            to="aboutMeComponent" 
+            smooth={true} 
+            duration={600} 
+            offset={-calculateTotalOffsetHeight('aboutMeComponent')} 
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                setTimeout(() => toggleMenu(), 500);
+              }
+            }}>
             ABOUT ME
           </Link>
-          <Link to="searchComponent" smooth={true} duration={500} onClick={handleNavLinkClick}>
-            SEARCH
+          <Link 
+            to="areasComponent" 
+            smooth={true} 
+            duration={600} 
+            offset={-calculateTotalOffsetHeight('areasComponent')} 
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                setTimeout(() => toggleMenu(), 500);
+              }
+            }}>
+            AREAS
           </Link>
-          <Link to="listingsComponent" smooth={true} duration={500} onClick={handleNavLinkClick}>
-            LISTINGS
+          <Link 
+            to="searchComponent" 
+            smooth={true} 
+            duration={600} 
+            offset={-calculateTotalOffsetHeight('searchComponent')} 
+            onClick={() => {
+              if (window.innerWidth <= 768) {
+                setTimeout(() => toggleMenu(), 500);
+              }
+            }}>
+            SEARCH
           </Link>
           <a href="/contact" onClick={toggleMenu}>CONTACT</a>
         </nav>
