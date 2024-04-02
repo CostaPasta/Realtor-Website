@@ -52,6 +52,14 @@ function Slideshow() {
     };
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 9000); // Change the slide every 5000ms (5 seconds)
+
+        return () => clearInterval(interval); // Clear the interval when the component unmounts
+    }, [currentIndex]); // Depend on `currentIndex` to trigger changes
+
+    useEffect(() => {
         if ((currentIndex === 1 || currentIndex === images.length) && !isTransitioning) {
             // Re-enable transition after resetting
             setTimeout(() => setIsTransitioning(true), 50); // A slight delay to ensure re-enabling happens after the reset
@@ -66,7 +74,7 @@ function Slideshow() {
                 className="images-container"
                 style={{
                     left: `${offset}%`,
-                    transition: isTransitioning ? 'left 250ms ease-in-out' : 'none',
+                    transition: isTransitioning ? 'left 300ms ease-in-out' : 'none',
                 }}
                 ref={slidesRef}
             >
