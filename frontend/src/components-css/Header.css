@@ -5,6 +5,12 @@
     padding: 30px 20px;
     background-color: #333;
     color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0; /* Ensure the header extends to the right edge */
+    z-index: 1000; /* Ensure the header is above other content */
+    opacity: 75%;
   }
   
   .logo {
