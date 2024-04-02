@@ -8,6 +8,7 @@ import SearchResults from './components/SearchResults';
 //LOCATIONS
 import PalmBeach from './components/locations/PalmBeach';
 import ListingResultsWidget from './components/ListingResultsWidget';
+import PalmBeachGardens from './components/locations/PalmBeachGardens';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/listing-results" element={<SearchResults />} />
         <Route path="/listing-results/:city" element={<ListingResultsWidget />} />
         <Route path="/PalmBeach" element={<PalmBeach/>} />
+        <Route path="/PalmBeachGardens" element={<PalmBeachGardens/>}/>
         <Route path="/contact/" element={<Contact/>} />
       </Routes>
     </Router>
