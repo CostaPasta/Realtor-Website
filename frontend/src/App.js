@@ -15,10 +15,8 @@ function App() {
         <Route path="/listing-details" element={<PropertyDetails />} />
         <Route path="/listing-results" element={<Search_Results />} />
         <Route path="/listing-results/:city" element={<ListingResultsWidget />} />
-        {/* Define the route with a parameter */}
         <Route path="/west-palm-beach" element={<West_Palm_Beach/>} />
         <Route path="/contact/" element={<Contact/>} />
-        {/* You can keep or remove the separate Listings and Contact routes based on your needs */}
       </Routes>
     </Router>
   );

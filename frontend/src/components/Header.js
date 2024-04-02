@@ -3,25 +3,27 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 import '../components-css/Header.css';
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    if (window.innerWidth <= 768) {
+      setMenuOpen(!menuOpen);
+    }
   };
 
   // Function to close the menu when screen width is greater than 768px
   const closeMenuOnResize = () => {
-    if (window.innerWidth > 768 && isOpen) {
-      setIsOpen(false);
+    if (window.innerWidth > 768 && menuOpen) {
+      setMenuOpen(false);
     }
   };
   // Add an event listener for window resize
   window.addEventListener('resize', closeMenuOnResize);
 
   return (
-    <header className={`header ${isOpen ? 'open' : ''}`}>
+    <header className={`header ${menuOpen ? 'open' : ''}`}>
       <div className="logo">JOSE COSTA</div>
-      <nav className={`nav ${isOpen ? 'open' : ''}`}>
+      <nav className={`nav ${menuOpen ? 'open' : ''}`}>
         <Link to="searchComponent" smooth={true} duration={500} onClick={toggleMenu}>
           SEARCH
         </Link>
@@ -34,9 +36,9 @@ function Header() {
         <a href="/contact" onClick={toggleMenu}>CONTACT</a>
       </nav>
       <button className="menu-icon" onClick={toggleMenu}>
-        <div className={`bar ${isOpen ? 'open' : ''}`} />
-        <div className={`bar ${isOpen ? 'open' : ''}`} />
-        <div className={`bar ${isOpen ? 'open' : ''}`} />
+        <div className={`bar ${menuOpen ? 'open' : ''}`} />
+        <div className={`bar ${menuOpen ? 'open' : ''}`} />
+        <div className={`bar ${menuOpen ? 'open' : ''}`} />
       </button>
     </header>
   );

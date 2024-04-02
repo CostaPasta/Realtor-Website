@@ -58,7 +58,7 @@
   background-color: #333;
   position: absolute;
   top: 85px; /* Adjust this value to position the menu below the header */
-  bottom: 160px;
+  padding-bottom: 15px;
   left: 0;
   right: 0;
   opacity: 0.95;
