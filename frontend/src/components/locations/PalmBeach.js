@@ -8,7 +8,6 @@ import BeachPic from './cardimages/PalmBeach/Beach.jpeg'
 import CityPic from './cardimages/PalmBeach/city.jpeg'
 import OutdoorPic from './cardimages/PalmBeach/golf.jpeg'
 import LocalAttractionsPic from './cardimages/PalmBeach/localattractions.jpeg'
-import ArtPic from './cardimages/PalmBeach/arts.jpeg'
 import EducationPic from './cardimages/PalmBeach/education.jpeg'
 import TransportationPic from './cardimages/PalmBeach/transportation.jpeg'
 
