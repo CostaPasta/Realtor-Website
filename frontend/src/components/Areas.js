@@ -42,14 +42,14 @@ const Areas = () => {
     const customPaths = {
         // Add more custom paths as needed
         'PALM BEACH': 'PalmBeach',
-        'WEST PALM BEACH': 'West Palm Beach',
-        'PALM BEACH GARDENS': 'Palm Beach Gardens',
+        'WEST PALM BEACH': 'WestPalmBeach',
+        'PALM BEACH GARDENS': 'PalmBeachGardens',
         'JUPITER': 'Jupiter',
         'WELLINGTON': 'Wellington',
-        'BOCA RATON': 'Boca Raton',
-        'DELRAY BEACH': 'Delray Beach',
-        'BOYNTON BEACH': 'Boynton Beach',
-        'LAKE WORTH': 'Lake Worth',
+        'BOCA RATON': 'BocaRaton',
+        'DELRAY BEACH': 'DelrayBeach',
+        'BOYNTON BEACH': 'BoyntonBeach',
+        'LAKE WORTH': 'LakeWorth',
     };
     
     return (

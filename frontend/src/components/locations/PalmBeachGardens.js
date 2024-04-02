@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
-import './css/PalmBeachGardens.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/palmbeachHEADER.jpeg'
+import './css/PalmBeach.css'; // Make sure the CSS file path is correct
+import gardensbanner from '../../images/Areas/pbgardensHEADER.jpeg'
 
 import BeachIcon from './icons/beach.png';
 import CityIcon from './icons/building.png';
@@ -10,19 +10,19 @@ import ConservationIcon from './icons/earth.png';
 import ArtIcon from './icons/theatre.png';
 import EducationIcon from './icons/mortarboard.png';
 
-const PalmBeach = () => {
+const PalmBeachGardens = () => {
     return (
         <div className="palmBeachContainer">
             {/* Hero Section */}
             <div className="bannerImage">
-                <img src={palmbeachbanner} alt="Palm Beach" />
+                <img src={gardensbanner} alt="Palm Beach Gardens" />
             </div>
 
             <div className="flex-wrapper">
                 {/* Introduction */}
                 <div className="introduction">
                     <div className="intro-content">
-                        <a href="https://www.thepalmbeaches.com/"><h1 className="title">WELCOME TO PALM BEACH</h1></a>
+                        <a href="https://www.thepalmbeaches.com/"><h1 className="title">WELCOME TO PALM BEACH GARDENS</h1></a>
                         <p>Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
                     </div>
                 </div>
@@ -82,11 +82,11 @@ const PalmBeach = () => {
                 </div>
             </div>
             
-            <div className="search" ><a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a></div>
+            <div className="search" ><a href="/listing-results/palm beach">SEARCH PALM BEACH GARDENS LISTINGS</a></div>
             <Footer />
         </div>
     );
 };
 
-export default PalmBeach;
+export default PalmBeachGardens;
 
