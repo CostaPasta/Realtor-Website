@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { debounce } from 'lodash';
 import { Link } from 'react-scroll';
 import '../components-css/Header.css';
-import Slideshow from './Slideshow'; // Assuming you have this component, adjust the path if necessary
 import { ScrollProvider } from './ScrollContext'; // Adjust the path as necessary
 
 function Header() {
@@ -16,7 +15,7 @@ function Header() {
     setMenuOpen(!menuOpen);
   };
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
     const threshold = 450; // Define your threshold value here
 
@@ -35,7 +34,7 @@ function Header() {
     }
 
     lastScrollY.current = currentScrollY;
-  };
+  }, [navClicked]);
 
   const debouncedHandleScroll = debounce(handleScroll, 100);
 
@@ -46,7 +45,7 @@ function Header() {
       debouncedHandleScroll.cancel();
       window.removeEventListener('scroll', debouncedHandleScroll);
     };
-  }, [navClicked]); // Reacting to changes in navClicked
+  }, [navClicked, debouncedHandleScroll]); // Reacting to changes in navClicked
 
   const handleNavClick = () => {
     setNavClicked(true);
