@@ -50,7 +50,11 @@ function Header() {
   const handleNavClick = () => {
     setNavClicked(true);
     setShowHeader(false);
-    toggleMenu()
+
+    if (window.innerWidth <= 768) {
+      toggleMenu(); // Also toggle the menu if in mobile view
+    }
+    //toggleMenu()
     
 
     if (navClickTimeout.current) {
@@ -65,9 +69,6 @@ function Header() {
 
   const handleSpecialNavClick = () => {
     setShowHeader(true); // Force the header to reappear
-    if (window.innerWidth <= 768) {
-      toggleMenu(); // Also toggle the menu if in mobile view
-    }
   };
   
 

@@ -194,25 +194,74 @@
     cursor: pointer; /* Makes it clear it's clickable */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 0;
-    padding: 20px 150px; /* Adjust padding to make it look more like a button */
+    padding: 20px 50px; /* Adjust padding to make it look more like a button */
     transition: transform 0.3s ease, background-color 0.3s ease;
-    background-color: #6fadef;
+    background-color: #c6c6c6;
     text-align: center; /* Ensure text is centered if it wraps */
     margin: 0 auto; /* Centers the div horizontally */
-    max-width: 600px; /* Optional: Set a max-width for aesthetics */
-    margin-bottom: 10%;
+    max-width: 40%; /* Optional: Set a max-width for aesthetics */
     font-size: 30px;
     font-weight: bolder;
 }
 
-/* .search a {
-    width: 100%;
-} */
+.search a {
+    color: black;
+    text-decoration: none;
+}
 
 .search:hover {
-    background-color: #5c9dd9; /* Slightly darker on hover for a button-like feel */
+    background-color: #6c6c6c; /* Slightly darker on hover for a button-like feel */
     transform: translateY(-2px); /* Slight lift effect on hover */
 }
+
+
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 100px;
+}
+
+.content-title {
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+.content-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.content-body.reverse .content-description {
+    order: 2;
+}
+
+.content-body.reverse .content-img {
+    order: 1;
+    justify-content: flex-start;
+}
+
+.content-description, .content-img {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content-img {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
 
 
 

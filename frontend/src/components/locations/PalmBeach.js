@@ -54,6 +54,19 @@ const PalmBeach = () => {
         // Add more fact cards following the same structure
     ];
 
+
+    const sections = [
+        { id: 1, title: factCards[0].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'normal' },
+        { id: 2, title: factCards[1].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'reverse' },
+        { id: 3, title: factCards[2].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'normal' },
+        { id: 4, title: factCards[3].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'reverse' },
+        { id: 5, title: factCards[4].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'normal' },
+        { id: 6, title: factCards[5].heading, description: 'Your description here. This could be a detailed paragraph explaining the content or the purpose of this section.', imgSrc: BeachPic, order: 'reverse' },
+        // Add more sections as needed, alternating 'normal' and 'reverse' for the order
+        // Add more sections as needed, alternating 'normal' and 'reverse' for the order
+        // Add more sections as needed, alternating 'normal' and 'reverse' for the order
+    ];
+
     return (
         <div className="palmBeachContainer">
             <BackHeader></BackHeader>
@@ -95,6 +108,23 @@ const PalmBeach = () => {
             </div>
             
             <div className="search" ><a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a></div>
+            
+            {sections.map(section => (
+            <div className="content-container" key={section.id}>
+                <div className="content-title">
+                    <h1>{section.title}</h1>
+                </div>
+                <div className={`content-body ${section.order}`}>
+                <div className="content-description">
+                    <p>{section.description}</p>
+                </div>
+                <div className="content-img">
+                    <img src={section.imgSrc} alt="Descriptive Alt Text" />
+                </div>
+                </div>
+            </div>
+            ))}
+
             <Footer />
         </div>
     );
