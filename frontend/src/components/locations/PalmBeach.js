@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeachGardens.css'; // Make sure the CSS file path is correct
@@ -182,12 +183,22 @@ const PalmBeach = () => {
                 {/* Facts Grid */}
                 <div className="facts-grid">
                     {factCards.map((card, index) => (
-                        <div className="fact-card" key={index} style={{ backgroundImage: `url(${card.image})` }}>
-                            {/* <img src={card.icon} alt={card.alt} className="fact-icon" /> */}
-                            <div className="spacer"></div>
-                            <h3 className="fact-heading">{card.heading}</h3>
-                            <p className="fact-description">{card.description}</p>
-                        </div>
+                        <LinkScroll
+                            key={index}
+                            to={card.heading.replace(/\s+/g, '-').toLowerCase()} // Create a URL-friendly id
+                            smooth={true}
+                            duration={500}
+                            offset={-50}
+                            className="fact-card-link"
+                        >
+                            <div className="fact-card" key={index} style={{ backgroundImage: `url(${card.image})` }}>
+                                {/* <img src={card.icon} alt={card.alt} className="fact-icon" /> */}
+                                <div className="spacer"></div>
+                                <h3 className="fact-heading">{card.heading}</h3>
+                                <p className="fact-description">{card.description}</p>
+                                <LinkScroll to=""></LinkScroll>
+                            </div>
+                        </LinkScroll>
                     ))}
                 </div>
 
@@ -201,7 +212,11 @@ const PalmBeach = () => {
             <div className="search" ><a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a></div>
             
             {sections.map(section => (
-            <div className="content-container" key={section.id}>
+            <div
+            className="content-container"
+            id={section.title.replace(/\s+/g, '-').toLowerCase()} // Ensure this matches the `to` prop in LinkScroll
+            key={section.id}
+            >
                 <div className={`content-title ${section.order}`}>
                     <h1>{section.title}</h1>
                 </div>
