@@ -15,7 +15,7 @@
 }
 
 .description, .closing{
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 0;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .introduction a h1.title {
-    font-size: 48px;
+    font-size: 37px;
     margin: 0; /* Remove any default margin */
     color: black;
     text-decoration: none;
@@ -67,26 +67,6 @@
 }
 
 
-/* Updated content styles */
-/* .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: 0 10%;
-} */
-
-/* .content h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.content p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-} */
 
 /* Facts grid centered with 3 facts per row */
 .facts-grid {
@@ -98,26 +78,6 @@
 }
 
 .fact-card {
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    background-color: #6fadef;
-
-    height: 250px;
-    min-height: 120px;
-    border: none;
-    padding: 16px;
-    color: white; 
-    position: relative;
-    z-index: 0;
-    border-radius: 0; */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -187,6 +147,12 @@
     margin-bottom: 2%;
 }
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .search {
     display: flex;
     justify-content: center;
@@ -198,10 +164,11 @@
     transition: transform 0.3s ease, background-color 0.3s ease;
     background-color: #c6c6c6;
     text-align: center; /* Ensure text is centered if it wraps */
-    margin: 0 auto; /* Centers the div horizontally */
-    max-width: 40%; /* Optional: Set a max-width for aesthetics */
+    max-width: 90%;
+    width: 40%;
     font-size: 30px;
     font-weight: bolder;
+    margin-bottom: 50px;
 }
 
 .search a {
@@ -219,12 +186,15 @@
 .content-container {
     display: flex;
     flex-direction: column;
-    margin: 50px 100px;
+    margin: 20px 100px;
 }
 
+.content-title h1 {
+    font-size: 37px;
+}
 .content-title {
     text-align: left;
-    margin: 50px 0 20px 0;
+    margin: 0 0 20px 0;
 }
 .content-title.reverse {
     text-align: right;
@@ -232,6 +202,7 @@
 
 .content-body {
     display: flex;
+    flex-direction: row; /* Ensure this is explicitly set for larger screens */
     align-items: flex-start;
     gap: 50px;
 }
@@ -254,23 +225,25 @@
 
 .description-title {
     margin: 0;
-    font-size: 21px;
+    font-size: 28px;
 }
+
 .description-tag {
     margin-top: 0;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 
 .content-img {
     display: flex;
-    justify-content: flex-end;
+    
 }
 
 .content-img img {
     display: block;
     width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 
@@ -315,7 +288,7 @@
         width: 100%;
     }
 
-    .facts-grid {
+    .facts-grid, .conclusion {
         width: 90%; /* Adjust the width to match the header container */
         margin: 20px 0; /* Reduce the margin */
     }
@@ -331,6 +304,50 @@
 
     .flex-wrapper-locations {
         width: 100%;
+    }
+    .closing {
+        font-size: 24px;
+    }
+    .search {
+        width: 100%;
+        margin: 0 20px 50px 20px;
+    }
+
+}
+
+
+@media (max-width: 768px) { /* Adjust the max-width as needed for your design */
+    .content-container {
+        margin: 20px 20px 0 20px;
+    }
+    .content-title h1 {
+        font-size: 30px;
+    }
+    .content-title {
+        margin-top: 20px;
+    }
+    .description-title {
+        font-size: 25px;
+    }
+    .description-tag {
+        font-size: 24px;
+    }
+    .content-title.reverse {
+        text-align: left;
+    }
+    .content-body {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Adjust gap for vertical layout */
+    }
+
+    .content-body .content-img {
+        order: 3;
+    }
+    .content-body.reverse .content-img {
+        order: 3;
+    }
+    .content-body .content-description {
+        order: 2; /* Reset the order for smaller screens */
     }
 
 }

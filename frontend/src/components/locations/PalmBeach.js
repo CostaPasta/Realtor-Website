@@ -188,7 +188,7 @@ const PalmBeach = () => {
                             to={card.heading.replace(/\s+/g, '-').toLowerCase()} // Create a URL-friendly id
                             smooth={true}
                             duration={500}
-                            offset={-50}
+                            offset={-90}
                             className="fact-card-link"
                         >
                             <div className="fact-card" key={index} style={{ backgroundImage: `url(${card.image})` }}>
@@ -209,7 +209,11 @@ const PalmBeach = () => {
                 </div>
             </div>
             
-            <div className="search" ><a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a></div>
+            <div className="search-container">
+                <div className="search">
+                    <a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a>
+                </div>
+            </div>
             
             {sections.map(section => (
             <div
@@ -242,6 +246,12 @@ const PalmBeach = () => {
             ))}
             <div className="extra-facts">
                 <a href="https://discover.pbcgov.org/pages/pbc_facts.aspx"><h3 className="facts-link">Click Here for Additional Facts</h3></a>
+            </div>
+
+            <div className="search-container">
+                <div className="search">
+                    <a href="/listing-results/palm beach">SEARCH PALM BEACH LISTINGS</a>
+                </div>
             </div>
             <Footer />
         </div>
