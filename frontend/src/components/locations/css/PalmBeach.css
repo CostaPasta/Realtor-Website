@@ -186,7 +186,7 @@
 .content-container {
     display: flex;
     flex-direction: column;
-    margin: 20px 100px;
+    margin: 20px 10%;
 }
 
 .content-title h1 {
@@ -235,6 +235,7 @@
 
 
 .content-img {
+    padding-top: 5%;
     display: flex;
     
 }
