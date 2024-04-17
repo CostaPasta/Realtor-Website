@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
+import BackHeader from "./BackHeader";
 import Footer from "./Footer";
 
 
@@ -10,8 +11,7 @@ const ListingResultsWidget = () => {
 
     return (
         <div className="properties-container">
-            <h1>{city}</h1>
-            <div id="MBBv3_LoginPanel"></div>
+            <BackHeader/>
             <div id="MBBv3_ListingResults" filter={cityFilter}></div>
             <Footer/>
         </div>
