@@ -165,7 +165,8 @@ const PalmBeachGardens = () => {
             titleconclusion: "conclusion",
             conclusion: "Whether you're seeking a family home or an investment property, this is an opportune time to explore what Palm Beach Gardens has to offer.​",
             imgSrc: RealEstateContent,
-            order: 'reverse' 
+            order: 'reverse',
+            alt: "https://flpalmbeach.com/market-reports/ 1-2| https://www.redfin.com/city/14007/FL/Palm-Beach-Gardens/housing-market " 
         },
     ];
 
