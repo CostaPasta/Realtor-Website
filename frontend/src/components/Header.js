@@ -54,7 +54,7 @@ function Header() {
     if (window.innerWidth <= 768) {
       toggleMenu(); // Also toggle the menu if in mobile view
     }
-    //toggleMenu()
+    
     
 
     if (navClickTimeout.current) {

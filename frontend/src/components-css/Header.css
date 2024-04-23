@@ -43,30 +43,9 @@ body {
 
 /* Existing CSS remains unchanged */
 
-.header.hidden {
-  transform: translateY(-100%); /* Move the header out of view */
-}
-
-  
-/* .header.shrink {
-  /* padding: 8px 25px;
-  font-size: 0.9em; 
-  transform: scaleY(0.7);
-  padding: 15px 20px 15px 20px; /* top right bottom left 
-} */
-
-/* .header.shrink .logo {
-  font-size: 1.5em;
-  transition: font-size 0.3s ease;
-} */
-
-/* .header.shrink .nav,
-.header.shrink .nav a {
-  transform-origin: top;
-  transform: scaleY(calc(1 / 0.95));
-  transition: transform 0.3s ease;
-  gap: 20px;
-} */
+  .header.hidden {
+    transform: translateY(-100%); /* Move the header out of view */
+  }
 
   .logo {
     font-size: 2em;
