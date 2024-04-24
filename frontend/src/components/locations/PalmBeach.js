@@ -157,7 +157,7 @@ const PalmBeach = () => {
             description3: "There's been a noticeable shift towards a more balanced market, with inventory levels rising by 33.3%. This increase in available properties could hint at a slight shift towards a buyer's market, offering more options and potentially more negotiating power for buyers​.",
             
             titleconclusion: "conclusion",
-            conclusion: "hese trends illustrate a dynamic and growing real estate market in Palm Beach, marked by increasing sales, rising home prices, and an expanding inventory, presenting ample opportunities for prospective homeowners and investors.​",
+            conclusion: "These trends illustrate a dynamic and growing real estate market in Palm Beach, marked by increasing sales, rising home prices, and an expanding inventory.​",
             imgSrc: RealEstateContent,
             order: 'reverse' 
         },

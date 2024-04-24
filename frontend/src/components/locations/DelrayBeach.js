@@ -112,7 +112,7 @@ const DelrayBeach = () => {
             description3: "Delray Beach is a dynamic community with rich amenities that cater to a lifestyle of convenience and recreation, making it an appealing place for those who value a vibrant social atmosphere and access to natural beauty.",
             
             titleconclusion: "conclusion",
-            conclusion: "",
+            conclusion: "Delray Beach is a dynamic community with rich amenities that cater to a lifestyle of convenience and recreation.",
             imgSrc: NeighborhoodContent, 
             order: 'normal',
             alt: "" 
