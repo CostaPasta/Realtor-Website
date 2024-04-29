@@ -6,8 +6,16 @@ import Footer from "./Footer";
 
 const ListingResultsWidget = () => {
     let {city} = useParams();
+    let cityFilter = "";
     console.log(city);
-    const cityFilter = "city:" + city + "+price_max:1100000";
+    if (city === "broward") {
+        cityFilter = "county:" + city + "+price_max:910000";
+    }
+    else {
+        cityFilter = "city:" + city + "+price_max:910000";
+    }
+
+    
 
     return (
         <div className="properties-container">
