@@ -10,6 +10,7 @@ function Header() {
   const [transparentHeader, setTransparentHeader] = useState(true);
   const lastScrollY = useRef(window.scrollY);  // Ref to keep track of last scroll position
   const scrollDirection = useScrollDirection();  // Custom hook to determine scroll direction
+  const forceHideTimeout = useRef(null);
 
 
   const toggleMenu = () => {
@@ -18,32 +19,36 @@ function Header() {
 
 
   const handleNavClick = () => {
-    // Force the header to hide when any nav link is clicked
+    if (window.innerWidth <= 738) {
+      toggleMenu(); // Toggle menu specifically for mobile views
+    }
+    
+    // Force hide the header on navigation click
     setForceHide(true);
+    clearTimeout(forceHideTimeout.current);  // Clear existing timeout if any
+    forceHideTimeout.current = setTimeout(() => {
+      // Allow header to show or hide based on scroll direction after a delay
+      setForceHide(false);
+    }, 1000);  // Delay after which the header can reappear or hide based on scroll direction
   };
 
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const threshold = 350;  // Threshold for header transparency and auto-hide
+      const threshold = 350;
 
       // Update transparency based on being within the threshold
       setTransparentHeader(currentScrollY <= threshold);
 
-      // Reset forceHide if scrolling up or above the threshold
-      if (scrollDirection === 'up' || currentScrollY <= threshold) {
-        setForceHide(false);
-      }
-
-      lastScrollY.current = currentScrollY;  // Update the last known scroll position
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollDirection]);  // Dependency on scrollDirection to re-run effect when it changes
+  }, []); 
 
   
   return (
