@@ -68,6 +68,7 @@ function Slideshow() {
 
     const offset = -currentIndex * 100; // Calculate the offset based on the current index
 
+
     return (
         <div className='slideshow'>
             <div

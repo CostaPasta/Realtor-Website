@@ -1,7 +1,3 @@
-body {
-  margin-top: -50px;
-}
-
 .header.transparent {
   background: none; /* Remove background color when transparent */
 }

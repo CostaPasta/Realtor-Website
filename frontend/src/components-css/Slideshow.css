@@ -6,7 +6,7 @@ body {
 .slideshow {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100vh !important;
     overflow: hidden;
 }
 
@@ -58,7 +58,7 @@ body {
     position: relative;
     display: flex;
     transition: all 1s;
-    height: calc(100vh + 98px);
+    height: 100%;
 }
 
 
@@ -70,7 +70,7 @@ body {
 
 .slide img {
     display: block;  /* Remove any default margins/paddings */
-    min-width: 100%;  
+    min-width: 100%;  /* Ensure the image covers the width */
     min-height: 100%;
     object-fit: cover;  /* Ensures the image covers the div while maintaining its aspect ratio */
     object-position: center;  /* Centers the image */
