@@ -8,6 +8,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [navClicked, setNavClicked] = useState(false);
+  const [transparentHeader, setTransparentHeader] = useState(true); 
   const lastScrollY = useRef(window.scrollY);
   const navClickTimeout = useRef(null);
 
@@ -18,6 +19,9 @@ function Header() {
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
     const threshold = 450; // Define your threshold value here
+
+    // Handle transparency of the header
+    setTransparentHeader(currentScrollY <= threshold);  // Make header transparent within threshold
 
     if (!navClicked) {
       setShowHeader(currentScrollY < lastScrollY.current);
@@ -76,7 +80,7 @@ function Header() {
     <ScrollProvider>
       <div className='entire-header'>
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
-        <header className={`header ${menuOpen ? 'open' : ''} ${showHeader ? '' : 'hidden'}`}>
+        <header className={`header ${menuOpen ? 'open' : ''} ${showHeader ? '' : 'hidden'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
             <Link to="SlideShowComponent" smooth={true} duration={600} offset={-90} onClick={handleSpecialNavClick}>
               JOSE COSTA
