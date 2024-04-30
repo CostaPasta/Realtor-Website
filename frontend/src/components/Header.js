@@ -82,11 +82,11 @@ function Header() {
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
         <header className={`header ${menuOpen ? 'open' : ''} ${showHeader ? '' : 'hidden'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
-            <Link to="SlideShowComponent" smooth={true} duration={600} offset={-90} onClick={handleSpecialNavClick}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={-200} onClick={handleSpecialNavClick}>
               JOSE COSTA
             </Link>
           </div>
-          <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+          <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>ABOUT ME</Link>
             <Link to="areasComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>AREAS</Link>
             <Link to="searchComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>SEARCH</Link>

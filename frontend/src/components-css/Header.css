@@ -1,5 +1,6 @@
-.header.transparent {
+.header.transparent, .entire-header .nav.open.transparent {
   background: none; /* Remove background color when transparent */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 .entire-header, .login-panel, .entire-header * {
@@ -32,6 +33,7 @@
     align-items: center;
     padding: 30px 20px;
     background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
     color: white;
     left: 0;
     right: 0; /* Ensure the header extends to the right edge */
