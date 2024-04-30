@@ -1,91 +1,58 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { debounce } from 'lodash';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import '../components-css/Header.css';
-import { ScrollProvider } from './ScrollContext'; // Adjust the path as necessary
+import { ScrollProvider } from './ScrollContext';
 import useScrollDirection from './useScrollDirection';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [navClicked, setNavClicked] = useState(false);
-  const [transparentHeader, setTransparentHeader] = useState(true); 
-  const lastScrollY = useRef(window.scrollY);
-  const navClickTimeout = useRef(null);
-  const scrollDirection = useScrollDirection();
+  const [forceHide, setForceHide] = useState(false);  // State to control forced hiding of the header
+  const [transparentHeader, setTransparentHeader] = useState(true);
+  const lastScrollY = useRef(window.scrollY);  // Ref to keep track of last scroll position
+  const scrollDirection = useScrollDirection();  // Custom hook to determine scroll direction
+
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(!menuOpen);  // Toggle menu visibility
   };
 
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-    const threshold = 450; // Define your threshold value here
-
-    // Handle transparency of the header
-    setTransparentHeader(currentScrollY <= threshold);  // Make header transparent within threshold
-
-    // Prevent header from hiding if within the threshold (change made here)
-    if (currentScrollY <= threshold || scrollDirection === 'up') {
-      setShowHeader(true);
-    } else {
-      setShowHeader(false);
-    }
-
-    lastScrollY.current = currentScrollY;
-  }, [navClicked]);
-
-  const debouncedHandleScroll = debounce(handleScroll, 100);
-
-  useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // Empty dependency array ensures this only runs on mount and unmount
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', debouncedHandleScroll);
-
-  //   return () => {
-  //     debouncedHandleScroll.cancel();
-  //     window.removeEventListener('scroll', debouncedHandleScroll);
-  //   };
-  // }, [navClicked, handleScroll]); // Reacting to changes in navClicked
 
   const handleNavClick = () => {
-    setNavClicked(true);
-    setShowHeader(false);
-
-    if (window.innerWidth <= 768) {
-      toggleMenu(); // Also toggle the menu if in mobile view
-    }
-    
-    
-
-    if (navClickTimeout.current) {
-      clearTimeout(navClickTimeout.current); // Clear any existing timeout
-    }
-
-    navClickTimeout.current = setTimeout(() => {
-      setNavClicked(false);
-    }, 1000); // Adjust the timeout to match your scrolling duration
-
+    // Force the header to hide when any nav link is clicked
+    setForceHide(true);
   };
 
-  const handleSpecialNavClick = () => {
-    setShowHeader(true); // Force the header to reappear
-  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const threshold = 350;  // Threshold for header transparency and auto-hide
+
+      // Update transparency based on being within the threshold
+      setTransparentHeader(currentScrollY <= threshold);
+
+      // Reset forceHide if scrolling up or above the threshold
+      if (scrollDirection === 'up' || currentScrollY <= threshold) {
+        setForceHide(false);
+      }
+
+      lastScrollY.current = currentScrollY;  // Update the last known scroll position
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollDirection]);  // Dependency on scrollDirection to re-run effect when it changes
+
   
-
-
-  
-
   return (
     <ScrollProvider>
       <div className='entire-header'>
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
-        <header className={`header ${menuOpen ? 'open' : ''} ${scrollDirection === 'down' && lastScrollY.current > 450 ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
+        <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
-            <Link to="SlideShowComponent" smooth={true} duration={600} offset={-200} onClick={handleSpecialNavClick}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={-200}>
               JOSE COSTA
             </Link>
           </div>
@@ -93,7 +60,7 @@ function Header() {
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>ABOUT ME</Link>
             <Link to="areasComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>AREAS</Link>
             <Link to="searchComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>SEARCH</Link>
-            <a href="/contact" >CONTACT</a>
+            <a href="/contact">CONTACT</a>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>

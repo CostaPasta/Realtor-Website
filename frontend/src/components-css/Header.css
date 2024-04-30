@@ -4,10 +4,6 @@
   
 }
 
-.header, .nav {
-  transition: background-color 0.15s ease, transform 0.30s ease;
-}
-
 .entire-header, .login-panel, .entire-header * {
   margin: 0;
   padding: 0;
@@ -38,7 +34,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px 20px;
-    background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%);
+    /* background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%); */
+    background-color: #333;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     color: white;
     left: 0;
@@ -48,6 +45,7 @@
     transition: transform 0.30s ease;
     transform-origin: top;
     position: relative;
+    transition: background-color 0.30s ease-in-out, transform 0.30s ease; /* Added transition for background-color */
   }
 
 /* Existing CSS remains unchanged */
@@ -103,11 +101,6 @@
     padding: 0;
   }
 
-  .header.shrink.open .nav {
-    transition: transform 0.3s ease;
-    transform: none;
-    top: 35px;
-  }
 }
 
 .header.open .nav {
@@ -123,7 +116,7 @@
   right: 0;
   visibility: visible;
   transform: translateY(0);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
 }
 
