@@ -21,6 +21,8 @@
 }
 
 .login-panel {
+  max-width: 100%;
+  height: auto;
   width: 100%;
   top: 0;
   z-index: 2000;
@@ -99,6 +101,7 @@
 
   .login-panel {
     padding: 0;
+    max-width: 100%;
   }
 
 }
