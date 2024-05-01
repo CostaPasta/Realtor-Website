@@ -104,6 +104,7 @@
         padding: 30px 20px; /* Reduce padding for mobile */
         text-align: center; /* Center the text for a cleaner mobile look */
         gap: 0px;
+        margin-top: 76vh;
     }
 
     .profile-image {
