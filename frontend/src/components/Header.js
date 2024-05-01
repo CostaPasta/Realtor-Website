@@ -70,9 +70,9 @@ function Header() {
             </Link>
           </div>
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
-            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -40} onClick={handleNavClick}>ABOUT ME</Link>
-            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -30} onClick={handleNavClick}>AREAS</Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -40} onClick={handleNavClick}>SEARCH</Link>
+            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>ABOUT ME</Link>
+            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick}>AREAS</Link>
+            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>SEARCH</Link>
             <a href="/contact">CONTACT</a>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
