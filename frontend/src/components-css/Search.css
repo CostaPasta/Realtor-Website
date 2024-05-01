@@ -7,7 +7,7 @@
     padding: 0;
     width: auto;
     background-color: white;
-
+    overflow: hidden;
 }
 
 .title-container {
