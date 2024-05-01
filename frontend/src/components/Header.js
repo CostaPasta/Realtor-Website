@@ -13,13 +13,15 @@ function Header() {
   const [linkClicked, setLinkClicked] = useState(false); // State to track if a link was clicked
 
 
+  let offset = window.innerWidth <= 768 ? -100 : -40;
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);  // Toggle menu visibility
   };
 
 
   const handleNavClick = () => {
-    if (window.innerWidth <= 738) {
+    if (window.innerWidth <= 768) {
       toggleMenu(); // Toggle menu specifically for mobile views
     }
 
@@ -63,14 +65,14 @@ function Header() {
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
         <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
-            <Link to="SlideShowComponent" smooth={true} duration={600} offset={-200}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200}>
               JOSE COSTA
             </Link>
           </div>
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
-            <Link to="aboutMeComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>ABOUT ME</Link>
-            <Link to="areasComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>AREAS</Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={-30} onClick={handleNavClick}>SEARCH</Link>
+            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -40} onClick={handleNavClick}>ABOUT ME</Link>
+            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -30} onClick={handleNavClick}>AREAS</Link>
+            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -100 : -40} onClick={handleNavClick}>SEARCH</Link>
             <a href="/contact">CONTACT</a>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>

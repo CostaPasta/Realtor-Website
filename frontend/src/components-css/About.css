@@ -1,6 +1,4 @@
 .about-me-container {
-    top: 0;
-    margin-top: 80vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -10,10 +8,9 @@
     /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
     background-size: 100% 100%;
     background-image: url('../images/AboutmeBackground.jpeg');
-
     background-repeat: no-repeat;  /* Prevents the image from repeating */
     background-position: center;  /* Centers the image in the div */
-    z-index: 100;
+    z-index: 20;
 }
 .profile-image img {
     width: 300px;
@@ -104,7 +101,6 @@
         padding: 30px 20px; /* Reduce padding for mobile */
         text-align: center; /* Center the text for a cleaner mobile look */
         gap: 0px;
-        margin-top: 76vh;
     }
 
     .profile-image {
