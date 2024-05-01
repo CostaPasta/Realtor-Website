@@ -12,8 +12,7 @@ import { Element } from 'react-scroll'; // Import Element from react-scroll
 import { ScrollProvider } from './ScrollContext';
 
 function Home() {
-
-    alert("HELLO TESTING");
+    
     
     return (
 
