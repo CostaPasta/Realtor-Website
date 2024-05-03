@@ -196,7 +196,6 @@ const PalmBeach = () => {
                                 <div className="spacer"></div>
                                 <h3 className="fact-heading">{card.heading}</h3>
                                 <p className="fact-description">{card.description}</p>
-                                <LinkScroll to=""></LinkScroll>
                             </div>
                         </LinkScroll>
                     ))}

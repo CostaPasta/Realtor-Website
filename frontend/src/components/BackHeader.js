@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BackButtonIcon from './locations/icons/back-button.png'
 import '../components-css/BackHeader.css'
 
 function BackHeader() {
+
     const navigate = useNavigate();
 
     const handleBackButtonClick = () => {
