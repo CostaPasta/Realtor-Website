@@ -18,6 +18,7 @@ function Home() {
 
         <ScrollProvider>
             <div className="home-container">
+                <div id="MBBv3_LoginPanel" className="login-panel"></div>
                 <Header />
                 <Element name="SlideShowComponent">
                     <Slideshow />
