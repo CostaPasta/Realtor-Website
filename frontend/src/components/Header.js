@@ -13,13 +13,6 @@ function Header() {
   const [linkClicked, setLinkClicked] = useState(false); // State to track if a link was clicked
 
 
-  useEffect(() => {
-    if (window.MyGlobalScript && window.MyGlobalScript.isReady) {
-      console.log('Script is ready, and now doing something with it...');
-      // You can call functions or access properties of MyGlobalScript here
-    }
-  }, []);
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);  // Toggle menu visibility
   };

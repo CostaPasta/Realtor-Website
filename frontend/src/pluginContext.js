@@ -1,35 +1,29 @@
+// PluginContext.js
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const PluginContext = createContext({ isLoaded: false });
+const PluginContext = createContext();
 
-export const usePlugin = () => useContext(PluginContext);
+export const usePlugins = () => useContext(PluginContext);
 
 export const PluginProvider = ({ children }) => {
-    const [isLoaded, setLoaded] = useState(false);
+  const [isReady, setReady] = useState(false);
 
-    useEffect(() => {
-        // Check if the plugin is correctly loaded
-        const checkPluginLoaded = () => {
-            if (window.MBB && window.MBB.ready) {
-                setLoaded(true);
-                console.log('Buying Buddy plugin is ready.');
-            } else {
-                console.error('Buying Buddy plugin is not ready.');
-            }
-        };
+  useEffect(() => {
+    const checkReady = () => {
+      if (window.MBB && window.MBB.googleMaps) {
+        setReady(true);
+        console.log('Plugins are ready');
+      } else {
+        setTimeout(checkReady, 100); // Check every 100ms
+      }
+    };
 
-        // You might want to set up a more robust checking mechanism or event listeners
-        // related to the plugin's readiness if the API allows
-        window.setTimeout(checkPluginLoaded, 1000); // Check after 1 second
+    checkReady();
+  }, []);
 
-        return () => {
-            // Clean up if necessary, but avoid unloading the plugin script
-        };
-    }, []);
-
-    return (
-        <PluginContext.Provider value={{ isLoaded }}>
-            {children}
-        </PluginContext.Provider>
-    );
+  return (
+    <PluginContext.Provider value={{ isReady }}>
+      {children}
+    </PluginContext.Provider>
+  );
 };
