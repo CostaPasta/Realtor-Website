@@ -57,11 +57,15 @@ function Header() {
     
   }, [scrollDirection, linkClicked]); 
 
+  console.log('Current width:', window.innerWidth);
+  console.log('User agent:', navigator.userAgent);
+
   
   return (
     <ScrollProvider>
       
       <div className='entire-header'>
+        <div id="MBBv3_LoginPanel" className="login-panel"></div>
         <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
             <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200}>
