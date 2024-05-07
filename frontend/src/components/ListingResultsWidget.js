@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import BackHeader from "./BackHeader";
 import Footer from "./Footer";
+import BackButtonIcon from './locations/icons/back-button.png'
 
 
 const ListingResultsWidget = () => {
@@ -15,11 +15,18 @@ const ListingResultsWidget = () => {
         cityFilter = "city:" + city + "+price_max:910000";
     }
 
+    const handleBackButtonClick = () => {
+        window.location.href = "/"; // Navigate to the home page and refresh it
+    };
     
 
     return (
         <div className="properties-container">
-            <BackHeader/>
+            <div className="back-header-container">
+                <button className="back-button" onClick={handleBackButtonClick}>
+                    <img src={BackButtonIcon} alt="Back" />
+                </button>
+            </div>
             <div id="MBBv3_ListingResults" filter={cityFilter}></div>
             <Footer/>
         </div>

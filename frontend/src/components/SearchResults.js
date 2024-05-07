@@ -1,19 +1,21 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Footer from "./Footer";
-import BackHeader from "./BackHeader";
+import BackButtonIcon from './locations/icons/back-button.png'
 
 const SearchResults = () => {
-  let location = useLocation();
-  //const filterCriteria = location.state ? location.state.filterCriteria : "";
-  // const {city} = useParams();
-  // console.log(city);
-
-  console.log(location);
   
+  const handleBackButtonClick = () => {
+      window.location.href = "/"; // Navigate to the home page and refresh it
+  };
+
   return (
     <div className="search_container">
-        <BackHeader></BackHeader>
+        <div className="back-header-container">
+            <button className="back-button" onClick={handleBackButtonClick}>
+                <img src={BackButtonIcon} alt="Back" />
+            </button>
+        </div>
         <div id="MBBv3_ListingResults"></div>
         <Footer/>
     </div>

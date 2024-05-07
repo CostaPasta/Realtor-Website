@@ -52,6 +52,7 @@
     font-size: 22px;
     line-height: 1.5;
     color: #555;
+    margin: 5px 0 25px 0;
 }
 
 .contact-details a {
@@ -59,7 +60,7 @@
     color: #408aae;
     text-decoration: none;
     font-size: 26px;
-    padding: 0 10px;
+    padding: 10px 20px 0 0;
 
     text-shadow: 
         -0.5px -0.5px 0 #fff,  
@@ -70,6 +71,10 @@
 
 .contact-details a:hover {
     text-decoration: underline;
+}
+
+.aboutMeSubTitle {
+    margin: 0;
 }
 
 .custom-bullets {

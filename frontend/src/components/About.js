@@ -14,13 +14,21 @@ const AboutMe = () => {
                 <h2 id='name'>Looking for your dream home in South Florida?</h2>
                 {/* <h1 id='realtor-id'>Realtor® | #3132965</h1> */}
                 <p>
-                    When navigating the Palm Beach County real estate market, it's ESSENTIAL to rely on a real estate expert who genuinely cares about your needs and is dedicated to fulfilling them.
+                    Navigating the South Florida real estate market can be challenging, but Jose Costa makes it simple. 
                 </p>
+
+                <h3 className='aboutMeSubTitle'>Local Expert:</h3>
                 <p>
-                    Jose Costa, has lived in South Florida for more than 30 YEARS and brings over 11 YEARS OF EXPERIENCE in real estate to the table. 
+                    Jose, has been a <u>South Florida resident</u> for over 30 YEARS with over 11 years of <u>real estate experience</u>, he's a trusted expert who understands the unique landscape.
                 </p>
+
+                <h3 className='aboutMeSubTitle'>Multilingual Communication:</h3>
                 <p>
-                    Jose's can speak in ENGLISH, PORTUGUESE, and SPANISH; providing varies amounts of communication.
+                    Fluent in <i>English, Spanish, and Portuguese</i>, Jose ensures seamless communication for both buyers and sellers, delivering top-notch service with genuine care.
+                </p>
+
+                <p>
+                    Jose will guide you with detailed market insights and a deep understanding of your needs, ensuring you always get the best deal.
                 </p>
                 {/* <p>
                     Clients who have partnered with Jose value the assurance that the sale or purchase of their property is managed by a real estate agent who is not only highly competent but also deeply trustworthy. 
