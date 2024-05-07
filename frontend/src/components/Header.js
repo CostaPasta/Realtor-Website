@@ -57,10 +57,6 @@ function Header() {
     
   }, [scrollDirection, linkClicked]); 
 
-  console.log('Current width:', window.innerWidth);
-  console.log('User agent:', navigator.userAgent);
-
-  
   return (
     <ScrollProvider>
       
