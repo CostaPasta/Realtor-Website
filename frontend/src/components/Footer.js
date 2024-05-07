@@ -93,7 +93,7 @@ const Footer = () => {
                             <ul>
                                 <li><a>(954) 614-1351</a></li>
                                 <li><a>USARealtor1@gmail.com</a></li>
-                                <li><a>Terms of Service</a></li>
+                                <li><Link reloadDocument to="/TermsOfService">Terms Of Service</Link></li>
                             </ul>
                         </div>
                     </div>
