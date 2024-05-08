@@ -98,13 +98,13 @@ function Header() {
           {/* Language Buttons */}
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
             <div className="language-icons">
-              <div onClick={() => changeLanguage('en')} style={{ cursor: 'pointer' }}>
+              <div onClick={() => changeLanguage('en')}>
                 <img src={usaIcon} alt="English" />
               </div>
-              <div onClick={() => changeLanguage('es')} style={{ cursor: 'pointer' }}>
+              <div onClick={() => changeLanguage('es')}>
                 <img src={spainIcon} alt="Spanish" />
               </div>
-              <div onClick={() => changeLanguage('pt')} style={{ cursor: 'pointer' }}>
+              <div onClick={() => changeLanguage('pt')}>
                 <img src={brazilIcon} alt="Portuguese" />
               </div>
             </div>
