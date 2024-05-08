@@ -21,7 +21,6 @@ function Header() {
     if (window.innerWidth <= 768) {
       setMenuOpen(!menuOpen);  // Toggle menu visibility
     }
-    
   };
 
 
@@ -53,7 +52,6 @@ function Header() {
       if (!linkClicked && (scrollDirection === 'up' || currentScrollY <= threshold)) {
         setForceHide(false);
       }
-
       lastScrollY.current = currentScrollY;
     };
 
