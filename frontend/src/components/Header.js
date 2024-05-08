@@ -4,6 +4,10 @@ import '../components-css/Header.css';
 import { ScrollProvider } from './ScrollContext';
 import useScrollDirection from './useScrollDirection';
 
+import usaIcon from './locations/icons/usa.png';
+import spainIcon from './locations/icons/spain.png';
+import brazilIcon from './locations/icons/brazil.png';
+
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [forceHide, setForceHide] = useState(false);  // State to control forced hiding of the header
@@ -14,7 +18,10 @@ function Header() {
 
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);  // Toggle menu visibility
+    if (window.innerWidth <= 768) {
+      setMenuOpen(!menuOpen);  // Toggle menu visibility
+    }
+    
   };
 
 
@@ -57,23 +64,59 @@ function Header() {
     
   }, [scrollDirection, linkClicked]); 
 
+
+  // Function to simulate language change
+  const changeLanguage = (langCode) => {
+    const select = document.querySelector(`select.goog-te-combo`);
+    if (select) {
+      select.value = langCode;
+      select.dispatchEvent(new Event('change'));
+    }
+  };
+
+
+  // Conditionally call toggleMenu only if the menu is open
+  const conditionalToggleMenu = () => {
+    if (menuOpen) {
+      toggleMenu(); // Close the menu only if it's currently open
+    }
+  };
+
+
   return (
     <ScrollProvider>
       
       <div className='entire-header'>
+        <div id="google_translate_element"></div>
+        {/* BB Login Panel */}
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
+        {/* Main Header with Logo, Flags, and Nav Links */}
         <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
           <div className="logo">
-            <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200} onClick={conditionalToggleMenu}>
               JOSE COSTA
             </Link>
           </div>
+          {/* Language Buttons */}
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
+            <div className="language-icons">
+              <div onClick={() => changeLanguage('en')} style={{ cursor: 'pointer' }}>
+                <img src={usaIcon} alt="English" />
+              </div>
+              <div onClick={() => changeLanguage('es')} style={{ cursor: 'pointer' }}>
+                <img src={spainIcon} alt="Spanish" />
+              </div>
+              <div onClick={() => changeLanguage('pt')} style={{ cursor: 'pointer' }}>
+                <img src={brazilIcon} alt="Portuguese" />
+              </div>
+            </div>
+            {/* Navigation Buttons */}
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>ABOUT ME</Link>
             <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick}>AREAS</Link>
             <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>SEARCH</Link>
             <a href="/contact">CONTACT</a>
           </nav>
+          {/* Mobile Menu */}
           <button className="menu-icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>

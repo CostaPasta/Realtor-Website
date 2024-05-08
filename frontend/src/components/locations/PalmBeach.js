@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
@@ -176,7 +176,7 @@ const PalmBeach = () => {
                 <div className="introduction">
                     <div className="intro-content">
                         <a href="https://www.thepalmbeaches.com/explore-cities/palm-beach"><h1 className="title">WELCOME TO PALM BEACH</h1></a>
-                        <p className="description">Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
+                    <p className="description">Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
                     </div>
                 </div>
 
@@ -203,7 +203,7 @@ const PalmBeach = () => {
 
                 <div className="conclusion">
                     <div className="closing-content">
-                        <p className="closing">In Palm Beach, you're not just buying a home; you're embracing a lifestyle that blends relaxation, culture, and community. A place where life is always sunny, and every day brings a new adventure. Welcome home.</p>
+                        <p data-translate className="closing">In Palm Beach, you're not just buying a home; you're embracing a lifestyle that blends relaxation, culture, and community. A place where life is always sunny, and every day brings a new adventure. Welcome home.</p>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@ function Home() {
 
         <ScrollProvider>
             <div className="home-container">
+                
                 <Header />
                 <Element name="SlideShowComponent">
                     <Slideshow />

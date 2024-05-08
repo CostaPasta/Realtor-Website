@@ -1,3 +1,35 @@
+#google_translate_element, .goog-te-banner-frame.skiptranslate, .skiptranslate {
+  display:none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+    display: none !important;
+}
+
+.language-icons {
+  display: flex;            /* Arrange items horizontally */
+  gap: 20px;                /* Add spacing between icons */
+  align-items: center;      /* Vertically align icons */
+  margin-right: 15px;
+}
+
+.language-icons div {
+  cursor: pointer;          /* Make each icon visually clickable */
+  margin: 0;
+}
+
+.language-icons img {
+  width: 30px;              /* Adjust these sizes as necessary */
+  height: 30px;
+  display: block;
+}
 
 .header.transparent, .entire-header .nav.open.transparent {
   background: none; /* Remove background color when transparent */
@@ -65,6 +97,7 @@
   .nav {
     display: flex;
     gap: 25px;
+    align-items: center;
   }
   
   .nav a {
@@ -98,10 +131,6 @@
   
   .nav a {
     font-size: 1em; /* Reduce font size for smaller screens */
-  }
-
-  .login-panel {
-    /* padding: 0 20px 0 20px; */
   }
 
 }
