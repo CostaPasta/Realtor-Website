@@ -42,7 +42,7 @@ const AboutMe = () => {
                     <li>Whether you're buying or selling, Jose's local knowledge and passion make your journey smooth and exciting. Dive into the best of Florida with Jose!</li>
                 </ul> */}
                 <div className="contact-details">
-                    <a href="mailto:usarealtor1@gmail.com">JOSE@USArealtor.com</a>
+                    <a class='notranslate' href="mailto:usarealtor1@gmail.com">JOSE@USArealtor.com</a>
                     <a href="tel:+19546141351"> +1(954) 614-1351</a> 
                 </div>
             </div>

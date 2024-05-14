@@ -92,7 +92,7 @@ function Header() {
     tryChangeLanguage();
   };
 
-  
+
   // Toggling the menu to hide when clicking on logo when viewed on mobile 
   const conditionalToggleMenu = () => {
     if (menuOpen) {
@@ -105,7 +105,7 @@ function Header() {
       <div className='entire-header'>
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
         <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
-          <div className="logo">
+          <div className="logo notranslate">
             <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200} onClick={conditionalToggleMenu}>
               JOSE COSTA
             </Link>

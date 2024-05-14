@@ -55,7 +55,7 @@ const Areas = () => {
     return (
         <div id='areasComponent' className="flex-wrapper">
             <div className="header-container">
-                <h1>AREAS IN PALM BEACH</h1>
+                <h1>AREAS IN <span className='notranslate'> PALM BEACH</span></h1>
                 
                 {/* <Link 
                     //reloadDocument 
@@ -75,7 +75,7 @@ const Areas = () => {
                         className="grid-box"
                         style={{ backgroundImage: `url(${item.image})` }}
                     >
-                        <span className="item-name">{item.name}</span> {/* Wrap item.name in a span */}
+                        <span className="item-name notranslate">{item.name}</span> {/* Wrap item.name in a span */}
                     </Link>
                 ))}
             </div>

@@ -27,7 +27,7 @@ const Footer = () => {
                 <footer className="footer-container">
                     <div className="footer-top">
                         {/* Column 1 */}
-                        <div className="footer-column">
+                        <div className="footer-column notranslate">
                             <h4>Areas</h4>
                             <ul>
                                 <li>
@@ -49,7 +49,7 @@ const Footer = () => {
                         </div>
 
                         {/* Column 2 */}
-                        <div className="footer-column">
+                        <div className="footer-column notranslate">
                             <h4>MORE AREAS</h4>
                             <ul>
                                 <li>
