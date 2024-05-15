@@ -24,7 +24,7 @@ function BackHeader() {
     return (
         <div className="back-header-container">
             {pluginLoaded ? (
-                <div id="MBBv3_LoginPanel" className="login-panel"></div>
+                <div id="MBBv3_LoginPanel" className="back-login-panel"></div>
             ) : (
                 <div className="plugin-error-message">
                     Plugin not loaded, reload page!

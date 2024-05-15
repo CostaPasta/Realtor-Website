@@ -56,10 +56,11 @@ body {
 .login-panel {
   z-index: 2000;
   /* padding: 0 20px 0 20px; */
-  background-color: #333333;
+  background-color: #2c3e50;
   /* border: 1px solid red; */
   top: 0;
   position: sticky;
+  padding: 0 5%;
   
 }
 
@@ -67,9 +68,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px;
+    padding: 30px 5%;
     /* background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%); */
-    background-color: #333;
+    background-color: #2c3e50;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     color: white;
     left: 0;
@@ -92,6 +93,7 @@ body {
   .logo {
     font-size: 2em;
     font-weight: bold;
+    cursor: pointer;
   }
   
   .nav {
@@ -104,10 +106,16 @@ body {
     font-size: 1.2em;
     color: white;
     text-decoration: none;
+    cursor: pointer;
   }
   
   .nav a:hover {
     text-decoration: underline;
+    color: #f39c12;
+  }
+
+  .language-icons img:hover {
+    transform: translateY(-2px);
   }
  
   
@@ -139,7 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #333;
+  background: #2c3e50;
   position: absolute;
   top: 60px; /* Adjust this value to position the menu below the header */
   padding-top: 20px;

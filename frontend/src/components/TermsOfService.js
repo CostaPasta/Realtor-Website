@@ -6,24 +6,24 @@ const TermsOfService = () => {
     fontWeight: 'bold',
     fontSize: '24px',
     marginTop: '20px',
-    color: 'white'
+    color: '#ecf0f1'
   };
 
   const subheadingStyle = {
     fontWeight: 'bold',
     fontSize: '18px',
     marginTop: '15px',
-    color: 'white'
+    color: '#ecf0f1'
   };
 
   const listStyle = {
     listStyleType: 'disc',
     marginLeft: '20px',
-    color: 'white'
+    color: '#ecf0f1'
   };
 
   const paragraphStyle = {
-    color: 'white'
+    color: '#ecf0f1'
   };
 
   const containerStyle = {
@@ -31,7 +31,7 @@ const TermsOfService = () => {
     margin: '0 auto',
     padding: '20px',
     lineHeight: '1.6',
-    backgroundColor: '#333', // A darker background for contrast
+    backgroundColor: '#2c3e50', // A darker background for contrast
     borderRadius: '8px',
     padding: '30px'
   };

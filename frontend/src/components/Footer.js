@@ -8,18 +8,18 @@ import { ScrollProvider } from './ScrollContext'; // Adjust the path as necessar
 
 const Footer = () => {
 
-    const customPaths = {
-        // Add more custom paths as needed
-        'PALM BEACH': 'Palm Beach',
-        'WEST PALM BEACH': 'West Palm Beach',
-        'PALM BEACH GARDENS': 'Palm Beach Gardens',
-        'JUPITER': 'Jupiter',
-        'WELLINGTON': 'Wellington',
-        'BOCA RATON': 'Boca Raton',
-        'DELRAY BEACH': 'Delray Beach',
-        'BOYNTON BEACH': 'Boynton Beach',
-        'LAKE WORTH': 'Lake Worth',
-    };
+    // const customPaths = {
+    //     // Add more custom paths as needed
+    //     'PALM BEACH': 'Palm Beach',
+    //     'WEST PALM BEACH': 'West Palm Beach',
+    //     'PALM BEACH GARDENS': 'Palm Beach Gardens',
+    //     'JUPITER': 'Jupiter',
+    //     'WELLINGTON': 'Wellington',
+    //     'BOCA RATON': 'Boca Raton',
+    //     'DELRAY BEACH': 'Delray Beach',
+    //     'BOYNTON BEACH': 'Boynton Beach',
+    //     'LAKE WORTH': 'Lake Worth',
+    // };
 
     return (
         <ScrollProvider>
@@ -98,7 +98,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer-bottom">
-                        <p>© 2023 by Nicholas Costa</p>
+                        <p className='notranslate'>© 2023 by Nicholas Costa</p>
                         {/* Hidden SVG to define the gradient */}
                         <svg width="0" height="0" style={{ position: 'absolute' }}>
                             <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">

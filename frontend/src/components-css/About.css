@@ -29,14 +29,9 @@
     font-weight: bolder;
     position: relative;
     display: inline-block; /* Ensures the pseudo-element spans only the width of the content */
+    color: #333;
 }
 
-.profile-details h1 {
-    font-size: 12px;
-    color: gray;
-    font-style: italic;
-    padding-bottom: 10px;
-}
 
 .profile-details h2::after {
     content: "";
@@ -45,19 +40,19 @@
     right: 0;
     bottom: -5px; /* Adjust this value to increase or decrease the space between the text and the underline */
     height: 3px; /* Thickness of the underline */
-    background-color: rgb(0, 111, 185); /* Color of the underline */
+    background-color: #f39c12; /* Color of the underline */
 }
 
 .profile-details p {
     font-size: 22px;
     line-height: 1.5;
-    color: #555;
+    color: #333;
     margin: 5px 0 25px 0;
 }
 
 .contact-details a {
     display: inline-block;
-    color: #408aae;
+    color: #2980b9;
     text-decoration: none;
     font-size: 26px;
     padding: 10px 20px 0 0;
@@ -74,7 +69,9 @@
 }
 
 .aboutMeSubTitle {
+    font-size: 20px;
     margin: 0;
+    color: #2980b9;
 }
 
 .custom-bullets {

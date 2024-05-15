@@ -1,11 +1,12 @@
 
-@font-face {
-  font-family: 'Roboto';  /* You can name it whatever you prefer */
-  src: url('../public/fonts/Roboto-Regular.ttf') format('truetype');  /* Adjust the path and format accordingly */
-  /* Add other formats if available, for better compatibility, e.g., woff, woff2 */
+body {
+  font-family: 'Lato', sans-serif; /* Primary font */
+  color: #333333; /* Updated text color */
 }
-body, html, h1, h2 {
-  font-family: 'Roboto', sans-serif;
+
+ h1, h2, h3 {
+  font-family: 'Merriweather', serif; /* Secondary font for headings */
+  color: #333333; /* Updated text color for headings */
 }
 
 .App {

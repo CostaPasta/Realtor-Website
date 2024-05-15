@@ -21,6 +21,7 @@ h1 {
     font-size: 48px;
     margin: 0; 
     flex-grow: 1; /* This allows h1 to take up the available space */
+    color: #333;
 }
 
 .view-all-btn {
