@@ -133,7 +133,7 @@ body {
 
 @media (max-width: 768px) {
     .slideshow {
-        height: calc(100vh - var(--login-panel-height)) !important; /* Adjust to a smaller height on mobile devices */
+        height: calc(90vh - var(--login-panel-height)) !important; /* Adjust to a smaller height on mobile devices */
     }
 
     .slide-image {

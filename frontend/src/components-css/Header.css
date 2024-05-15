@@ -112,6 +112,7 @@ body {
   .nav a:hover {
     text-decoration: underline;
     color: #f39c12;
+    text-shadow: none;
   }
 
   .language-icons img:hover {
