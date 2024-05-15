@@ -57,6 +57,17 @@ function Header() {
   }, [scrollDirection, linkClicked]);
 
 
+
+  useEffect(() => {
+    const loginPanel = document.querySelector('mbb-component-element.login-panel');
+    if (loginPanel) {
+      const loginPanelHeight = loginPanel.offsetHeight;
+      document.documentElement.style.setProperty('--login-panel-height', `${loginPanelHeight}px`);
+      console.log(loginPanelHeight);
+    }
+  }, []);
+
+
   // Function to change language through Header banner using Google Translate
   const changeLanguage = (langCode) => {
     const tryChangeLanguage = (retryCount = 0) => {

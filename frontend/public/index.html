@@ -45,8 +45,21 @@
         script.async = true;
         script.onload = function () {
           console.log("Buying Buddy loaded.");
+
+          // Update CSS variable for login-panel height
+          // Check for the login panel periodically
+          const checkLoginPanel = setInterval(() => {
+              const loginPanel = document.querySelector('mbb-component-element.login-panel');
+              if (loginPanel && loginPanel.shadowRoot) {
+                  const loginPanelHeight = loginPanel.offsetHeight;
+                  document.documentElement.style.setProperty('--login-panel-height', `${loginPanelHeight}px`);
+                  clearInterval(checkLoginPanel); // Stop checking once found
+                  console.log(loginPanelHeight);
+              }
+          }, 100); // Check every 100ms
         };
         document.head.appendChild(script);
+
       }
     </script>
 
@@ -84,8 +97,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    
     <div id="root"></div>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
