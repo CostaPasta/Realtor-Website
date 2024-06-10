@@ -100,11 +100,6 @@ function Header() {
   const injectCustomStyles = (shadowRoot) => {
     const style = document.createElement('style');
     style.textContent = `
-      .btn-toolbar .bfg-row-2 {
-        display: none !important;
-        flex: 1 0 auto;
-        order: 2;
-      }
       
       [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
         display: none !important;
@@ -114,6 +109,15 @@ function Header() {
         display: none !important;
         flex: 1 0 auto;
         order: 2;
+      }
+
+      [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-3, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-3 {
+        flex: 0 0 auto;
+        order: 2;
+      }
+
+      [id^=MBBv3]:not(#mbbV1) .btn-toolbar {
+        flex-wrap: nowrap;
       }
     `;
     shadowRoot.appendChild(style);
