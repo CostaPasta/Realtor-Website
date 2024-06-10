@@ -16,14 +16,12 @@ function Header() {
   const scrollDirection = useScrollDirection();
   const [linkClicked, setLinkClicked] = useState(false);
 
-
-  //Toggling menu
+  // Toggling menu
   const toggleMenu = () => {
     if (window.innerWidth <= 768) {
       setMenuOpen(!menuOpen);
     }
   };
-
 
   // Handling navigation clicks to hide header
   const handleNavClick = () => {
@@ -36,7 +34,6 @@ function Header() {
       setLinkClicked(false);
     }, 1000);
   };
-
 
   // Handles scrolling feature when clicking on nav links
   useEffect(() => {
@@ -56,53 +53,6 @@ function Header() {
     };
   }, [scrollDirection, linkClicked]);
 
-
-  // Function to dynamically apply custom styles for mobile viewports
-  const addMobileStyles = () => {
-    if (window.innerWidth <= 768) {
-      const style = document.createElement('style');
-      style.innerHTML = `
-        [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
-          display: none !important;
-        }
-      
-        [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
-          display: none !important;
-          flex: 1 0 auto;
-          order: 2;
-        }
-      
-        [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
-          display: none !important;
-        }
-      
-        [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div {
-          display: none;
-        }
-      
-        .bfg-row-2 btn-group ml-0 {
-          display: none !important;
-        }
-      `;
-      document.head.appendChild(style);
-      console.log("Custom styles applied for mobile viewports.");
-    }
-  };
-
-  // Use window load event to ensure all stylesheets are loaded
-  useEffect(() => {
-    const handleLoad = () => {
-      addMobileStyles();
-    };
-
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
-  }, []);
-
-
   useEffect(() => {
     const loginPanel = document.querySelector('mbb-component-element.login-panel');
     if (loginPanel) {
@@ -112,28 +62,26 @@ function Header() {
     }
   }, []);
 
-
   // Function to change language through Header banner using Google Translate
   const changeLanguage = (langCode) => {
     const tryChangeLanguage = (retryCount = 0) => {
       const select = document.querySelector('select.goog-te-combo');
       console.log('changeLanguage called', langCode, select);
-      
+
       if (select) {
         if (langCode === 'en') {
           var restored = false;
           Object.keys(window.googleTranslator).forEach((k) => {
-              if (restored) {
-                  return;
-              }
-              if (typeof window.googleTranslator[k]?.restore === 'function') {
-                  window.googleTranslator[k].restore();
-                  restored = true;
-              }    
+            if (restored) {
+              return;
+            }
+            if (typeof window.googleTranslator[k]?.restore === 'function') {
+              window.googleTranslator[k].restore();
+              restored = true;
+            }
           });
 
-          // Also, flush the cookie that preserves the lang change across reloads
-          document.cookie="googtrans="
+          document.cookie = "googtrans=";
         }
         select.value = langCode;
         select.dispatchEvent(new Event('change'));
@@ -148,8 +96,71 @@ function Header() {
     tryChangeLanguage();
   };
 
+  // Function to inject custom styles into the Shadow DOM
+  const injectCustomStyles = (shadowRoot) => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .btn-toolbar .bfg-row-2 {
+        display: none !important;
+        flex: 1 0 auto;
+        order: 2;
+      }
+      
+      [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
+        display: none !important;
+      }
+    
+      [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
+        display: none !important;
+        flex: 1 0 auto;
+        order: 2;
+      }
+    `;
+    shadowRoot.appendChild(style);
+    console.log("Custom styles injected into the Shadow DOM.");
+  };
 
-  // Toggling the menu to hide when clicking on logo when viewed on mobile 
+  // Function to check the login panel and apply styles
+  const checkLoginPanelAndApplyStyles = (attempts = 0, maxAttempts = 10) => {
+    const loginPanel = document.querySelector('mbb-component-element.login-panel');
+    if (loginPanel && loginPanel.shadowRoot) {
+      injectCustomStyles(loginPanel.shadowRoot);
+    } else if (attempts < maxAttempts) {
+      console.log(`Login panel or shadow root not found, checking again in 1 second (attempt ${attempts + 1})...`);
+      setTimeout(() => checkLoginPanelAndApplyStyles(attempts + 1, maxAttempts), 1000);
+    } else {
+      console.log("Max attempts reached, stopping further checks.");
+    }
+  };
+
+  // Check if a specific stylesheet is loaded
+  const isStylesheetLoaded = (href) => {
+    const stylesheets = document.styleSheets;
+    for (let i = 0; i < stylesheets.length; i++) {
+      if (stylesheets[i].href && stylesheets[i].href.includes(href)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    const stylesheetUrl = 'https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz';
+
+    const checkStylesheetAndApplyStyles = () => {
+      if (isStylesheetLoaded(stylesheetUrl)) {
+        console.log("Stylesheet loaded.");
+        checkLoginPanelAndApplyStyles();
+      } else {
+        console.log("Stylesheet not loaded yet, checking again in 1 second...");
+        setTimeout(checkStylesheetAndApplyStyles, 1000);
+      }
+    };
+
+    checkStylesheetAndApplyStyles();
+  }, []);
+
+  // Toggling the menu to hide when clicking on logo when viewed on mobile
   const conditionalToggleMenu = () => {
     if (menuOpen) {
       toggleMenu();
@@ -158,9 +169,11 @@ function Header() {
 
   return (
     <ScrollProvider>
-      <div className='entire-header'>
+      <div className="entire-header">
         <div id="MBBv3_LoginPanel" className="login-panel"></div>
-        <header className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}>
+        <header
+          className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}
+        >
           <div className="logo notranslate">
             <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200} onClick={conditionalToggleMenu}>
               JOSE COSTA
@@ -178,9 +191,15 @@ function Header() {
                 <img src={brazilIcon} alt="Portuguese" />
               </div>
             </div>
-            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>ABOUT ME</Link>
-            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick}>AREAS</Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>SEARCH</Link>
+            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+              ABOUT ME
+            </Link>
+            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick}>
+              AREAS
+            </Link>
+            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+              SEARCH
+            </Link>
             <a href="/contact">CONTACT</a>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
