@@ -206,7 +206,7 @@ body {
     height: 40px;
   }
 
-  [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
+  [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
     display: none !important;
   }
 
