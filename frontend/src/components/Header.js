@@ -57,19 +57,33 @@ function Header() {
   }, [scrollDirection, linkClicked]);
 
 
-  // Inject custom styles for mobile viewports
-  useEffect(() => {
+  // Function to dynamically apply custom styles for mobile viewports
+  const addMobileStyles = () => {
     if (window.innerWidth <= 768) {
       const style = document.createElement('style');
       style.innerHTML = `
-        #MBBv3_LoginPanel .bfg-row-2.btn-group.ml-0 {
+        #MBBv3_LoginPanel .bfg-row-2 btn-group ml-0 {
           display: none !important;
         }
       `;
       document.head.appendChild(style);
-      console.log("IT WORKED")
+      console.log("Custom styles applied for mobile viewports.");
     }
+  };
+
+  // Use window load event to ensure all stylesheets are loaded
+  useEffect(() => {
+    const handleLoad = () => {
+      addMobileStyles();
+    };
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
   }, []);
+
 
   useEffect(() => {
     const loginPanel = document.querySelector('mbb-component-element.login-panel');
