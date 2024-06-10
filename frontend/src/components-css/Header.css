@@ -215,4 +215,8 @@ body {
     flex: 1 0 auto;
     order: 2;
   }
+
+  [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
+    display: none !important;
+  }
 }
