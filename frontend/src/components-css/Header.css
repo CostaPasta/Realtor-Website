@@ -223,4 +223,8 @@ body {
   [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div {
     display: none;
   }
+
+  .bfg-row-2 btn-group ml-0 {
+    display: none !important;
+  }
 }
