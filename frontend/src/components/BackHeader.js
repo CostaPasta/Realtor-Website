@@ -30,9 +30,9 @@ function BackHeader() {
                     Plugin not loaded, reload page!
                 </div>
             )}
-            {/* <button className="back-button" onClick={handleBackButtonClick}>
+            <button className="back-button" onClick={handleBackButtonClick}>
                 <img src={BackButtonIcon} alt="Back" />
-            </button> */}
+            </button>
         </div>
     );
 }
