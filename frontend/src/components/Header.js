@@ -15,19 +15,7 @@ function Header() {
   const lastScrollY = useRef(window.scrollY);
   const scrollDirection = useScrollDirection();
   const [linkClicked, setLinkClicked] = useState(false);
-  const [pluginLoaded, setPluginLoaded] = useState(true);
-
-  useEffect(() => {
-      // Wait for a reasonable time to let the plugin load (e.g., 5 seconds)
-      const timeout = setTimeout(() => {
-          const loginPanel = document.getElementById('MBBv3_LoginPanel');
-          if (!loginPanel || loginPanel.innerHTML.trim() === "") {
-              setPluginLoaded(false); // Mark as not loaded if content is empty
-          }
-      }, 5000); // 5 seconds
-
-      return () => clearTimeout(timeout); // Cleanup timeout on component unmount
-  }, []);
+  
 
   // Toggling menu
   const toggleMenu = () => {
@@ -122,13 +110,7 @@ function Header() {
   return (
     <ScrollProvider>
       <div className="entire-header">
-        {pluginLoaded ? (
-            <div id="MBBv3_LoginPanel" className="login-panel"></div>
-        ) : (
-            <div className="plugin-error-message">
-                Plugin not loaded, reload page!
-            </div>
-        )}
+        <div id="MBBv3_LoginPanel" className="login-panel"></div>
         <header
           className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}
         >
