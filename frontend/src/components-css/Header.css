@@ -125,6 +125,8 @@ body {
   .header {
     flex-direction: row;
     align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 
   .nav {
@@ -150,8 +152,8 @@ body {
   align-items: center;
   background: #2c3e50;
   position: absolute;
-  top: 60px; /* Adjust this value to position the menu below the header */
-  padding-top: 20px;
+  top: 38px; /* Adjust this value to position the menu below the header */
+  padding-top: 10px;
   padding-bottom: 15px;
   left: 0;
   right: 0;
@@ -200,7 +202,11 @@ body {
   }
 
   .language-icons img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+  }
+
+  [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
+    display: none;
   }
 }

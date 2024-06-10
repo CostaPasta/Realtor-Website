@@ -20,22 +20,28 @@
 }
 
 #MBBv3_QuickSearch {
-    width: 73.5%;
+    width: 100%;
 }
+
+[id^=MBBv3]:not(#mbbV1) [id^=QuickSearchForm].mbb-form-search .bfg-qs-wrapper {
+    margin: 0 14% 0 14%;
+}
+
+
 
 /* Responsive adjustments */
 
 /* Tablets and below */
 @media (max-width: 768px) {
+    [id^=MBBv3]:not(#mbbV1) [id^=QuickSearchForm].mbb-form-search .bfg-qs-wrapper {
+        margin: 0;
+    }
     .title-container {
         flex-direction: column; /* Stack elements vertically */
         align-items: flex-start; /* Align items to the left */
         margin: 20px 0 0; /* Reduce margin for smaller screens */
     }
 
-    #MBBv3_QuickSearch {
-        width: 76%; /* Increase width to use more of the smaller viewport */
-    }
 }
 
 /* Mobile phones */
