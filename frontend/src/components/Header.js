@@ -62,7 +62,25 @@ function Header() {
     if (window.innerWidth <= 768) {
       const style = document.createElement('style');
       style.innerHTML = `
-        #MBBv3_LoginPanel .bfg-row-2 btn-group ml-0 {
+        [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
+          display: none !important;
+        }
+      
+        [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
+          display: none !important;
+          flex: 1 0 auto;
+          order: 2;
+        }
+      
+        [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
+          display: none !important;
+        }
+      
+        [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-2 div+div {
+          display: none;
+        }
+      
+        .bfg-row-2 btn-group ml-0 {
           display: none !important;
         }
       `;
