@@ -9,7 +9,7 @@ body {
     top: 0;
     width: 100%;
     max-width: 100%;
-    height: calc(101vh - 38px) !important;
+    height: calc(101vh - calc(38px + 5%)) !important;
     overflow: hidden;
     z-index: 200;
     margin-top: -100px;
@@ -71,7 +71,7 @@ body {
     flex: 0 0 100%;
     position: relative;
     overflow: hidden;  /* Ensures gradient doesn't spill over */
-    height: calc(101vh - 38px) !important;
+    height: calc(101vh - calc(38px + 5%)) !important;
 }
 
 .slide img {
