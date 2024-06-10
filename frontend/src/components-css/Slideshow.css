@@ -9,7 +9,7 @@ body {
     top: 0;
     width: 100%;
     max-width: 100%;
-    height: calc(101vh - var(--login-panel-height)) !important;
+    height: calc(101vh - 38px) !important;
     overflow: hidden;
     z-index: 200;
     margin-top: -100px;
@@ -71,6 +71,7 @@ body {
     flex: 0 0 100%;
     position: relative;
     overflow: hidden;  /* Ensures gradient doesn't spill over */
+    height: calc(101vh - 38px) !important;
 }
 
 .slide img {
@@ -132,8 +133,8 @@ body {
 }
 
 @media (max-width: 768px) {
-    .slideshow {
-        height: calc(88vh - var(--login-panel-height)) !important; /* Adjust to a smaller height on mobile devices */
+    .slideshow, .slide {
+        height: calc(100vh + 38px) !important; /* Adjust to a smaller height on mobile devices */
     }
 
     .slide-image {

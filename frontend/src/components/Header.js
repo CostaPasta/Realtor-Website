@@ -53,14 +53,16 @@ function Header() {
     };
   }, [scrollDirection, linkClicked]);
 
-  useEffect(() => {
-    const loginPanel = document.querySelector('mbb-component-element.login-panel');
-    if (loginPanel) {
-      const loginPanelHeight = loginPanel.offsetHeight;
-      document.documentElement.style.setProperty('--login-panel-height', `${loginPanelHeight}px`);
-      console.log(loginPanelHeight);
-    }
-  }, []);
+
+  // useEffect(() => {
+  //   const loginPanel = document.querySelector('mbb-component-element.login-panel');
+  //   if (loginPanel) {
+  //     const loginPanelHeight = loginPanel.offsetHeight;
+  //     document.documentElement.style.setProperty('--login-panel-height', `${loginPanelHeight}px`);
+  //     console.log(loginPanelHeight);
+  //   }
+  // }, []);
+
 
   // Function to change language through Header banner using Google Translate
   const changeLanguage = (langCode) => {
@@ -96,6 +98,7 @@ function Header() {
     tryChangeLanguage();
   };
 
+
   // Function to inject custom styles into the Shadow DOM
   const injectCustomStyles = (shadowRoot) => {
     const style = document.createElement('style');
@@ -129,6 +132,7 @@ function Header() {
     console.log("Custom styles injected into the Shadow DOM.");
   };
 
+
   // Function to check the login panel and apply styles
   const checkLoginPanelAndApplyStyles = (attempts = 0, maxAttempts = 10) => {
     const loginPanel = document.querySelector('mbb-component-element.login-panel');
@@ -142,6 +146,7 @@ function Header() {
     }
   };
 
+
   // Check if a specific stylesheet is loaded
   const isStylesheetLoaded = (href) => {
     const stylesheets = document.styleSheets;
@@ -153,6 +158,7 @@ function Header() {
     return false;
   };
 
+  
   useEffect(() => {
     const stylesheetUrl = 'https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz';
 
