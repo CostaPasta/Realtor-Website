@@ -57,6 +57,38 @@ function Header() {
   }, [scrollDirection, linkClicked]);
 
 
+  // Function to dynamically apply custom styles for mobile viewports
+  const addMobileStyles = () => {
+    if (window.innerWidth <= 768) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .bfg-row-2.btn-group.ml-0 {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  };
+
+  // Use MutationObserver to apply styles when the class is added
+  useEffect(() => {
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList' || mutation.type === 'attributes') {
+          if (document.querySelector('.bfg-row-2.btn-group.ml-0')) {
+            addMobileStyles();
+          }
+        }
+      }
+    });
+
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
 
   useEffect(() => {
     const loginPanel = document.querySelector('mbb-component-element.login-panel');
