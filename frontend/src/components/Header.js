@@ -119,6 +119,11 @@ function Header() {
       [id^=MBBv3]:not(#mbbV1) .btn-toolbar {
         flex-wrap: nowrap;
       }
+
+      [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-3 {
+        order: 2;
+        flex: 0 0 auto;
+      }
     `;
     shadowRoot.appendChild(style);
     console.log("Custom styles injected into the Shadow DOM.");
