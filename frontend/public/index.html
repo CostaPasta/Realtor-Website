@@ -64,72 +64,72 @@
       }
 
         // Function to inject custom styles into the Shadow DOM
-        const injectCustomStyles = (shadowRoot) => {
-        const style = document.createElement('style');
-        style.textContent = `
-          [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
-            display: none !important;
-          }
-          [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
-            display: none !important;
-            flex: 1 0 auto;
-            order: 2;
-          }
-          [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-3, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-3 {
-            flex: 0 0 auto;
-            order: 2;
-          }
-          [id^=MBBv3]:not(#mbbV1) .btn-toolbar {
-            flex-wrap: nowrap;
-          }
-          [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-3 {
-            order: 2;
-            flex: 0 0 auto;
-          }
-        `;
-        shadowRoot.appendChild(style);
-        console.log("Custom styles injected into the Shadow DOM.");
-      };
+        // const injectCustomStyles = (shadowRoot) => {
+        //   const style = document.createElement('style');
+        //   style.textContent = `
+        //     [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
+        //       display: none !important;
+        //     }
+        //     [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
+        //       display: none !important;
+        //       flex: 1 0 auto;
+        //       order: 2;
+        //     }
+        //     [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-3, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-3 {
+        //       flex: 0 0 auto;
+        //       order: 2;
+        //     }
+        //     [id^=MBBv3]:not(#mbbV1) .btn-toolbar {
+        //       flex-wrap: nowrap;
+        //     }
+        //     [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-3 {
+        //       order: 2;
+        //       flex: 0 0 auto;
+        //     }
+        //   `;
+        //   shadowRoot.appendChild(style);
+        //   console.log("Custom styles injected into the Shadow DOM.");
+        // };
 
       // Function to check the login panel and apply styles
-      const checkLoginPanelAndApplyStyles = (attempts = 0, maxAttempts = 10) => {
-        const loginPanel = document.querySelector('mbb-component-element.login-panel');
-        if (loginPanel && loginPanel.shadowRoot) {
-          injectCustomStyles(loginPanel.shadowRoot);
-        } else if (attempts < maxAttempts) {
-          console.log(`Login panel or shadow root not found, checking again in 1 second (attempt ${attempts + 1})...`);
-          setTimeout(() => checkLoginPanelAndApplyStyles(attempts + 1, maxAttempts), 1000);
-        } else {
-          console.log("Max attempts reached, stopping further checks.");
-        }
-      };
+      // const checkLoginPanelAndApplyStyles = (attempts = 0, maxAttempts = 10) => {
+      //   const loginPanel = document.querySelector('mbb-component-element.login-panel');
+      //   if (loginPanel && loginPanel.shadowRoot) {
+      //     injectCustomStyles(loginPanel.shadowRoot);
+      //   } else if (attempts < maxAttempts) {
+      //     console.log(`Login panel or shadow root not found, checking again in 1 second (attempt ${attempts + 1})...`);
+      //     setTimeout(() => checkLoginPanelAndApplyStyles(attempts + 1, maxAttempts), 1000);
+      //   } else {
+      //     console.log("Max attempts reached, stopping further checks.");
+      //   }
+      // };
 
       // Check if a specific stylesheet is loaded
-      const isStylesheetLoaded = (href) => {
-        const stylesheets = document.styleSheets;
-        for (let i = 0; i < stylesheets.length; i++) {
-          if (stylesheets[i].href && stylesheets[i].href.includes(href)) {
-            return true;
-          }
-        }
-        return false;
-      };
+      // const isStylesheetLoaded = (href) => {
+      //   const stylesheets = document.styleSheets;
+      //   for (let i = 0; i < stylesheets.length; i++) {
+      //     if (stylesheets[i].href && stylesheets[i].href.includes(href)) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // };
 
-      window.addEventListener('load', () => {
-        const stylesheetUrl = 'https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz';
+      // window.addEventListener('load', () => {
+      //   const stylesheetUrl = 'https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz';
 
-        const checkStylesheetAndApplyStyles = () => {
-          if (isStylesheetLoaded(stylesheetUrl)) {
-            console.log("Stylesheet loaded.");
-            checkLoginPanelAndApplyStyles();
-          } else {
-            console.log("Stylesheet not loaded yet, checking again in 1 second...");
-            setTimeout(checkStylesheetAndApplyStyles, 1000);
-          }
-        };
+      //   const checkStylesheetAndApplyStyles = () => {
+      //     if (isStylesheetLoaded(stylesheetUrl)) {
+      //       console.log("Stylesheet loaded.");
+      //       checkLoginPanelAndApplyStyles();
+      //     } else {
+      //       console.log("Stylesheet not loaded yet, checking again in 1 second...");
+      //       setTimeout(checkStylesheetAndApplyStyles, 1000);
+      //     }
+      //   };
 
-        checkStylesheetAndApplyStyles();
-      });
+      //   checkStylesheetAndApplyStyles();
+      // });
     </script>
 
     <!-- Load Google Maps API with callback -->

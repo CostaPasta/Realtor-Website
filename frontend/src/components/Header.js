@@ -159,7 +159,9 @@ function Header() {
             <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
               SEARCH
             </Link>
-            <a href="/contact">CONTACT</a>
+            <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+              CONTACT
+            </Link>
           </nav>
           <button className="menu-icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>

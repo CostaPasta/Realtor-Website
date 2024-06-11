@@ -2,6 +2,7 @@
   display:none !important;
 }
 
+
 body {
   top: 0 !important;
 }
@@ -113,7 +114,7 @@ body {
   .nav a:hover {
     text-decoration: underline;
     color: #f39c12;
-    text-shadow: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   }
 
   .language-icons img:hover {

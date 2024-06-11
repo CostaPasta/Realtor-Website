@@ -10,6 +10,7 @@ import Areas from './Areas';
 import Footer from './Footer'
 import { Element } from 'react-scroll'; // Import Element from react-scroll
 import { ScrollProvider } from './ScrollContext';
+import Contact from './Contact';
 
 function Home() {
     
@@ -32,8 +33,8 @@ function Home() {
                 <Element name="searchComponent" >
                     <Search />
                 </Element>
-                <Element name="listingsComponent">
-                    <Listings />
+                <Element name="contactComponent">
+                    <Contact />
                 </Element>
                 <Footer/>
             </div>

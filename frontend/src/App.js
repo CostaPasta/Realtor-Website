@@ -35,7 +35,7 @@ function App() {
         <Route path="/DelrayBeach" element={<DelrayBeach/>} />
         <Route path="/BoyntonBeach" element={<BoyntonBeach/>} />
         <Route path="/Broward" element={<Broward/>} />
-        <Route path="/contact/" element={<Contact/>} />
+        {/* <Route path="/contact/" element={<Contact/>} /> */}
         <Route path="/TermsOfService" element={<TermsOfService/>} />
       </Routes>
     </Router>

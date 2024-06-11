@@ -1,0 +1,27 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0;
+    width: auto;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.title-container {
+    background-color: white;
+}
+
+#MBBv3_LcForm {
+    width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 1000px;
+}
+
+[id^=MBBv3]:not(#mbbV1) .lcform-wrap.contactme {
+    margin: 0 !important;
+    max-width: 1000px !important;
+}
