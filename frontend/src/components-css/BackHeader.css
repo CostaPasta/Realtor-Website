@@ -8,7 +8,6 @@
     background: #2c3e50;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .back-button {
@@ -31,6 +30,8 @@
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    display: flex;
+    justify-content: left;
 }
 
 .back-button:active {
