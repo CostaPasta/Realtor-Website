@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import Contact from './components/Contact';
 import PropertyDetails from './components/PropertyDetails';
 import SearchResults from './components/SearchResults';
 import ListingResultsWidget from './components/ListingResultsWidget';

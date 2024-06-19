@@ -1,7 +1,5 @@
 import React from 'react';
-import BackHeader from './BackHeader';
 import '../components-css/Contact.css'
-import DadImageTransparent from '../images/dadtransparent.png';
 
 function Contact() {
   return (

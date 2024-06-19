@@ -91,8 +91,8 @@ const Footer = () => {
                         <div className="footer-column">
                             <h4>MY COMPANY</h4>
                             <ul>
-                                <li><a>(954) 614-1351</a></li>
-                                <li><a>USARealtor1@gmail.com</a></li>
+                                <li><a href="tel:(954) 614-1351">(954) 614-1351</a></li>
+                                <li><a href="mailto:USARealtor1@gmail.com">USARealtor1@gmail.com</a></li>
                                 <li><Link reloadDocument to="/TermsOfService">Terms Of Service</Link></li>
                             </ul>
                         </div>

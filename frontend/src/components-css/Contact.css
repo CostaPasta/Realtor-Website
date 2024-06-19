@@ -8,6 +8,7 @@
     width: auto;
     background-color: white;
     overflow-x: hidden;
+    padding-bottom: 50px;
 }
 
 .title-container {

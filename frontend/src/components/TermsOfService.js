@@ -29,16 +29,12 @@ const TermsOfService = () => {
   const containerStyle = {
     maxWidth: '800px',
     margin: '0 auto',
-    padding: '20px',
     lineHeight: '1.6',
     backgroundColor: '#2c3e50', // A darker background for contrast
     borderRadius: '8px',
     padding: '30px'
   };
 
-  const handleBackButtonClick = () => {
-      window.location.href = "/"; // Navigate to the home page and refresh it
-  };
 
   return (
     <div className="TOScontainer">

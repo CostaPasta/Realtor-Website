@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../components-css/Slideshow.css';
-import { useScrollContext } from './ScrollContext';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import BeachImage from '../images/beach.jpg';
 import PierImage from '../images/pier.jpeg';
@@ -11,7 +10,6 @@ function Slideshow() {
     const [currentIndex, setCurrentIndex] = useState(1); // Start from the first "real" slide
     const [isTransitioning, setIsTransitioning] = useState(true);
     const slidesRef = useRef(null);
-    const { isScrolled } = useScrollContext();
 
 
     // USED FOR SLIDESHOW
@@ -52,19 +50,24 @@ function Slideshow() {
     };
 
     useEffect(() => {
+        const nextSlide = () => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        };
+
         const interval = setInterval(() => {
             nextSlide();
-        }, 9000); // Change the slide every 5000ms (5 seconds)
+        }, 9000); // Change the slide every 9000ms (9 seconds)
 
         return () => clearInterval(interval); // Clear the interval when the component unmounts
-    }, [currentIndex]); // Depend on `currentIndex` to trigger changes
+    }, [currentIndex, images.length]); // Added images.length to the dependency array
 
     useEffect(() => {
         if ((currentIndex === 1 || currentIndex === images.length) && !isTransitioning) {
             // Re-enable transition after resetting
             setTimeout(() => setIsTransitioning(true), 50); // A slight delay to ensure re-enabling happens after the reset
         }
-    }, [currentIndex, isTransitioning]);
+    }, [currentIndex, isTransitioning, images.length]); // Added images.length to the dependency array
+
 
     const offset = -currentIndex * 100; // Calculate the offset based on the current index
 

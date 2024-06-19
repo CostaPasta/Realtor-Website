@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import BackButtonIcon from './locations/icons/back-button.png'
 

@@ -1,9 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import Slideshow from './Slideshow';
-
-import Listings from './Listings';
-//import Contact from './Contact';
 import AboutMe from './About';
 import Search from './Search';
 import Areas from './Areas';
