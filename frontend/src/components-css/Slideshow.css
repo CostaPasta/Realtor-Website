@@ -6,7 +6,7 @@ body {
 .slideshow {
     position: relative;
     width: 100%;
-    height: calc(100vh - 38px) !important; /* Full viewport height */
+    height: calc(101svh - 38px) !important; /* Full viewport height */
     overflow: hidden;
     z-index: 200;
     margin-top: -100px; /* Adjust as needed to fit your design */
@@ -116,7 +116,7 @@ body {
     }
 
     .slideshow {
-        height: 100svh !important; /* Adjust to a smaller height on mobile devices */
+        height: 101svh !important; /* Adjust to a smaller height on mobile devices */
     }
 
     .slide-image {
