@@ -34,7 +34,7 @@ body {
 
 .header.transparent .logo, .header.transparent .nav a {
   color: white;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 .header.transparent, .entire-header .nav.open.transparent {
   background: none; /* Remove background color when transparent */
@@ -65,7 +65,7 @@ body {
   /* border: 1px solid red; */
   top: 0;
   position: sticky;
-  padding: 0 5%;
+  padding: 0 10%;
   max-height: calc(38px + 5%);
   
 }
@@ -74,7 +74,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 5%;
+    padding: 30px 10%;
     /* background: linear-gradient(to bottom, #333333 55%, rgba(51, 51, 51, 0.8) 100%); */
     background-color: white;
     /* text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8); */
@@ -98,7 +98,7 @@ body {
   }
 
   .logo {
-    font-size: 2em;
+    font-size: 33px;
     font-weight: bold;
     cursor: pointer;
     color: #2c3e50;
@@ -203,6 +203,11 @@ body {
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
+  }
+
+  .header.transparent .menu-icon .bar {
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
   }
 
   .nav {
