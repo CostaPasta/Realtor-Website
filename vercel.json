@@ -1,15 +1,20 @@
 {
     "redirects": [
-        {
+      {
         "source": "http://josecostarealtor.com/(.*)",
         "destination": "https://www.josecostarealtor.com/$1",
         "permanent": true
-        },
-        {
+      },
+      {
         "source": "https://josecostarealtor.com/(.*)",
         "destination": "https://www.josecostarealtor.com/$1",
         "permanent": true
-        }
+      },
+      {
+        "source": "http://www.josecostarealtor.com/(.*)",
+        "destination": "https://www.josecostarealtor.com/$1",
+        "permanent": true
+      }
     ]
 }
   
