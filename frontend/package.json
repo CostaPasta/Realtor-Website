@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://translate.googleapis.com",
   "eslintConfig": {
     "extends": [
       "react-app",
