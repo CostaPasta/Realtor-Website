@@ -39,3 +39,11 @@
     transform: scale(0.98);
 }
 
+@media (max-width: 768px) {
+    .back-button {
+        padding-left: 4%;
+    }
+
+}
+
+
