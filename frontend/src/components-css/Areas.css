@@ -5,7 +5,7 @@
     justify-content: center;
     height: auto; /* This will make it take the full viewport height */
     padding: 0;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .header-container {
@@ -74,6 +74,7 @@ h1 {
 
   .grid-box:hover {
     transform: translateY(-5px);
+    color: #f39c12;
 }
 
   /* For medium-sized screens: 2 boxes per row */

@@ -6,23 +6,33 @@
     height: auto;
     padding: 0;
     width: auto;
-    background-color: white;
+    /* background-color: white; */
     overflow-x: hidden;
     padding-bottom: 50px;
 }
 
-.title-container {
-    background-color: white;
-}
 
 #MBBv3_LcForm {
     width: 100%;
     margin-left: 10%;
     margin-right: 10%;
     max-width: 1000px;
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.4); /* x-offset, y-offset, blur radius, spread radius, color */
 }
 
 [id^=MBBv3]:not(#mbbV1) .lcform-wrap.contactme {
     margin: 0 !important;
     max-width: 1000px !important;
+}
+
+[id^="MBBv3"]:not(#mbbV1) #QuickSearchForm .bfg-qs-wrapper {
+    background: none !important;
+    border: none !important;
+}
+
+@media (max-width: 768px) {
+    #MBBv3_LcForm {
+        padding-top: 10px;
+    }
+
 }

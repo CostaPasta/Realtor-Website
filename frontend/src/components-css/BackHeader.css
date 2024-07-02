@@ -7,11 +7,13 @@
     /* background: linear-gradient(to bottom, #333333 75%, rgba(51, 51, 51, 0.8) 100%); */
     display: flex;
     flex-direction: column;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* x-offset, y-offset, blur radius, spread radius, color */
 }
 
 .back-button {
     margin: 0;
     padding-left: 10%;
+    padding-bottom: 5px;
     background: none;
     border: none;
     outline: 0;

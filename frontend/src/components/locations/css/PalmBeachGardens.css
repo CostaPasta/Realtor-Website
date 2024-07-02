@@ -142,6 +142,8 @@ h1.title {
 
 .fact-card:hover {
     transform: translateY(-5px);
+    color: #f39c12;
+    cursor: pointer;
 }
 
 .fact-icon {

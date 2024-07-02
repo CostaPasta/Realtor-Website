@@ -201,6 +201,13 @@ body {
 
 /* Add this CSS to style the burger icon on smaller screens */
 @media (max-width: 768px) {
+  .header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .login-panel {
+    padding: 0 5%;
+  }
   .menu-icon {
     display: block;
   }

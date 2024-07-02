@@ -1,19 +1,22 @@
 import React from "react";
 import Footer from "./Footer";
-import BackButtonIcon from './locations/icons/back-button.png'
+// import BackButtonIcon from './locations/icons/back-button.png'
+import BackHeader from "./BackHeader";
+
 
 const SearchResults = () => {
   
-  const handleBackButtonClick = () => {
-      window.location.href = "/"; // Navigate to the home page and refresh it
-  };
+  // const handleBackButtonClick = () => {
+  //     window.location.href = "/"; // Navigate to the home page and refresh it
+  // };
 
   return (
     <div className="search_container">
         <div className="back-header-container">
-            <button className="back-button" onClick={handleBackButtonClick}>
+            {/* <button className="back-button" onClick={handleBackButtonClick}>
                 <img src={BackButtonIcon} alt="Back" />
-            </button>
+            </button> */}
+            <BackHeader></BackHeader>
         </div>
         <div id="MBBv3_ListingResults"></div>
         <Footer/>
