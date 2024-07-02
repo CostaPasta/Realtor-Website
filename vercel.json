@@ -1,0 +1,28 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://www.josecostarealtor.com",
+      "permanent": true
+    },
+    {
+      "source": "/(.*[^/])$",
+      "destination": "https://www.josecostarealtor.com/$1/",
+      "permanent": true
+    },
+    {
+      "source": "/test",
+      "destination": "https://www.example.com",
+      "permanent": true
+    }
+  ],
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/build"
+      }
+    }
+  ]
+}
