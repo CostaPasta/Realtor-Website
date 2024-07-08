@@ -48,7 +48,7 @@ const Slideshow = () => {
                             alt={img.alt} 
                             loading={index === 0 ? 'eager' : 'lazy'}
                             className="slide-image"
-                            sizes="(max-width: 768px) 100vw, 100vw"
+                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
                             srcSet={`
                                 ${img.src} 480w,
                                 ${img.src} 800w,
