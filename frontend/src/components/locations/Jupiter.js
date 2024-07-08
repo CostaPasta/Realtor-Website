@@ -176,16 +176,14 @@ const Jupiter = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Jupiter" />
+                <div className="bannerContent">
+                    <a href="https://www.jupiter.fl.us/"><h1 className="title">WELCOME TO JUPITER</h1></a>
+                    <p className="description">Explore Jupiter, Florida, where stunning beaches meet a vibrant community life and robust real estate opportunities.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.jupiter.fl.us/"><h1 className="title">WELCOME TO JUPITER</h1></a>
-                        <p className="description">Explore Jupiter, Florida, where stunning beaches meet a vibrant community life and robust real estate opportunities.</p>
-                    </div>
-                </div>
 
                 {/* Facts Grid */}
                 <div className="facts-grid">

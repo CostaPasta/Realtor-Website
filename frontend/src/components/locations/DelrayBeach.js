@@ -176,16 +176,14 @@ const DelrayBeach = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Delray Beach" />
+                <div className="bannerContent">
+                    <a href="https://www.delraybeachfl.gov/"><h1 className="title">WELCOME TO DELRAY BEACH</h1></a>
+                    <p className="description">Explore Delray Beach, a vibrant coastal city where community, culture, and comfort converge to create a truly unique lifestyle.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.delraybeachfl.gov/"><h1 className="title">WELCOME TO DELRAY BEACH</h1></a>
-                        <p className="description">Explore Delray Beach, a vibrant coastal city where community, culture, and comfort converge to create a truly unique lifestyle.</p>
-                    </div>
-                </div>
 
                 {/* Facts Grid */}
                 <div className="facts-grid">

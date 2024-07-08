@@ -176,16 +176,14 @@ const BoyntonBeach = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Delray Beach" />
+                <div className="bannerContent">
+                    <a href="https://www.boynton-beach.org/"><h1 className="title">WELCOME TO BOYNTON BEACH</h1></a>
+                    <p className="description">Discover Boynton Beach, a flourishing Florida city known for its welcoming community, scenic beauty, and vibrant lifestyle.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.boynton-beach.org/"><h1 className="title">WELCOME TO BOYNTON BEACH</h1></a>
-                        <p className="description">Discover Boynton Beach, a flourishing Florida city known for its welcoming community, scenic beauty, and vibrant lifestyle.</p>
-                    </div>
-                </div>
 
                 {/* Facts Grid */}
                 <div className="facts-grid">

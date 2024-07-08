@@ -1,22 +1,38 @@
-
 .title:hover {
-    color: rgb(80, 80, 80);
+    color: #f39c12;
+    cursor: pointer;
 }
 
 .palmBeachContainer {
-    
     background-color: #edecec;
 }
 
 .bannerImage img {
     width: 100%;
-    height: 68vh;
+    height: 60vh;
     object-fit: cover;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
 }
 
-.description, .closing{
-    font-size: 20px;
-    margin-bottom: 0;
+.bannerImage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.bannerContent {
+    position: absolute;
+    text-align: center;
+    color: white;
+    margin-top: 12%;
+}
+
+p.description {
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+    font-size: 22px;
+    color: white;
 }
 
 .flex-wrapper-locations {
@@ -24,24 +40,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; /* This will make it take the full viewport height */
+    height: auto;
     width: 100%;
-    padding: 0;
-    margin-top: 20px;
+    margin: 0;
+    margin-top: 80px;
 }
 
-.introduction .intro-content a {
+h1.title {
+    font-size: 48px;
+    margin: 0;
+    color: white;
     text-decoration: none;
+    text-shadow: 4px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
-.introduction a h1.title {
-    font-size: 37px;
-    margin: 0; /* Remove any default margin */
-    color: black;
-    text-decoration: none;
-}
-
-.introduction, .facts-grid, .conclusion{
+.introduction, .facts-grid, .conclusion {
     width: 70%;
     margin-left: 30px;
     margin-right: 30px;
@@ -49,140 +62,19 @@
 }
 
 .introduction {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px; */
     display: flex;
-    width: 70%;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 51px;
 }
 
 .intro-content {
     display: flex;
-    flex-direction: column; /* Stack the h1 and p vertically */
-    justify-content: flex-start; 
-}
-
-
-
-/* Facts grid centered with 3 facts per row */
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: 70%;
-    margin: 30px;
-}
-
-.fact-card {
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
-    text-align: left;
-    
-    height: 250px;
-    min-height: 120px;
-    border: none;
-    padding: 16px;
-    font-size: 1.6em;
-    background-color: lightblue;
-    background-size: cover; /* This ensures the image covers the entire grid box */
-    background-position: center; /* This centers the image in the grid box */
-    color: white; /* Adjust text color if needed */
-    position: relative;
-    border-radius: 0;
-    z-index: 0;
 }
 
-.fact-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 50%; /* covers the bottom 25% of the grid box */
-    background: linear-gradient(
-        rgba(0, 0, 0, 0), /* Start with low opacity */
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 1)
-    ); /* Gradient effect */
-    z-index: -1;
-    }
-
-.fact-card:hover {
-    transform: translateY(-5px);
-}
-
-.fact-icon {
-    max-width: 80px; /* Adjust based on your icon sizes */
-    
-}
-
-.fact-heading{
-    font-size: 24px;
-    margin-bottom: 0;
-}
-
-.fact-description {
-    margin-top: 2%;
-    font-size: 18px;
-    margin-bottom: 0;
-}
-
-.spacer {
-    flex-grow: 1;
-}
-
-
-.extra-facts {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0;
-    margin-bottom: 2%;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; /* Makes it clear it's clickable */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-radius: 0;
-    padding: 20px 50px; /* Adjust padding to make it look more like a button */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    background-color: #c6c6c6;
-    text-align: center; /* Ensure text is centered if it wraps */
-    max-width: 90%;
-    width: 40%;
-    font-size: 30px;
-    font-weight: bolder;
-    margin-bottom: 50px;
-}
-
-.search a {
-    color: black;
-    text-decoration: none;
-}
-
-.search:hover {
-    background-color: #6c6c6c; /* Slightly darker on hover for a button-like feel */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-}
-
-
-
+/* Updated content styles */
 .content-container {
     display: flex;
     flex-direction: column;
@@ -192,17 +84,19 @@
 .content-title h1 {
     font-size: 37px;
 }
+
 .content-title {
     text-align: left;
     margin: 30px 0 20px 0;
 }
+
 .content-title.reverse {
     text-align: right;
 }
 
 .content-body {
     display: flex;
-    flex-direction: row; /* Ensure this is explicitly set for larger screens */
+    flex-direction: row;
     align-items: flex-start;
     gap: 50px;
 }
@@ -222,7 +116,6 @@
     padding: 0;
 }
 
-
 .description-title {
     margin: 0;
     font-size: 28px;
@@ -233,11 +126,8 @@
     font-size: 20px;
 }
 
-
 .content-img {
-    /* padding-top: 5%; */
     display: flex;
-    
 }
 
 .content-img img {
@@ -247,109 +137,183 @@
     object-fit: contain;
 }
 
+/* Facts grid centered with 3 facts per row */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 0;
+    max-width: 1500px;
+}
 
+.fact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    height: 282px;
+    min-height: 120px;
+    border: none;
+    padding: 16px;
+    font-size: 1.6em;
+    background-color: lightblue;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    border-radius: 0;
+    z-index: 0;
+}
 
+.fact-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%;
+    background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
+    z-index: -1;
+}
 
+.fact-card:hover {
+    transform: translateY(-5px);
+    color: #f39c12;
+    cursor: pointer;
+}
 
+.fact-heading {
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.fact-description {
+    margin-top: 2%;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.extra-facts {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 0;
+    padding: 20px 150px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #6fadef;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    margin-bottom: 10%;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.search:hover {
+    background-color: #5c9dd9;
+    transform: translateY(-2px);
+}
 
 /* For medium-sized screens: 2 boxes per row */
 @media (max-width: 800px) {
     .facts-grid  {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
+}
   
-  /* For smaller screens: 1 box per row */
-  @media (max-width: 500px) {
+/* For smaller screens: 1 box per row */
+@media (max-width: 500px) {
     .facts-grid  {
       grid-template-columns: repeat(1, 1fr);
     }
-  }
+}
 
 /* For medium-sized screens */
 @media (max-width: 800px) {
     .introduction {
-        flex-direction: column; /* Stack the H1 and button vertically */
-        align-items: flex-start; /* Align items to the start (left) */
-        gap: 10px; /* space between the H1 and button */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
-    .introduction .intro-content a {
-        font-size: 15px; /* Adjust the font size */
+    h1 {
+        font-size: 24px;
     }
-
 }
 
 /* For smaller screens */
 @media (max-width: 500px) {
     .introduction {
-        
-        margin-left: 0px;
-        margin-right: 0px;
-        width: 100%;
+        max-width: 90%;
     }
 
-    .facts-grid, .conclusion {
-        width: 90%; /* Adjust the width to match the header container */
-        margin: 20px 0; /* Reduce the margin */
+    .facts-grid {
+        width: 90%;
+        margin: 20px 0;
     }
 
-    .introduction a h1.title {
-        font-size: 26px; /* Further reduce the font size */
+    h1 {
+        font-size: 20px;
     }
 
     .fact-card {
-        font-size: 1em; /* Adjust the font size for the grid box */
-        padding: 10px; /* Adjust padding */
+        font-size: 1em;
+        padding: 10px;
     }
-
-    .flex-wrapper-locations {
-        width: 100%;
-    }
-    .closing {
-        font-size: 24px;
-    }
-    .search {
-        width: 100%;
-        margin: 0 20px 50px 20px;
-    }
-
 }
 
-
-@media (max-width: 768px) { /* Adjust the max-width as needed for your design */
+@media (max-width: 768px) {
     .content-container {
         margin: 20px 20px 0 20px;
     }
+
     .content-title h1 {
         font-size: 30px;
     }
+
     .content-title {
         margin-top: 20px;
     }
+
     .description-title {
         font-size: 25px;
     }
+
     .description-tag {
         font-size: 24px;
     }
+
     .content-title.reverse {
         text-align: left;
     }
+
     .content-body {
-        flex-direction: column; /* Stack items vertically */
-        gap: 20px; /* Adjust gap for vertical layout */
+        flex-direction: column;
+        gap: 20px;
     }
 
-    .content-body .content-img {
-        order: 3;
-    }
+    .content-body .content-img,
     .content-body.reverse .content-img {
         order: 3;
     }
+
     .content-body .content-description {
-        order: 2; /* Reset the order for smaller screens */
+        order: 2;
     }
-
 }
-

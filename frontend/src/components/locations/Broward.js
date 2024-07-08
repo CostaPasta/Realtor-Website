@@ -176,16 +176,14 @@ const Broward = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Broward" />
+                <div className="bannerContent">
+                    <a href="https://www.broward.org/Pages/Welcome.aspx"><h1 className="title">WELCOME TO BROWARD</h1></a>
+                    <p className="description">Explore Broward County, a vibrant community known for its beautiful landscapes, cultural diversity, and thriving real estate market.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.broward.org/Pages/Welcome.aspx"><h1 className="title">WELCOME TO BROWARD</h1></a>
-                        <p className="description">Explore Broward County, a vibrant community known for its beautiful landscapes, cultural diversity, and thriving real estate market.</p>
-                    </div>
-                </div>
 
                 {/* Facts Grid */}
                 <div className="facts-grid">

@@ -176,16 +176,14 @@ const Wellington = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="West Palm Beach" />
+                <div className="bannerContent">
+                    <a href="https://www.wellingtonfl.gov/"><h1 className="title">WELCOME TO WELLINGTON</h1></a>
+                    <p className="description">Discover Wellington, a charming and vibrant community celebrated for its equestrian heritage, lush landscapes, and dynamic real estate market.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.wellingtonfl.gov/"><h1 className="title">WELCOME TO WELLINGTON</h1></a>
-                        <p className="description">Discover Wellington, a charming and vibrant community celebrated for its equestrian heritage, lush landscapes, and dynamic real estate market.</p>
-                    </div>
-                </div>
 
                 {/* Facts Grid */}
                 <div className="facts-grid">

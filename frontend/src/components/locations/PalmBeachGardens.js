@@ -176,15 +176,16 @@ const PalmBeachGardens = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Palm Beach" />
+                <div className="bannerContent">
+                    <a href="https://www.thepalmbeaches.com/explore-cities/palm-beach-gardens"><h1 className="title">WELCOME TO PALM BEACH GARDENS</h1></a>
+                    <p className="description">In Palm Beach Gardens, life is not just lived; it's celebrated. Embrace a community where every day brings new opportunities for joy and discovery.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
                 <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.thepalmbeaches.com/explore-cities/palm-beach-gardens"><h1 className="title">WELCOME TO PALM BEACH GARDENS</h1></a>
-                        <p className="description">In Palm Beach Gardens, life is not just lived; it's celebrated. Embrace a community where every day brings new opportunities for joy and discovery.</p>
-                    </div>
+
                 </div>
 
                 {/* Facts Grid */}

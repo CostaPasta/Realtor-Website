@@ -2,7 +2,7 @@ import React from "react";
 import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
-import './css/PalmBeachGardens.css'; // Make sure the CSS file path is correct
+import './css/PalmBeach.css'; // Make sure the CSS file path is correct
 import palmbeachbanner from '../../images/Areas/Headers/PALMBEACH-HEADER.jpeg'
 
 import BeachPic from './cardimages/PalmBeach/Beach.jpeg'
@@ -169,16 +169,15 @@ const PalmBeach = () => {
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Palm Beach" />
+                <div className="bannerContent">
+                    <h1 className="title">WELCOME TO PALM BEACH</h1>
+                    <p className="description">Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
+                </div>
             </div>
 
             <div className="flex-wrapper-locations">
                 {/* Introduction */}
-                <div className="introduction">
-                    <div className="intro-content">
-                        <a href="https://www.thepalmbeaches.com/explore-cities/palm-beach"><h1 className="title">WELCOME TO PALM BEACH</h1></a>
-                    <p className="description">Discover the beauty and luxury of Palm Beach, a haven of serene beaches, exquisite dining, and vibrant culture.</p>
-                    </div>
-                </div>
+                
 
                 {/* Facts Grid */}
                 <div className="facts-grid">
