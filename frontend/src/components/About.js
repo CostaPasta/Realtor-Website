@@ -1,6 +1,6 @@
 import React from 'react';
 import '../components-css/About.css';
-import DadImageTransparent from '../images/dadtransparent.png';
+import DadImageTransparent from '../images/dadtransparent.webp';
 
 const AboutMe = () => {
     return (
