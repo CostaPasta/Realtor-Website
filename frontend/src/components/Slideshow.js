@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import '../components-css/Slideshow.css';
 
-// Import your images
 import BeachImage from '../images/beach.webp';
 import PierImage from '../images/pier.webp';
 import CityImage from '../images/city.webp';
@@ -31,7 +30,6 @@ const Slideshow = () => {
     }, [nextSlide]);
 
     useEffect(() => {
-        // Preload the next image
         const nextIndex = (currentIndex + 1) % images.length;
         const img = new Image();
         img.src = images[nextIndex].src;
@@ -50,6 +48,12 @@ const Slideshow = () => {
                             alt={img.alt} 
                             loading={index === 0 ? 'eager' : 'lazy'}
                             className="slide-image"
+                            sizes="(max-width: 768px) 100vw, 100vw"
+                            srcSet={`
+                                ${img.src} 480w,
+                                ${img.src} 800w,
+                                ${img.src} 1200w
+                            `}
                         />
                     </div>
                 ))}
