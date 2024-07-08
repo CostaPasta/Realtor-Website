@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/PALMBEACHGARDENS.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/PALMBEACHGARDENS.webp'
 
-import BeachPic from './cardimages/PalmBeachGardens/lifestyle.jpeg'
-import CityPic from './cardimages/PalmBeachGardens/realestate.jpeg'
-import OutdoorPic from './cardimages/PalmBeachGardens/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/PalmBeachGardens/localattraction.jpeg'
-import EducationPic from './cardimages/PalmBeach/education.jpeg'
-import TransportationPic from './cardimages/PalmBeach/transportation.jpeg'
+import BeachPic from './cardimages/PalmBeachGardens/lifestyle.webp'
+import CityPic from './cardimages/PalmBeachGardens/realestate.webp'
+import OutdoorPic from './cardimages/PalmBeachGardens/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/PalmBeachGardens/localattraction.webp'
+import EducationPic from './cardimages/PalmBeach/education.webp'
+import TransportationPic from './cardimages/PalmBeach/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/PalmBeachGardens/community.jpeg'
-import EducationContent from './contentimages/PalmBeachGardens/education.jpeg'
-import NeighborhoodContent from './contentimages/PalmBeachGardens/neighborhood.jpeg'
-import AttractionsContent from './contentimages/PalmBeachGardens/attractions.jpeg'
-import TransportationContent from './contentimages/PalmBeachGardens/transportation.jpeg'
-import RealEstateContent from './contentimages/PalmBeachGardens/realestate.jpeg'
+import CommunityContent from './contentimages/PalmBeachGardens/community.webp'
+import EducationContent from './contentimages/PalmBeachGardens/education.webp'
+import NeighborhoodContent from './contentimages/PalmBeachGardens/neighborhood.webp'
+import AttractionsContent from './contentimages/PalmBeachGardens/attractions.webp'
+import TransportationContent from './contentimages/PalmBeachGardens/transportation.webp'
+import RealEstateContent from './contentimages/PalmBeachGardens/realestate.webp'
 
 const PalmBeachGardens = () => {
 

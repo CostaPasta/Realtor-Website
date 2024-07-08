@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/BROWARD-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/BROWARD-HEADER.webp'
 
-import BeachPic from './cardimages/Broward/lifestyle.jpeg'
-import CityPic from './cardimages/Broward/realestate.jpeg'
-import OutdoorPic from './cardimages/Broward/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/Broward/localattraction.jpeg'
-import EducationPic from './cardimages/Broward/education.jpeg'
-import TransportationPic from './cardimages/Broward/transportation.jpeg'
+import BeachPic from './cardimages/Broward/lifestyle.webp'
+import CityPic from './cardimages/Broward/realestate.webp'
+import OutdoorPic from './cardimages/Broward/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/Broward/localattraction.webp'
+import EducationPic from './cardimages/Broward/education.webp'
+import TransportationPic from './cardimages/Broward/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/Broward/community.jpeg'
-import EducationContent from './contentimages/Broward/education.jpeg'
-import NeighborhoodContent from './contentimages/Broward/neighborhood.jpeg'
-import AttractionsContent from './contentimages/Broward/attractions.jpeg'
-import TransportationContent from './contentimages/Broward/transportation.jpeg'
-import RealEstateContent from './contentimages/Broward/realestate.jpeg'
+import CommunityContent from './contentimages/Broward/community.webp'
+import EducationContent from './contentimages/Broward/education.webp'
+import NeighborhoodContent from './contentimages/Broward/neighborhood.webp'
+import AttractionsContent from './contentimages/Broward/attractions.webp'
+import TransportationContent from './contentimages/Broward/transportation.webp'
+import RealEstateContent from './contentimages/Broward/realestate.webp'
 
 const Broward = () => {
 

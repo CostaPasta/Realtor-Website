@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/JUPITER-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/JUPITER-HEADER.webp'
 
-import BeachPic from './cardimages/Jupiter/lifestyle.jpeg'
-import CityPic from './cardimages/Jupiter/realestate.jpeg'
-import OutdoorPic from './cardimages/Jupiter/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/Jupiter/localattraction.jpeg'
-import EducationPic from './cardimages/Jupiter/education.jpeg'
-import TransportationPic from './cardimages/Jupiter/transportation.jpeg'
+import BeachPic from './cardimages/Jupiter/lifestyle.webp'
+import CityPic from './cardimages/Jupiter/realestate.webp'
+import OutdoorPic from './cardimages/Jupiter/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/Jupiter/localattraction.webp'
+import EducationPic from './cardimages/Jupiter/education.webp'
+import TransportationPic from './cardimages/Jupiter/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/Jupiter/community.jpeg'
-import EducationContent from './contentimages/Jupiter/education.jpeg'
-import NeighborhoodContent from './contentimages/Jupiter/neighborhood.jpeg'
-import AttractionsContent from './contentimages/Jupiter/attractions.jpeg'
-import TransportationContent from './contentimages/Jupiter/transportation.jpeg'
-import RealEstateContent from './contentimages/Jupiter/realestate.jpeg'
+import CommunityContent from './contentimages/Jupiter/community.webp'
+import EducationContent from './contentimages/Jupiter/education.webp'
+import NeighborhoodContent from './contentimages/Jupiter/neighborhood.webp'
+import AttractionsContent from './contentimages/Jupiter/attractions.webp'
+import TransportationContent from './contentimages/Jupiter/transportation.webp'
+import RealEstateContent from './contentimages/Jupiter/realestate.webp'
 
 const Jupiter = () => {
 

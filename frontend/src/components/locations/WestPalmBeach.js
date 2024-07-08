@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/WESTPALMBEACH-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/WESTPALMBEACH-HEADER.webp'
 
-import BeachPic from './cardimages/WestPalmBeach/lifestyle.jpeg'
-import CityPic from './cardimages/WestPalmBeach/realestate.jpeg'
-import OutdoorPic from './cardimages/WestPalmBeach/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/WestPalmBeach/localattraction.jpeg'
-import EducationPic from './cardimages/PalmBeach/education.jpeg'
-import TransportationPic from './cardimages/WestPalmBeach/transportation.jpeg'
+import BeachPic from './cardimages/WestPalmBeach/lifestyle.webp'
+import CityPic from './cardimages/WestPalmBeach/realestate.webp'
+import OutdoorPic from './cardimages/WestPalmBeach/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/WestPalmBeach/localattraction.webp'
+import EducationPic from './cardimages/PalmBeach/education.webp'
+import TransportationPic from './cardimages/WestPalmBeach/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/WestPalmBeach/community.jpeg'
-import EducationContent from './contentimages/WestPalmBeach/education.jpeg'
-import NeighborhoodContent from './contentimages/WestPalmBeach/neighborhood.jpeg'
-import AttractionsContent from './contentimages/WestPalmBeach/attractions.jpeg'
-import TransportationContent from './contentimages/WestPalmBeach/transportation.jpeg'
-import RealEstateContent from './contentimages/WestPalmBeach/realestate.jpeg'
+import CommunityContent from './contentimages/WestPalmBeach/community.webp'
+import EducationContent from './contentimages/WestPalmBeach/education.webp'
+import NeighborhoodContent from './contentimages/WestPalmBeach/neighborhood.webp'
+import AttractionsContent from './contentimages/WestPalmBeach/attractions.webp'
+import TransportationContent from './contentimages/WestPalmBeach/transportation.webp'
+import RealEstateContent from './contentimages/WestPalmBeach/realestate.webp'
 
 const WestPalmBeach = () => {
 

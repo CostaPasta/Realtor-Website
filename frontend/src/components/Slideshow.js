@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../components-css/Slideshow.css';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import BeachImage from '../images/beach.jpg';
-import PierImage from '../images/pier.jpeg';
-import CityImage from '../images/city.jpeg';
-import LuxImage from '../images/lux.jpeg'
+import BeachImage from '../images/beach.webp';
+import PierImage from '../images/pier.webp';
+import CityImage from '../images/city.webp';
+import LuxImage from '../images/lux.webp'
 
 function Slideshow() {
     const [currentIndex, setCurrentIndex] = useState(1); // Start from the first "real" slide

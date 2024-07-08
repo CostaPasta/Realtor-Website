@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/BOYNTON-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/BOYNTON-HEADER.webp'
 
-import BeachPic from './cardimages/BoyntonBeach/lifestyle.jpeg'
+import BeachPic from './cardimages/BoyntonBeach/lifestyle.webp'
 import CityPic from './cardimages/Delray/realestate.jpeg'
-import OutdoorPic from './cardimages/BoyntonBeach/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/BoyntonBeach/localattraction.jpeg'
-import EducationPic from './cardimages/BoyntonBeach/education.jpeg'
-import TransportationPic from './cardimages/BoyntonBeach/transportation.jpeg'
+import OutdoorPic from './cardimages/BoyntonBeach/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/BoyntonBeach/localattraction.webp'
+import EducationPic from './cardimages/BoyntonBeach/education.webp'
+import TransportationPic from './cardimages/BoyntonBeach/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/BoyntonBeach/community.jpeg'
-import EducationContent from './contentimages/BoyntonBeach/education.jpeg'
-import NeighborhoodContent from './contentimages/BoyntonBeach/neighborhood.jpeg'
-import AttractionsContent from './contentimages/BoyntonBeach/attractions.jpeg'
-import TransportationContent from './contentimages/BoyntonBeach/transportation.jpeg'
-import RealEstateContent from './contentimages/BoyntonBeach/realestate.jpeg'
+import CommunityContent from './contentimages/BoyntonBeach/community.webp'
+import EducationContent from './contentimages/BoyntonBeach/education.webp'
+import NeighborhoodContent from './contentimages/BoyntonBeach/neighborhood.webp'
+import AttractionsContent from './contentimages/BoyntonBeach/attractions.webp'
+import TransportationContent from './contentimages/BoyntonBeach/transportation.webp'
+import RealEstateContent from './contentimages/BoyntonBeach/realestate.webp'
 
 const BoyntonBeach = () => {
 

@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/WELLINGTON-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/WELLINGTON-HEADER.webp'
 
-import BeachPic from './cardimages/Wellington/lifestyle.jpeg'
-import CityPic from './cardimages/Wellington/realestate.jpeg'
-import OutdoorPic from './cardimages/Wellington/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/Wellington/localattraction.jpeg'
-import EducationPic from './cardimages/Wellington/education.jpeg'
-import TransportationPic from './cardimages/Wellington/transportation.jpeg'
+import BeachPic from './cardimages/Wellington/lifestyle.webp'
+import CityPic from './cardimages/Wellington/realestate.webp'
+import OutdoorPic from './cardimages/Wellington/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/Wellington/localattraction.webp'
+import EducationPic from './cardimages/Wellington/education.webp'
+import TransportationPic from './cardimages/Wellington/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/Wellington/community.jpeg'
-import EducationContent from './contentimages/Wellington/education.jpeg'
-import NeighborhoodContent from './contentimages/Wellington/neighborhood.jpeg'
-import AttractionsContent from './contentimages/Wellington/attractions.jpeg'
-import TransportationContent from './contentimages/Wellington/transportation.jpeg'
-import RealEstateContent from './contentimages/Wellington/realestate.jpeg'
+import CommunityContent from './contentimages/Wellington/community.webp'
+import EducationContent from './contentimages/Wellington/education.webp'
+import NeighborhoodContent from './contentimages/Wellington/neighborhood.webp'
+import AttractionsContent from './contentimages/Wellington/attractions.webp'
+import TransportationContent from './contentimages/Wellington/transportation.webp'
+import RealEstateContent from './contentimages/Wellington/realestate.webp'
 
 const Wellington = () => {
 

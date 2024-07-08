@@ -3,22 +3,22 @@ import { Link as LinkScroll, } from "react-scroll";
 import Footer from "../Footer";
 import BackHeader from "../BackHeader";
 import './css/PalmBeach.css'; // Make sure the CSS file path is correct
-import palmbeachbanner from '../../images/Areas/Headers/DELRAY-HEADER.jpeg'
+import palmbeachbanner from '../../images/Areas/Headers/DELRAY-HEADER.webp'
 
-import BeachPic from './cardimages/Delray/lifestyle.jpeg'
-import CityPic from './cardimages/Delray/realestate.jpeg'
-import OutdoorPic from './cardimages/Delray/neighborhood.jpeg'
-import LocalAttractionsPic from './cardimages/Delray/localattraction.jpeg'
-import EducationPic from './cardimages/Delray/education.jpeg'
-import TransportationPic from './cardimages/Delray/transportation.jpeg'
+import BeachPic from './cardimages/Delray/lifestyle.webp'
+import CityPic from './cardimages/Delray/realestate.webp'
+import OutdoorPic from './cardimages/Delray/neighborhood.webp'
+import LocalAttractionsPic from './cardimages/Delray/localattraction.webp'
+import EducationPic from './cardimages/Delray/education.webp'
+import TransportationPic from './cardimages/Delray/transportation.webp'
 
 //CONTENT IMAGES
-import CommunityContent from './contentimages/Delray/community.jpeg'
-import EducationContent from './contentimages/Delray/education.jpeg'
-import NeighborhoodContent from './contentimages/Delray/neighborhood.jpeg'
-import AttractionsContent from './contentimages/Delray/attractions.jpeg'
-import TransportationContent from './contentimages/Delray/transportation.jpeg'
-import RealEstateContent from './contentimages/Delray/realestate.jpeg'
+import CommunityContent from './contentimages/Delray/community.webp'
+import EducationContent from './contentimages/Delray/education.webp'
+import NeighborhoodContent from './contentimages/Delray/neighborhood.webp'
+import AttractionsContent from './contentimages/Delray/attractions.webp'
+import TransportationContent from './contentimages/Delray/transportation.webp'
+import RealEstateContent from './contentimages/Delray/realestate.webp'
 
 const DelrayBeach = () => {
 

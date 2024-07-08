@@ -1,14 +1,14 @@
 import React from 'react';
 import '../components-css/Areas.css'
-import downTownWPBIMG from '../images/Areas/downtownwpb.jpeg'
-import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.jpeg'
-import jupiterIMG from '../images/Areas/jupiter.jpeg'
-import palmBeachIMG from '../images/Areas/palmbeach.jpeg'
-import bocaIMG from '../images/Areas/boca.jpeg'
-import wellingtonIMG from '../images/Areas/wellingtonIMG.jpeg'
-import delrayBeachIMG from '../images/Areas/delrayBeachIMG.jpeg'
-import boyntonBeachIMG from '../images/Areas/boyntonBeachIMG.jpeg'
-import lakeWorthIMG from '../images/Areas/lakeWorthIMG.jpeg'
+import downTownWPBIMG from '../images/Areas/downtownwpb.webp'
+import palmBeachGardensIMG from '../images/Areas/palmbeachgardens.webp'
+import jupiterIMG from '../images/Areas/jupiter.webp'
+import palmBeachIMG from '../images/Areas/palmbeach.webp'
+import bocaIMG from '../images/Areas/boca.webp'
+import wellingtonIMG from '../images/Areas/wellingtonIMG.webp'
+import delrayBeachIMG from '../images/Areas/delrayBeachIMG.webp'
+import boyntonBeachIMG from '../images/Areas/boyntonBeachIMG.webp'
+import lakeWorthIMG from '../images/Areas/lakeWorthIMG.webp'
 import { Link } from 'react-router-dom';
 
 
