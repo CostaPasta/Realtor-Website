@@ -9,7 +9,12 @@ import CityImage from '../images/city.webp';
 import LuxImage from '../images/lux.webp';
 
 const Slideshow = () => {
-    const images = [BeachImage, PierImage, CityImage, LuxImage];
+    const images = [
+        { src: BeachImage, alt: 'Beach' },
+        { src: PierImage, alt: 'Pier' },
+        { src: CityImage, alt: 'City' },
+        { src: LuxImage, alt: 'Luxury' }
+    ];
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = useCallback(() => {
@@ -21,9 +26,16 @@ const Slideshow = () => {
     }, [images.length]);
 
     useEffect(() => {
-        const interval = setInterval(nextSlide, 7000); // Change slide every 5 seconds
+        const interval = setInterval(nextSlide, 7000);
         return () => clearInterval(interval);
     }, [nextSlide]);
+
+    useEffect(() => {
+        // Preload the next image
+        const nextIndex = (currentIndex + 1) % images.length;
+        const img = new Image();
+        img.src = images[nextIndex].src;
+    }, [currentIndex, images]);
 
     return (
         <div className='slideshow'>
@@ -32,8 +44,14 @@ const Slideshow = () => {
                     <div
                         key={index}
                         className={`slide ${index === currentIndex ? 'active' : ''}`}
-                        style={{ backgroundImage: `url(${img})` }}
-                    />
+                    >
+                        <img 
+                            src={img.src} 
+                            alt={img.alt} 
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            className="slide-image"
+                        />
+                    </div>
                 ))}
             </div>
             <div className="welcome-message">
