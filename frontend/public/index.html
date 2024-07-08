@@ -1,182 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="preconnect" href="//fonts.googleapis.com">
-    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css2?family=Outfit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Jose Costa Realty Services"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="preconnect" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Outfit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Jose Costa Realty Services" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Jose Costa - Realtor</title>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <div id="google_translate_element"></div>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <!-- Buying Buddy plugin v5.02 for General HTML; Authorized Domain: josecostarealtor.com -->
-    <!-- ** DO NOT DEFER ** This must load at the top of the page, e.g. in the page head. -->
-    <script id="mbb_maps-js-before" type="text/javascript"></script>
-    <script src="https://www.mbb2.com/version3/css/theme/acid/KdCGjEN"></script>
-    <script>
-      var MBB = { seo: "false", data: { acid: "KdCGjEN" } };
-      
-      // This function will be called when Google Maps API has loaded
-      function mbbMapLoaded() {
-        MBB.googleMaps = true;
-        console.log("Google Maps API loaded.");
+  <script>
+    var MBB = { seo: "false", data: { acid: "KdCGjEN" } };
 
-        // Load Buying Buddy script after Google Maps has loaded
-        var script = document.createElement("script");
-        script.src = "https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz";
-        script.async = true;
-        script.onload = function () {
-          console.log("Buying Buddy loaded.");
+    function mbbMapLoaded() {
+      MBB.googleMaps = true;
+      console.log("Google Maps API loaded.");
 
-          // Update CSS variable for login-panel height
-          // Check for the login panel periodically
-          // const checkLoginPanel = setInterval(() => {
-          //     const loginPanel = document.querySelector('mbb-component-element.login-panel');
-          //     if (loginPanel && loginPanel.shadowRoot) {
-          //         const loginPanelHeight = loginPanel.offsetHeight;
-          //         document.documentElement.style.setProperty('--login-panel-height', `${loginPanelHeight}px`);
-          //         clearInterval(checkLoginPanel); // Stop checking once found
-          //         console.log(loginPanelHeight);
-          //     }
-          // }, 100); // Check every 100ms
-        };
-        document.head.appendChild(script);        
+      var script = document.createElement("script");
+      script.src = "https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz";
+      script.async = true;
+      script.onload = function () {
+        console.log("Buying Buddy loaded.");
+      };
+      document.head.appendChild(script);
+    }
+
+    window.addEventListener('load', function () {
+      var googleScript = document.createElement('script');
+      googleScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBClY12ebfi_DYNJhBNXY_owy-6RAoDNF0&callback=mbbMapLoaded&libraries=places&loading=async";
+      googleScript.defer = true;
+      document.head.appendChild(googleScript);
+    });
+
+    function googleTranslateElementInit() {
+      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+        window.googleTranslator = new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,pt'
+        }, 'google_translate_element');
       }
-
-        // Function to inject custom styles into the Shadow DOM
-        // const injectCustomStyles = (shadowRoot) => {
-        //   const style = document.createElement('style');
-        //   style.textContent = `
-        //     [id^=MBBv3]:not(#mbbV1) .elq-572 mbb-login-panel .btn-toolbar .bfg-row-2, [id^=MBBv3]:not(#mbbV1).elq-572 mbb-login-panel .btn-toolbar .bfg-row-2 {
-        //       display: none !important;
-        //     }
-        //     [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-2 {
-        //       display: none !important;
-        //       flex: 1 0 auto;
-        //       order: 2;
-        //     }
-        //     [id^=MBBv3]:not(#mbbV1) .elq-768 mbb-login-panel .btn-toolbar .bfg-row-3, [id^=MBBv3]:not(#mbbV1).elq-768 mbb-login-panel .btn-toolbar .bfg-row-3 {
-        //       flex: 0 0 auto;
-        //       order: 2;
-        //     }
-        //     [id^=MBBv3]:not(#mbbV1) .btn-toolbar {
-        //       flex-wrap: nowrap;
-        //     }
-        //     [id^=MBBv3]:not(#mbbV1) mbb-login-panel .btn-toolbar .bfg-row-3 {
-        //       order: 2;
-        //       flex: 0 0 auto;
-        //     }
-        //   `;
-        //   shadowRoot.appendChild(style);
-        //   console.log("Custom styles injected into the Shadow DOM.");
-        // };
-
-      // Function to check the login panel and apply styles
-      // const checkLoginPanelAndApplyStyles = (attempts = 0, maxAttempts = 10) => {
-      //   const loginPanel = document.querySelector('mbb-component-element.login-panel');
-      //   if (loginPanel && loginPanel.shadowRoot) {
-      //     injectCustomStyles(loginPanel.shadowRoot);
-      //   } else if (attempts < maxAttempts) {
-      //     console.log(`Login panel or shadow root not found, checking again in 1 second (attempt ${attempts + 1})...`);
-      //     setTimeout(() => checkLoginPanelAndApplyStyles(attempts + 1, maxAttempts), 1000);
-      //   } else {
-      //     console.log("Max attempts reached, stopping further checks.");
-      //   }
-      // };
-
-      // Check if a specific stylesheet is loaded
-      // const isStylesheetLoaded = (href) => {
-      //   const stylesheets = document.styleSheets;
-      //   for (let i = 0; i < stylesheets.length; i++) {
-      //     if (stylesheets[i].href && stylesheets[i].href.includes(href)) {
-      //       return true;
-      //     }
-      //   }
-      //   return false;
-      // };
-
-      // window.addEventListener('load', () => {
-      //   const stylesheetUrl = 'https://s3.amazonaws.com/lac.html/widget-themes/fd7fe829f1f25b355acd8130503da79a-5.css.gz';
-
-      //   const checkStylesheetAndApplyStyles = () => {
-      //     if (isStylesheetLoaded(stylesheetUrl)) {
-      //       console.log("Stylesheet loaded.");
-      //       checkLoginPanelAndApplyStyles();
-      //     } else {
-      //       console.log("Stylesheet not loaded yet, checking again in 1 second...");
-      //       setTimeout(checkStylesheetAndApplyStyles, 1000);
-      //     }
-      //   };
-
-      //   checkStylesheetAndApplyStyles();
-      // });
-    </script>
-
-    <!-- Load Google Maps API with callback -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBClY12ebfi_DYNJhBNXY_owy-6RAoDNF0&callback=mbbMapLoaded&libraries=places&loading=async"
-      defer>
-    </script>
-    <!-- NOTE: Google MAP API must load AFTER the declaration of mbbMapLoaded(), and BEFORE my-buying-buddy.5.0.js.gz -->
-    <!-- <script async
-        defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBClY12ebfi_DYNJhBNXY_owy-6RAoDNF0&loading=async&callback=mbbMapLoaded&libraries=places">
-    </script>
-    <script async defer src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script> -->
-    <!-- End Buying Buddy Plugin. Copyright 2003-2023 -->
-    <div id="google_translate_element"></div>
-
-
-    
-
-    <script type="text/javascript">
-      
-
-      function googleTranslateElementInit() {
-        if (window.google && window.google.translate && window.google.translate.TranslateElement) {
-          window.googleTranslator = new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,es,pt'
-          }, 'google_translate_element');
-        }
-      }
-      window.googleTranslateElementInit = googleTranslateElementInit;
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <title>Jose Costa - Realtor</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    }
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
 </html>
