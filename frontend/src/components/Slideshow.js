@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-import '../components-css/Slideshow.css';
+// import '../components-css/Slideshow.css';
 
 import BeachImage from '../images/beach.webp';
 import PierImage from '../images/pier.webp';

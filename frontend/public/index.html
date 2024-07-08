@@ -3,6 +3,117 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <style>
+      body {
+        overflow-x: hidden;
+        background-color: #edecec;
+        margin: 0;
+        padding: 0;
+      }
+
+      .slideshow {
+          position: relative;
+          width: 100%;
+          height: calc(100svh - 38px);
+          overflow: hidden;
+          margin-top: -100px;
+      }
+
+      .slide-container {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          background-color: black;
+      }
+
+      .slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+      }
+
+      .slide.active {
+          opacity: 1;
+      }
+
+      .slide-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .slide::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent 60%);
+          pointer-events: none;
+          z-index: 1;
+      }
+
+      .welcome-message {
+          text-align: center;
+          color: white;
+          font-size: 48px;
+          position: absolute;
+          bottom: 22%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+      }
+
+      .text-border {
+          padding: 10px;
+          display: inline-block;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+      }
+
+      .arrows-container {
+          position: absolute;
+          bottom: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          justify-content: space-between;
+          width: 200px;
+          z-index: 2;
+      }
+
+      .prev-button, .next-button {
+          font-size: 50px;
+          background-color: rgba(0,0,0,0.5);
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+          border: 2px solid white;
+      }
+
+      @media (max-width: 768px) {
+          .slideshow {
+              height: 101svh;
+          }
+          .prev-button, .next-button {
+              padding: 5px 8px;
+              font-size: 24px;
+          }
+          .arrows-container {
+              width: 120px;
+              bottom: 12%;
+          }
+          .welcome-message {
+              font-size: 24px;
+              bottom: 20%;
+          }
+      }
+    </style>
     <link rel="preload" fetchpriority="high" as="image" href="/static/media/beach.84501b61446d4ff067db.webp" type="image/webp">
     <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
