@@ -9,7 +9,7 @@ import LuxImage from '../images/lux.webp';
 
 const Slideshow = () => {
     const images = [
-        { src: BeachImage, alt: 'Beach' },
+        { src: BeachImage, alt: 'Beach', fetchPriority: 'high' },
         { src: PierImage, alt: 'Pier' },
         { src: CityImage, alt: 'City' },
         { src: LuxImage, alt: 'Luxury' }
@@ -46,7 +46,7 @@ const Slideshow = () => {
                         <img 
                             src={img.src} 
                             alt={img.alt} 
-                            loading={index === 0 ? 'eager' : 'lazy'}
+                            // loading={index === 0 ? 'eager' : 'lazy'}
                             className="slide-image"
                             sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
                             srcSet={`
