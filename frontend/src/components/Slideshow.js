@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+// Removed import statement for CSS
 // import '../components-css/Slideshow.css';
 
 import BeachImage from '../images/beach.webp';
@@ -8,12 +9,13 @@ import CityImage from '../images/city.webp';
 import LuxImage from '../images/lux.webp';
 
 const Slideshow = () => {
-    const images = [
+    const images = useMemo(() => [
         { src: BeachImage, alt: 'Beach', fetchPriority: 'high' },
-        { src: PierImage, alt: 'Pier' },
-        { src: CityImage, alt: 'City' },
-        { src: LuxImage, alt: 'Luxury' }
-    ];
+        { src: PierImage, alt: 'Pier',  },
+        { src: CityImage, alt: 'City',  },
+        { src: LuxImage, alt: 'Luxury', }
+    ], []);
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = useCallback(() => {
@@ -46,14 +48,10 @@ const Slideshow = () => {
                         <img 
                             src={img.src} 
                             alt={img.alt} 
-                            // loading={index === 0 ? 'eager' : 'lazy'}
                             className="slide-image"
                             sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
-                            srcSet={`
-                                ${img.src} 480w,
-                                ${img.src} 800w,
-                                ${img.src} 1200w
-                            `}
+                            srcSet={img.srcSet}
+                            fetchpriority={index === 0 ? 'high' : 'auto'}
                         />
                     </div>
                 ))}
