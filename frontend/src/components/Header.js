@@ -134,7 +134,7 @@ function Header() {
           className={`header ${menuOpen ? 'open' : ''} ${forceHide || (scrollDirection === 'down' && lastScrollY.current > 350) ? 'hidden' : 'show'} ${transparentHeader ? 'transparent' : ''}`}
         >
           <div className="logo notranslate">
-            <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200} onClick={conditionalToggleMenu}>
+            <Link to="SlideShowComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -250 : -200} onClick={conditionalToggleMenu} href='#SlideShowComponent'>
               JOSE COSTA
             </Link>
           </div>
@@ -150,16 +150,16 @@ function Header() {
                 <img src={brazilIcon} alt="Portuguese" />
               </div>
             </div>
-            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+            <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick} href='#aboutMeComponent'>
               ABOUT ME
             </Link>
-            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick}>
+            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -30} onClick={handleNavClick} href='#areasComponent'>
               AREAS
             </Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick} href='#searchComponent'>
               SEARCH
             </Link>
-            <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick}>
+            <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -70 : -40} onClick={handleNavClick} href='#contactComponent'>
               CONTACT
             </Link>
           </nav>
