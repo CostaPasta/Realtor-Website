@@ -49,7 +49,7 @@ const Slideshow = () => {
                             src={img.src} 
                             alt={img.alt} 
                             className="slide-image"
-                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
+                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw, (max-height: 100%)"
                             srcSet={img.srcSet}
                             fetchpriority={index === 0 ? 'high' : 'auto'}
                         />
