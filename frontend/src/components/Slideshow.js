@@ -9,21 +9,70 @@ import { getBlobUrl } from './blobService';
 // import CityImage from '../images/city.webp';
 // import LuxImage from '../images/lux.webp';
 
+// Blob store image paths for different sizes
 const imagePaths = {
-    beach: 'beach-JqoB3QHawoLhOlxlnqyWIJK2UstL9B.webp',
-    pier: 'pier-MVXPl4kBvpsLSa6uuSdn529CAWY2kB.webp',
-    city: 'city-wC6k7oEdiY3CEBiZhssjiP8fAb0vlN.webp',
-    lux: 'pier-MVXPl4kBvpsLSa6uuSdn529CAWY2kB.webp', // Replace <your-unique-id> with the actual unique ID of the lux image
-};
+    beach: {
+      small: 'beach-small-du53wGqQzHxYnnWIWZpNHKVFFa1tXA.webp',
+      medium: 'beach-medium-x8ugnBj6rLgT720uhoF9J4HyiLLOAr.webp',
+      large: 'beach-large-StQzBFKZZ1JhP7KfXKJT8IdNBTLszk.webp',
+    },
+    pier: {
+      small: 'pier-small-Iz3p0l8um6fb9fBIAXay1U8ByeY5Y9.webp',
+      medium: 'pier-medium-A5pCh3rlBd65adLp3t5fMawD9WfLZI.webp',
+      large: 'pier-MVXPl4kBvpsLSa6uuSdn529CAWY2kB.webp',
+    },
+    city: {
+      small: 'city-small-wV2oowYNLbmrmkdQREQ6mcYRpwiTZp.webp',
+      medium: 'city-medium-mOFLtHynv6jXIszew6FVLtzxr3d5Im.webp',
+      large: 'city-wC6k7oEdiY3CEBiZhssjiP8fAb0vlN.webp',
+    },
+    lux: {
+      small: 'lux-small-plbFEPeu3ZycEXFCuJeD9V8O5DyJRv.webp',
+      medium: 'lux-medium-m6TYZm0un665TQSUNPuUoQTuIVEkRA.webp',
+      large: 'lux-large-qaf9uVjef30AUwSyLugB6DpGiVO9pJ.webp',
+    },
+  };
   
 
 
 const Slideshow = () => {
     const images = useMemo(() => [
-        { src: getBlobUrl(imagePaths.beach), alt: 'Beach', srcSet: `${getBlobUrl(imagePaths.beach)} 480w, ${getBlobUrl(imagePaths.beach)} 800w, ${getBlobUrl(imagePaths.beach)} 1200w` },
-        { src: getBlobUrl(imagePaths.pier), alt: 'Pier', srcSet: `${getBlobUrl(imagePaths.pier)} 480w, ${getBlobUrl(imagePaths.pier)} 800w, ${getBlobUrl(imagePaths.pier)} 1200w` },
-        { src: getBlobUrl(imagePaths.city), alt: 'City', srcSet: `${getBlobUrl(imagePaths.city)} 480w, ${getBlobUrl(imagePaths.city)} 800w, ${getBlobUrl(imagePaths.city)} 1200w` },
-        { src: getBlobUrl(imagePaths.lux), alt: 'Luxury', srcSet: `${getBlobUrl(imagePaths.lux)} 480w, ${getBlobUrl(imagePaths.lux)} 800w, ${getBlobUrl(imagePaths.lux)} 1200w` },
+        { 
+            src: getBlobUrl(imagePaths.beach.large), 
+            alt: 'Beach', 
+            srcSet: `
+            ${getBlobUrl(imagePaths.beach.small)} 480w, 
+            ${getBlobUrl(imagePaths.beach.medium)} 800w, 
+            ${getBlobUrl(imagePaths.beach.large)} 1200w
+            ` 
+        },
+        { 
+            src: getBlobUrl(imagePaths.pier.large), 
+            alt: 'Pier', 
+            srcSet: `
+            ${getBlobUrl(imagePaths.pier.small)} 480w, 
+            ${getBlobUrl(imagePaths.pier.medium)} 800w, 
+            ${getBlobUrl(imagePaths.pier.large)} 1200w
+            ` 
+        },
+        { 
+            src: getBlobUrl(imagePaths.city.large), 
+            alt: 'City', 
+            srcSet: `
+            ${getBlobUrl(imagePaths.city.small)} 480w, 
+            ${getBlobUrl(imagePaths.city.medium)} 800w, 
+            ${getBlobUrl(imagePaths.city.large)} 1200w
+            ` 
+        },
+        { 
+            src: getBlobUrl(imagePaths.lux.large), 
+            alt: 'Luxury', 
+            srcSet: `
+            ${getBlobUrl(imagePaths.lux.small)} 480w, 
+            ${getBlobUrl(imagePaths.lux.medium)} 800w, 
+            ${getBlobUrl(imagePaths.lux.large)} 1200w
+            ` 
+        },
     ], []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,7 +108,7 @@ const Slideshow = () => {
                             src={img.src} 
                             alt={img.alt} 
                             className="slide-image"
-                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw, (max-height: 100%)"
+                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
                             srcSet={img.srcSet}
                             fetchpriority={index === 0 ? 'high' : 'auto'}
                         />
