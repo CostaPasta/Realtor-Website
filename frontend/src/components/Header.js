@@ -4,9 +4,9 @@ import '../components-css/Header.css';
 import { ScrollProvider } from './ScrollContext';
 import useScrollDirection from './useScrollDirection';
 
-import usaIcon from './locations/icons/usa.png';
-import spainIcon from './locations/icons/spain.png';
-import brazilIcon from './locations/icons/brazil.png';
+import usaIcon from './locations/icons/usa.webp';
+import spainIcon from './locations/icons/spain.webp';
+import brazilIcon from './locations/icons/brazil.webp';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -163,7 +163,7 @@ function Header() {
               CONTACT
             </Link>
           </nav>
-          <button className="menu-icon" onClick={toggleMenu}>
+          <button className="menu-icon" aria-label="Menu Icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>

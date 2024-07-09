@@ -18,14 +18,20 @@
     margin-bottom: 20px;
 }
 
+h1.footer-titles  {
+    font-size: 20px;
+    color: white;
+}
+
 .footer-column {
     flex-basis: 20%; /* Adjust according to the number of columns */
 }
 
-.footer-column h4 {
+.footer-column h1 {
     border-bottom: 2px solid #fff;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .footer-column ul {

@@ -28,7 +28,7 @@ const Footer = () => {
                     <div className="footer-top">
                         {/* Column 1 */}
                         <div className="footer-column notranslate">
-                            <h4>Areas</h4>
+                            <h1 className='footer-titles'>AREAS</h1>
                             <ul>
                                 <li>
                                     <Link reloadDocument to="/PalmBeach">PALM BEACH</Link>
@@ -50,7 +50,7 @@ const Footer = () => {
 
                         {/* Column 2 */}
                         <div className="footer-column notranslate">
-                            <h4>MORE AREAS</h4>
+                            <h1 className='footer-titles'>MORE AREAS</h1>
                             <ul>
                                 <li>
                                     <Link reloadDocument to="/BocaRaton">BOCA RATON</Link>
@@ -69,7 +69,7 @@ const Footer = () => {
 
                         {/* Column 3 */}
                         <div className="footer-column">
-                            <h4>MORE LINKS</h4>
+                            <h1 className='footer-titles'>MORE LINKS</h1>
                             <ul>
                                 <li>
                                     <LinkScroll to="aboutMeComponent" smooth={true} duration={600} offset={-135} >ABOUT ME</LinkScroll>
@@ -89,7 +89,7 @@ const Footer = () => {
 
                         {/* Column 4 */}
                         <div className="footer-column">
-                            <h4>MY COMPANY</h4>
+                            <h1 className='footer-titles'>MY COMPANY</h1>
                             <ul>
                                 <li><a href="tel:(954) 614-1351">(954) 614-1351</a></li>
                                 <li><a href="mailto:USARealtor1@gmail.com">USARealtor1@gmail.com</a></li>
@@ -110,8 +110,8 @@ const Footer = () => {
                             </linearGradient>
                         </svg>
                         <div className="social-icons">
-                            <a href="https://www.instagram.com/josecosta.realtor/"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
-                            <a href="https://www.facebook.com/profile.php?id=100090548027826"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
+                            <a aria-label='Instagram' href="https://www.instagram.com/josecosta.realtor/"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
+                            <a aria-label='Facebook' href="https://www.facebook.com/profile.php?id=100090548027826"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
                             {/* Add other icons as needed */}
                         </div>
                     </div>

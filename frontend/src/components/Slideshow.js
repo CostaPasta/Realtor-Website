@@ -11,8 +11,8 @@ import LuxImage from '../images/lux.webp';
 const Slideshow = () => {
     const images = useMemo(() => [
         { src: BeachImage, alt: 'Beach', fetchPriority: 'high' },
-        { src: PierImage, alt: 'Pier',  },
         { src: CityImage, alt: 'City',  },
+        { src: PierImage, alt: 'Pier',  },
         { src: LuxImage, alt: 'Luxury', }
     ], []);
 
@@ -27,7 +27,7 @@ const Slideshow = () => {
     }, [images.length]);
 
     useEffect(() => {
-        const interval = setInterval(nextSlide, 7000);
+        const interval = setInterval(nextSlide, 9000);
         return () => clearInterval(interval);
     }, [nextSlide]);
 
@@ -60,8 +60,8 @@ const Slideshow = () => {
                 <p className="text-border">Your dream home is one click away</p>
             </div>
             <div className="arrows-container">
-                <button className="prev-button" onClick={prevSlide}><BsArrowLeft /></button>
-                <button className="next-button" onClick={nextSlide}><BsArrowRight /></button>
+                <button className="prev-button" aria-label='Previous Button' onClick={prevSlide}><BsArrowLeft /></button>
+                <button className="next-button" aria-label='Next Button' onClick={nextSlide}><BsArrowRight /></button>
             </div>
         </div>
     );

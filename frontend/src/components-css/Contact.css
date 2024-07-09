@@ -30,6 +30,10 @@
     border: none !important;
 }
 
+[id^="MBBv3"]:not(#mbbV1) .mbb-form .disclaimer, [id^="MBBv3"]:not(#mbbV1) mbb-form .disclaimer {
+    font-size: 12px !important;
+}
+
 @media (max-width: 768px) {
     #MBBv3_LcForm {
         padding-top: 10px;
