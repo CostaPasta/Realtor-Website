@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
+    "@vercel/blob": "^0.23.4",
     "dotenv": "^16.4.5",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "vercel": "^34.3.1"
   },
   "scripts": {
     "start": "HTTPS=true react-scripts start",

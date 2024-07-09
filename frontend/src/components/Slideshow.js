@@ -1,19 +1,29 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import { getBlobUrl } from './blobService';
 // Removed import statement for CSS
 // import '../components-css/Slideshow.css';
 
-import BeachImage from '../images/beach.webp';
-import PierImage from '../images/pier.webp';
-import CityImage from '../images/city.webp';
-import LuxImage from '../images/lux.webp';
+// import BeachImage from '../images/beach.webp';
+// import PierImage from '../images/pier.webp';
+// import CityImage from '../images/city.webp';
+// import LuxImage from '../images/lux.webp';
+
+const imagePaths = {
+    beach: 'beach-JqoB3QHawoLhOlxlnqyWIJK2UstL9B.webp',
+    pier: 'pier-MVXPl4kBvpsLSa6uuSdn529CAWY2kB.webp',
+    city: 'city-wC6k7oEdiY3CEBiZhssjiP8fAb0vlN.webp',
+    lux: 'pier-MVXPl4kBvpsLSa6uuSdn529CAWY2kB.webp', // Replace <your-unique-id> with the actual unique ID of the lux image
+};
+  
+
 
 const Slideshow = () => {
     const images = useMemo(() => [
-        { src: BeachImage, alt: 'Beach', fetchPriority: 'high' },
-        { src: CityImage, alt: 'City',  },
-        { src: PierImage, alt: 'Pier',  },
-        { src: LuxImage, alt: 'Luxury', }
+        { src: getBlobUrl(imagePaths.beach), alt: 'Beach', srcSet: `${getBlobUrl(imagePaths.beach)} 480w, ${getBlobUrl(imagePaths.beach)} 800w, ${getBlobUrl(imagePaths.beach)} 1200w` },
+        { src: getBlobUrl(imagePaths.pier), alt: 'Pier', srcSet: `${getBlobUrl(imagePaths.pier)} 480w, ${getBlobUrl(imagePaths.pier)} 800w, ${getBlobUrl(imagePaths.pier)} 1200w` },
+        { src: getBlobUrl(imagePaths.city), alt: 'City', srcSet: `${getBlobUrl(imagePaths.city)} 480w, ${getBlobUrl(imagePaths.city)} 800w, ${getBlobUrl(imagePaths.city)} 1200w` },
+        { src: getBlobUrl(imagePaths.lux), alt: 'Luxury', srcSet: `${getBlobUrl(imagePaths.lux)} 480w, ${getBlobUrl(imagePaths.lux)} 800w, ${getBlobUrl(imagePaths.lux)} 1200w` },
     ], []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
