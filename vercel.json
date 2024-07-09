@@ -33,6 +33,10 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Expires",
+          "value": "Wed, 21 Oct 2025 07:28:00 GMT"
         }
       ]
     }
