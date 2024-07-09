@@ -124,7 +124,7 @@ function Header() {
     <ScrollProvider>
       <div className="entire-header">
         {pluginLoaded ? (
-            <div id="MBBv3_LoginPanel" className="login-panel" height="38"></div>
+            <div id="MBBv3_LoginPanel" className="login-panel" height="38px" max-height="38px"></div>
         ) : (
             <div className="plugin-error-message">
                 Plugin not loaded, reload page!
