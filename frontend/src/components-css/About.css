@@ -2,95 +2,123 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 70px;
-    padding: 50px 100px;
-    /* border-radius: 10px; */
-    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
-    background-size: 100% 100%;
+    /* gap: 50px;  */
+    padding: 60px 200px; /* Increased padding for larger margins */
+    background-size: cover;
     background-image: url('../images/AboutmeBackground.webp');
-    background-repeat: no-repeat;  /* Prevents the image from repeating */
-    background-position: center;  /* Centers the image in the div */
+    background-repeat: no-repeat;  
+    background-position: center;
     z-index: 20;
 }
+
+.highlight-blue {
+    color: #2980b9;
+}
+
+.highlight-orange{
+    color: #f39c12;
+}
+
+#name {
+    font-size: 48px;
+}
+
+#name-2 {
+    margin-top: 0;
+    font-size: 46px;
+    margin-bottom: 3%;
+}
+
+
 .profile-image img {
-    width: 320px;
-    height: 320px;
-    /* border-radius: 50%; 
-    object-fit: cover; */
+    width: 350px; /* Increased width for larger image */
+    height: 350px; /* Increased height for larger image */
+    /* object-fit: cover; */
+    position: relative;
+    
+    z-index: 1; /* Ensure the image appears behind the text */
 }
 
 .profile-details {
     flex: 1;
+    position: relative;
+    z-index: 2; /* Ensure the text appears in front of the image */
+    /* padding-left: 30px;  */
 }
 
 .profile-details h2 {
     font-size: 40px;
     margin-bottom: 10px;
     font-weight: bolder;
-    position: relative;
-    display: inline-block; /* Ensures the pseudo-element spans only the width of the content */
     color: #333;
-}
-
-
-.profile-details h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px; /* Adjust this value to increase or decrease the space between the text and the underline */
-    height: 3px; /* Thickness of the underline */
-    background-color: #f39c12; /* Color of the underline */
+    position: relative;
+    z-index: 2;
 }
 
 .profile-details p {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.5;
     color: #333;
-    margin: 5px 0 25px 0;
+    margin: 5px 0 4% 0;
 }
 
-.contact-details a {
+#contact-info {
+    display: inline-block;
+    background-color: #edecec; /* Button background color */
+    color: #2980b9; /* Text color */
+    padding: 12px 22px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 22px; /* Font size */
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#contact-info:hover {
+    background-color: #f39c12; /* Darker shade on hover */
+}
+
+.contact-details {
+    display: flex;
+    gap: 20px;
+}
+
+/* .contact-details a {
     display: inline-block;
     color: #2980b9;
     text-decoration: none;
     font-size: 26px;
     padding: 10px 20px 0 0;
-
-    text-shadow: 
-        -0.5px -0.5px 0 #fff,  
-         0.5px -0.5px 0 #fff,
-        -0.5px  0.5px 0 #fff,
-         0.5px  0.5px 0 #fff;
+    text-shadow: -0.5px -0.5px 0 #fff, 0.5px -0.5px 0 #fff,
+        -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;
 }
 
 .contact-details a:hover {
     text-decoration: underline;
-}
+} */
 
 .aboutMeSubTitle {
-    font-size: 20px;
+    font-size: 28px;
     margin: 0;
     color: #2980b9;
 }
 
 .custom-bullets {
-    list-style-type: none; /* Removes default bullets */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .custom-bullets li {
-    margin-bottom: 8px; /* Space between bullet points */
-    font-size: 24px; /* Adjust as needed */
-    line-height: 1.5; /* Adjust as needed */
-    position: relative; /* Needed for custom bullet positioning */
-    padding-left: 30px; /* Space for the custom bullet (emoji) */
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 30px;
 }
 
-/* If you want to further style or position the custom bullets (emojis), you can target them specifically */
 .custom-bullets li::before {
-    content: ""; /* This will ensure only the emojis inside the <li> tags serve as bullets */
+    content: "";
     position: absolute;
     left: 0;
     top: 50%;
@@ -99,40 +127,31 @@
 
 @media (max-width: 768px) {
     .about-me-container {
-        flex-direction: column; /* Stack image and profile details vertically */
-        padding: 30px 20px; /* Reduce padding for mobile */
-        text-align: center; /* Center the text for a cleaner mobile look */
-        gap: 0px;
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+        gap: 20px; /* Adjusted for better spacing on mobile */
     }
 
     .profile-image {
-        margin-bottom: 0px; /* Add some space between the image and the details */
+        margin-bottom: 20px; /* Adjusted spacing for mobile */
     }
-}
 
-@media (max-width: 768px) {
+    .profile-image img {
+        width: 250px; /* Adjusted size for mobile */
+        height: 250px; /* Adjusted size for mobile */
+        right: 0; /* Center image for mobile */
+    }
+
     .profile-details h2 {
-        font-size: 30px; /* Reduce font size for mobile */
+        font-size: 30px;
     }
 
     .profile-details p, .contact-details a, .custom-bullets li {
-        font-size: 18px; /* Reduce font size for mobile */
+        font-size: 18px;
     }
-}
 
-@media (max-width: 768px) {
     .custom-bullets li {
-        margin-bottom: 6px; /* Reduce space between bullet points for mobile */
-    }
-
-    .profile-details h1 {
-        padding-bottom: 5px; /* Adjust padding for mobile */
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-image img {
-        width: 200px;
-        height: 200px;
+        margin-bottom: 6px;
     }
 }
