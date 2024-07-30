@@ -128,13 +128,21 @@
 @media (max-width: 768px) {
     .about-me-container {
         flex-direction: column;
-        padding: 30px 20px;
-        text-align: center;
+        padding: 30px 5%;
+        text-align: left;
         gap: 20px; /* Adjusted for better spacing on mobile */
     }
 
+    #name {
+        font-size: 28px;
+    }
+    #name-2 {
+        font-size: 24px;
+        margin-bottom: 7%;
+    }
+
     .profile-image {
-        margin-bottom: 20px; /* Adjusted spacing for mobile */
+        margin-bottom: 0px; /* Adjusted spacing for mobile */
     }
 
     .profile-image img {
@@ -143,15 +151,25 @@
         right: 0; /* Center image for mobile */
     }
 
-    .profile-details h2 {
-        font-size: 30px;
+    .aboutMeSubTitle {
+        font-size: 24px;
     }
 
-    .profile-details p, .contact-details a, .custom-bullets li {
+    .profile-details p {
         font-size: 18px;
+        padding-bottom: 5%;
     }
 
-    .custom-bullets li {
-        margin-bottom: 6px;
+    .contact-details {
+        flex-direction: column; /* Stack contact details vertically */
+        margin-bottom: 10%;
+    }
+
+    #contact-info {
+        font-size: 22px;
+        padding: 8px 0px;
+        width: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure it doesn't exceed container width */
+        text-align: center; /* Center text in "button" */
     }
 }
