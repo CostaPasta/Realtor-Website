@@ -2,8 +2,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    /* gap: 50px;  */
-    padding: 60px 200px; /* Increased padding for larger margins */
+    gap: 150px; 
+    padding: 60px 100px; /* Increased padding for larger margins */
     background-size: cover;
     background-image: url('../images/AboutmeBackground.webp');
     background-repeat: no-repeat;  
@@ -31,11 +31,11 @@
 
 
 .profile-image img {
-    width: 350px; /* Increased width for larger image */
-    height: 350px; /* Increased height for larger image */
+    width: 450px; /* Increased width for larger image */
+    height: 450px; /* Increased height for larger image */
     /* object-fit: cover; */
     position: relative;
-    
+    right: -110px;
     z-index: 1; /* Ensure the image appears behind the text */
 }
 
@@ -44,6 +44,7 @@
     position: relative;
     z-index: 2; /* Ensure the text appears in front of the image */
     /* padding-left: 30px;  */
+    padding-right: 12%;
 }
 
 .profile-details h2 {
@@ -62,22 +63,27 @@
     margin: 5px 0 4% 0;
 }
 
-#contact-info {
+.contact-info {
     display: inline-block;
-    background-color: #edecec; /* Button background color */
-    color: #2980b9; /* Text color */
+    background-color: #2980b9; /* Button background color */
+    color: white; /* Text color */
     padding: 12px 22px; /* Padding around the text */
-    border-radius: 5px; /* Rounded corners */
+    /* border-radius: 5px;  */
     text-decoration: none; /* Remove underline from links */
     font-size: 22px; /* Font size */
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-#contact-info:hover {
+.contact-info:hover {
     background-color: #f39c12; /* Darker shade on hover */
+    transform: translateY(-1px);
 }
 
+.contact-info-secondary{
+    background-color: #439bd6 ;
+    cursor: pointer;
+}
 .contact-details {
     display: flex;
     gap: 20px;
@@ -155,6 +161,10 @@
         font-size: 24px;
     }
 
+    .profile-details {
+        padding-right: 0;
+    }
+
     .profile-details p {
         font-size: 18px;
         padding-bottom: 5%;
@@ -162,10 +172,10 @@
 
     .contact-details {
         flex-direction: column; /* Stack contact details vertically */
-        margin-bottom: 10%;
+        margin-bottom: 20px;
     }
 
-    #contact-info {
+    .contact-info {
         font-size: 22px;
         padding: 8px 0px;
         width: 100%; /* Full width on smaller screens */
