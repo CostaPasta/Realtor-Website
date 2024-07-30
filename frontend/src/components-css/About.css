@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     gap: 150px; 
-    padding: 60px 100px; /* Increased padding for larger margins */
+    padding: 60px 10px; /* Increased padding for larger margins */
     background-size: cover;
     background-image: url('../images/AboutmeBackground.webp');
     background-repeat: no-repeat;  
@@ -31,8 +31,8 @@
 
 
 .profile-image img {
-    width: 450px; /* Increased width for larger image */
-    height: 450px; /* Increased height for larger image */
+    width: 400px; /* Increased width for larger image */
+    height: 400px; /* Increased height for larger image */
     /* object-fit: cover; */
     position: relative;
     right: -110px;
