@@ -4,7 +4,7 @@ import DadImageTransparent from '../images/dadtransparent.webp';
 
 const AboutMe = () => {
     return (
-        <div className="about-me-container">
+        <div className="about-me-container" id='aboutMeC'>
             <div className="profile-image">
                 <img src={DadImageTransparent} alt="Jose Costa" />
             </div>

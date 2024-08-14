@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { getBlobUrl } from './blobService';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 // Removed import statement for CSS
 // import '../components-css/Slideshow.css';
 
@@ -97,32 +98,46 @@ const Slideshow = () => {
     }, [currentIndex, images]);
 
     return (
-        <div className='slideshow'>
-            <div className="slide-container">
-                {images.map((img, index) => (
-                    <div
-                        key={index}
-                        className={`slide ${index === currentIndex ? 'active' : ''}`}
-                    >
-                        <img 
-                            src={img.src} 
-                            alt={img.alt} 
-                            className="slide-image"
-                            sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
-                            srcSet={img.srcSet}
-                            fetchpriority={index === 0 ? 'high' : 'auto'}
-                        />
-                    </div>
-                ))}
+        <HelmetProvider>
+            <Helmet>
+                <link
+                    rel="preload"
+                    fetchpriority="high"
+                    as="image"
+                    href="https://r4ibvda6ih1q0faf.public.blob.vercel-storage.com/beach-large-StQzBFKZZ1JhP7KfXKJT8IdNBTLszk.webp"
+                    type="image/webp"
+                    media="(min-width: 1201px)"
+                />
+            </Helmet>
+            <div className='slideshow'>
+                <div className="slide-container">
+                    {images.map((img, index) => (
+                        <div
+                            key={index}
+                            className={`slide ${index === currentIndex ? 'active' : ''}`}
+                        >
+                            <img 
+                                src={img.src} 
+                                alt={img.alt} 
+                                className="slide-image"
+                                sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
+                                srcSet={img.srcSet}
+                                fetchpriority={index === 0 ? 'high' : 'auto'}
+                                loading={index === 0 ? 'eager' : 'lazy'}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <div className="welcome-message">
+                    <p className="text-border">Your dream home is one click away</p>
+                </div>
+                <div className="arrows-container">
+                    <button className="prev-button" aria-label='Previous Button' onClick={prevSlide}><BsArrowLeft /></button>
+                    <button className="next-button" aria-label='Next Button' onClick={nextSlide}><BsArrowRight /></button>
+                </div>
             </div>
-            <div className="welcome-message">
-                <p className="text-border">Your dream home is one click away</p>
-            </div>
-            <div className="arrows-container">
-                <button className="prev-button" aria-label='Previous Button' onClick={prevSlide}><BsArrowLeft /></button>
-                <button className="next-button" aria-label='Next Button' onClick={nextSlide}><BsArrowRight /></button>
-            </div>
-        </div>
+        </HelmetProvider>
+        
     );
 };
 

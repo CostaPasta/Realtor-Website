@@ -156,7 +156,7 @@ function Header() {
             <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
               AREAS
             </Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
+            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick} >
               SEARCH
             </Link>
             <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
