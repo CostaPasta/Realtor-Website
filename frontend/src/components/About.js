@@ -3,6 +3,7 @@ import '../components-css/About.css';
 import DadImageTransparent from '../images/dadtransparent.webp';
 
 const AboutMe = () => {
+    console.log('Running in', process.env.NODE_ENV, 'mode');
     return (
         <div className="about-me-container" id='aboutMeC'>
             <div className="profile-image">
