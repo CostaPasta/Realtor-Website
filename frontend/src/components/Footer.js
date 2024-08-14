@@ -81,9 +81,8 @@ const Footer = () => {
                                     <LinkScroll to="searchComponent" smooth={true} duration={600} offset={-135} >SEARCH</LinkScroll>
                                 </li>
                                 <li>
-                                    <LinkScroll to="listingsComponent" smooth={true} duration={600} offset={-135} >LISTINGS</LinkScroll>
+                                    <LinkScroll to="contactComponent" smooth={true} duration={600} offset={-135} >CONTACT</LinkScroll>
                                 </li>
-                                <li><a href="/contact">CONTACT</a></li>
                             </ul>
                         </div>
 

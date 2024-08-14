@@ -19,7 +19,7 @@ const AboutMe = () => {
                 <p>
                     Jose provides personalized guidance, ensuring you find your perfect home or investment. Fluent in <span style={{fontWeight: 'bold'}}>English, Spanish, and Portuguese</span>, he communicates effectively with diverse clients.
                 </p>
-                <p>
+                <p id='contact-p-tag'>
                     Ready to start your journey? Contact Jose for a seamless and informed real estate experience.
                 </p>
 
