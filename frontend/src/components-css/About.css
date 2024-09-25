@@ -99,6 +99,8 @@
         flex-direction: column;
         gap: 20px;
         padding: 30px 5%;
+        background: url('../images/AboutmeBackground.webp') no-repeat center;
+        background-size: cover;
     }
 
     #name {
