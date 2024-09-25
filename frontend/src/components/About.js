@@ -4,6 +4,14 @@ import DadImageTransparent from '../images/dadtransparent.webp';
 
 const AboutMe = () => {
     console.log('Running in', process.env.NODE_ENV, 'mode');
+
+    const email = "Jose@USAREALTOR.com";
+    const obfuscateEmail = () => {
+        const part1 = "USARealtor1";
+        const part2 = "gmail.com";
+        return `${part1}@${part2}`;
+    };
+
     return (
         <div className="about-me-container" id='aboutMeC'>
             <div className="profile-image">
@@ -33,7 +41,7 @@ const AboutMe = () => {
                     Jose will guide you with detailed market insights and a deep understanding of your needs, ensuring you always get the best deal.
                 </p> */}
                 <div className="contact-details">
-                    <a className='contact-info notranslate' href="mailto:usarealtor1@gmail.com">JOSE@USArealtor.com</a>
+                    <a className='contact-info notranslate' href={`mailto:${obfuscateEmail()}`}>{email}</a>
                     <a className='contact-info' href="tel:+19546141351">+1(954) 614-1351</a> 
                     <a className='contact-info contact-info-secondary' href='https://www.instagram.com/josecosta.realtor/'>Instagram</a> 
                     <a className='contact-info contact-info-secondary' href='https://www.facebook.com/profile.php?id=100090548027826'>Facebook</a> 

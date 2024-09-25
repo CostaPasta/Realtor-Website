@@ -21,6 +21,13 @@ const Footer = () => {
     //     'LAKE WORTH': 'Lake Worth',
     // };
 
+    const email = "Jose@USAREALTOR.com";
+    const obfuscateEmail = () => {
+        const part1 = "USARealtor1";
+        const part2 = "gmail.com";
+        return `${part1}@${part2}`;
+    };
+
     return (
         <ScrollProvider>
             <div className="site-footer">
@@ -91,7 +98,7 @@ const Footer = () => {
                             <h1 className='footer-titles'>MY COMPANY</h1>
                             <ul>
                                 <li><a href="tel:(954) 614-1351">(954) 614-1351</a></li>
-                                <li className='notranslate'><a href="mailto:USARealtor1@gmail.com">USARealtor1@gmail.com</a></li>
+                                <li className='notranslate'><a href={`mailto:${obfuscateEmail()}`}>{email}</a></li>
                                 <li><Link reloadDocument to="/TermsOfService">Terms Of Service</Link></li>
                             </ul>
                         </div>

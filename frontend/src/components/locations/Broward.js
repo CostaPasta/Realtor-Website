@@ -243,7 +243,7 @@ const Broward = () => {
                     <p className="description-tag">{section.conclusion}</p>
                 </div>
                 <div className="content-img">
-                    <img src={section.imgSrc} alt="Descriptive Alt Text" />
+                    <img src={section.imgSrc} alt="Content Image" />
                 </div>
                 </div>
             </div>
