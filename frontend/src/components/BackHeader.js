@@ -31,7 +31,7 @@ function BackHeader() {
                 </div>
             )}
             <button className="back-button" onClick={handleBackButtonClick}>
-                <img src={BackButtonIcon} alt="Back" />
+                <img src={BackButtonIcon} alt="Back Button" />
             </button>
         </div>
     );

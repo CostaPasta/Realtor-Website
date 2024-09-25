@@ -224,7 +224,7 @@ const PalmBeach = () => {
                             <p className="description-tag">{section.conclusion}</p>
                         </div>
                         <div className="content-img">
-                            <img src={section.imgSrc} alt="Descriptive Alt Text" loading="lazy" />
+                            <img src={section.imgSrc} alt="Content Image" loading="lazy" />
                         </div>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ const ListingResultsWidget = () => {
         <div className="properties-container">
             <div className="back-header-container">
                 <button className="back-button" onClick={handleBackButtonClick}>
-                    <img src={BackButtonIcon} alt="Back" />
+                    <img src={BackButtonIcon} alt="Back Button" />
                 </button>
             </div>
             <div id="MBBv3_ListingResults" filter={cityFilter}></div>
