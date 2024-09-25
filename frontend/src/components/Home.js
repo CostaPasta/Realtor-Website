@@ -9,16 +9,9 @@ import { Element } from 'react-scroll'; // Import Element from react-scroll
 import { ScrollProvider } from './ScrollContext';
 import Contact from './Contact';
 import { Helmet } from 'react-helmet-async';
-import ReactGA from 'react-ga4';
 
-const trackingId = "G-N7R9PEDGV1"; // Replace with your Google Analytics Tracking ID
 
 function Home() {
-
-    useEffect(() => {
-        ReactGA.initialize(trackingId);
-        ReactGA.send("pageview");
-        }, []);
 
   return (
     <ScrollProvider>
