@@ -148,13 +148,13 @@ function Header() {
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
             <div className="language-icons">
               <div onClick={() => changeLanguage('en')}>
-                <span className="language-text">English</span>
+                <span className="language-text" alt='English Language'>English</span>
               </div>
               <div onClick={() => changeLanguage('es')}>
-                <span className="language-text">Español</span>
+                <span className="language-text" alt='Spanish Language'>Español</span>
               </div>
               <div onClick={() => changeLanguage('pt')}>
-                <span className="language-text">Português</span>
+                <span className="language-text" alt='Portuguese Language'>Português</span>
               </div>
             </div>
             <div className="separator">|</div> {/* Separator added here */}
