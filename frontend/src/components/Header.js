@@ -12,6 +12,7 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [forceHide, setForceHide] = useState(false);
   const [transparentHeader, setTransparentHeader] = useState(true);
+  const [headerHidden, setHeaderHidden] = useState(false); // New state to track if header is hidden
   const lastScrollY = useRef(window.scrollY);
   const scrollDirection = useScrollDirection();
   const [linkClicked, setLinkClicked] = useState(false);
@@ -55,6 +56,12 @@ function Header() {
       const currentScrollY = window.scrollY;
       const threshold = 350;
       setTransparentHeader(currentScrollY <= threshold);
+
+      // Determine if the header should be hidden
+      const shouldHideHeader = (scrollDirection === 'down' && currentScrollY > threshold) || forceHide;
+
+      setHeaderHidden(shouldHideHeader); // Update the headerHidden state
+
       if (!linkClicked && (scrollDirection === 'up' || currentScrollY <= threshold)) {
         setForceHide(false);
       }
@@ -122,7 +129,7 @@ function Header() {
 
   return (
     <ScrollProvider>
-      <div className="entire-header">
+      <div className={`entire-header ${headerHidden ? 'no-pointer-events' : ''}`}> {/* Dynamically add the no-pointer-events class */}
         {pluginLoaded ? (
             <div id="MBBv3_LoginPanel" className="login-panel" height="38px" max-height="38px"></div>
         ) : (
@@ -141,15 +148,16 @@ function Header() {
           <nav className={`nav ${menuOpen ? 'open' : ''} ${transparentHeader ? 'transparent' : ''}`}>
             <div className="language-icons">
               <div onClick={() => changeLanguage('en')}>
-                <img src={usaIcon} alt="English" />
+                <span className="language-text">English</span>
               </div>
               <div onClick={() => changeLanguage('es')}>
-                <img src={spainIcon} alt="Spanish" />
+                <span className="language-text">Español</span>
               </div>
               <div onClick={() => changeLanguage('pt')}>
-                <img src={brazilIcon} alt="Portuguese" />
+                <span className="language-text">Português</span>
               </div>
             </div>
+            <div className="separator">|</div> {/* Separator added here */}
             <a href="#aboutMeComponent">
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
                 ABOUT ME

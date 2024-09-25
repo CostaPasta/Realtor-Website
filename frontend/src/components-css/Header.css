@@ -16,7 +16,7 @@ body {
 
 .language-icons {
   display: flex;            /* Arrange items horizontally */
-  gap: 20px;                /* Add spacing between icons */
+  gap: 15px;                /* Add spacing between icons */
   align-items: center;      /* Vertically align icons */
   margin-right: 15px;
 }
@@ -32,7 +32,13 @@ body {
   display: block;
 }
 
-.header.transparent .logo a, .header.transparent .nav a {
+.separator {
+  margin: 0 20px;
+  color: #2c3e50;
+  font-size: 1.5em;
+}
+
+.header.transparent .logo a, .header.transparent .nav a, .header.transparent .language-text, .header.transparent .separator {
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
@@ -56,6 +62,10 @@ body {
   z-index: 3000;
   width: auto;
   
+}
+
+.entire-header.no-pointer-events {
+  pointer-events: none; /* Disable interaction when header is hidden */
 }
 
 .login-panel {
@@ -95,6 +105,10 @@ body {
 
   .header.hidden {
     transform: translateY(-100%); /* Move the header out of view */
+    visibility: hidden; /* Make the header invisible */
+    pointer-events: none; /* Disable interactions with the header */
+    transition: transform 0.3s ease, visibility 0.3s ease; /* Smooth transitions */
+    
   }
 
   .logo {
@@ -115,14 +129,14 @@ body {
     align-items: center;
   }
   
-  .nav a {
+  .nav a, .language-text, .seperator {
     font-size: 1.2em;
     color: #2c3e50;
     text-decoration: none;
     cursor: pointer;
   }
   
-  .nav a:hover {
+  .nav a:hover, .language-text:hover {
     text-decoration: underline;
     color: #f39c12;
     /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); */
@@ -153,7 +167,7 @@ body {
     margin-bottom: 10px;
   }
   
-  .nav a {
+  .nav a, .language-text {
     font-size: 1em; /* Reduce font size for smaller screens */
   }
 
@@ -215,6 +229,10 @@ body {
   }
   .menu-icon {
     display: block;
+  }
+
+  .separator {
+    display: none;
   }
 
   .header.transparent .menu-icon .bar {
