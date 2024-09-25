@@ -14,7 +14,7 @@ const AboutMe = () => {
     };
 
     return (
-        <div className="about-me-container" id='aboutMeC'>
+        <div className="about-me-container" id="aboutMeComponent">
             <Helmet>
                 <script type="application/ld+json">
                 {`
@@ -49,8 +49,8 @@ const AboutMe = () => {
                 <img src={DadImageTransparent} alt="Jose Costa" />
             </div>
             <div className="profile-details">
-                <h1 id='name'>Meet <span className='highlight-blue'>Jose Costa</span>,</h1>
-                <h2 id='name-2'>Your South Florida <span className='highlight-orange'>Real Estate Expert</span></h2>
+                <h1 id='profile-name'>Meet <span className='highlight-blue'>Jose Costa</span>,</h1>
+                <h2 id='profile-name-2'>Your South Florida <span className='highlight-orange'>Real Estate Expert</span></h2>
                 <p>
                     With over <span className='highlight-blue' style={{fontWeight: 'bold'}}>30 years</span> as a South Florida resident and <span className='highlight-blue' style={{fontWeight: 'bold'}}>11 years of real estate experience</span>, Jose Costa offers unparalleled local knowledge and expertise.
                 </p>

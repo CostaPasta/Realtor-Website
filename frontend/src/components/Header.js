@@ -150,18 +150,29 @@ function Header() {
                 <img src={brazilIcon} alt="Portuguese" />
               </div>
             </div>
+            <a href="#aboutMeComponent">
             <Link to="aboutMeComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
-              ABOUT ME
-            </Link>
-            <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
-              AREAS
-            </Link>
-            <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick} >
-              SEARCH
-            </Link>
-            <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
-              CONTACT
-            </Link>
+                ABOUT ME
+              </Link>
+            </a>
+
+            <a href="#areasComponent">
+              <Link to="areasComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
+                AREAS
+              </Link>
+            </a>
+
+            <a href="#searchComponent">
+              <Link to="searchComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
+                SEARCH
+              </Link>
+            </a>
+
+            <a href="#contactComponent">
+              <Link to="contactComponent" smooth={true} duration={600} offset={window.innerWidth <= 768 ? -35 : -38} onClick={handleNavClick}>
+                CONTACT
+              </Link>
+            </a>
           </nav>
           <button className="menu-icon" aria-label="Menu Icon" onClick={toggleMenu}>
             <div className={`bar ${menuOpen ? 'open' : ''}`}></div>

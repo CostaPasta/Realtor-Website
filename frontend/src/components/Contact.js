@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 function Contact() {
   return (
-    <div className="contact-container" id='contactC'>
+    <div className="contact-container" id="contactComponent">
       <Helmet>
         <script type="application/ld+json">
           {`
