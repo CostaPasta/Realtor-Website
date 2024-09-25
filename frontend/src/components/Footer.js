@@ -116,8 +116,8 @@ const Footer = () => {
                             </linearGradient>
                         </svg>
                         <div className="social-icons">
-                            <a aria-label='Instagram' href="https://www.instagram.com/josecosta.realtor/"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
-                            <a aria-label='Facebook' href="https://www.facebook.com/profile.php?id=100090548027826"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
+                            <a aria-label='Instagram' href="https://www.facebook.com/profile.php?id=100090548027826"><FaFacebook style={{fill: "#4267B2"}} size={35}/></a>
+                            <a aria-label='Facebook' href="https://www.instagram.com/josecosta.realtor/"><FaInstagram style={{ fill: "url(#instagram-gradient)" }} size={35}/></a>
                             {/* Add other icons as needed */}
                         </div>
                     </div>
