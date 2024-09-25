@@ -24,7 +24,6 @@ function Home() {
     <ScrollProvider>
       <div className="home-container">
         <Helmet>
-          <link rel="canonical" href="https://josecostarealtor.com/" />
           <script type="application/ld+json">
             {`
               {

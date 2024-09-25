@@ -106,7 +106,7 @@ const Areas = () => {
               </script>
             </Helmet>
             <div className="header-container">
-                <h1>AREAS IN <span className='notranslate'> PALM BEACH</span></h1>
+                <h2 id='HomepageTitle'>AREAS IN <span className='notranslate'> PALM BEACH</span></h2>
                 
                 {/* <Link 
                     //reloadDocument 

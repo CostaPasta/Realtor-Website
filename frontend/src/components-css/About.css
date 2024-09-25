@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px; /* Reduced gap for better responsiveness */
-    padding: 50px 10%; /* Adjusted padding for better responsiveness */
+    padding: 100px 10%; /* Adjusted padding for better responsiveness */
     background: url('../images/AboutmeBackground.webp') round center;
     background-size: cover;
     z-index: 20;

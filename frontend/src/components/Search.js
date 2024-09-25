@@ -5,7 +5,7 @@ const Search = () => {
 
     return (
         <div className='search-wrapper' id='searchC'>
-            <h1 className='title-container'>SEARCH</h1>
+            <h2 className='title-container'>SEARCH</h2>
             <div className="search-component">
                 <div id="MBBv3_QuickSearch" filter="formType:simple1"></div>
             </div>
