@@ -10,6 +10,7 @@ import delrayBeachIMG from '../images/Areas/delrayBeachIMG.webp'
 import boyntonBeachIMG from '../images/Areas/boyntonBeachIMG.webp'
 import lakeWorthIMG from '../images/Areas/lakeWorthIMG.webp'
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';  // Import Helmet for structured data
 
 
 
@@ -54,6 +55,56 @@ const Areas = () => {
     
     return (
         <div id='areasComponent' className="flex-wrapper">
+            <Helmet>
+              <script type="application/ld+json">
+                {`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "Place",
+                    "name": "Service Areas",
+                    "description": "Service areas covered by Jose Costa, a realtor specializing in South Florida.",
+                    "containedInPlace": {
+                      "@type": "City",
+                      "name": "Palm Beach",
+                      "url": "https://josecostarealtor.com/PalmBeach"
+                    },
+                    "hasMap": "https://josecostarealtor.com/map.png",
+                    "areaServed": [
+                      {
+                        "@type": "Place",
+                        "name": "Palm Beach Gardens",
+                        "url": "https://josecostarealtor.com/PalmBeachGardens"
+                      },
+                      {
+                        "@type": "Place",
+                        "name": "West Palm Beach",
+                        "url": "https://josecostarealtor.com/WestPalmBeach"
+                      },
+                      {
+                        "@type": "Place",
+                        "name": "Boca Raton",
+                        "url": "https://josecostarealtor.com/BocaRaton"
+                      },
+                      {
+                        "@type": "Place",
+                        "name": "Delray Beach",
+                        "url": "https://josecostarealtor.com/DelrayBeach"
+                      },
+                      {
+                        "@type": "Place",
+                        "name": "Boynton Beach",
+                        "url": "https://josecostarealtor.com/BoyntonBeach"
+                      },
+                      {
+                        "@type": "Place",
+                        "name": "Broward",
+                        "url": "https://josecostarealtor.com/Broward"
+                      }
+                    ]
+                  }
+                `}
+              </script>
+            </Helmet>
             <div className="header-container">
                 <h1>AREAS IN <span className='notranslate'> PALM BEACH</span></h1>
                 

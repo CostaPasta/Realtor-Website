@@ -100,6 +100,22 @@ const Slideshow = () => {
     return (
         <HelmetProvider>
             <Helmet>
+                <script type="application/ld+json">
+                    {`
+                        {
+                        "@context": "https://schema.org",
+                        "@type": "WebPageElement",
+                        "name": "Homepage Slideshow",
+                        "image": [
+                            "${getBlobUrl(imagePaths.beach.large)}",
+                            "${getBlobUrl(imagePaths.pier.large)}",
+                            "${getBlobUrl(imagePaths.city.large)}",
+                            "${getBlobUrl(imagePaths.lux.large)}"
+                        ],
+                        "description": "A slideshow featuring images of South Florida beaches, luxury homes, and key areas."
+                        }
+                    `}
+                </script>
                 <link
                     rel="preload"
                     fetchpriority="high"

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components-css/About.css';
 import DadImageTransparent from '../images/dadtransparent.webp';
+import { Helmet } from 'react-helmet-async';
 
 const AboutMe = () => {
     console.log('Running in', process.env.NODE_ENV, 'mode');
@@ -14,6 +15,36 @@ const AboutMe = () => {
 
     return (
         <div className="about-me-container" id='aboutMeC'>
+            <Helmet>
+                <script type="application/ld+json">
+                {`
+                    {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Jose Costa",
+                    "jobTitle": "Real Estate Agent",
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Jose Costa Realty",
+                        "url": "https://josecostarealtor.com"
+                    },
+                    "email": "mailto:${obfuscateEmail()}",
+                    "telephone": "+1-954-614-1351",
+                    "image": "https://josecostarealtor.com/images/dadtransparent.webp",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "South Florida",
+                        "addressRegion": "FL",
+                        "addressCountry": "US"
+                    },
+                    "sameAs": [
+                        "https://www.instagram.com/josecosta.realtor/",
+                        "https://www.facebook.com/profile.php?id=100090548027826"
+                    ]
+                    }
+                `}
+                </script>
+            </Helmet>
             <div className="profile-image">
                 <img src={DadImageTransparent} alt="Jose Costa" />
             </div>

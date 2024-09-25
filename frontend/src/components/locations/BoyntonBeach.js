@@ -20,6 +20,9 @@ import AttractionsContent from './contentimages/BoyntonBeach/attractions.webp'
 import TransportationContent from './contentimages/BoyntonBeach/transportation.webp'
 import RealEstateContent from './contentimages/BoyntonBeach/realestate.webp'
 
+import { Helmet } from "react-helmet"; 
+
+
 const BoyntonBeach = () => {
 
     // Define your fact cards data
@@ -172,6 +175,95 @@ const BoyntonBeach = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Place",
+                        "name": "Boynton Beach",
+                        "description": "Boynton Beach offers a vibrant lifestyle with extensive recreational activities, beautiful beaches, and a strong sense of community.",
+                        "image": "https://josecostarealtor.com/static/media/BOYNTON-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                        "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "26.5318",
+                        "longitude": "-80.0905"
+                        },
+                        "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Palm Beach County"
+                        },
+                        "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Boynton Beach",
+                        "addressRegion": "FL",
+                        "addressCountry": "US"
+                        },
+                        "offers": {
+                        "@type": "OfferCatalog",
+                        "name": "Real Estate Listings",
+                        "itemListElement": [
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Community & Lifestyle",
+                                "description": "Offering a vibrant lifestyle, extensive recreational activities, and a strong sense of community.",
+                                "image": "https://josecostarealtor.com/static/media/lifestyle.1d4b3ab5c014cca6a205.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Education",
+                                "description": "High-performing public schools and a variety of private and charter school options.",
+                                "image": "https://josecostarealtor.com/static/media/education.9d8d886517a9d803d0d1.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Neighborhood Amenities",
+                                "description": "Featuring luxurious gated communities, abundant shopping and dining, and family-friendly parks.",
+                                "image": "https://josecostarealtor.com/static/media/neighborhood.526792d67404c149c44b.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Transportation",
+                                "description": "Comprehensive transit options with efficient public transportation and quick access to major highways and airports.",
+                                "image": "https://josecostarealtor.com/static/media/transportation.24c789277e131c298329.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Local Attractions",
+                                "description": "Home to beautiful beaches, cultural venues, and recreational parks.",
+                                "image": "https://josecostarealtor.com/static/media/localattraction.8053ec47089e3274b7c4.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Real Estate Trends",
+                                "description": "Stable market growth, quick sales, and diverse housing options.",
+                                "image": "https://josecostarealtor.com/static/media/realestate.cd3cdb5ea9c61b756c04.jpeg"
+                            }
+                            }
+                        ]
+                        }
+                    }
+                    `}
+                </script>
+            </Helmet>
+
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

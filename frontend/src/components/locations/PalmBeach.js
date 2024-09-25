@@ -148,6 +148,94 @@ const PalmBeach = () => {
     return (
         <div className="palmBeachContainer">
             <Helmet>
+                <script type="application/ld+json">
+                  {`
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "Place",
+                      "name": "Palm Beach",
+                      "description": "Palm Beach is a coastal paradise known for luxury living, pristine beaches, and vibrant culture.",
+                      "image": "https://josecostarealtor.com/static/media/PALMBEACHGARDENS.eac6d6d18a3676bbfeca.webp",
+                      "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "26.7056",
+                        "longitude": "-80.0364"
+                      },
+                      "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Palm Beach County"
+                      },
+                      "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Palm Beach",
+                        "addressRegion": "FL",
+                        "addressCountry": "US"
+                      },
+                      "offers": {
+                        "@type": "OfferCatalog",
+                        "name": "Real Estate Listings",
+                        "itemListElement": [
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Community & Lifestyle",
+                              "description": "Coastal paradise with warm year-round temperatures, attracting a diverse community of all ages.",
+                              "image": "https://josecostarealtor.com/static/media/education.7fc3c84d87b2337cd84b.webp"
+                            }
+                          },
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Education",
+                              "description": "Palm Beach offers excellent education with a 92.8% graduation rate and diverse career academies.",
+                              "image": "https://josecostarealtor.com/images/cardimages/PalmBeach/education.webp"
+                            }
+                          },
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Neighborhood Amenities",
+                              "description": "Luxurious beachfront resorts, and historical landmarks enrich everyday life for residents.",
+                              "image": "https://josecostarealtor.com/static/media/golf.be6fa976efef1ad3316a.webp"
+                            }
+                          },
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Transportation",
+                              "description": "Convenient travel with over 200 daily flights from PBI and local transportation options.",
+                              "image": "https://josecostarealtor.com/static/media/transportation.ed4d97f671148a0ef2dd.webp"
+                            }
+                          },
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Local Attractions",
+                              "description": "Renowned for its stunning beaches, luxury shopping, and outdoor activities.",
+                              "image": "https://josecostarealtor.com/static/media/localattractions.403027379260b334c878.webp"
+                            }
+                          },
+                          {
+                            "@type": "Offer",
+                            "itemOffered": {
+                              "@type": "Product",
+                              "name": "Real Estate Trends",
+                              "description": "Offers options for every lifestyle and budget, ripe with opportunities for growth and investment.",
+                              "image": "https://josecostarealtor.com/static/media/city.1c5a2cceb5fca29df6d1.webp"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  `}
+                </script>
+            </Helmet>
+            <Helmet>
                 <link rel="preload" href={palmbeachbanner} as="image" />
                 <link rel="preload" href={BeachPic} as="image" />
                 <link rel="preload" href={CityPic} as="image" />

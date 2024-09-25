@@ -20,6 +20,9 @@ import AttractionsContent from './contentimages/Broward/attractions.webp'
 import TransportationContent from './contentimages/Broward/transportation.webp'
 import RealEstateContent from './contentimages/Broward/realestate.webp'
 
+import { Helmet } from "react-helmet"; 
+
+
 const Broward = () => {
 
     // Define your fact cards data
@@ -172,6 +175,95 @@ const Broward = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Place",
+                        "name": "Broward County",
+                        "description": "Broward County is a dynamic region offering a mix of urban and suburban living, rich cultural experiences, and a thriving real estate market.",
+                        "image": "https://josecostarealtor.com/static/media/BROWARD-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                        "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "26.1901",
+                        "longitude": "-80.3659"
+                        },
+                        "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Broward County"
+                        },
+                        "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Broward",
+                        "addressRegion": "FL",
+                        "addressCountry": "US"
+                        },
+                        "offers": {
+                        "@type": "OfferCatalog",
+                        "name": "Real Estate Listings",
+                        "itemListElement": [
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Community & Lifestyle",
+                                "description": "Offering a mix of urban and suburban living, with diverse cultural, recreational, and dining opportunities.",
+                                "image": "https://josecostarealtor.com/static/media/lifestyle.e185957f6425a39a881e.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Education",
+                                "description": "Comprehensive educational system with numerous public, private, and charter schools.",
+                                "image": "https://josecostarealtor.com/static/media/education.eb78f9233a4f7f538796.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Neighborhood Amenities",
+                                "description": "Well-equipped with parks, shopping centers, and community activities.",
+                                "image": "https://josecostarealtor.com/static/media/neighborhood.cbda9e4ab96a10fb4c24.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Transportation",
+                                "description": "Extensive public transit systems, major highways, and international airports.",
+                                "image": "https://josecostarealtor.com/static/media/transportation.69c52a187a26064b8900.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Local Attractions",
+                                "description": "Lush parks and beautiful beaches to museums and performance venues.",
+                                "image": "https://josecostarealtor.com/static/media/localattraction.41de5f8fd9ecb01ad7f5.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Real Estate Trends",
+                                "description": "Stable market growth, quick sales, and diverse housing options.",
+                                "image": "https://josecostarealtor.com/static/media/realestate.8f7ba76cf09bc0ffe028.webp"
+                            }
+                            }
+                        ]
+                        }
+                    }
+                    `}
+                </script>
+            </Helmet>
+
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

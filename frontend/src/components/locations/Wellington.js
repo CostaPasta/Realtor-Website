@@ -20,6 +20,8 @@ import AttractionsContent from './contentimages/Wellington/attractions.webp'
 import TransportationContent from './contentimages/Wellington/transportation.webp'
 import RealEstateContent from './contentimages/Wellington/realestate.webp'
 
+import { Helmet } from "react-helmet";
+
 const Wellington = () => {
 
     // Define your fact cards data
@@ -172,6 +174,94 @@ const Wellington = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Place",
+                            "name": "Wellington",
+                            "description": "Wellington is celebrated for its equestrian heritage, luxury lifestyle, and vibrant real estate market.",
+                            "image": "https://josecostarealtor.com/static/media/WELLINGTON-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                            "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "26.6587",
+                            "longitude": "-80.2414"
+                            },
+                            "containedInPlace": {
+                            "@type": "AdministrativeArea",
+                            "name": "Palm Beach County"
+                            },
+                            "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Wellington",
+                            "addressRegion": "FL",
+                            "addressCountry": "US"
+                            },
+                            "offers": {
+                            "@type": "OfferCatalog",
+                            "name": "Real Estate Listings",
+                            "itemListElement": [
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Community & Lifestyle",
+                                    "description": "Wellington offers a dynamic blend of cultural richness and luxury living in a sun-kissed setting.",
+                                    "image": "https://josecostarealtor.com/static/media/lifestyle.297a9e2ef72cfd431090.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Education",
+                                    "description": "Wellington boasts excellent educational offerings from top-rated schools and diverse learning programs.",
+                                    "image": "https://josecostarealtor.com/static/media/education.68572e6e69f620f0a517.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Neighborhood Amenities",
+                                    "description": "Luxury and convenience with premier golf, shopping, and community-focused living.",
+                                    "image": "https://josecostarealtor.com/static/media/neighborhood.0426fc3c9070c800b233.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Transportation",
+                                    "description": "Efficient and diverse transit options connecting Wellington to surrounding urban and suburban areas.",
+                                    "image": "https://josecostarealtor.com/static/media/transportation.2c084d4001c7f16dd8e6.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Local Attractions",
+                                    "description": "Equestrian events, nature preserves, and cultural activities enrich the community of Wellington.",
+                                    "image": "https://josecostarealtor.com/static/media/localattraction.0a00b8ad603a9e926721.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Real Estate Trends",
+                                    "description": "Wellington's real estate market offers promising investment opportunities with steady demand and rising home prices.",
+                                    "image": "https://josecostarealtor.com/static/media/realestate.949867bf2ed4780de4ba.webp"
+                                }
+                                }
+                            ]
+                            }
+                        }
+                    `}
+                </script>
+            </Helmet>
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

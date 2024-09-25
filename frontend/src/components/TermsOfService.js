@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import BackHeader from './BackHeader';
 
 const TermsOfService = () => {
@@ -35,15 +36,67 @@ const TermsOfService = () => {
     padding: '30px'
   };
 
+  // JSON-LD structured data for Terms of Service
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Service - josecostarealtor.com",
+    "description": "Terms of Service for josecostarealtor.com outlining the conditions of website usage.",
+    "url": "https://josecostarealtor.com/terms-of-service",
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the terms of service for josecostarealtor.com?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By accessing or using our website, you agree to comply with and be bound by the Terms of Service. Please read these Terms carefully before using the website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the website for commercial purposes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The website is provided for lawful personal use only. Commercial use, including disrupting or tampering with the website, is prohibited."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What property information is available on the website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Property listings are provided via BeachesMLS. While we strive for accuracy, we do not guarantee the completeness or current status of listings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact josecostarealtor.com?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact us via email, phone, or mail. Refer to the 'Contact Information' section on the Terms of Service page."
+          }
+        }
+      ]
+    }
+  };
 
   return (
     <div className="TOScontainer">
-      <BackHeader/>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLdData)}
+        </script>
+      </Helmet>
+      <BackHeader />
       <div style={containerStyle}>
         <h1 style={headingStyle}>Terms of Service for josecostarealtor.com</h1>
 
         <h2 style={subheadingStyle}>1. Introduction</h2>
-        <p style={paragraphStyle}>Welcome to josecostarealtor.com. By accessing or using our website, you agree to comply with and be bound by the following terms and conditions ("Terms of Service" or "Terms"). Please read these Terms carefully before using our website. If you do not agree to these Terms, please do not use our site.</p>
+        <p style={paragraphStyle}>
+          Welcome to josecostarealtor.com. By accessing or using our website, you agree to comply with and be bound by the following terms and conditions ("Terms of Service" or "Terms"). Please read these Terms carefully before using our website. If you do not agree to these Terms, please do not use our site.
+        </p>
 
         <h2 style={subheadingStyle}>2. Use of the Website</h2>
         <ul style={listStyle}>
@@ -70,31 +123,39 @@ const TermsOfService = () => {
         <ul style={listStyle}>
           <li>The website may contain links to third-party websites that are not under our control.</li>
           <li>We are not responsible for the content, policies, or practices of third-party websites.</li>
-          <li>The website may also contain third-party content, including images and videos. We aim to provide proper attribution and comply with licensing requirements.</li>
           <li>If you believe your intellectual property is being used improperly, please contact us with your claim, and we will review and address the issue promptly.</li>
         </ul>
 
         <h2 style={subheadingStyle}>6. Privacy Policy</h2>
-        <p style={paragraphStyle}>Our Privacy Policy explains how we handle user information. By using the website, you agree to the terms outlined in the Privacy Policy.</p>
+        <p style={paragraphStyle}>
+          Our Privacy Policy explains how we handle user information. By using the website, you agree to the terms outlined in the Privacy Policy.
+        </p>
 
         <h2 style={subheadingStyle}>7. Intellectual Property</h2>
         <ul style={listStyle}>
           <li>All content, including text, graphics, logos, and software, is the property of josecostarealtor.com or its licensors unless otherwise noted.</li>
           <li>You may not use, reproduce, or distribute any content without our prior written permission or the permission of the respective third-party owner.</li>
-          <li>Third-party materials used on the website remain the property of their respective owners.</li>
         </ul>
 
         <h2 style={subheadingStyle}>8. Indemnification</h2>
-        <p style={paragraphStyle}>You agree to indemnify and hold harmless josecostarealtor.com, Atlantic Florida Properties, and their employees from any claims, damages, or losses resulting from your use of the website.</p>
+        <p style={paragraphStyle}>
+          You agree to indemnify and hold harmless josecostarealtor.com, Atlantic Florida Properties, and their employees from any claims, damages, or losses resulting from your use of the website.
+        </p>
 
         <h2 style={subheadingStyle}>9. Limitation of Liability</h2>
-        <p style={paragraphStyle}>josecostarealtor.com is not liable for any direct, indirect, incidental, or consequential damages arising from your use or inability to use the website.</p>
+        <p style={paragraphStyle}>
+          josecostarealtor.com is not liable for any direct, indirect, incidental, or consequential damages arising from your use or inability to use the website.
+        </p>
 
         <h2 style={subheadingStyle}>10. Changes to Terms</h2>
-        <p style={paragraphStyle}>We may update these Terms at any time. We will post the most current version on the website. Continued use of the website after the updated Terms have been posted constitutes acceptance of the new Terms.</p>
+        <p style={paragraphStyle}>
+          We may update these Terms at any time. We will post the most current version on the website. Continued use of the website after the updated Terms have been posted constitutes acceptance of the new Terms.
+        </p>
 
         <h2 style={subheadingStyle}>11. Contact Information</h2>
-        <p style={paragraphStyle}>For questions about these Terms of Service or other inquiries, please contact us at:</p>
+        <p style={paragraphStyle}>
+          For questions about these Terms of Service or other inquiries, please contact us at:
+        </p>
         <ul style={listStyle}>
           <li>Email: [Your Email]</li>
           <li>Phone: [Your Phone Number]</li>
@@ -102,8 +163,6 @@ const TermsOfService = () => {
         </ul>
       </div>
     </div>
-
-    
   );
 };
 

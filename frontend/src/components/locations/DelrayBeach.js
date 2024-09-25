@@ -20,6 +20,9 @@ import AttractionsContent from './contentimages/Delray/attractions.webp'
 import TransportationContent from './contentimages/Delray/transportation.webp'
 import RealEstateContent from './contentimages/Delray/realestate.webp'
 
+import { Helmet } from "react-helmet"; 
+
+
 const DelrayBeach = () => {
 
     // Define your fact cards data
@@ -172,6 +175,95 @@ const DelrayBeach = () => {
 
     return (
         <div className="palmBeachContainer">
+        <Helmet>
+            <script type="application/ld+json">
+                {`
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Place",
+                    "name": "Delray Beach",
+                    "description": "Delray Beach is a vibrant coastal city offering a lively blend of beachfront leisure and a dynamic social scene.",
+                    "image": "https://josecostarealtor.com/static/media/DELRAY-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                    "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "26.4615",
+                    "longitude": "-80.0728"
+                    },
+                    "containedInPlace": {
+                    "@type": "AdministrativeArea",
+                    "name": "Palm Beach County"
+                    },
+                    "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Delray Beach",
+                    "addressRegion": "FL",
+                    "addressCountry": "US"
+                    },
+                    "offers": {
+                    "@type": "OfferCatalog",
+                    "name": "Real Estate Listings",
+                    "itemListElement": [
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Community & Lifestyle",
+                            "description": "Offering a lively blend of beachfront leisure and a vibrant social scene.",
+                            "image": "https://josecostarealtor.com/static/media/lifestyle.e3450c15693d10c6104c.webp"
+                        }
+                        },
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Education",
+                            "description": "Diverse educational opportunities with highly rated public schools and various private options.",
+                            "image": "https://josecostarealtor.com/static/media/education.78925a952bf8228ac330.webp"
+                        }
+                        },
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Neighborhood Amenities",
+                            "description": "Luxurious amenities, abundant recreational spaces, and a community-focused atmosphere.",
+                            "image": "https://josecostarealtor.com/static/media/neighborhood.474ddf54e0ffbb73018c.webp"
+                        }
+                        },
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Transportation",
+                            "description": "Comprehensive transit options with efficient public transportation and strategic access to major highways and airports.",
+                            "image": "https://josecostarealtor.com/static/media/transportation.caf42d2ccbb11b2fb7d3.webp"
+                        }
+                        },
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Local Attractions",
+                            "description": "Rich in cultural sites, natural beauty, and community activities.",
+                            "image": "https://josecostarealtor.com/static/media/localattraction.770978bd25cd9c0cf224.webp"
+                        }
+                        },
+                        {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Product",
+                            "name": "Real Estate Trends",
+                            "description": "Stable market growth, quick sales, and diverse housing options.",
+                            "image": "https://josecostarealtor.com/static/media/realestate.a754d0e8b363320e7c11.webp"
+                        }
+                        }
+                    ]
+                    }
+                }
+                `}
+            </script>
+            </Helmet>
+
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

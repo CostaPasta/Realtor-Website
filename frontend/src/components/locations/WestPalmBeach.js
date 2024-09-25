@@ -20,6 +20,8 @@ import AttractionsContent from './contentimages/WestPalmBeach/attractions.webp'
 import TransportationContent from './contentimages/WestPalmBeach/transportation.webp'
 import RealEstateContent from './contentimages/WestPalmBeach/realestate.webp'
 
+import { Helmet } from "react-helmet"; 
+
 const WestPalmBeach = () => {
 
     // Define your fact cards data
@@ -172,6 +174,94 @@ const WestPalmBeach = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Place",
+                            "name": "West Palm Beach",
+                            "description": "West Palm Beach is a dynamic city known for its cultural richness, diverse lifestyle options, and thriving real estate market.",
+                            "image": "https://josecostarealtor.com/static/media/WESTPALMBEACH-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                            "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "26.7153",
+                            "longitude": "-80.0534"
+                            },
+                            "containedInPlace": {
+                            "@type": "AdministrativeArea",
+                            "name": "Palm Beach County"
+                            },
+                            "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "West Palm Beach",
+                            "addressRegion": "FL",
+                            "addressCountry": "US"
+                            },
+                            "offers": {
+                            "@type": "OfferCatalog",
+                            "name": "Real Estate Listings",
+                            "itemListElement": [
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Community & Lifestyle",
+                                    "description": "Dynamic blend of cultural richness and diverse living in a sun-kissed, luxurious setting.",
+                                    "image": "https://josecostarealtor.com/static/media/lifestyle.57142deaecc0787a76f5.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Education",
+                                    "description": "West Palm Beach offers excellent educational offerings from top-rated schools and diverse learning programs.",
+                                    "image": "https://josecostarealtor.com/static/media/education.7fc3c84d87b2337cd84b.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Neighborhood Amenities",
+                                    "description": "Luxury and convenience with premier golf, shopping, and community-focused living.",
+                                    "image": "https://josecostarealtor.com/static/media/neighborhood.5ce014f8a7ca416abb07.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Transportation",
+                                    "description": "Efficient and diverse transit options connecting residents to urban and suburban areas.",
+                                    "image": "https://josecostarealtor.com/static/media/transportation.444d8d17fba3025c02a6.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Local Attractions",
+                                    "description": "A rich tapestry of cultural venues, outdoor adventures, and family-friendly activities.",
+                                    "image": "https://josecostarealtor.com/static/media/localattraction.02d257c9efb134a53867.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Real Estate Trends",
+                                    "description": "A rising market with strong buyer interest and promising investment opportunities.",
+                                    "image": "https://josecostarealtor.com/static/media/realestate.f1387fdebd4cbdf24308.webp"
+                                }
+                                }
+                            ]
+                            }
+                        }
+                    `}
+                </script>
+            </Helmet>
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

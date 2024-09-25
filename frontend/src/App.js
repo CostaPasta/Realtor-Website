@@ -4,6 +4,7 @@ import Home from './components/Home';
 import PropertyDetails from './components/PropertyDetails';
 import SearchResults from './components/SearchResults';
 import ListingResultsWidget from './components/ListingResultsWidget';
+import { HelmetProvider } from 'react-helmet-async'; // Ensure HelmetProvider is imported
 
 //LOCATIONS
 import PalmBeach from './components/locations/PalmBeach';
@@ -35,7 +36,7 @@ const routes = (
     <Route path="/Broward" element={<Broward />} />
     {/* <Route path="/contact/" element={<Contact />} /> */}
     <Route path="/TermsOfService" element={<TermsOfService />} />
-    
+
     {/* Catch-all route for 404 page */}
     <Route path="*" element={<ErrorPage />} />
   </Routes>
@@ -43,9 +44,11 @@ const routes = (
 
 function App() {
   return (
-    <Router>
-      {routes}
-    </Router>
+    <HelmetProvider>
+      <Router>
+        {routes}
+      </Router>
+    </HelmetProvider>
   );
 }
 export { routes };

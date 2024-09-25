@@ -20,6 +20,9 @@ import AttractionsContent from './contentimages/Jupiter/attractions.webp'
 import TransportationContent from './contentimages/Jupiter/transportation.webp'
 import RealEstateContent from './contentimages/Jupiter/realestate.webp'
 
+import { Helmet } from "react-helmet"; 
+
+
 const Jupiter = () => {
 
     // Define your fact cards data
@@ -172,6 +175,94 @@ const Jupiter = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Place",
+                            "name": "Jupiter",
+                            "description": "Jupiter, Florida is known for its beautiful beaches, family-friendly community, and thriving real estate market.",
+                            "image": "https://josecostarealtor.com/static/media/JUPITER-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                            "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "26.9342",
+                            "longitude": "-80.0942"
+                            },
+                            "containedInPlace": {
+                            "@type": "AdministrativeArea",
+                            "name": "Palm Beach County"
+                            },
+                            "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Jupiter",
+                            "addressRegion": "FL",
+                            "addressCountry": "US"
+                            },
+                            "offers": {
+                            "@type": "OfferCatalog",
+                            "name": "Real Estate Listings",
+                            "itemListElement": [
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Community & Lifestyle",
+                                    "description": "Laid-back beach living with vibrant community amenities and a family-friendly atmosphere.",
+                                    "image": "https://josecostarealtor.com/static/media/lifestyle.b325defdea166eb320b7.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Education",
+                                    "description": "Jupiter offers top-rated schools and diverse programs for family-focused residents.",
+                                    "image": "https://josecostarealtor.com/static/media/education.a53d6ad662530ef135ad.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Neighborhood Amenities",
+                                    "description": "Luxury golf communities, premier waterfront living, and family-friendly amenities.",
+                                    "image": "https://josecostarealtor.com/static/media/neighborhood.76bb3ddc6e7d5f94eb05.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Transportation",
+                                    "description": "Jupiter offers excellent public transit options, proximity to major airports, and well-connected road networks.",
+                                    "image": "https://josecostarealtor.com/static/media/transportation.91b4f2a122107c502529.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Local Attractions",
+                                    "description": "Jupiter is rich in natural beauty and outdoor activities, perfect for those who love the beach and outdoor adventures.",
+                                    "image": "https://josecostarealtor.com/static/media/localattraction.7d920d5ccd69bb43668a.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Real Estate Trends",
+                                    "description": "Jupiter's real estate market is thriving, with rising home values and strong interest from out-of-state buyers.",
+                                    "image": "https://josecostarealtor.com/static/media/realestate.7aeb4236023ffb271062.webp"
+                                }
+                                }
+                            ]
+                            }
+                        }
+                    `}
+                </script>
+            </Helmet>
             <BackHeader></BackHeader>
             {/* Hero Section */}
             <div className="bannerImage">

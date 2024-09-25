@@ -20,6 +20,8 @@ import AttractionsContent from './contentimages/PalmBeachGardens/attractions.web
 import TransportationContent from './contentimages/PalmBeachGardens/transportation.webp'
 import RealEstateContent from './contentimages/PalmBeachGardens/realestate.webp'
 
+import { Helmet } from "react-helmet";
+
 const PalmBeachGardens = () => {
 
     // Define your fact cards data
@@ -173,6 +175,95 @@ const PalmBeachGardens = () => {
     return (
         <div className="palmBeachContainer">
             <BackHeader></BackHeader>
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Place",
+                        "name": "Palm Beach Gardens",
+                        "description": "Palm Beach Gardens is a vibrant community known for its luxurious living, world-class golf courses, and cultural activities.",
+                        "image": "https://josecostarealtor.com/static/media/PALMBEACHGARDENS-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                        "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "26.8234",
+                        "longitude": "-80.1387"
+                        },
+                        "containedInPlace": {
+                        "@type": "AdministrativeArea",
+                        "name": "Palm Beach County"
+                        },
+                        "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Palm Beach Gardens",
+                        "addressRegion": "FL",
+                        "addressCountry": "US"
+                        },
+                        "offers": {
+                        "@type": "OfferCatalog",
+                        "name": "Real Estate Listings",
+                        "itemListElement": [
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Community & Lifestyle",
+                                "description": "A vibrant cultural scene and diverse living options, where tropical ambiance meets luxury.",
+                                "image": "https://josecostarealtor.com/static/media/lifestyle.321ea8566ac9ccff7262.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Education",
+                                "description": "Palm Beach Gardens offers a network of public schools committed to providing quality education from elementary to high school.",
+                                "image": "https://josecostarealtor.com/static/media/education.7fc3c84d87b2337cd84b.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Neighborhood Amenities",
+                                "description": "Home to premier golf courses, luxurious shopping, and dining.",
+                                "image": "https://josecostarealtor.com/static/media/neighborhood.eaf178c1382e6c67a9d4.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Transportation",
+                                "description": "Efficient transportation options connect Palm Beach Gardens residents to local and regional destinations with ease.",
+                                "image": "https://josecostarealtor.com/static/media/transportation.ed4d97f671148a0ef2dd.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Local Attractions",
+                                "description": "Discover the prestigious PGA National Resort and lush shopping districts, a hub for golf and shopping enthusiasts.",
+                                "image": "https://josecostarealtor.com/static/media/localattraction.9886376c730c8277d524.webp"
+                            }
+                            },
+                            {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Product",
+                                "name": "Real Estate Trends",
+                                "description": "A healthy balance of supply and demand, making this a desirable location for homebuyers and investors.",
+                                "image": "https://josecostarealtor.com/static/media/realestate.403a6d0dadb1fef0d9b7.webp"
+                            }
+                            }
+                        ]
+                        }
+                    }
+                    `}
+                </script>
+            </Helmet>
+
             {/* Hero Section */}
             <div className="bannerImage">
                 <img src={palmbeachbanner} alt="Palm Beach" />

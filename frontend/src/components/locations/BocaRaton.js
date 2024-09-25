@@ -21,6 +21,9 @@ import AttractionsContent from './contentimages/BocaRaton/attractions.webp';
 import TransportationContent from './contentimages/BocaRaton/transportation.webp';
 import RealEstateContent from './contentimages/BocaRaton/realestate.webp';
 
+import { Helmet } from "react-helmet"; 
+
+
 const BocaRaton = () => {
     // Define your fact cards data
     const factCards = [
@@ -158,6 +161,94 @@ const BocaRaton = () => {
 
     return (
         <div className="palmBeachContainer">
+            <Helmet>
+                <script type="application/ld+json">
+                    {`
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Place",
+                            "name": "Boca Raton",
+                            "description": "Boca Raton is known for its luxurious lifestyle, beautiful beaches, upscale communities, and a vibrant cultural scene.",
+                            "image": "https://josecostarealtor.com/static/media/BOCA-HEADER.ff7dc9e2abfe99c9fb9e.webp",
+                            "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": "26.3683",
+                            "longitude": "-80.1289"
+                            },
+                            "containedInPlace": {
+                            "@type": "AdministrativeArea",
+                            "name": "Palm Beach County"
+                            },
+                            "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Boca Raton",
+                            "addressRegion": "FL",
+                            "addressCountry": "US"
+                            },
+                            "offers": {
+                            "@type": "OfferCatalog",
+                            "name": "Real Estate Listings",
+                            "itemListElement": [
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Community & Lifestyle",
+                                    "description": "Luxurious lifestyle with beautiful beaches, upscale communities, and a vibrant cultural scene.",
+                                    "image": "https://josecostarealtor.com/static/media/lifestyle.d275a2b2ced8d01d033e.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Education",
+                                    "description": "Boca Raton is known for its excellent educational system featuring top-rated schools and diverse programs for all ages.",
+                                    "image": "https://josecostarealtor.com/static/media/education.4f4b2c138ee0f13c220a.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Neighborhood Amenities",
+                                    "description": "High-end shopping, luxurious amenities, and abundant parks and recreational areas.",
+                                    "image": "https://josecostarealtor.com/static/media/neighborhood.ec1cb18aad57b8ef72e0.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Transportation",
+                                    "description": "Efficient public transit, major highway access, and fast rail services.",
+                                    "image": "https://josecostarealtor.com/static/media/transportation.1a76d72bb8b3d9d2efff.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Local Attractions",
+                                    "description": "Combining natural beauty with cultural richness, offering beaches, art venues, and outdoor activities.",
+                                    "image": "https://josecostarealtor.com/static/media/localattraction.abd5e3f78332b8050845.webp"
+                                }
+                                },
+                                {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "Real Estate Trends",
+                                    "description": "Strong growth in property values and a diverse range of housing options.",
+                                    "image": "https://josecostarealtor.com/static/media/realestate.febc660f5dc93184cc51.webp"
+                                }
+                                }
+                            ]
+                            }
+                        }
+                    `}
+                </script>
+            </Helmet>
             <BackHeader />
             {/* Hero Section */}
             <div className="bannerImage">
