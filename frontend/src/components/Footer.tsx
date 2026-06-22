@@ -174,7 +174,7 @@ export default function Footer() {
 
       {/* Bottom strip */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20 md:pb-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-white/50 text-center md:text-left">
             © 2025 Jose Costa, Realtor® | Atlantic Florida Properties |{' '}
             {/* TODO: Replace with real license number */}

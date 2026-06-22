@@ -21,16 +21,22 @@ const FEATURES = [
     icon: MessageSquare,
     title: 'Three Languages, One Realtor',
     body: "Jose communicates natively in English, Spanish, and Portuguese — a critical advantage in South Florida's diverse international buyer market.",
+    iconBg: '#0D2442',
+    iconColor: '#C4A35A',
   },
   {
     icon: Home,
     title: 'Deep Local Expertise',
     body: 'With over 11 years in the South Florida market, Jose knows which neighborhoods are undervalued, which streets to avoid, and where the best schools are.',
+    iconBg: '#C4A35A',
+    iconColor: '#0D2442',
   },
   {
     icon: Handshake,
     title: 'You Have Representation',
     body: 'Zillow shows you houses. Jose negotiates, protects your interests, navigates inspections, and advocates for you through closing.',
+    iconBg: '#D85A30',
+    iconColor: '#fff',
   },
 ];
 
@@ -68,18 +74,13 @@ export default function HomePage() {
 
       {/* ─── Hero ─── */}
       <section className="relative min-h-screen bg-navy flex items-center overflow-hidden">
-        <svg
-          className="absolute inset-0 w-full h-full opacity-[0.04]"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+        {/* Warm ambient glow — replaces cold geometric grid */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.07]"
+            style={{ background: 'radial-gradient(circle, #C4A35A 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[400px] opacity-[0.05]"
+            style={{ background: 'radial-gradient(circle at bottom left, #D85A30 0%, transparent 70%)' }} />
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-0 w-full">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -129,12 +130,22 @@ export default function HomePage() {
 
             {/* Photo placeholder — TODO: Replace with real headshot */}
             <div className="flex justify-center md:justify-end">
-              <div className="w-72 h-96 md:w-80 md:h-[480px] bg-navy-light border border-white/10 rounded-2xl flex flex-col items-center justify-center gap-4">
-                {/* TODO: Replace with <Image src="[HEADSHOT_URL]" alt="Jose Costa" fill className="object-cover rounded-2xl" /> */}
-                <User size={64} className="text-white/20" />
-                <p className="font-sans text-xs text-white/30 text-center px-4">
-                  Professional photo of Jose Costa
-                </p>
+              <div
+                className="w-72 h-96 md:w-80 md:h-[480px] rounded-3xl overflow-hidden relative flex flex-col items-end justify-end"
+                style={{ background: 'linear-gradient(160deg, #1A3A5C 0%, #2A6080 40%, #C4A35A44 80%, #D85A3022 100%)' }}
+              >
+                {/* TODO: Replace the div above with <Image src="[HEADSHOT_URL]" alt="Jose Costa" fill className="object-cover" /> */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                  <User size={64} className="text-white/20" />
+                  <p className="font-sans text-xs text-white/25 text-center px-6">
+                    Professional photo of Jose Costa
+                  </p>
+                </div>
+                {/* Warm bottom label */}
+                <div className="relative z-10 p-5 w-full bg-gradient-to-t from-black/50 to-transparent">
+                  <p className="font-sans font-semibold text-white text-sm">Jose Costa</p>
+                  <p className="font-sans text-xs text-white/70">Atlantic Florida Properties</p>
+                </div>
               </div>
             </div>
           </div>
@@ -143,6 +154,45 @@ export default function HomePage() {
 
       {/* ─── Trust Bar ─── */}
       <StatBar stats={STATS} />
+
+      {/* ─── South Florida Lifestyle Band ─── */}
+      {/* TODO: Replace gradient divs with real neighborhood photos using <Image> */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                label: 'Waterfront Living',
+                sub: 'Aventura · Fort Lauderdale · Jupiter',
+                gradient: 'linear-gradient(160deg, #0B4C6E 0%, #1A7FA8 50%, #5AB8D4 100%)',
+              },
+              {
+                label: 'Luxury Estates',
+                sub: 'Coral Gables · Palm Beach · Boca Raton',
+                gradient: 'linear-gradient(160deg, #6B2E08 0%, #B85020 50%, #E0906A 100%)',
+              },
+              {
+                label: 'Family Communities',
+                sub: 'Doral · Palm Beach Gardens · Wellington',
+                gradient: 'linear-gradient(160deg, #1A4A1A 0%, #2E8028 50%, #72C060 100%)',
+              },
+            ].map((scene) => (
+              <div
+                key={scene.label}
+                className="rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3]"
+                style={{ background: scene.gradient }}
+                aria-hidden="true"
+              >
+                <div className="absolute inset-0 bg-black/25" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent">
+                  <p className="font-serif text-lg font-bold text-white leading-tight">{scene.label}</p>
+                  <p className="font-sans text-xs text-white/70 mt-0.5">{scene.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── Why Jose? ─── */}
       <section className="py-20 md:py-24 bg-white">
@@ -153,10 +203,13 @@ export default function HomePage() {
             subtitle="In one of the country's most competitive real estate markets, experience and language matter."
           />
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {FEATURES.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="bg-cream rounded-2xl p-8">
-                <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
-                  <Icon size={24} className="text-gold" />
+            {FEATURES.map(({ icon: Icon, title, body, iconBg, iconColor }) => (
+              <div key={title} className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                  style={{ backgroundColor: iconBg }}
+                >
+                  <Icon size={24} style={{ color: iconColor }} />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-navy mb-3">{title}</h3>
                 <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
