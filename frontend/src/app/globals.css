@@ -16,6 +16,20 @@
   /* Fonts */
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Animations */
+  --animate-scroll-dot: scroll-dot 1.6s ease-in-out infinite;
+  --animate-whatsapp-pulse: whatsapp-pulse 2s ease-out infinite;
+}
+
+@keyframes scroll-dot {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(8px); opacity: 0.15; }
+}
+
+@keyframes whatsapp-pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.65); opacity: 0; }
 }
 
 :root {
@@ -44,4 +58,28 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-serif);
+}
+
+/* Override Mapbox popup chrome to match site design */
+.neighborhoods-popup .mapboxgl-popup-content {
+  border-radius: 10px;
+  border: 0.5px solid rgba(196, 163, 90, 0.3);
+  box-shadow: 0 8px 24px rgba(8, 18, 28, 0.15);
+  padding: 14px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  min-width: 220px;
+}
+.neighborhoods-popup .mapboxgl-popup-close-button {
+  font-size: 16px;
+  color: #888;
+  padding: 4px 8px;
+  top: 4px;
+  right: 4px;
+}
+.neighborhoods-popup .mapboxgl-popup-close-button:hover {
+  color: #0D2442;
+  background: none;
+}
+.neighborhoods-popup .mapboxgl-popup-tip {
+  border-top-color: white;
 }

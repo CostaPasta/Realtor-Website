@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
+import ProcessTimeline from '@/components/ProcessTimeline';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 import { neighborhoods } from '@/data/neighborhoods';
 
 export const metadata: Metadata = {
@@ -70,36 +72,15 @@ export default function BuyPage() {
       {/* ─── Buyer Journey ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="The Process"
-            title="How Jose guides buyers from search to keys"
-            subtitle="A clear, step-by-step process with no surprises — and someone in your corner at every stage."
-          />
-          <div className="mt-14 flex flex-col md:flex-row gap-0 md:gap-6">
-            {STEPS.map((step, i) => (
-              <div key={step.number} className="relative flex md:flex-col gap-6 md:gap-4 flex-1">
-                {/* Connector line */}
-                {i < STEPS.length - 1 && (
-                  <div
-                    className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-cream-dark"
-                    style={{ left: '50%' }}
-                    aria-hidden="true"
-                  />
-                )}
-                {/* Mobile left border */}
-                <div className="md:hidden w-px bg-cream-dark self-stretch ml-6 mt-12" aria-hidden="true" />
-
-                <div className="flex md:flex-col items-start md:items-center gap-4 md:gap-3 pb-8 md:pb-0">
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-navy flex items-center justify-center shrink-0">
-                    <span className="font-sans text-xs font-bold text-gold">{step.number}</span>
-                  </div>
-                  <div className="md:text-center">
-                    <h3 className="font-sans font-semibold text-navy text-base">{step.title}</h3>
-                    <p className="mt-2 font-sans text-sm text-gray-600 leading-relaxed">{step.body}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="The Process"
+              title="How Jose guides buyers from search to keys"
+              subtitle="A clear, step-by-step process with no surprises — and someone in your corner at every stage."
+            />
+          </AnimateOnScroll>
+          <div className="mt-14">
+            <ProcessTimeline steps={STEPS} />
           </div>
         </div>
       </section>

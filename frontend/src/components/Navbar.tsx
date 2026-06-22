@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const navLinks = [
   { label: 'Buy', href: '/buy' },
@@ -56,11 +57,18 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-sans text-sm font-medium transition-colors hover:text-gold ${
+                className={`relative px-1 py-2 font-sans text-sm font-medium transition-colors hover:text-gold ${
                   pathname === link.href ? 'text-gold' : 'text-white/90'
                 }`}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
             <Link

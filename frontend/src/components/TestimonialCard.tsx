@@ -3,6 +3,7 @@ interface TestimonialCardProps {
   name: string;
   location: string;
   transactionType: 'Buyer' | 'Seller' | 'Buyer & Seller';
+  language?: 'English' | 'Spanish' | 'Portuguese';
   year?: number;
 }
 
@@ -10,6 +11,12 @@ const BADGE: Record<string, string> = {
   Buyer: 'bg-navy/10 text-navy',
   Seller: 'bg-coral/10 text-coral',
   'Buyer & Seller': 'bg-gold/10 text-gold-dark',
+};
+
+const LANGUAGE_BADGE: Record<string, string> = {
+  English: 'bg-blue-50 text-blue-700 border-blue-200',
+  Spanish: 'bg-red-50 text-red-700 border-red-200',
+  Portuguese: 'bg-green-50 text-green-700 border-green-200',
 };
 
 function getInitials(name: string) {
@@ -37,6 +44,7 @@ export default function TestimonialCard({
   name,
   location,
   transactionType,
+  language,
   year,
 }: TestimonialCardProps) {
   // Pick an avatar color based on name length (stable, not random)
@@ -45,7 +53,15 @@ export default function TestimonialCard({
   const initials = getInitials(name);
 
   return (
-    <div className="bg-white rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm border border-gray-100 hover:border-gold/30 hover:shadow-md transition-all duration-200">
+    <div className="relative bg-white rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm border border-gray-100 hover:border-gold/30 hover:shadow-md transition-all duration-200">
+      {language && (
+        <span
+          className={`absolute top-5 right-5 text-[10px] font-sans font-semibold px-2.5 py-1 rounded-full border ${LANGUAGE_BADGE[language] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}
+        >
+          {language === 'Spanish' ? 'Español' : language === 'Portuguese' ? 'Português' : language}
+        </span>
+      )}
+
       {/* Gold quote mark */}
       <span
         className="font-serif text-4xl text-gold leading-none select-none -mb-2"

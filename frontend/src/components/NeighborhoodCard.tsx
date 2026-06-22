@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import { MapPin, TrendingUp, Clock } from 'lucide-react';
+import { TrendingUp, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface NeighborhoodCardProps {
   name: string;
@@ -48,9 +51,14 @@ export default function NeighborhoodCard({
   const gradient = GRADIENTS[slug] ?? COUNTY_FALLBACK[county] ?? 'linear-gradient(135deg, #0D2442 0%, #1A3A5C 100%)';
 
   return (
+    <motion.div
+      className="rounded-2xl shadow-sm"
+      whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(196, 163, 90, 0.18)' }}
+      transition={{ duration: 0.22, ease: 'easeOut' }}
+    >
     <Link
       href={`/neighborhoods/${slug}`}
-      className="group block bg-white rounded-2xl border border-gray-100 shadow-sm hover:border-gold hover:shadow-lg transition-all duration-200 overflow-hidden"
+      className="group block bg-white rounded-2xl border border-gray-100 hover:border-gold/60 transition-colors duration-200 overflow-hidden"
     >
       {/* Gradient image placeholder — TODO: replace with <Image> of the neighborhood */}
       <div
@@ -91,5 +99,6 @@ export default function NeighborhoodCard({
         </p>
       </div>
     </Link>
+    </motion.div>
   );
 }

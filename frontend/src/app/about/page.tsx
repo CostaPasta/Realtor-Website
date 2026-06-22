@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { User } from 'lucide-react';
+import Image from 'next/image';
 import SectionHeading from '@/components/SectionHeading';
 import StatBar from '@/components/StatBar';
 import CTASection from '@/components/CTASection';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export const metadata: Metadata = {
   title: 'About Jose Costa',
@@ -22,20 +23,20 @@ const LANGUAGES = [
   {
     code: 'EN',
     name: 'English',
-    flag: '🇺🇸',
+    color: '#002868',
     blurb: "Jose's primary working language, used across all South Florida markets.",
   },
   {
     code: 'ES',
     name: 'Español',
-    flag: '🇪🇸',
+    color: '#AA151B',
     blurb:
       'South Florida is home to over 2.5 million Spanish speakers across Cuban, Venezuelan, Colombian, and Argentinian communities.',
   },
   {
     code: 'PT',
     name: 'Português',
-    flag: '🇧🇷',
+    color: '#009C3B',
     blurb:
       'Florida has one of the largest Brazilian communities in the United States, concentrated in Broward and Palm Beach Counties. Jose is one of a small number of Portuguese-speaking realtors in the region.',
   },
@@ -73,24 +74,27 @@ export default function AboutPage() {
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14 items-start">
-            {/* Photo placeholder */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-sm aspect-[3/4] bg-cream border border-gray-100 rounded-2xl flex flex-col items-center justify-center gap-4">
-                {/* TODO: Replace with <Image src="[HEADSHOT_URL]" alt="Jose Costa" fill className="object-cover rounded-2xl" /> */}
-                <User size={72} className="text-gray-300" />
-                <p className="font-sans text-xs text-gray-400 text-center px-4">
-                  Professional photo of Jose Costa
-                </p>
+            <AnimateOnScroll className="flex justify-center">
+              <div className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden ring-2 ring-gold/40">
+                <Image
+                  src="/images/jose-portrait.jpeg"
+                  alt="Jose Costa, South Florida Realtor"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-top"
+                />
               </div>
-            </div>
+            </AnimateOnScroll>
 
             {/* Bio */}
             <div>
-              <SectionHeading
-                eyebrow="His Story"
-                title="30 Years in South Florida"
-                align="left"
-              />
+              <AnimateOnScroll>
+                <SectionHeading
+                  eyebrow="His Story"
+                  title="30 Years in South Florida"
+                  align="left"
+                />
+              </AnimateOnScroll>
               {/* TODO: Replace bracketed values with Jose's real personal details */}
               <div className="mt-8 space-y-5 font-sans text-gray-700 leading-relaxed">
                 <p>
@@ -134,23 +138,30 @@ export default function AboutPage() {
       {/* ─── Languages ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Communication"
-            title="Three languages. One realtor."
-            subtitle="South Florida's multilingual population deserves a realtor who can communicate in the language you think, negotiate, and feel confident in."
-          />
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="Communication"
+              title="Three languages. One realtor."
+              subtitle="South Florida's multilingual population deserves a realtor who can communicate in the language you think, negotiate, and feel confident in."
+            />
+          </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {LANGUAGES.map((lang) => (
+            {LANGUAGES.map((lang, i) => (
+              <AnimateOnScroll key={lang.code} delay={i * 0.08}>
               <div
-                key={lang.code}
-                className="border border-gray-100 rounded-2xl p-8 flex flex-col items-center text-center gap-4"
+                className="border border-gray-100 rounded-2xl overflow-hidden flex flex-col"
               >
-                <span className="text-5xl" role="img" aria-label={lang.name}>
-                  {lang.flag}
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-navy">{lang.name}</h3>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed">{lang.blurb}</p>
+                <div
+                  className="py-6 flex items-center justify-center"
+                  style={{ backgroundColor: lang.color }}
+                >
+                  <h3 className="font-serif text-2xl font-bold text-white">{lang.name}</h3>
+                </div>
+                <div className="p-8 text-center">
+                  <p className="font-sans text-sm text-gray-600 leading-relaxed">{lang.blurb}</p>
+                </div>
               </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

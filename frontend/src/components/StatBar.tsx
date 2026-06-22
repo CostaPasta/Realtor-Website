@@ -1,3 +1,7 @@
+'use client';
+
+import { useCountUp } from '@/hooks/useCountUp';
+
 interface Stat {
   value: string;
   label: string;
@@ -6,6 +10,30 @@ interface Stat {
 interface StatBarProps {
   stats: Stat[];
   dark?: boolean;
+}
+
+function parseValue(value: string) {
+  const match = value.match(/^(\D*)(\d+)(.*)$/);
+  if (!match) return null;
+  const [, prefix, number, suffix] = match;
+  return { prefix, number: parseInt(number, 10), suffix };
+}
+
+function AnimatedStat({ value, delay }: { value: string; delay: number }) {
+  const parsed = parseValue(value);
+  const { count, ref } = useCountUp(parsed?.number ?? 0, 1400, delay);
+
+  if (!parsed) {
+    return <span>{value}</span>;
+  }
+
+  return (
+    <span ref={ref}>
+      {parsed.prefix}
+      {count}
+      {parsed.suffix}
+    </span>
+  );
 }
 
 export default function StatBar({ stats, dark = false }: StatBarProps) {
@@ -26,7 +54,7 @@ export default function StatBar({ stats, dark = false }: StatBarProps) {
               }`}
             >
               <span className={`font-serif text-4xl md:text-5xl font-bold ${valueColor}`}>
-                {stat.value}
+                <AnimatedStat value={stat.value} delay={i * 100} />
               </span>
               <span className={`mt-2 text-sm font-sans font-medium uppercase tracking-wide ${labelColor}`}>
                 {stat.label}

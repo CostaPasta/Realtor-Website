@@ -3,6 +3,8 @@ import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import ValuationForm from '@/components/ValuationForm';
+import ProcessTimeline from '@/components/ProcessTimeline';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export const metadata: Metadata = {
   title: 'Sell Your South Florida Home',
@@ -69,23 +71,15 @@ export default function SellPage() {
       {/* ─── Seller Process ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Jose's Seller Process"
-            title="From valuation to closing — here's how it works"
-            subtitle="A proven process that consistently delivers above-asking results in the South Florida market."
-          />
-          <div className="mt-14 flex flex-col gap-8 max-w-3xl mx-auto">
-            {STEPS.map((step) => (
-              <div key={step.number} className="flex gap-6">
-                <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center shrink-0 mt-1">
-                  <span className="font-sans text-xs font-bold text-gold">{step.number}</span>
-                </div>
-                <div>
-                  <h3 className="font-sans font-semibold text-navy text-base">{step.title}</h3>
-                  <p className="mt-2 font-sans text-sm text-gray-600 leading-relaxed">{step.body}</p>
-                </div>
-              </div>
-            ))}
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="Jose's Seller Process"
+              title="From valuation to closing — here's how it works"
+              subtitle="A proven process that consistently delivers above-asking results in the South Florida market."
+            />
+          </AnimateOnScroll>
+          <div className="mt-14">
+            <ProcessTimeline steps={STEPS} />
           </div>
         </div>
       </section>

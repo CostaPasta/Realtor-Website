@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
@@ -31,8 +35,13 @@ export default function SectionHeading({
         <h2 className={`font-serif text-3xl md:text-4xl font-bold leading-tight ${titleColor}`}>
           {title}
         </h2>
-        <span
-          className="block mt-3 h-0.5 w-16 bg-gold"
+        <motion.span
+          className="block h-[2px] bg-gold mt-3 origin-left"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{ width: '48px' }}
           aria-hidden="true"
         />
       </div>

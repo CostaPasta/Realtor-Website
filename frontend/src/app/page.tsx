@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { User, MessageSquare, Home, Handshake } from 'lucide-react';
+import Image from 'next/image';
+import { MessageSquare, Home, Handshake } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import StatBar from '@/components/StatBar';
-import TestimonialCard from '@/components/TestimonialCard';
 import NeighborhoodCard from '@/components/NeighborhoodCard';
 import CTASection from '@/components/CTASection';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
 
@@ -41,7 +43,6 @@ const FEATURES = [
 ];
 
 const featuredNeighborhoods = neighborhoods.slice(0, 3);
-const featuredTestimonials = testimonials.slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -74,22 +75,35 @@ export default function HomePage() {
 
       {/* ─── Hero ─── */}
       <section className="relative min-h-screen bg-navy flex items-center overflow-hidden">
-        {/* Warm ambient glow — replaces cold geometric grid */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full opacity-[0.07]"
-            style={{ background: 'radial-gradient(circle, #C4A35A 0%, transparent 70%)' }} />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[400px] opacity-[0.05]"
-            style={{ background: 'radial-gradient(circle at bottom left, #D85A30 0%, transparent 70%)' }} />
-        </div>
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="South Florida waterfront"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              'linear-gradient(105deg, rgba(8, 18, 28, 0.90) 0%, rgba(8, 18, 28, 0.72) 55%, rgba(8, 18, 28, 0.45) 100%)',
+          }}
+        />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-0 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-0 w-full">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-6">
                 South Florida Real Estate Expert
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Your home, in the language you trust.
+                Your home, in the{' '}
+                <em className="italic" style={{ color: '#D4BC84' }}>
+                  language you trust
+                </em>
+                .
               </h1>
               <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed">
                 Jose Costa helps South Florida families buy and sell homes with expert local
@@ -128,26 +142,31 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Photo placeholder — TODO: Replace with real headshot */}
-            <div className="flex justify-center md:justify-end">
-              <div
-                className="w-72 h-96 md:w-80 md:h-[480px] rounded-3xl overflow-hidden relative flex flex-col items-end justify-end"
-                style={{ background: 'linear-gradient(160deg, #1A3A5C 0%, #2A6080 40%, #C4A35A44 80%, #D85A3022 100%)' }}
-              >
-                {/* TODO: Replace the div above with <Image src="[HEADSHOT_URL]" alt="Jose Costa" fill className="object-cover" /> */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <User size={64} className="text-white/20" />
-                  <p className="font-sans text-xs text-white/25 text-center px-6">
-                    Professional photo of Jose Costa
-                  </p>
-                </div>
-                {/* Warm bottom label */}
-                <div className="relative z-10 p-5 w-full bg-gradient-to-t from-black/50 to-transparent">
+            <AnimateOnScroll delay={0.1} className="flex justify-center md:justify-end">
+              <div className="w-72 h-96 md:w-80 md:h-[480px] rounded-3xl overflow-hidden relative ring-2 ring-gold/40">
+                <Image
+                  src="/images/jose-portrait.jpeg"
+                  alt="Jose Costa, South Florida Realtor"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 flex flex-col justify-end z-10 p-5 bg-gradient-to-t from-black/60 to-transparent">
                   <p className="font-sans font-semibold text-white text-sm">Jose Costa</p>
                   <p className="font-sans text-xs text-white/70">Atlantic Florida Properties</p>
                 </div>
               </div>
-            </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" aria-hidden="true">
+          <div
+            className="w-[18px] h-[28px] rounded-[10px] flex justify-center pt-1.5"
+            style={{ border: '1.5px solid rgba(255,255,255,0.3)' }}
+          >
+            <span className="w-[3px] h-[6px] rounded-[2px] bg-white animate-scroll-dot" />
           </div>
         </div>
       </section>
@@ -156,7 +175,6 @@ export default function HomePage() {
       <StatBar stats={STATS} />
 
       {/* ─── South Florida Lifestyle Band ─── */}
-      {/* TODO: Replace gradient divs with real neighborhood photos using <Image> */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -164,31 +182,47 @@ export default function HomePage() {
               {
                 label: 'Waterfront Living',
                 sub: 'Aventura · Fort Lauderdale · Jupiter',
-                gradient: 'linear-gradient(160deg, #0B4C6E 0%, #1A7FA8 50%, #5AB8D4 100%)',
+                image: '/images/category-waterfront.jpg',
               },
               {
-                label: 'Luxury Estates',
-                sub: 'Coral Gables · Palm Beach · Boca Raton',
+                label: 'Established Neighborhoods',
+                sub: 'Coral Gables · Boca Raton · Palm Beach Gardens',
                 gradient: 'linear-gradient(160deg, #6B2E08 0%, #B85020 50%, #E0906A 100%)',
               },
               {
-                label: 'Family Communities',
-                sub: 'Doral · Palm Beach Gardens · Wellington',
+                label: 'Growing Families',
+                sub: 'Doral · Wellington · West Palm Beach',
                 gradient: 'linear-gradient(160deg, #1A4A1A 0%, #2E8028 50%, #72C060 100%)',
               },
-            ].map((scene) => (
-              <div
-                key={scene.label}
-                className="rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3]"
-                style={{ background: scene.gradient }}
-                aria-hidden="true"
-              >
-                <div className="absolute inset-0 bg-black/25" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/60 to-transparent">
-                  <p className="font-serif text-lg font-bold text-white leading-tight">{scene.label}</p>
-                  <p className="font-sans text-xs text-white/70 mt-0.5">{scene.sub}</p>
+            ].map((scene, i) => (
+              <AnimateOnScroll key={scene.label} delay={i * 0.08}>
+                <div
+                  className="rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3] border border-transparent hover:border-gold/60 hover:scale-[1.02] transition-all duration-200"
+                  style={scene.gradient ? { background: scene.gradient } : undefined}
+                >
+                  {scene.image && (
+                    <Image
+                      src={scene.image}
+                      alt={scene.label}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  )}
+                  <div
+                    className="absolute inset-0"
+                    aria-hidden="true"
+                    style={{
+                      background:
+                        'linear-gradient(to top, rgba(8, 18, 28, 0.85) 0%, rgba(8, 18, 28, 0.2) 60%, transparent 100%)',
+                    }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="font-serif text-lg font-bold text-white leading-tight">{scene.label}</p>
+                    <p className="font-sans text-xs text-white/70 mt-0.5">{scene.sub}</p>
+                  </div>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -197,23 +231,27 @@ export default function HomePage() {
       {/* ─── Why Jose? ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Why Jose?"
-            title="What makes working with Jose different?"
-            subtitle="In one of the country's most competitive real estate markets, experience and language matter."
-          />
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="Why Jose?"
+              title="What makes working with Jose different?"
+              subtitle="In one of the country's most competitive real estate markets, experience and language matter."
+            />
+          </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {FEATURES.map(({ icon: Icon, title, body, iconBg, iconColor }) => (
-              <div key={title} className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow">
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: iconBg }}
-                >
-                  <Icon size={24} style={{ color: iconColor }} />
+            {FEATURES.map(({ icon: Icon, title, body, iconBg, iconColor }, i) => (
+              <AnimateOnScroll key={title} delay={i * 0.08}>
+                <div className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    style={{ backgroundColor: iconBg }}
+                  >
+                    <Icon size={24} style={{ color: iconColor }} />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-navy mb-3">{title}</h3>
+                  <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-navy mb-3">{title}</h3>
-                <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -221,55 +259,84 @@ export default function HomePage() {
 
       {/* ─── Buyer / Seller Split ─── */}
       <section className="grid md:grid-cols-2">
-        <div className="bg-navy py-16 md:py-20 px-8 md:px-12 flex flex-col justify-center">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
-            For Buyers
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white leading-tight">
-            Buying in South Florida
-          </h2>
-          <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">
-            Get expert guidance from search to keys. Jose curates properties, negotiates on your
-            behalf, and guides you through every step — in your language.
-          </p>
-          <Link
-            href="/buy"
-            className="mt-8 self-start font-sans text-sm font-semibold text-gold hover:text-gold-light transition-colors"
-          >
-            Start Your Search →
-          </Link>
-        </div>
-        <div className="bg-gold py-16 md:py-20 px-8 md:px-12 flex flex-col justify-center">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-navy/60 mb-4">
-            For Sellers
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy leading-tight">
-            Selling Your Home
-          </h2>
-          <p className="mt-4 font-sans text-navy/80 text-base leading-relaxed">
-            Most sellers leave money on the table. Jose&apos;s pricing strategy, targeted marketing,
-            and negotiation experience consistently delivers above-asking results.
-          </p>
-          <Link
-            href="/sell"
-            className="mt-8 self-start font-sans text-sm font-semibold text-navy hover:text-navy-light transition-colors"
-          >
-            Get a Home Valuation →
-          </Link>
-        </div>
+        <AnimateOnScroll className="relative overflow-hidden py-16 md:py-20 px-8 md:px-12 flex flex-col justify-center">
+          <Image
+            src="/images/buy-bg.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-navy/80" aria-hidden="true" />
+          <div className="relative z-10">
+            <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
+              For Buyers
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white leading-tight">
+              Buying in South Florida
+            </h2>
+            <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">
+              Get expert guidance from search to keys. Jose curates properties, negotiates on your
+              behalf, and guides you through every step — in your language.
+            </p>
+            <Link
+              href="/buy"
+              className="mt-8 inline-block font-sans text-sm font-semibold text-gold hover:text-gold-light transition-colors"
+            >
+              Start Your Search →
+            </Link>
+          </div>
+        </AnimateOnScroll>
+        <AnimateOnScroll
+          delay={0.08}
+          className="relative overflow-hidden py-16 md:py-20 px-8 md:px-12 flex flex-col justify-center"
+        >
+          <Image
+            src="/images/sell-bg.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(160, 124, 56, 0.82)' }} aria-hidden="true" />
+          <div className="relative z-10">
+            <p className="font-sans text-xs font-semibold tracking-widest uppercase text-navy/60 mb-4">
+              For Sellers
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy leading-tight">
+              Selling Your Home
+            </h2>
+            <p className="mt-4 font-sans text-navy/80 text-base leading-relaxed">
+              Most sellers leave money on the table. Jose&apos;s pricing strategy, targeted marketing,
+              and negotiation experience consistently delivers above-asking results.
+            </p>
+            <Link
+              href="/sell"
+              className="mt-8 inline-block font-sans text-sm font-semibold text-navy hover:text-navy-light transition-colors"
+            >
+              Get a Home Valuation →
+            </Link>
+          </div>
+        </AnimateOnScroll>
       </section>
 
       {/* ─── Featured Neighborhoods ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Local Expertise"
-            title="South Florida Areas Jose Knows Best"
-            subtitle="Deep knowledge of the neighborhoods buyers and sellers care about most across Miami-Dade, Broward, and Palm Beach."
-          />
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="Local Expertise"
+              title="South Florida Areas Jose Knows Best"
+              subtitle="Deep knowledge of the neighborhoods buyers and sellers care about most across Miami-Dade, Broward, and Palm Beach."
+            />
+          </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredNeighborhoods.map((n) => (
-              <NeighborhoodCard key={n.slug} {...n} />
+            {featuredNeighborhoods.map((n, i) => (
+              <AnimateOnScroll key={n.slug} delay={i * 0.08}>
+                <NeighborhoodCard {...n} />
+              </AnimateOnScroll>
             ))}
           </div>
           <div className="mt-10 text-center">
@@ -286,22 +353,15 @@ export default function HomePage() {
       {/* ─── Testimonials Preview ─── */}
       <section className="py-20 md:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Client Stories"
-            title="What Jose's clients are saying"
-            subtitle="English, Spanish, Portuguese — Jose builds trust in every language."
-          />
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredTestimonials.map((t) => (
-              <TestimonialCard
-                key={t.id}
-                quote={t.quote}
-                name={t.name}
-                location={t.location}
-                transactionType={t.transactionType}
-                year={t.year}
-              />
-            ))}
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="Client Stories"
+              title="What Jose's clients are saying"
+              subtitle="English, Spanish, Portuguese — Jose builds trust in every language."
+            />
+          </AnimateOnScroll>
+          <div className="mt-14">
+            <TestimonialsCarousel testimonials={testimonials} />
           </div>
           <div className="mt-10 text-center">
             <Link

@@ -8,6 +8,10 @@ export interface Neighborhood {
   medianHomePrice: string;
   avgDaysOnMarket: string;
   bestFor: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export const neighborhoods: Neighborhood[] = [
@@ -28,6 +32,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$1.2M',
     avgDaysOnMarket: '45',
     bestFor: 'Families and professionals wanting prestige and walkability',
+    coordinates: { lat: 25.7215, lng: -80.2684 },
   },
   {
     name: 'Aventura',
@@ -45,6 +50,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$650K',
     avgDaysOnMarket: '52',
     bestFor: 'International buyers, investors, and luxury condo seekers',
+    coordinates: { lat: 25.9565, lng: -80.1393 },
   },
   {
     name: 'Doral',
@@ -62,6 +68,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$620K',
     avgDaysOnMarket: '35',
     bestFor: 'Spanish-speaking families, young professionals',
+    coordinates: { lat: 25.8195, lng: -80.3555 },
   },
 
   // ─── Broward ───
@@ -81,6 +88,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$550K',
     avgDaysOnMarket: '48',
     bestFor: 'Boaters, urban professionals, investors',
+    coordinates: { lat: 26.1224, lng: -80.1373 },
   },
   {
     name: 'Hallandale Beach',
@@ -98,6 +106,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$450K',
     avgDaysOnMarket: '60',
     bestFor: 'Value-seekers, first-time buyers, investors',
+    coordinates: { lat: 25.9812, lng: -80.1484 },
   },
   {
     name: 'Broward County',
@@ -115,6 +124,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$520K',
     avgDaysOnMarket: '50',
     bestFor: 'Value-oriented buyers, investors, and those relocating from the Northeast',
+    coordinates: { lat: 26.1224, lng: -80.1373 },
   },
 
   // ─── Palm Beach ───
@@ -134,6 +144,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$3.5M',
     avgDaysOnMarket: '75',
     bestFor: 'Ultra-luxury buyers, second-home purchasers, and long-term investors',
+    coordinates: { lat: 26.7056, lng: -80.0364 },
   },
   {
     name: 'Palm Beach Gardens',
@@ -151,6 +162,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$680K',
     avgDaysOnMarket: '40',
     bestFor: 'Families, golf enthusiasts, and retirees seeking an active lifestyle',
+    coordinates: { lat: 26.8237, lng: -80.1337 },
   },
   {
     name: 'West Palm Beach',
@@ -168,6 +180,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$430K',
     avgDaysOnMarket: '45',
     bestFor: 'Urban professionals, investors, and buyers seeking city living at Palm Beach prices',
+    coordinates: { lat: 26.7153, lng: -80.0534 },
   },
   {
     name: 'Wellington',
@@ -185,6 +198,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$560K',
     avgDaysOnMarket: '42',
     bestFor: 'Equestrian families, buyers wanting land and space, and those seeking a quieter lifestyle',
+    coordinates: { lat: 26.6595, lng: -80.2686 },
   },
   {
     name: 'Jupiter',
@@ -202,6 +216,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$620K',
     avgDaysOnMarket: '44',
     bestFor: 'Families, water sports enthusiasts, and buyers who value natural Florida over urban density',
+    coordinates: { lat: 26.9342, lng: -80.0942 },
   },
   {
     name: 'Boca Raton',
@@ -219,6 +234,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$750K',
     avgDaysOnMarket: '38',
     bestFor: 'Families, retirees, and remote professionals',
+    coordinates: { lat: 26.3683, lng: -80.1289 },
   },
   {
     name: 'Delray Beach',
@@ -236,6 +252,7 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$530K',
     avgDaysOnMarket: '41',
     bestFor: 'Active buyers of all ages who want lifestyle at the center of their home purchase',
+    coordinates: { lat: 26.4615, lng: -80.0728 },
   },
   {
     name: 'Boynton Beach',
@@ -253,5 +270,6 @@ export const neighborhoods: Neighborhood[] = [
     medianHomePrice: '$395K',
     avgDaysOnMarket: '48',
     bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
+    coordinates: { lat: 26.5317, lng: -80.0906 },
   },
 ];

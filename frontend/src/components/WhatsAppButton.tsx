@@ -27,8 +27,14 @@ export default function WhatsAppButton() {
       }`}
       style={{ backgroundColor: '#25D366', minWidth: 52, minHeight: 52 }}
     >
-      <span className="flex items-center justify-center w-[52px] h-[52px] shrink-0">
-        <MessageCircle size={26} color="white" strokeWidth={2} />
+      <span className="relative flex items-center justify-center w-[52px] h-[52px] shrink-0">
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-whatsapp-pulse" aria-hidden="true" />
+        <span
+          className="absolute inset-0 rounded-full bg-[#25D366] animate-whatsapp-pulse"
+          style={{ animationDelay: '0.6s' }}
+          aria-hidden="true"
+        />
+        <MessageCircle size={26} color="white" strokeWidth={2} className="relative z-10" />
       </span>
       <span
         className={`font-sans font-semibold text-white text-sm pr-4 overflow-hidden whitespace-nowrap transition-all duration-300 ${

@@ -1,10 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import SectionHeading from '@/components/SectionHeading';
 import NeighborhoodCard from '@/components/NeighborhoodCard';
 import CTASection from '@/components/CTASection';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 import { neighborhoods } from '@/data/neighborhoods';
+
+const NeighborhoodsMap = dynamic(() => import('@/components/NeighborhoodsMap'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="w-full rounded-xl border border-gold/20 flex items-center justify-center h-[360px] md:h-[520px]"
+      style={{ background: '#f8f4ec' }}
+    >
+      <p className="text-center text-gray-400 text-sm">Loading map…</p>
+    </div>
+  ),
+});
 
 const COUNTIES = ['All', 'Miami-Dade', 'Broward', 'Palm Beach'] as const;
 type County = (typeof COUNTIES)[number];
@@ -36,6 +50,15 @@ export default function NeighborhoodsPage() {
         </div>
       </section>
 
+      {/* ─── Map ─── */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll>
+            <NeighborhoodsMap />
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/* ─── Grid with Filter ─── */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,8 +80,10 @@ export default function NeighborhoodsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((n) => (
-              <NeighborhoodCard key={n.slug} {...n} />
+            {filtered.map((n, i) => (
+              <AnimateOnScroll key={n.slug} delay={(i % 3) * 0.08}>
+                <NeighborhoodCard {...n} />
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
