@@ -14,7 +14,16 @@ const INITIAL_VIEW = {
   longitude: -80.25,
   latitude: 26.28,
   zoom: 9.2,
+  padding: { top: 0, bottom: 0, left: 0, right: 0 },
 };
+
+// Reserve space above the marker, in screen pixels, so the popup (which
+// renders above the marker) always lands fully inside the map container —
+// pixel-based padding is exact regardless of zoom or latitude, unlike a
+// manual lat offset which is projection-dependent and was the source of a
+// bug where the popup could clip above (or below) the map.
+const POPUP_PADDING = { top: 240, bottom: 0, left: 0, right: 0 };
+const NO_PADDING = { top: 0, bottom: 0, left: 0, right: 0 };
 
 export default function NeighborhoodsMap() {
   const [selectedNeighborhood, setSelectedNeighborhood] = useState<Neighborhood | null>(null);
@@ -25,25 +34,40 @@ export default function NeighborhoodsMap() {
     setViewState((prev) => ({
       ...prev,
       longitude: neighborhood.coordinates.lng,
-      latitude: neighborhood.coordinates.lat - 0.04,
+      latitude: neighborhood.coordinates.lat,
       zoom: 12,
+      padding: POPUP_PADDING,
     }));
   }, []);
 
   const handleMapClick = useCallback(() => {
     setSelectedNeighborhood(null);
+    setViewState((prev) => ({ ...prev, padding: NO_PADDING }));
+  }, []);
+
+  const handlePopupClose = useCallback(() => {
+    setSelectedNeighborhood(null);
+    setViewState(INITIAL_VIEW);
   }, []);
 
   return (
     <div className="relative w-full rounded-xl overflow-hidden border border-gold/20 h-[360px] md:h-[520px]">
       <Map
         {...viewState}
-        onMove={(e) => setViewState(e.viewState)}
-        mapStyle="mapbox://styles/mapbox/light-v11"
+        onMove={(e) =>
+          setViewState((prev) => ({
+            ...prev,
+            longitude: e.viewState.longitude,
+            latitude: e.viewState.latitude,
+            zoom: e.viewState.zoom,
+          }))
+        }
+        mapStyle="mapbox://styles/costapasta/cmqpm1trt001g01s48dxb849u"
         mapboxAccessToken={MAPBOX_TOKEN}
         onClick={handleMapClick}
         style={{ width: '100%', height: '100%' }}
         reuseMaps
+        cooperativeGestures
       >
         <NavigationControl position="top-right" />
         {neighborhoods.map((neighborhood) => (
@@ -77,7 +101,7 @@ export default function NeighborhoodsMap() {
             latitude={selectedNeighborhood.coordinates.lat}
             anchor="bottom"
             offset={20}
-            onClose={() => setSelectedNeighborhood(null)}
+            onClose={handlePopupClose}
             closeButton
             closeOnClick={false}
             className="neighborhoods-popup"

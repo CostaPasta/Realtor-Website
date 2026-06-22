@@ -70,6 +70,7 @@ export default function TestimonialsPage() {
                 name={t.name}
                 location={t.location}
                 transactionType={t.transactionType}
+                language={t.language}
                 year={t.year}
               />
             ))}

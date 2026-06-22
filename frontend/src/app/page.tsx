@@ -10,12 +10,11 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
 
-// TODO: Replace all stat values with Jose's real numbers
 const STATS = [
-  { value: '11+', label: 'Years of Experience' },
-  { value: '300+', label: 'Families Helped' },
+  { value: '15+', label: 'Years of Experience' },
+  { value: '44+', label: 'Families Helped' },
   { value: '3', label: 'Languages Spoken' },
-  { value: '$120M+', label: 'In Closed Sales' },
+  { value: '$10M+', label: 'In Closed Sales' },
 ];
 
 const FEATURES = [
