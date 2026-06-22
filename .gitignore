@@ -35,3 +35,7 @@ Thumbs.db
 *.sublime-workspace
 *.tmp
 *.temp
+.claude
+
+directory_tree.txt
+

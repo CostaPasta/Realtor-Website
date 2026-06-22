@@ -1,0 +1,75 @@
+'use client';
+
+import { useState } from 'react';
+import SectionHeading from '@/components/SectionHeading';
+import NeighborhoodCard from '@/components/NeighborhoodCard';
+import CTASection from '@/components/CTASection';
+import { neighborhoods } from '@/data/neighborhoods';
+
+const COUNTIES = ['All', 'Miami-Dade', 'Broward', 'Palm Beach'] as const;
+type County = (typeof COUNTIES)[number];
+
+export default function NeighborhoodsPage() {
+  const [activeCounty, setActiveCounty] = useState<County>('All');
+
+  const filtered =
+    activeCounty === 'All'
+      ? neighborhoods
+      : neighborhoods.filter((n) => n.county === activeCounty);
+
+  return (
+    <>
+      {/* ─── Hero ─── */}
+      <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
+            Local Expertise
+          </p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
+            South Florida Neighborhoods — Jose&apos;s Backyard
+          </h1>
+          <p className="mt-4 font-sans text-white/80 max-w-xl leading-relaxed">
+            Jose has spent over 11 years working across Miami-Dade, Broward, and Palm Beach
+            counties. Here&apos;s a deep look at the neighborhoods where he helps clients buy and
+            sell every week.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Grid with Filter ─── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Filter bar */}
+          <div className="flex gap-2 mb-12 flex-wrap">
+            {COUNTIES.map((county) => (
+              <button
+                key={county}
+                onClick={() => setActiveCounty(county)}
+                className={`font-sans text-sm font-semibold px-5 py-2 rounded-full border transition-colors ${
+                  activeCounty === county
+                    ? 'bg-navy text-white border-navy'
+                    : 'border-gray-200 text-gray-600 hover:border-navy hover:text-navy'
+                }`}
+              >
+                {county}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((n) => (
+              <NeighborhoodCard key={n.slug} {...n} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        title="Looking to buy or sell in South Florida?"
+        subtitle="Tell Jose which neighborhoods interest you — he'll give you a candid read on what your budget can get and what the market looks like right now."
+        primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
+        secondaryCTA={{ label: 'Read Market Updates', href: '/market-updates' }}
+      />
+    </>
+  );
+}
