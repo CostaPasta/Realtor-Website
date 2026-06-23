@@ -34,23 +34,31 @@ export interface Neighborhood {
     category: 'city' | 'county' | 'schools' | 'property-appraiser' | 'chamber' | 'visitor';
   }[];
   joseNote?: string;
+  lifestyleTags?: string[];
   census?: {
     population: string;
     medianAge: string;
     medianHouseholdIncome: string;
     perCapitaIncome: string;
     ownerOccupied: string;
+    renterOccupied: string;
     foreignBorn: string;
-    povertyRate: string;
     topLanguages: string[];
     source: string;
   };
-  lifeHere?: string;
+  // MARKET DATA — update manually each quarter from MLS or Zillow Research
+  marketSnapshot?: {
+    medianPrice: string;
+    avgDaysOnMarket: string;
+    pricePerSqFt?: string;
+    lastUpdated: string;
+  };
   budgetGuide?: {
     tier: string;
     label: string;
     description: string;
   }[];
+  // SCHOOL DATA — verify ratings annually at greatschools.org
   schools?: {
     name: string;
     level: 'Elementary' | 'Middle' | 'High' | 'Charter' | 'K-8';
@@ -100,122 +108,80 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Things to Do in Royal Palm Beach', url: 'https://www.thepalmbeaches.com/explore-cities/royal-palm-beach', category: 'visitor' },
     ],
-    joseNote:
-      "I've helped more families find homes and rentals in Royal Palm Beach than anywhere else in my career. What I always tell people is this: don't let the name fool you — this isn't a fancy address, it's a real community where real families put down roots. The schools are solid, the neighbors look out for each other, and your money goes further here than almost anywhere else in Palm Beach County. I know the buildings, I know the neighborhoods, and I know which blocks are worth paying a little extra for. If you're considering Royal Palm Beach — to rent, to buy, or both — call me. I'll give you the honest version.",
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: [
+      'Family-Friendly',
+      'Affordable',
+      'Diverse Community',
+      'New Construction',
+      'Active Rentals',
+      'Strong Schools',
+    ],
     census: {
-      population: '39,089',
-      medianAge: '41.5',
-      medianHouseholdIncome: '$92,382',
-      perCapitaIncome: '$40,918',
-      ownerOccupied: '82.3%',
-      foreignBorn: '28.9%',
-      povertyRate: '5%',
-      topLanguages: ['English', 'Spanish', 'Portuguese', 'Haitian Creole'],
-      source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
     },
-    lifeHere:
-      "Royal Palm Beach has a Saturday-morning energy that's hard to find elsewhere in South Florida. You wake up, the kids want to go to Commons Park, your neighbor is washing his car in the driveway, and there's a pickup soccer game forming on the grass field by 9am. It feels like a real neighborhood — because it is one.\n\nThe community here is genuinely diverse in a way that doesn't feel curated. Brazilian families, Venezuelan families, Haitian families, and longtime Florida residents all live on the same streets, shop at the same Publix, and send their kids to the same schools. It's the kind of place where you hear three languages in a single conversation at the park — and nobody thinks twice about it. For Jose's clients who are new to Florida and worried about fitting in, Royal Palm Beach is usually the first place he recommends.\n\nThe western location means you're not on the beach — the ocean is about 25 minutes east — but you're also not paying beach prices. You get newer construction, bigger lots, community pools, and quiet streets for a fraction of what coastal communities charge. The median household income here is $92,382 — well above the Florida average — which tells you something about the people who live here: they work hard, they've earned their footing, and they take their neighborhood seriously.",
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
     budgetGuide: [
       {
         tier: 'Under $300K',
-        label: 'Condos & Townhomes',
-        description:
-          "You're looking at 2–3 bedroom condos in well-maintained communities like Grand View at Crestwood or Kensington of Royal Palm Beach — buildings Jose knows unit by unit. Community pools, manageable HOA fees, and a genuine entry into homeownership in Palm Beach County.",
+        label: '[Property Type]',
+        description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]',
       },
       {
         tier: '$300K – $450K',
-        label: 'Single-Family Homes',
-        description:
-          'The heart of the RPB market. Three to four bedroom homes with fenced yards in established neighborhoods, many with community pools and no sky-high HOA. This is where most of Jose\'s buyers land.',
+        label: '[Property Type]',
+        description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]',
       },
       {
         tier: '$450K – $700K',
-        label: 'Newer Construction',
-        description:
-          'Newer builds with impact windows, open floor plans, and more square footage. Communities like Arden in adjacent Loxahatchee fall into this range with resort-style amenities and gated access.',
+        label: '[Property Type]',
+        description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]',
       },
     ],
     schools: [
       {
-        name: 'Royal Palm Beach Elementary School',
+        name: '[Elementary School Name]',
         level: 'Elementary',
-        rating: '7/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/royal-palm-beach/5254-Royal-Palm-Beach-Elementary-School/',
+        rating: '[X/10]',
+        greatSchoolsUrl: 'https://www.greatschools.org/',
       },
       {
-        name: 'H.L. Johnson Elementary School',
-        level: 'Elementary',
-        rating: '7/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/royal-palm-beach/2285-H.-L.-Johnson-Elementary-School/',
-      },
-      {
-        name: 'Western Academy Charter School',
-        level: 'K-8',
-        rating: '10/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/royal-palm-beach/5346-Western-Academy-Charter-School/',
-      },
-      {
-        name: 'Western Pines Community Middle School',
+        name: '[Middle School Name]',
         level: 'Middle',
-        rating: '8/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/west-palm-beach/2343-Western-Pines-Community-Middle-School/',
+        rating: '[X/10]',
+        greatSchoolsUrl: 'https://www.greatschools.org/',
       },
       {
-        name: 'Royal Palm Beach High School',
+        name: '[High School Name]',
         level: 'High',
-        rating: '3/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/west-palm-beach/2341-Royal-Palm-Beach-High-School/',
+        rating: '[X/10]',
+        greatSchoolsUrl: 'https://www.greatschools.org/',
       },
     ],
-    schoolNote:
-      "RPB's elementary and K-8 schools are genuinely solid — Western Academy Charter rates 10/10 on GreatSchools, among the top schools in Florida. Royal Palm Beach High School rates lower, at 3/10; some families in the area look into Palm Beach Central High School in neighboring Wellington, which rates closer to the state average and is a popular alternative for families in the western corridor.",
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
     pointsOfInterest: [
-      {
-        name: 'Commons Park',
-        category: 'Park',
-        description:
-          'The heart of the community — 140+ acres with a splash pad, amphitheater, nature trails, sports fields, and a dog park. If you want to understand Royal Palm Beach, spend a Saturday morning here.',
-      },
-      {
-        name: 'Royal Palm Beach Public Library',
-        category: 'Community',
-        description:
-          'A well-resourced Palm Beach County library branch with children\'s programming, quiet study space, and community meeting rooms.',
-      },
-      {
-        name: 'Mall at Wellington Green',
-        category: 'Shopping',
-        description:
-          "One of South Florida's premier regional malls about 10 minutes south — Macy's, Dillard's, Apple, and a strong restaurant corridor. Target, Costco, and every major grocery chain are in the surrounding area.",
-      },
-      {
-        name: 'Southern Blvd Dining Corridor',
-        category: 'Dining',
-        description:
-          'A stretch of Latin American restaurants, Venezuelan bakeries, Brazilian churrascarias, and family diners along Southern Blvd. One of the most authentic dining corridors in western Palm Beach County.',
-      },
-      {
-        name: 'Royal Palm Beach Cultural Center',
-        category: 'Community',
-        description: 'A local arts and events venue with performances, classes, and community gatherings throughout the year.',
-      },
-      {
-        name: 'Seminole Trail',
-        category: 'Recreation',
-        description: 'A paved multi-use trail running through the heart of Royal Palm Beach — cyclists, joggers, and stroller families use it daily.',
-      },
-      {
-        name: 'Multiple Community Pools',
-        category: 'Recreation',
-        description: 'Many RPB neighborhoods and condo communities have their own pools. The village also maintains public aquatic facilities available to all residents.',
-      },
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
     ],
     rentalMarket: {
       active: true,
-      rangeMin: '$1,400',
-      rangeMax: '$2,750',
-      description:
-        "Royal Palm Beach is Jose's most active rental market in Palm Beach County. He has placed tenants in dozens of homes and condo units here — including buildings like Grand View at Crestwood that he knows unit by unit. If you're looking to rent in Royal Palm Beach, contact Jose directly. He often knows about available units before they're publicly listed.",
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
     },
   },
   {
@@ -244,6 +210,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Palm Beach Chamber of Commerce', url: 'https://www.palmbeachchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Wellington',
@@ -270,6 +277,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'The Acreage & Loxahatchee',
@@ -296,6 +344,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Acreage-Loxahatchee Chamber', url: 'https://www.acreageloxahatcheechamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Lake Worth Beach',
@@ -321,6 +410,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Boynton Beach',
@@ -347,6 +477,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Greater Boynton Beach Chamber', url: 'https://www.boyntonbeachchamber.org', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Delray Beach',
@@ -372,6 +543,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Palm Beach Gardens',
@@ -398,6 +610,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Palm Beach Gardens Chamber', url: 'https://www.pbgchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Jupiter',
@@ -424,6 +677,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Jupiter-Tequesta Chamber', url: 'https://www.jupiterinletchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Palm Beach',
@@ -449,6 +743,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Palm Beach Chamber of Commerce', url: 'https://www.palmbeachchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
 
   // ── BROWARD COUNTY ─────────────────────────────────────────────────────────
@@ -481,6 +816,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Broward County Property Appraiser', url: 'https://www.bcpa.net', category: 'property-appraiser' },
       { label: 'Davie/Cooper City Chamber', url: 'https://www.davie-coopercity.org', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Oakland Park',
@@ -506,6 +882,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Broward County Schools', url: 'https://www.browardschools.com', category: 'schools' },
       { label: 'Broward County Property Appraiser', url: 'https://www.bcpa.net', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Wilton Manors',
@@ -531,6 +948,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Broward County Schools', url: 'https://www.browardschools.com', category: 'schools' },
       { label: 'Broward County Property Appraiser', url: 'https://www.bcpa.net', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Pompano Beach',
@@ -557,6 +1015,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Broward County Property Appraiser', url: 'https://www.bcpa.net', category: 'property-appraiser' },
       { label: 'Pompano Beach Chamber', url: 'https://www.pompanobeachchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
 
   // ── TREASURE COAST ─────────────────────────────────────────────────────────
@@ -585,6 +1084,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'St. Lucie County Property Appraiser', url: 'https://www.paslc.gov', category: 'property-appraiser' },
       { label: 'St. Lucie Chamber of Commerce', url: 'https://www.slchamber.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Stuart',
@@ -611,6 +1151,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Martin County Property Appraiser', url: 'https://www.pa.martin.fl.us', category: 'property-appraiser' },
       { label: 'Stuart/Martin County Chamber', url: 'https://www.stuartmartinchamber.org', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
 
   // ── MIAMI-DADE COUNTY ──────────────────────────────────────────────────────
@@ -639,6 +1220,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Miami-Dade Property Appraiser', url: 'https://www.pa.miamidade.gov', category: 'property-appraiser' },
       { label: 'Hialeah Chamber of Commerce', url: 'https://www.hialeahchamber.org', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
   {
     name: 'Aventura',
@@ -664,6 +1286,47 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Miami-Dade County Schools', url: 'https://www.dadeschools.net', category: 'schools' },
       { label: 'Miami-Dade Property Appraiser', url: 'https://www.pa.miamidade.gov', category: 'property-appraiser' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
 
   // ── SPACE COAST ────────────────────────────────────────────────────────────
@@ -692,5 +1355,46 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Brevard County Property Appraiser', url: 'https://www.bcpao.us', category: 'property-appraiser' },
       { label: 'Cocoa Beach Chamber of Commerce', url: 'https://www.cocoa-beach.com', category: 'chamber' },
     ],
+    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
+    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    census: {
+      population: '[PLACEHOLDER]',
+      medianAge: '[PLACEHOLDER]',
+      medianHouseholdIncome: '[PLACEHOLDER]',
+      perCapitaIncome: '[PLACEHOLDER]',
+      ownerOccupied: '[PLACEHOLDER]',
+      renterOccupied: '[PLACEHOLDER]',
+      foreignBorn: '[PLACEHOLDER]',
+      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
+      source: '[PLACEHOLDER — census source and year]',
+    },
+    marketSnapshot: {
+      medianPrice: '[PLACEHOLDER]',
+      avgDaysOnMarket: '[PLACEHOLDER]',
+      pricePerSqFt: '[PLACEHOLDER]',
+      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+    },
+    budgetGuide: [
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+    ],
+    schools: [
+      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+    ],
+    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    pointsOfInterest: [
+      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
+      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
+      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+    ],
+    rentalMarket: {
+      active: true,
+      rangeMin: '[$X,XXX]',
+      rangeMax: '[$X,XXX]',
+      description: '[PLACEHOLDER — rental market description goes here.]',
+    },
   },
 ];

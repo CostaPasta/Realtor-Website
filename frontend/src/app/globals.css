@@ -83,3 +83,12 @@ h1, h2, h3 {
 .neighborhoods-popup .mapboxgl-popup-tip {
   border-top-color: white;
 }
+
+/* Suppress the global floating WhatsApp button on mobile while the
+   neighborhood page's sticky action bar (which has its own WhatsApp
+   button) is visible — avoids two overlapping WhatsApp CTAs. */
+@media (max-width: 767px) {
+  .suppress-for-sticky-bar {
+    display: none !important;
+  }
+}

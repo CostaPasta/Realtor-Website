@@ -2,9 +2,40 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, TrendingUp, Clock, MapPin, Users } from 'lucide-react';
+import {
+  TrendingUp,
+  Clock,
+  MapPin,
+  Quote,
+  TreePine,
+  ShoppingBag,
+  Utensils,
+  Users,
+  Star,
+  Train,
+  MessageCircle,
+  Phone,
+  GraduationCap,
+  Home,
+  ShieldCheck,
+  Sparkles,
+  Send,
+} from 'lucide-react';
 import CTASection from '@/components/CTASection';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
+import MobileStickyBar from '@/components/MobileStickyBar';
 import { neighborhoods } from '@/data/neighborhoods';
+
+const POI_ICONS = {
+  Park: TreePine,
+  Shopping: ShoppingBag,
+  Dining: Utensils,
+  Community: Users,
+  Recreation: Star,
+  Transit: Train,
+} as const;
+
+const HIGHLIGHT_ICONS = [Star, Home, TreePine, ShieldCheck, Users, Sparkles];
 
 export async function generateStaticParams() {
   return neighborhoods.map((n) => ({ slug: n.slug }));
@@ -36,187 +67,522 @@ export default async function NeighborhoodPage({
   const {
     name,
     county,
+    region,
     tagline,
     description,
     highlights,
     medianHomePrice,
     avgDaysOnMarket,
-    bestFor,
+    population,
     imageSrc,
     resources,
-    population,
+    joseNote,
+    lifestyleTags,
+    census,
+    marketSnapshot,
+    budgetGuide,
+    schools,
+    schoolNote,
+    pointsOfInterest,
+    rentalMarket,
   } = neighborhood;
 
   return (
     <>
-      {/* ─── Hero ─── */}
-      <section className="relative bg-navy pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
+      {/* ─── Section 1: Hero ─── */}
+      <section className="relative bg-navy overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col">
         {imageSrc && (
-          <>
-            <Image
-              src={imageSrc}
-              alt={`${name} skyline`}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-            <div
-              className="absolute inset-0"
-              aria-hidden="true"
-              style={{
-                background:
-                  'linear-gradient(105deg, rgba(8, 18, 28, 0.90) 0%, rgba(8, 18, 28, 0.72) 55%, rgba(8, 18, 28, 0.45) 100%)',
-              }}
-            />
-          </>
+          <Image
+            src={imageSrc}
+            alt={`${name} skyline`}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
         )}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Link
-              href="/neighborhoods"
-              className="font-sans text-xs text-white/60 hover:text-gold transition-colors"
-            >
-              Neighborhoods
-            </Link>
-            <span className="text-white/30">/</span>
-            <span className="font-sans text-xs text-white/60">{name}</span>
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(8, 18, 28, 0.97) 0%, rgba(8, 18, 28, 0.55) 50%, rgba(8, 18, 28, 0.15) 100%)',
+          }}
+        />
+        <div className="relative z-10 flex-1 flex flex-col justify-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-6 w-full">
+            <div className="flex items-center gap-2 mb-4">
+              <Link
+                href="/neighborhoods"
+                className="font-sans text-xs text-white/60 hover:text-gold transition-colors"
+              >
+                Neighborhoods
+              </Link>
+              <span className="text-white/30">/</span>
+              <span className="font-sans text-xs text-white/60">{name}</span>
+            </div>
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
+              <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-gold/20 text-gold border border-gold/30">
+                <MapPin size={10} />
+                {county} County
+              </span>
+              {region !== `${county} County` && (
+                <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 border border-white/20">
+                  {region}
+                </span>
+              )}
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
+              {name}
+            </h1>
+            <p className="mt-4 font-sans text-xl text-gold">{tagline}</p>
           </div>
-          <div className="flex items-start gap-3 mb-4">
-            <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-gold/20 text-gold border border-gold/30">
-              <MapPin size={10} />
-              {county} County
-            </span>
+
+          {/* Quick stat strip */}
+          <div className="relative bg-navy/70 backdrop-blur-sm border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div>
+                  <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
+                    <TrendingUp size={11} />
+                    Median Price
+                  </p>
+                  <p className="font-sans font-bold text-white text-base">{medianHomePrice}</p>
+                </div>
+                <div>
+                  <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
+                    <Clock size={11} />
+                    Avg Days
+                  </p>
+                  <p className="font-sans font-bold text-white text-base">{avgDaysOnMarket} days</p>
+                </div>
+                <div>
+                  <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
+                    <MapPin size={11} />
+                    County
+                  </p>
+                  <p className="font-sans font-bold text-white text-base">{county}</p>
+                </div>
+                {population && (
+                  <div>
+                    <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
+                      <Users size={11} />
+                      Population
+                    </p>
+                    <p className="font-sans font-bold text-white text-base">{population}</p>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
-            {name}
-          </h1>
-          <p className="mt-4 font-sans text-xl text-gold">{tagline}</p>
         </div>
       </section>
+      <div id="hero-sentinel" aria-hidden="true" />
 
-      {/* ─── Stats Row ─── */}
-      <section className="bg-cream py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`grid gap-6 md:gap-10 ${
-              population ? 'grid-cols-2 sm:grid-cols-4 max-w-2xl' : 'grid-cols-3 max-w-lg'
-            }`}
-          >
-            <div>
-              <p className="font-sans text-xs text-gray-500 flex items-center gap-1 mb-1">
-                <TrendingUp size={12} />
-                Median Price
-              </p>
-              <p className="font-sans font-bold text-navy text-xl">{medianHomePrice}</p>
+      {/* ─── Section 2: Lifestyle Tag Chips ─── */}
+      {lifestyleTags && lifestyleTags.length > 0 && (
+        <section className="bg-cream py-4 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex gap-2 overflow-x-auto md:overflow-visible md:flex-wrap [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {lifestyleTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="shrink-0 font-sans text-xs font-semibold px-4 py-2 rounded-full bg-white text-navy border border-gray-200 whitespace-nowrap"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Two-column layout: main content + sticky sidebar ─── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12">
+          {/* Main content column */}
+          <div className="space-y-20 min-w-0">
+            {/* Section 3: Highlights as icon cards */}
             <div>
-              <p className="font-sans text-xs text-gray-500 flex items-center gap-1 mb-1">
-                <Clock size={12} />
-                Avg Days on Market
-              </p>
-              <p className="font-sans font-bold text-navy text-xl">{avgDaysOnMarket} days</p>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
+                Why {name}?
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {highlights.map((item, i) => {
+                  const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
+                  return (
+                    <AnimateOnScroll key={item} delay={i * 0.08}>
+                      <div className="bg-white border border-gray-100 rounded-2xl p-6 h-full">
+                        <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center mb-4">
+                          <Icon size={18} className="text-gold" />
+                        </div>
+                        <p className="font-sans text-sm text-gray-700 leading-relaxed">{item}</p>
+                      </div>
+                    </AnimateOnScroll>
+                  );
+                })}
+              </div>
             </div>
-            <div>
-              <p className="font-sans text-xs text-gray-500 flex items-center gap-1 mb-1">
-                <MapPin size={12} />
-                County
-              </p>
-              <p className="font-sans font-bold text-navy text-xl">{county}</p>
-            </div>
-            {population && (
+
+            {/* Section 4: Jose's Personal Note */}
+            {joseNote && (
+              <AnimateOnScroll>
+                <div className="bg-cream rounded-2xl p-8 md:p-12 text-center">
+                  <Quote size={36} className="text-gold mx-auto mb-4" aria-hidden="true" />
+                  <p className="font-serif text-lg md:text-xl text-navy italic leading-relaxed">
+                    {joseNote}
+                  </p>
+                  <div className="mt-8 flex items-center justify-center gap-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-gold/40 shrink-0">
+                      <Image
+                        src="/images/jose-portrait.jpeg"
+                        alt="Jose Costa"
+                        fill
+                        sizes="48px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <div className="text-left">
+                      <p className="font-sans font-semibold text-navy text-sm">Jose Costa</p>
+                      <a
+                        href="tel:+19546141351"
+                        className="font-sans text-xs text-gray-500 hover:text-gold transition-colors"
+                      >
+                        (954) 614-1351
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            )}
+
+            {/* Section 5: Community Snapshot */}
+            {census && (
               <div>
-                <p className="font-sans text-xs text-gray-500 flex items-center gap-1 mb-1">
-                  <Users size={12} />
-                  Population
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
+                  Who lives in {name}?
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {[
+                    { label: 'Population', value: census.population },
+                    { label: 'Median Age', value: census.medianAge },
+                    { label: 'Median Household Income', value: census.medianHouseholdIncome },
+                    { label: 'Per Capita Income', value: census.perCapitaIncome },
+                    { label: 'Owner-Occupied', value: census.ownerOccupied },
+                    { label: 'Renter-Occupied', value: census.renterOccupied },
+                    { label: 'Foreign-Born', value: census.foreignBorn },
+                  ].map((stat, i) => (
+                    <AnimateOnScroll key={stat.label} delay={i * 0.05}>
+                      <div className="bg-white border border-gray-100 rounded-xl p-5 text-center h-full">
+                        <p className="font-serif font-bold text-navy text-xl">{stat.value}</p>
+                        <p className="font-sans text-xs text-gray-500 mt-1">{stat.label}</p>
+                      </div>
+                    </AnimateOnScroll>
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {census.topLanguages.map((lang) => (
+                    <span
+                      key={lang}
+                      className="font-sans text-xs font-semibold px-3 py-1.5 rounded-full bg-gold/10 text-gold-dark border border-gold/30"
+                    >
+                      {lang}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-4 font-sans text-xs text-gray-400">{census.source}</p>
+              </div>
+            )}
+
+            {/* Section 6: What Your Budget Gets You */}
+            {budgetGuide && budgetGuide.length > 0 && (
+              <div className="bg-cream rounded-2xl p-8">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy">
+                  What does your budget get you here?
+                </h2>
+                <p className="mt-2 font-sans text-gray-500 text-sm">
+                  Honest ranges — not the headline number on Zillow.
                 </p>
-                <p className="font-sans font-bold text-navy text-xl">{population}</p>
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {budgetGuide.map((tier, i) => (
+                    <AnimateOnScroll key={`${tier.tier}-${i}`} delay={i * 0.08}>
+                      <div className="bg-white rounded-xl p-6 h-full">
+                        <p className="font-sans font-bold text-gold text-sm uppercase tracking-wide mb-2">
+                          {tier.tier}
+                        </p>
+                        <h3 className="font-serif text-lg font-bold text-navy mb-3">{tier.label}</h3>
+                        <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                          {tier.description}
+                        </p>
+                      </div>
+                    </AnimateOnScroll>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Section 7: Schools */}
+            {schools && schools.length > 0 && (
+              <div>
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-2">
+                  Schools in {name}
+                </h2>
+                <p className="font-sans text-gray-500 text-sm mb-8">
+                  Ratings from GreatSchools.org — always visit in person.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {schools.map((school, i) => (
+                    <AnimateOnScroll key={school.name} delay={i * 0.06}>
+                      <a
+                        href={school.greatSchoolsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block bg-white border border-gray-100 rounded-xl p-5 h-full hover:border-gold/60 transition-colors"
+                      >
+                        <div className="flex items-start justify-between gap-3 mb-2">
+                          <div className="w-9 h-9 rounded-lg bg-navy flex items-center justify-center shrink-0">
+                            <GraduationCap size={16} className="text-gold" />
+                          </div>
+                          <span className="font-sans font-bold text-navy text-sm shrink-0">
+                            {school.rating}
+                          </span>
+                        </div>
+                        <p className="font-sans text-xs text-gray-400 uppercase tracking-wide mb-1">
+                          {school.level}
+                        </p>
+                        <h3 className="font-sans font-semibold text-navy text-sm leading-snug">
+                          {school.name}
+                        </h3>
+                      </a>
+                    </AnimateOnScroll>
+                  ))}
+                </div>
+                {schoolNote && (
+                  <p className="mt-6 font-sans text-sm text-gray-500 leading-relaxed">
+                    {schoolNote}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Section 8: Things To Do */}
+            {pointsOfInterest && pointsOfInterest.length > 0 && (
+              <div className="bg-cream rounded-2xl p-8">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
+                  Around {name}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {pointsOfInterest.map((poi, i) => {
+                    const Icon = POI_ICONS[poi.category];
+                    return (
+                      <AnimateOnScroll key={poi.name} delay={i * 0.06}>
+                        <div className="bg-white rounded-xl p-5 h-full">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="w-9 h-9 rounded-lg bg-navy flex items-center justify-center shrink-0">
+                              <Icon size={16} className="text-gold" />
+                            </div>
+                            <span className="font-sans text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full bg-gold/10 text-gold-dark">
+                              {poi.category}
+                            </span>
+                          </div>
+                          <h3 className="font-serif text-base font-bold text-navy mb-1.5">
+                            {poi.name}
+                          </h3>
+                          <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                            {poi.description}
+                          </p>
+                        </div>
+                      </AnimateOnScroll>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Section 9: Rental Market — intentional navy break */}
+            {rentalMarket?.active && (
+              <AnimateOnScroll>
+                <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
+                    Rental market in {name}
+                  </h2>
+                  <p className="font-serif text-3xl md:text-4xl font-bold text-gold mb-6">
+                    {rentalMarket.rangeMin} – {rentalMarket.rangeMax}
+                    <span className="block text-sm font-sans font-normal text-white/60 mt-1">
+                      per month
+                    </span>
+                  </p>
+                  <p className="font-sans text-white/80 leading-relaxed max-w-xl mx-auto">
+                    {rentalMarket.description}
+                  </p>
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                      href="https://wa.me/19546141351"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                      style={{ backgroundColor: '#25D366' }}
+                    >
+                      <MessageCircle size={18} />
+                      Chat on WhatsApp
+                    </a>
+                    <a
+                      href="tel:+19546141351"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
+                    >
+                      <Phone size={18} />
+                      (954) 614-1351
+                    </a>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            )}
+
+            {/* Section 10: About — always, SEO content */}
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
+                About {name}
+              </h2>
+              <p className="font-sans text-gray-700 leading-relaxed text-base whitespace-pre-line">
+                {description}
+              </p>
+            </div>
+
+            {/* Section 11: Local Resources */}
+            {resources.length > 0 && (
+              <div className="bg-cream rounded-2xl p-8">
+                <h2 className="font-serif text-xl font-bold text-navy mb-5">Local Resources</h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {resources.map((resource) => (
+                    <li key={resource.url}>
+                      <a
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-sans text-sm text-navy hover:text-gold transition-colors"
+                      >
+                        {resource.label} →
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>
-        </div>
-      </section>
 
-      {/* ─── Content ─── */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="md:col-span-2">
-              <h3 className="font-serif text-xl font-bold text-navy mb-5">
-                Neighborhood Highlights
-              </h3>
-              <ul className="space-y-3">
-                {highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="text-gold mt-0.5 shrink-0" />
-                    <span className="font-sans text-sm text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <h2 className="font-serif text-2xl font-bold text-navy mt-10 mb-4">
-                About {name}
-              </h2>
-              <p className="font-sans text-gray-700 leading-relaxed text-base whitespace-pre-line">{description}</p>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              <div className="bg-cream rounded-2xl p-6">
-                <p className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                  Best For
-                </p>
-                <p className="font-sans text-navy font-medium">{bestFor}</p>
+          {/* ─── Sticky Sidebar (desktop only) ─── */}
+          <div className="hidden lg:block">
+            <div className="lg:sticky lg:top-[104px] space-y-6">
+              {/* Card 1: Contact Jose */}
+              <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-gold/40 shrink-0">
+                    <Image
+                      src="/images/jose-portrait.jpeg"
+                      alt="Jose Costa"
+                      fill
+                      sizes="48px"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-sans font-semibold text-navy text-sm">Jose Costa</p>
+                    <p className="font-sans text-xs text-gray-500">
+                      Realtor · Atlantic Florida Properties
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-2.5">
+                  <a
+                    href="tel:+19546141351"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm border border-gray-200 hover:border-gold transition-colors"
+                  >
+                    <Phone size={16} className="text-gold" />
+                    Call or Text
+                  </a>
+                  <a
+                    href="https://wa.me/19546141351"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: '#25D366' }}
+                  >
+                    <MessageCircle size={16} />
+                    Chat on WhatsApp
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm bg-cream hover:bg-gold/10 transition-colors"
+                  >
+                    <Send size={16} className="text-gold" />
+                    Send a Message
+                  </Link>
+                </div>
+                <div className="mt-5 pt-5 border-t border-gray-100">
+                  <label className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">
+                    I&apos;m looking to...
+                  </label>
+                  <select
+                    defaultValue="explore"
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 font-sans text-sm text-navy focus:outline-none focus:border-gold"
+                  >
+                    <option value="buy">Buy</option>
+                    <option value="rent">Rent</option>
+                    <option value="sell">Sell</option>
+                    <option value="explore">Just exploring</option>
+                  </select>
+                </div>
               </div>
 
-              <div className="bg-navy rounded-2xl p-6 text-white">
-                <h3 className="font-serif text-lg font-bold mb-3">
-                  Renting, buying, or selling in {name}?
-                </h3>
-                <p className="font-sans text-sm text-white/70 mb-5">
-                  Jose knows this neighborhood. Get a candid conversation about what your options
-                  look like right now.
-                </p>
-                <Link
-                  href="/contact"
-                  className="block text-center font-sans text-sm font-semibold px-5 py-3 rounded-full bg-gold text-navy hover:bg-gold-light transition-colors"
-                >
-                  Talk to Jose
-                </Link>
-              </div>
-
-              {resources.length > 0 && (
+              {/* Card 2: Market Snapshot */}
+              {marketSnapshot && (
                 <div className="bg-cream rounded-2xl p-6">
-                  <p className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
-                    Local Resources
+                  <p className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">
+                    Market Snapshot
                   </p>
-                  <ul className="space-y-2">
-                    {resources.map((resource) => (
-                      <li key={resource.url}>
-                        <a
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-sans text-sm text-navy hover:text-gold transition-colors"
-                        >
-                          {resource.label} →
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-sans text-sm text-gray-600">Median Price</span>
+                      <span className="font-sans font-bold text-navy text-sm">
+                        {marketSnapshot.medianPrice}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-sans text-sm text-gray-600">Avg Days on Market</span>
+                      <span className="font-sans font-bold text-navy text-sm">
+                        {marketSnapshot.avgDaysOnMarket}
+                      </span>
+                    </div>
+                    {marketSnapshot.pricePerSqFt && (
+                      <div className="flex items-center justify-between">
+                        <span className="font-sans text-sm text-gray-600">Price / Sq Ft</span>
+                        <span className="font-sans font-bold text-navy text-sm">
+                          {marketSnapshot.pricePerSqFt}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <p className="mt-4 font-sans text-xs text-gray-400">
+                    Updated {marketSnapshot.lastUpdated}.
+                  </p>
                 </div>
               )}
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <CTASection
-        title={`Ready to rent, buy, or sell in ${name}?`}
-        subtitle={`Jose has deep experience in ${name} and ${county} County. Let's start with a free, no-pressure conversation about your goals.`}
-        primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
-        secondaryCTA={{ label: 'View All Neighborhoods', href: '/neighborhoods' }}
-      />
+      {/* ─── Section 12: CTA ─── */}
+      <div id="cta-section">
+        <CTASection
+          title={`Thinking about ${name}?`}
+          subtitle={`Whether you're looking to rent, buy, or eventually sell in ${name} — Jose knows this market and is available in English, Spanish, and Portuguese.`}
+          primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
+          secondaryCTA={{ label: 'View All Neighborhoods', href: '/neighborhoods' }}
+        />
+      </div>
+
+      <MobileStickyBar />
     </>
   );
 }
