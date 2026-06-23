@@ -20,10 +20,17 @@ import {
   ShieldCheck,
   Sparkles,
   Send,
+  KeyRound,
+  DollarSign,
+  Calendar,
+  Globe,
+  Waves,
+  Wallet,
 } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import MobileStickyBar from '@/components/MobileStickyBar';
+import SectionHeading from '@/components/SectionHeading';
 import { neighborhoods } from '@/data/neighborhoods';
 
 const POI_ICONS = {
@@ -35,7 +42,39 @@ const POI_ICONS = {
   Transit: Train,
 } as const;
 
+const POI_COLORS = {
+  Park: '#4A7C59',
+  Shopping: '#3D6B96',
+  Dining: '#D85A30',
+  Community: '#8B5FA8',
+  Recreation: '#2A9D8F',
+  Transit: '#6B7280',
+} as const;
+
 const HIGHLIGHT_ICONS = [Star, Home, TreePine, ShieldCheck, Users, Sparkles];
+
+function getHighlightIcon(text: string) {
+  const t = text.toLowerCase();
+  if (/park|acre|trail|nature|lake|bird sanctuary|tree city|green space/.test(t)) return TreePine;
+  if (/school|education|a-rated/.test(t)) return GraduationCap;
+  if (/rent|tenant|landlord|lease/.test(t)) return KeyRound;
+  if (/waterfront|intracoastal|beach|ocean|canal/.test(t)) return Waves;
+  if (/divers|brazilian|venezuelan|colombian|caribbean|haitian|cultur|communit/.test(t)) return Users;
+  if (/afford|value|undercut|cheaper|fraction|price/.test(t)) return DollarSign;
+  if (/construction|space|lot|newer|square/.test(t)) return Home;
+  if (/art|museum|culture|downtown|theater/.test(t)) return Sparkles;
+  return null;
+}
+
+const CENSUS_ICONS = {
+  population: Users,
+  medianAge: Calendar,
+  medianHouseholdIncome: DollarSign,
+  perCapitaIncome: Wallet,
+  ownerOccupied: Home,
+  renterOccupied: KeyRound,
+  foreignBorn: Globe,
+} as const;
 
 export async function generateStaticParams() {
   return neighborhoods.map((n) => ({ slug: n.slug }));
@@ -106,36 +145,41 @@ export default async function NeighborhoodPage({
           aria-hidden="true"
           style={{
             background:
-              'linear-gradient(to top, rgba(8, 18, 28, 0.97) 0%, rgba(8, 18, 28, 0.55) 50%, rgba(8, 18, 28, 0.15) 100%)',
+              'linear-gradient(to top, rgba(8, 18, 28, 0.97) 0%, rgba(8, 18, 28, 0.85) 35%, rgba(8, 18, 28, 0.5) 65%, rgba(8, 18, 28, 0.25) 100%)',
           }}
         />
         <div className="relative z-10 flex-1 flex flex-col justify-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-6 w-full">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
               <Link
                 href="/neighborhoods"
-                className="font-sans text-xs text-white/60 hover:text-gold transition-colors"
+                className="font-sans text-xs text-white/80 hover:text-gold transition-colors"
               >
                 Neighborhoods
               </Link>
-              <span className="text-white/30">/</span>
-              <span className="font-sans text-xs text-white/60">{name}</span>
+              <span className="text-white/40">/</span>
+              <span className="font-sans text-xs text-white/80">{name}</span>
             </div>
             <div className="flex items-center gap-2 mb-4 flex-wrap">
-              <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-gold/20 text-gold border border-gold/30">
+              <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-navy/70 backdrop-blur-sm text-gold border border-gold/40">
                 <MapPin size={10} />
                 {county} County
               </span>
               {region !== `${county} County` && (
-                <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 border border-white/20">
+                <span className="inline-flex items-center gap-1 font-sans text-xs font-semibold px-3 py-1 rounded-full bg-navy/70 backdrop-blur-sm text-white border border-white/30">
                   {region}
                 </span>
               )}
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
+            <h1
+              className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl"
+              style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
+            >
               {name}
             </h1>
-            <p className="mt-4 font-sans text-xl text-gold">{tagline}</p>
+            <p className="mt-4 font-sans text-xl text-gold" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+              {tagline}
+            </p>
           </div>
 
           {/* Quick stat strip */}
@@ -204,12 +248,12 @@ export default async function NeighborhoodPage({
           <div className="space-y-20 min-w-0">
             {/* Section 3: Highlights as icon cards */}
             <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
-                Why {name}?
-              </h2>
+              <div className="mb-8">
+                <SectionHeading eyebrow="Why Here" title={`Why ${name}?`} align="left" />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {highlights.map((item, i) => {
-                  const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
+                  const Icon = getHighlightIcon(item) ?? HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
                   return (
                     <AnimateOnScroll key={item} delay={i * 0.08}>
                       <div className="bg-white border border-gray-100 rounded-2xl p-6 h-full">
@@ -228,6 +272,9 @@ export default async function NeighborhoodPage({
             {joseNote && (
               <AnimateOnScroll>
                 <div className="bg-cream rounded-2xl p-8 md:p-12 text-center">
+                  <p className="text-xs font-sans font-semibold tracking-widest uppercase text-gold mb-5">
+                    Jose&apos;s Take
+                  </p>
                   <Quote size={36} className="text-gold mx-auto mb-4" aria-hidden="true" />
                   <p className="font-serif text-lg md:text-xl text-navy italic leading-relaxed">
                     {joseNote}
@@ -259,26 +306,32 @@ export default async function NeighborhoodPage({
             {/* Section 5: Community Snapshot */}
             {census && (
               <div>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
-                  Who lives in {name}?
-                </h2>
+                <div className="mb-8">
+                  <SectionHeading eyebrow="The Community" title={`Who lives in ${name}?`} align="left" />
+                </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
-                    { label: 'Population', value: census.population },
-                    { label: 'Median Age', value: census.medianAge },
-                    { label: 'Median Household Income', value: census.medianHouseholdIncome },
-                    { label: 'Per Capita Income', value: census.perCapitaIncome },
-                    { label: 'Owner-Occupied', value: census.ownerOccupied },
-                    { label: 'Renter-Occupied', value: census.renterOccupied },
-                    { label: 'Foreign-Born', value: census.foreignBorn },
-                  ].map((stat, i) => (
-                    <AnimateOnScroll key={stat.label} delay={i * 0.05}>
-                      <div className="bg-white border border-gray-100 rounded-xl p-5 text-center h-full">
-                        <p className="font-serif font-bold text-navy text-xl">{stat.value}</p>
-                        <p className="font-sans text-xs text-gray-500 mt-1">{stat.label}</p>
-                      </div>
-                    </AnimateOnScroll>
-                  ))}
+                    { key: 'population' as const, label: 'Population', value: census.population },
+                    { key: 'medianAge' as const, label: 'Median Age', value: census.medianAge },
+                    { key: 'medianHouseholdIncome' as const, label: 'Median Household Income', value: census.medianHouseholdIncome },
+                    { key: 'perCapitaIncome' as const, label: 'Per Capita Income', value: census.perCapitaIncome },
+                    { key: 'ownerOccupied' as const, label: 'Owner-Occupied', value: census.ownerOccupied },
+                    { key: 'renterOccupied' as const, label: 'Renter-Occupied', value: census.renterOccupied },
+                    { key: 'foreignBorn' as const, label: 'Foreign-Born', value: census.foreignBorn },
+                  ].map((stat, i) => {
+                    const Icon = CENSUS_ICONS[stat.key];
+                    return (
+                      <AnimateOnScroll key={stat.label} delay={i * 0.05}>
+                        <div className="bg-white border border-gray-100 rounded-xl p-5 text-center h-full flex flex-col items-center">
+                          <div className="w-9 h-9 rounded-lg bg-navy flex items-center justify-center mb-3">
+                            <Icon size={16} className="text-gold" />
+                          </div>
+                          <p className="font-serif font-bold text-navy text-xl">{stat.value}</p>
+                          <p className="font-sans text-xs text-gray-500 mt-1">{stat.label}</p>
+                        </div>
+                      </AnimateOnScroll>
+                    );
+                  })}
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {census.topLanguages.map((lang) => (
@@ -297,12 +350,12 @@ export default async function NeighborhoodPage({
             {/* Section 6: What Your Budget Gets You */}
             {budgetGuide && budgetGuide.length > 0 && (
               <div className="bg-cream rounded-2xl p-8">
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy">
-                  What does your budget get you here?
-                </h2>
-                <p className="mt-2 font-sans text-gray-500 text-sm">
-                  Honest ranges — not the headline number on Zillow.
-                </p>
+                <SectionHeading
+                  eyebrow="What You'll Pay"
+                  title="What does your budget get you here?"
+                  subtitle="Honest ranges — not the headline number on Zillow."
+                  align="left"
+                />
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
                   {budgetGuide.map((tier, i) => (
                     <AnimateOnScroll key={`${tier.tier}-${i}`} delay={i * 0.08}>
@@ -374,14 +427,80 @@ export default async function NeighborhoodPage({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {pointsOfInterest.map((poi, i) => {
                     const Icon = POI_ICONS[poi.category];
+                    const color = POI_COLORS[poi.category];
+                    const CardTag = poi.url ? 'a' : 'div';
+                    const linkProps = poi.url
+                      ? { href: poi.url, target: '_blank', rel: 'noopener noreferrer' }
+                      : {};
+
+                    if (poi.imageSrc) {
+                      return (
+                        <AnimateOnScroll key={poi.name} delay={i * 0.06}>
+                          <CardTag
+                            {...linkProps}
+                            className="group block relative overflow-hidden rounded-xl h-full min-h-[260px]"
+                          >
+                            <Image
+                              src={poi.imageSrc}
+                              alt={poi.name}
+                              fill
+                              sizes="(max-width: 640px) 100vw, 50vw"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div
+                              className="absolute inset-0"
+                              aria-hidden="true"
+                              style={{
+                                background:
+                                  'linear-gradient(to top, rgba(8, 18, 28, 0.97) 0%, rgba(8, 18, 28, 0.92) 25%, rgba(8, 18, 28, 0.6) 55%, rgba(8, 18, 28, 0.1) 85%, rgba(8, 18, 28, 0) 100%)',
+                              }}
+                            />
+                            <div className="absolute top-4 left-4 flex items-center gap-2">
+                              <div
+                                className="w-8 h-8 rounded-lg backdrop-blur-sm border flex items-center justify-center shrink-0"
+                                style={{ backgroundColor: `${color}cc`, borderColor: `${color}` }}
+                              >
+                                <Icon size={14} className="text-white" />
+                              </div>
+                              <span
+                                className="font-sans text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full backdrop-blur-sm text-white border"
+                                style={{ backgroundColor: `${color}cc`, borderColor: `${color}` }}
+                              >
+                                {poi.category}
+                              </span>
+                            </div>
+                            <div className="absolute bottom-0 left-0 right-0 p-5">
+                              <h3 className="font-serif text-base font-bold text-white mb-1.5">
+                                {poi.name}
+                              </h3>
+                              <p className="font-sans text-sm text-white/80 leading-relaxed">
+                                {poi.description}
+                              </p>
+                            </div>
+                          </CardTag>
+                        </AnimateOnScroll>
+                      );
+                    }
+
                     return (
                       <AnimateOnScroll key={poi.name} delay={i * 0.06}>
-                        <div className="bg-white rounded-xl p-5 h-full">
+                        <CardTag
+                          {...linkProps}
+                          className={`block bg-white rounded-xl p-5 h-full ${
+                            poi.url ? 'hover:border-gold/60 border border-transparent transition-colors' : ''
+                          }`}
+                        >
                           <div className="flex items-center gap-3 mb-3">
-                            <div className="w-9 h-9 rounded-lg bg-navy flex items-center justify-center shrink-0">
-                              <Icon size={16} className="text-gold" />
+                            <div
+                              className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                              style={{ backgroundColor: color }}
+                            >
+                              <Icon size={16} className="text-white" />
                             </div>
-                            <span className="font-sans text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full bg-gold/10 text-gold-dark">
+                            <span
+                              className="font-sans text-[10px] font-semibold uppercase tracking-wide px-2 py-1 rounded-full"
+                              style={{ backgroundColor: `${color}1A`, color }}
+                            >
                               {poi.category}
                             </span>
                           </div>
@@ -391,7 +510,7 @@ export default async function NeighborhoodPage({
                           <p className="font-sans text-sm text-gray-600 leading-relaxed">
                             {poi.description}
                           </p>
-                        </div>
+                        </CardTag>
                       </AnimateOnScroll>
                     );
                   })}

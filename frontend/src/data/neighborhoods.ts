@@ -70,6 +70,8 @@ export interface Neighborhood {
     name: string;
     category: 'Park' | 'Shopping' | 'Dining' | 'Community' | 'Recreation' | 'Transit';
     description: string;
+    url?: string;
+    imageSrc?: string;
   }[];
   rentalMarket?: {
     active: boolean;
@@ -101,6 +103,7 @@ export const neighborhoods: Neighborhood[] = [
     avgDaysOnMarket: '93',
     bestFor: 'Families, first-time buyers, renters, and landlords seeking reliable tenants',
     coordinates: { lat: 26.7082, lng: -80.2262 },
+    imageSrc: '/images/neighborhoods/royal-palm-beach.jpg',
     population: '39,089',
     resources: [
       { label: 'Village of Royal Palm Beach', url: 'https://www.royalpalmbeachfl.gov/', category: 'city' },
@@ -202,18 +205,32 @@ export const neighborhoods: Neighborhood[] = [
         category: 'Park',
         description:
           'The heart of the community — 140+ acres with a splash pad, amphitheater, nature trails, sports fields, and a dog park. If you want to understand Royal Palm Beach, spend a Saturday morning here.',
+        url: 'https://www.royalpalmbeachfl.gov/554/Commons-Park-Sporting-Center',
+        imageSrc: '/images/neighborhoods/poi/rpb-commons-park.jpg',
+      },
+      {
+        name: "Veterans Park",
+        category: 'Park',
+        description:
+          "A 6-acre park built in 2006 with its own splash pad, amphitheater, picnic pavilions, and a toddler playscape — smaller and quieter than Commons Park, with a memorial honoring local veterans.",
+        url: 'https://www.royalpalmbeachfl.gov/552/Veterans-Park',
+        imageSrc: '/images/neighborhoods/poi/rpb-veterans-park.jpg',
       },
       {
         name: 'Crossroads at Royal Palm Beach',
         category: 'Shopping',
         description:
           "The village's main Publix-anchored shopping center on Royal Palm Beach Blvd — full-service grocery, pharmacy, and a deli/bakery. Two more Publix locations (Southern Blvd and State Road 7) cover the rest of the village.",
+        url: 'https://www.publix.com/locations/1851-crossroads-at-royal-palm-beach',
+        imageSrc: '/images/neighborhoods/poi/rpb-crossroads.jpg',
       },
       {
         name: 'Mall at Wellington Green',
         category: 'Shopping',
         description:
           "One of South Florida's premier regional malls about 10 minutes south — Macy's, Dillard's, Apple, and a strong restaurant corridor.",
+        url: 'https://shopwellingtongreen.com/',
+        imageSrc: '/images/neighborhoods/poi/rpb-wellington-mall.jpg',
       },
       {
         name: 'Southern Blvd Dining Corridor',
@@ -226,16 +243,15 @@ export const neighborhoods: Neighborhood[] = [
         category: 'Community',
         description:
           "A well-resourced Palm Beach County library branch with children's programming, quiet study space, and community meeting rooms.",
+        url: 'https://www.pbclibrary.org/locations/royalpalm/',
+        imageSrc: '/images/neighborhoods/poi/rpb-library.jpg',
       },
       {
         name: 'Royal Palm Beach Cultural Center',
         category: 'Community',
         description: 'A local arts and events venue with performances, classes, and community gatherings throughout the year.',
-      },
-      {
-        name: 'Seminole Trail',
-        category: 'Recreation',
-        description: 'A paved multi-use trail running through the heart of the village — cyclists, joggers, and stroller families use it daily.',
+        url: 'https://www.royalpalmbeachfl.gov/442/Cultural-Center-Cypress-Hall',
+        imageSrc: '/images/neighborhoods/poi/rpb-cultural-center.jpg',
       },
     ],
     rentalMarket: {
