@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 const navLinks = [
   { label: 'Buy', href: '/buy' },
   { label: 'Sell', href: '/sell' },
+  { label: 'Rentals', href: '/rentals' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Market Updates', href: '/market-updates' },
   { label: 'About', href: '/about' },

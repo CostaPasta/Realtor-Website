@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Home, KeyRound } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import ValuationForm from '@/components/ValuationForm';
@@ -96,6 +97,64 @@ export default function SellPage() {
             <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm">
               <ValuationForm />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Sell or Lease ─── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll>
+            <SectionHeading
+              title="Not ready to sell? Consider leasing your property."
+            />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
+              Jose doesn&apos;t only help sellers — he also helps property owners find quality
+              tenants and lease their homes at market rate. If you&apos;re considering your
+              options before committing to a sale, Jose can give you an honest comparison of what
+              you&apos;d net from a sale versus what you&apos;d earn as a landlord in today&apos;s
+              rental market.
+            </p>
+          </AnimateOnScroll>
+          <div className="mt-14 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <AnimateOnScroll>
+              <div className="bg-cream rounded-2xl p-8 h-full">
+                <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
+                  <Home size={22} className="text-gold" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-navy mb-3">
+                  Sell — and move on with your equity.
+                </h3>
+                <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                  Jose prices, markets, and negotiates your sale to maximize your net proceeds, so
+                  you can take your equity and move on to what&apos;s next.
+                </p>
+              </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={0.08}>
+              <div className="bg-cream rounded-2xl p-8 h-full">
+                <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
+                  <KeyRound size={22} className="text-gold" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-navy mb-3">
+                  Lease — and build long-term wealth.
+                </h3>
+                <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                  Jose finds and screens reliable tenants and manages the leasing process, so your
+                  property generates income while you build equity over time.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/rentals"
+              className="font-sans text-sm font-semibold text-navy hover:text-gold transition-colors"
+            >
+              Learn More About Leasing Your Property →
+            </Link>
           </div>
         </div>
       </section>

@@ -8,15 +8,18 @@ import AnimateOnScroll from '@/components/AnimateOnScroll';
 export const metadata: Metadata = {
   title: 'About Jose Costa',
   description:
-    'Meet Jose Costa — a South Florida realtor with 11+ years of experience, fluent in English, Spanish, and Portuguese, serving Miami-Dade, Broward, and Palm Beach counties.',
+    'Meet Jose Costa — a Palm Beach County realtor with over a decade of experience, fluent in English, Spanish, and Portuguese, serving western Palm Beach County, Broward, and South Florida.',
 };
 
 // TODO: Replace all stat values with Jose's real numbers
+// TODO: Confirm with Jose — approximate rental transactions he's handled
+// (MLS data shows 50+ rental listings in BeachesMLS alone; RE/MAX years add more)
+// before adding a rentals-specific stat here.
 const STATS = [
-  { value: '11+', label: 'Years of Experience' },
-  { value: '300+', label: 'Families Helped' },
+  { value: '15+', label: 'Years of Experience' },
+  { value: '44+', label: 'Families Helped' },
   { value: '3', label: 'Languages Spoken' },
-  { value: '$120M+', label: 'In Closed Sales' },
+  { value: '$10M+', label: 'In Closed Sales' },
 ];
 
 const LANGUAGES = [
@@ -95,13 +98,20 @@ export default function AboutPage() {
                   align="left"
                 />
               </AnimateOnScroll>
-              {/* TODO: Replace bracketed values with Jose's real personal details */}
               <div className="mt-8 space-y-5 font-sans text-gray-700 leading-relaxed">
                 <p>
                   Jose Costa has been helping South Florida families navigate one of the
-                  country&apos;s most dynamic real estate markets for over 11 years. A 30-year
-                  South Florida resident, Jose brings a personal understanding of what it means to
+                  country&apos;s most dynamic real estate markets for over a decade. Jose first
+                  made South Florida home in Fort Lauderdale before settling in Wellington, where
+                  he has lived since 2004 — bringing a personal understanding of what it means to
                   put down roots in this region.
+                </p>
+                <p>
+                  Over his career, Jose has helped hundreds of families find rental homes —
+                  particularly in western Palm Beach County — and helped property owners find
+                  reliable tenants. Many of his closest long-term client relationships started
+                  with a rental and grew into a homeownership journey. It&apos;s a part of the
+                  business he takes as seriously as any sale.
                 </p>
                 <p>
                   What sets Jose apart from the moment you meet him is simple: he listens. In a
@@ -113,8 +123,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Jose is affiliated with Atlantic Florida Properties and holds an active Florida
-                  real estate license. His coverage spans Miami-Dade, Broward, and Palm Beach
-                  Counties, with particular depth in Aventura, Coral Gables, Boca Raton, and Doral.
+                  real estate license. His coverage spans western Palm Beach County, Broward, and
+                  the Treasure Coast, with particular depth in Royal Palm Beach, Wellington, and
+                  West Palm Beach.
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-4">
@@ -123,7 +134,7 @@ export default function AboutPage() {
                   <p className="font-sans text-xs text-gray-500 mt-1">Years in South Florida</p>
                 </div>
                 <div className="bg-cream rounded-xl p-4">
-                  <p className="font-sans font-bold text-navy text-2xl">11+</p>
+                  <p className="font-sans font-bold text-navy text-2xl">15+</p>
                   <p className="font-sans text-xs text-gray-500 mt-1">Years in Real Estate</p>
                 </div>
               </div>

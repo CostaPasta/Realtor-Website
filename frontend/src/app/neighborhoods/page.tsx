@@ -20,16 +20,23 @@ const NeighborhoodsMap = dynamic(() => import('@/components/NeighborhoodsMap'), 
   ),
 });
 
-const COUNTIES = ['All', 'Miami-Dade', 'Broward', 'Palm Beach'] as const;
-type County = (typeof COUNTIES)[number];
+const REGIONS = [
+  'All',
+  'Palm Beach County',
+  'Broward County',
+  'Treasure Coast',
+  'Miami-Dade County',
+  'Space Coast',
+] as const;
+type RegionFilter = (typeof REGIONS)[number];
 
 export default function NeighborhoodsPage() {
-  const [activeCounty, setActiveCounty] = useState<County>('All');
+  const [activeRegion, setActiveRegion] = useState<RegionFilter>('All');
 
   const filtered =
-    activeCounty === 'All'
+    activeRegion === 'All'
       ? neighborhoods
-      : neighborhoods.filter((n) => n.county === activeCounty);
+      : neighborhoods.filter((n) => n.region === activeRegion);
 
   return (
     <>
@@ -43,9 +50,10 @@ export default function NeighborhoodsPage() {
             South Florida Neighborhoods — Jose&apos;s Backyard
           </h1>
           <p className="mt-4 font-sans text-white/80 max-w-xl leading-relaxed">
-            Jose has spent over 11 years working across Miami-Dade, Broward, and Palm Beach
-            counties. Here&apos;s a deep look at the neighborhoods where he helps clients buy and
-            sell every week.
+            Jose is based in western Palm Beach County and has spent over a decade helping
+            families rent, buy, and sell homes across Palm Beach County, Broward, the Treasure
+            Coast, Miami-Dade, and beyond. Here&apos;s a deep look at the communities where he
+            helps clients every week.
           </p>
         </div>
       </section>
@@ -64,17 +72,17 @@ export default function NeighborhoodsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter bar */}
           <div className="flex gap-2 mb-12 flex-wrap">
-            {COUNTIES.map((county) => (
+            {REGIONS.map((region) => (
               <button
-                key={county}
-                onClick={() => setActiveCounty(county)}
+                key={region}
+                onClick={() => setActiveRegion(region)}
                 className={`font-sans text-sm font-semibold px-5 py-2 rounded-full border transition-colors ${
-                  activeCounty === county
+                  activeRegion === region
                     ? 'bg-navy text-white border-navy'
                     : 'border-gray-200 text-gray-600 hover:border-navy hover:text-navy'
                 }`}
               >
-                {county}
+                {region}
               </button>
             ))}
           </div>

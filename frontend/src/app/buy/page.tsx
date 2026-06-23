@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Calculator, PiggyBank, BadgeDollarSign, Languages } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import ProcessTimeline from '@/components/ProcessTimeline';
@@ -10,8 +10,31 @@ import { neighborhoods } from '@/data/neighborhoods';
 export const metadata: Metadata = {
   title: 'Buy a Home in South Florida',
   description:
-    'Looking to buy a home in South Florida? Jose Costa provides expert buyer representation in English, Spanish, and Portuguese across Miami-Dade, Broward, and Palm Beach counties.',
+    'Looking to buy your first home in Palm Beach County? Jose Costa provides expert buyer representation in English, Spanish, and Portuguese across western Palm Beach County, Broward, and South Florida.',
 };
+
+const FIRST_TIME_BUYER_ITEMS = [
+  {
+    icon: Calculator,
+    title: 'What can I actually afford?',
+    body: "Before you search, Jose will walk you through a realistic picture of what your budget covers in today's Palm Beach County market — including HOA fees, property taxes, and insurance, not just the purchase price.",
+  },
+  {
+    icon: PiggyBank,
+    title: 'Down payment options',
+    body: 'There are multiple first-time buyer programs in Florida, including FHA loans (3.5% down), conventional loans, and down payment assistance programs for qualifying buyers. Jose will connect you with the right lender.',
+  },
+  {
+    icon: BadgeDollarSign,
+    title: 'No cost to you as a buyer',
+    body: "In Florida, the seller pays both agents' commissions. Jose's representation costs you nothing — and he negotiates on your behalf every step of the way.",
+  },
+  {
+    icon: Languages,
+    title: 'Available in your language',
+    body: 'Every document, every phone call, every step of the process — in English, Spanish, or Portuguese. No confusion. No getting lost in the details.',
+  },
+];
 
 const STEPS = [
   {
@@ -131,13 +154,47 @@ export default function BuyPage() {
         </div>
       </section>
 
-      {/* ─── Areas We Serve ─── */}
+      {/* ─── First-Time Buyers ─── */}
       <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll>
+            <SectionHeading
+              eyebrow="First-Time Buyers"
+              title="Buying your first home? Jose has done this hundreds of times."
+            />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
+              Buying your first home is the most significant financial decision most people make
+              — and it can feel overwhelming. Jose&apos;s job is to make that process feel
+              manageable, not mysterious. He&apos;ll tell you honestly what your budget can get
+              you, walk you through every document before you sign it, and be available in
+              English, Spanish, or Portuguese throughout.
+            </p>
+          </AnimateOnScroll>
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FIRST_TIME_BUYER_ITEMS.map(({ icon: Icon, title, body }, i) => (
+              <AnimateOnScroll key={title} delay={i * 0.08}>
+                <div className="bg-cream rounded-2xl p-6 h-full">
+                  <div className="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
+                    <Icon size={20} className="text-gold" />
+                  </div>
+                  <h3 className="font-sans font-semibold text-navy text-base mb-2">{title}</h3>
+                  <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Areas We Serve ─── */}
+      <section className="py-20 md:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Coverage"
             title="Areas Jose serves buyers"
-            subtitle="Active in all major South Florida markets across three counties."
+            subtitle="Active across western Palm Beach County, Broward, the Treasure Coast, and beyond."
           />
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {neighborhoods.map((n) => (

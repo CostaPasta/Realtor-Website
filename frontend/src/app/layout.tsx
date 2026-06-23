@@ -19,36 +19,42 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jose Costa — South Florida Realtor | English, Spanish & Portuguese',
+    default: 'Jose Costa — Palm Beach County Realtor | Rentals, Sales & More',
     template: '%s | Jose Costa Realtor',
   },
   description:
-    'Jose Costa is a South Florida realtor with Atlantic Florida Properties, serving buyers and sellers across Miami-Dade, Broward, and Palm Beach in English, Spanish, and Portuguese.',
+    'Jose Costa is a Palm Beach County realtor helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida — in English, Spanish, and Portuguese. Specializing in affordable family homes and rental properties.',
   keywords: [
-    'South Florida realtor',
-    'Miami realtor',
-    'realtor en español',
-    'corretor de imóveis Florida',
-    'Aventura real estate',
-    'Coral Gables realtor',
+    'Palm Beach County realtor',
+    'Royal Palm Beach realtor',
+    'rental homes Palm Beach County',
+    'first time home buyer Palm Beach',
     'trilingual realtor Florida',
-    'Boca Raton real estate',
-    'Fort Lauderdale realtor',
+    'realtor en español Palm Beach',
+    'corretor de imóveis Palm Beach',
+    'realtor que fala português Florida',
+    'homes for rent Royal Palm Beach',
+    'Wellington FL realtor',
+    'West Palm Beach homes for sale',
+    'Broward County realtor',
+    'Davie FL realtor',
+    'South Florida affordable homes',
+    'agente imobiliário Florida',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.josecostarealtor.com',
     siteName: 'Jose Costa Realtor',
-    title: 'Jose Costa — South Florida Realtor',
+    title: 'Jose Costa — Palm Beach County Realtor',
     description:
-      'Serving buyers and sellers across Miami-Dade, Broward, and Palm Beach in English, Spanish, and Portuguese.',
+      'Helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida — in English, Spanish, and Portuguese.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jose Costa — South Florida Realtor',
+    title: 'Jose Costa — Palm Beach County Realtor',
     description:
-      'Trilingual South Florida realtor serving Miami-Dade, Broward, and Palm Beach counties.',
+      'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales.',
   },
   alternates: {
     canonical: 'https://www.josecostarealtor.com',

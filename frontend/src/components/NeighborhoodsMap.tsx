@@ -9,11 +9,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-// South Florida center — spans Miami-Dade, Broward, and Palm Beach
+// Centered on the Royal Palm Beach / Wellington corridor — Jose's primary
+// market — rather than the geographic midpoint of the full coverage area
 const INITIAL_VIEW = {
-  longitude: -80.25,
-  latitude: 26.28,
-  zoom: 9.2,
+  longitude: -80.22,
+  latitude: 26.72,
+  zoom: 10.5,
   padding: { top: 0, bottom: 0, left: 0, right: 0 },
 };
 

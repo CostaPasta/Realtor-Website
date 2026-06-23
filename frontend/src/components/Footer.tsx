@@ -30,17 +30,18 @@ function LinkedinIcon({ size = 20 }: { size?: number }) {
 }
 
 const areas = [
-  { label: 'Coral Gables', href: '/neighborhoods/coral-gables' },
-  { label: 'Aventura', href: '/neighborhoods/aventura' },
-  { label: 'Boca Raton', href: '/neighborhoods/boca-raton' },
-  { label: 'Doral', href: '/neighborhoods/doral' },
-  { label: 'Fort Lauderdale', href: '/neighborhoods/fort-lauderdale' },
-  { label: 'Hallandale Beach', href: '/neighborhoods/hallandale-beach' },
+  { label: 'Royal Palm Beach', href: '/neighborhoods/royal-palm-beach' },
+  { label: 'Wellington', href: '/neighborhoods/wellington' },
+  { label: 'West Palm Beach', href: '/neighborhoods/west-palm-beach' },
+  { label: 'Davie', href: '/neighborhoods/davie' },
+  { label: 'Hialeah', href: '/neighborhoods/hialeah' },
+  { label: 'Port St. Lucie', href: '/neighborhoods/port-st-lucie' },
 ];
 
 const pages = [
   { label: 'Buy', href: '/buy' },
   { label: 'Sell', href: '/sell' },
+  { label: 'Rentals', href: '/rentals' },
   { label: 'Neighborhoods', href: '/neighborhoods' },
   { label: 'Market Updates', href: '/market-updates' },
   { label: 'About Jose', href: '/about' },
@@ -64,8 +65,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-sans text-sm text-white/70 leading-relaxed mb-4">
-              Your South Florida real estate expert. Serving buyers and sellers across Miami-Dade,
-              Broward, and Palm Beach in English, Español, and Português.
+              Your Palm Beach County realtor — helping families rent, buy, and sell across
+              western Palm Beach County, Broward, the Treasure Coast, and South Florida. Fluent
+              in English, Español, and Português.
             </p>
             <div className="flex gap-3">
               <a

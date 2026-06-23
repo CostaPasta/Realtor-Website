@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { MessageSquare, Home, Handshake } from 'lucide-react';
+import { MessageSquare, Home, Handshake, KeyRound } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import StatBar from '@/components/StatBar';
 import NeighborhoodCard from '@/components/NeighborhoodCard';
@@ -39,9 +39,19 @@ const FEATURES = [
     iconBg: '#D85A30',
     iconColor: '#fff',
   },
+  {
+    icon: KeyRound,
+    title: 'From Rental to Ownership — Jose Knows the Journey',
+    body: "Many of Jose's clients start by renting through him and return years later to buy their first home. He understands both sides of the South Florida housing market and is genuinely invested in your long-term story, not just a single transaction.",
+    iconBg: '#1A3A5C',
+    iconColor: '#D4BC84',
+  },
 ];
 
-const featuredNeighborhoods = neighborhoods.slice(0, 3);
+const FEATURED_SLUGS = ['royal-palm-beach', 'wellington', 'west-palm-beach'];
+const featuredNeighborhoods = FEATURED_SLUGS.map(
+  (slug) => neighborhoods.find((n) => n.slug === slug)!
+);
 
 export default function HomePage() {
   return (
@@ -55,6 +65,8 @@ export default function HomePage() {
             '@type': ['Person', 'RealEstateAgent'],
             name: 'Jose Costa',
             jobTitle: 'Realtor',
+            description:
+              'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales across western Palm Beach County, Broward County, and South Florida.',
             worksFor: {
               '@type': 'RealEstateAgent',
               name: 'Atlantic Florida Properties',
@@ -62,7 +74,14 @@ export default function HomePage() {
             telephone: '+19546141351',
             email: 'USARealtor1@gmail.com',
             url: 'https://www.josecostarealtor.com',
-            areaServed: ['Miami-Dade County', 'Broward County', 'Palm Beach County'],
+            areaServed: [
+              'Royal Palm Beach, Florida',
+              'Wellington, Florida',
+              'West Palm Beach, Florida',
+              'Palm Beach County, Florida',
+              'Broward County, Florida',
+              'St. Lucie County, Florida',
+            ],
             knowsLanguage: ['en', 'es', 'pt'],
             sameAs: [
               'https://www.instagram.com/josecosta.realtor/',
@@ -105,9 +124,10 @@ export default function HomePage() {
                 .
               </h1>
               <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed">
-                Jose Costa helps South Florida families buy and sell homes with expert local
-                knowledge and fluency in three languages. Serving Miami-Dade, Broward &amp; Palm
-                Beach Counties.
+                Jose Costa has spent over a decade helping South Florida families rent, buy, and
+                sell homes — in English, Spanish, and Portuguese. Based in Palm Beach County,
+                serving working families across western Palm Beach County, Broward, the Treasure
+                Coast, and beyond.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {['English', 'Español', 'Português'].map((lang) => (
@@ -179,35 +199,26 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
-                label: 'Waterfront Living',
-                sub: 'Aventura · Fort Lauderdale · Jupiter',
-                image: '/images/category-waterfront.jpg',
+                label: 'Find a Rental Home',
+                sub: 'Royal Palm Beach · West Palm Beach · Loxahatchee',
+                gradient: 'linear-gradient(160deg, #0B4C6E 0%, #1A7FA8 50%, #5AB8D4 100%)',
               },
               {
-                label: 'Established Neighborhoods',
-                sub: 'Coral Gables · Boca Raton · Palm Beach Gardens',
-                gradient: 'linear-gradient(160deg, #6B2E08 0%, #B85020 50%, #E0906A 100%)',
+                label: 'Buy Your First Home',
+                sub: 'Wellington · Lake Worth · Boynton Beach',
+                gradient: 'linear-gradient(160deg, #6B4E08 0%, #B8902C 50%, #E0C66A 100%)',
               },
               {
-                label: 'Growing Families',
-                sub: 'Doral · Wellington · West Palm Beach',
+                label: 'Sell or Lease Your Property',
+                sub: 'Port St. Lucie · Davie · Palm Beach Gardens',
                 gradient: 'linear-gradient(160deg, #1A4A1A 0%, #2E8028 50%, #72C060 100%)',
               },
             ].map((scene, i) => (
               <AnimateOnScroll key={scene.label} delay={i * 0.08}>
                 <div
                   className="rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3] border border-transparent hover:border-gold/60 hover:scale-[1.02] transition-all duration-200"
-                  style={scene.gradient ? { background: scene.gradient } : undefined}
+                  style={{ background: scene.gradient }}
                 >
-                  {scene.image && (
-                    <Image
-                      src={scene.image}
-                      alt={scene.label}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                  )}
                   <div
                     className="absolute inset-0"
                     aria-hidden="true"
@@ -237,7 +248,7 @@ export default function HomePage() {
               subtitle="In one of the country's most competitive real estate markets, experience and language matter."
             />
           </AnimateOnScroll>
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {FEATURES.map(({ icon: Icon, title, body, iconBg, iconColor }, i) => (
               <AnimateOnScroll key={title} delay={i * 0.08}>
                 <div className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow">
@@ -328,7 +339,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Local Expertise"
               title="South Florida Areas Jose Knows Best"
-              subtitle="Deep knowledge of the neighborhoods buyers and sellers care about most across Miami-Dade, Broward, and Palm Beach."
+              subtitle="Deep knowledge of the communities Jose's clients call home — from western Palm Beach County to Broward and beyond."
             />
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">

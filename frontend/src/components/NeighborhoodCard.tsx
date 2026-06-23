@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { TrendingUp, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -12,6 +13,7 @@ interface NeighborhoodCardProps {
   medianHomePrice: string;
   avgDaysOnMarket: string;
   bestFor: string;
+  imageSrc?: string;
 }
 
 // Warm gradient "photo" per neighborhood — swap for real photos later
@@ -47,6 +49,7 @@ export default function NeighborhoodCard({
   medianHomePrice,
   avgDaysOnMarket,
   bestFor,
+  imageSrc,
 }: NeighborhoodCardProps) {
   const gradient = GRADIENTS[slug] ?? COUNTY_FALLBACK[county] ?? 'linear-gradient(135deg, #0D2442 0%, #1A3A5C 100%)';
 
@@ -60,12 +63,20 @@ export default function NeighborhoodCard({
       href={`/neighborhoods/${slug}`}
       className="group block bg-white rounded-2xl border border-gray-100 hover:border-gold/60 transition-colors duration-200 overflow-hidden"
     >
-      {/* Gradient image placeholder — TODO: replace with <Image> of the neighborhood */}
       <div
         className="h-36 relative flex items-end"
-        style={{ background: gradient }}
+        style={imageSrc ? undefined : { background: gradient }}
         aria-hidden="true"
       >
+        {imageSrc && (
+          <Image
+            src={imageSrc}
+            alt={`${name} neighborhood`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
         <div className="relative px-5 pb-4">
           <span className="inline-block font-sans text-[10px] font-semibold tracking-widest uppercase text-white/80 bg-white/10 backdrop-blur-sm rounded-full px-2 py-0.5 mb-1">
