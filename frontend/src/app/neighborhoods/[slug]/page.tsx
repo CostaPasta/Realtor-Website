@@ -55,14 +55,17 @@ const HIGHLIGHT_ICONS = [Star, Home, TreePine, ShieldCheck, Users, Sparkles];
 
 function getHighlightIcon(text: string) {
   const t = text.toLowerCase();
-  if (/park|acre|trail|nature|lake|bird sanctuary|tree city|green space/.test(t)) return TreePine;
+  if (/divers|brazilian|venezuelan|colombian|caribbean|haitian|cultur|multilingual|spanish-speaking|latin american|cuban/.test(t)) return Users;
+  if (/waterfront|intracoastal|oceanfront|beachfront|canal|marina|inlet|boating|fishing|sailfish/.test(t)) return Waves;
+  if (/\bpark(?!ing)|acre|trail|nature|\blake|bird sanctuary|tree city|green space/.test(t)) return TreePine;
   if (/school|education|a-rated/.test(t)) return GraduationCap;
-  if (/rent|tenant|landlord|lease/.test(t)) return KeyRound;
-  if (/waterfront|intracoastal|beach|ocean|canal/.test(t)) return Waves;
-  if (/divers|brazilian|venezuelan|colombian|caribbean|haitian|cultur|communit/.test(t)) return Users;
-  if (/afford|value|undercut|cheaper|fraction|price/.test(t)) return DollarSign;
-  if (/construction|space|lot|newer|square/.test(t)) return Home;
-  if (/art|museum|culture|downtown|theater/.test(t)) return Sparkles;
+  if (/\brent|\btenant|\blandlord|\blease/.test(t)) return KeyRound;
+  if (/afford|\bvalue|undercut|cheaper|\bfraction|\bprice|appreciat/.test(t)) return DollarSign;
+  if (/\bmall\b|retail|shopping/.test(t)) return ShoppingBag;
+  if (/construction|\bspace|\blot\b|newer construction|square foot/.test(t)) return Home;
+  if (/museum|gallery|downtown|theater|\barts\b|festival/.test(t)) return Sparkles;
+  if (/proximity|airport|highway|turnpike|i-95/.test(t)) return Train;
+  if (/communit/.test(t)) return Users;
   return null;
 }
 
@@ -377,12 +380,14 @@ export default async function NeighborhoodPage({
             {/* Section 7: Schools */}
             {schools && schools.length > 0 && (
               <div>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-2">
-                  Schools in {name}
-                </h2>
-                <p className="font-sans text-gray-500 text-sm mb-8">
-                  Ratings from GreatSchools.org — always visit in person.
-                </p>
+                <div className="mb-8">
+                  <SectionHeading
+                    eyebrow="The Schools"
+                    title={`Schools in ${name}`}
+                    subtitle="Ratings from GreatSchools.org — always visit in person."
+                    align="left"
+                  />
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {schools.map((school, i) => (
                     <AnimateOnScroll key={school.name} delay={i * 0.06}>
@@ -421,9 +426,9 @@ export default async function NeighborhoodPage({
             {/* Section 8: Things To Do */}
             {pointsOfInterest && pointsOfInterest.length > 0 && (
               <div className="bg-cream rounded-2xl p-8">
-                <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-8">
-                  Around {name}
-                </h2>
+                <div className="mb-8">
+                  <SectionHeading eyebrow="Local Life" title={`Around ${name}`} align="left" />
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {pointsOfInterest.map((poi, i) => {
                     const Icon = POI_ICONS[poi.category];
@@ -522,9 +527,9 @@ export default async function NeighborhoodPage({
             {rentalMarket?.active && (
               <AnimateOnScroll>
                 <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
-                    Rental market in {name}
-                  </h2>
+                  <div className="mb-6 flex flex-col items-center">
+                    <SectionHeading eyebrow="Renting Here" title={`Rental market in ${name}`} align="center" light />
+                  </div>
                   <p className="font-serif text-3xl md:text-4xl font-bold text-gold mb-6">
                     {rentalMarket.rangeMin} – {rentalMarket.rangeMax}
                     <span className="block text-sm font-sans font-normal text-white/60 mt-1">
@@ -559,9 +564,9 @@ export default async function NeighborhoodPage({
 
             {/* Section 10: About — always, SEO content */}
             <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
-                About {name}
-              </h2>
+              <div className="mb-4">
+                <SectionHeading eyebrow="The Full Story" title={`About ${name}`} align="left" />
+              </div>
               <p className="font-sans text-gray-700 leading-relaxed text-base whitespace-pre-line">
                 {description}
               </p>

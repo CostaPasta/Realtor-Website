@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Home, KeyRound } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
@@ -45,8 +46,23 @@ export default function SellPage() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
+        <Image
+          src="/images/category-selling.jpg"
+          alt="Selling a home in South Florida"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(8, 18, 28, 0.88) 0%, rgba(8, 18, 28, 0.82) 100%)',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
             For Sellers
           </p>

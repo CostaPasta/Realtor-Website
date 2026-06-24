@@ -7,6 +7,7 @@ import NeighborhoodCard from '@/components/NeighborhoodCard';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel';
+import WhyJoseBackground from '@/components/WhyJoseBackground';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
 
@@ -201,37 +202,49 @@ export default function HomePage() {
               {
                 label: 'Find a Rental Home',
                 sub: 'Royal Palm Beach · West Palm Beach · Loxahatchee',
-                gradient: 'linear-gradient(160deg, #0B4C6E 0%, #1A7FA8 50%, #5AB8D4 100%)',
+                image: '/images/category-rental.jpg',
+                href: '/rentals',
               },
               {
                 label: 'Buy Your First Home',
                 sub: 'Wellington · Lake Worth · Boynton Beach',
-                gradient: 'linear-gradient(160deg, #6B4E08 0%, #B8902C 50%, #E0C66A 100%)',
+                image: '/images/category-buying.jpg',
+                href: '/buy',
               },
               {
                 label: 'Sell or Lease Your Property',
                 sub: 'Port St. Lucie · Davie · Palm Beach Gardens',
-                gradient: 'linear-gradient(160deg, #1A4A1A 0%, #2E8028 50%, #72C060 100%)',
+                image: '/images/category-selling.jpg',
+                href: '/sell',
               },
             ].map((scene, i) => (
               <AnimateOnScroll key={scene.label} delay={i * 0.08}>
-                <div
-                  className="rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3] border border-transparent hover:border-gold/60 hover:scale-[1.02] transition-all duration-200"
-                  style={{ background: scene.gradient }}
+                <Link
+                  href={scene.href}
+                  className="group block rounded-2xl overflow-hidden relative aspect-video md:aspect-[4/3] bg-navy border border-transparent hover:border-gold/60 transition-colors duration-300"
                 >
+                  <Image
+                    src={scene.image}
+                    alt={scene.label}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
                   <div
                     className="absolute inset-0"
                     aria-hidden="true"
                     style={{
                       background:
-                        'linear-gradient(to top, rgba(8, 18, 28, 0.85) 0%, rgba(8, 18, 28, 0.2) 60%, transparent 100%)',
+                        'linear-gradient(to top, rgba(8, 18, 28, 0.92) 0%, rgba(8, 18, 28, 0.65) 45%, rgba(8, 18, 28, 0.3) 100%)',
                     }}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="font-serif text-lg font-bold text-white leading-tight">{scene.label}</p>
-                    <p className="font-sans text-xs text-white/70 mt-0.5">{scene.sub}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="font-serif text-2xl md:text-3xl font-bold text-white leading-tight">
+                      {scene.label}
+                    </p>
+                    <p className="font-sans text-sm text-white/75 mt-1.5">{scene.sub}</p>
                   </div>
-                </div>
+                </Link>
               </AnimateOnScroll>
             ))}
           </div>
@@ -239,8 +252,9 @@ export default function HomePage() {
       </section>
 
       {/* ─── Why Jose? ─── */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-24 bg-cream relative overflow-hidden">
+        <WhyJoseBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
             <SectionHeading
               eyebrow="Why Jose?"
@@ -251,7 +265,7 @@ export default function HomePage() {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {FEATURES.map(({ icon: Icon, title, body, iconBg, iconColor }, i) => (
               <AnimateOnScroll key={title} delay={i * 0.08}>
-                <div className="bg-cream rounded-2xl p-8 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-2xl p-8 border-t-2 border-gold shadow-sm hover:shadow-md transition-shadow">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                     style={{ backgroundColor: iconBg }}
