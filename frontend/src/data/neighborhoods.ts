@@ -277,11 +277,11 @@ export const neighborhoods: Neighborhood[] = [
       'Major arts institutions: Norton Museum, Kravis Center',
       'Strong rental demand driven by urban workforce growth',
     ],
-    medianHomePrice: '$425K',
-    avgDaysOnMarket: '87',
+    medianHomePrice: '$609K',
+    avgDaysOnMarket: '65',
     bestFor: 'Urban professionals, first-time buyers, and investors',
     coordinates: { lat: 26.7153, lng: -80.0534 },
-    population: '122,290',
+    population: '120,000',
     resources: [
       { label: 'City of West Palm Beach', url: 'https://www.wpb.org', category: 'city' },
       { label: 'Palm Beach County', url: 'https://www.pbcgov.org', category: 'county' },
@@ -291,7 +291,7 @@ export const neighborhoods: Neighborhood[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "West Palm Beach is my second-busiest market after Royal Palm Beach, and it's a completely different animal — this is a real city, not a village. You've got everything from condos in the $90,000s in 55+ communities out west to multi-million dollar places on the water, sometimes a few miles apart. What I tell people is: don't think of West Palm Beach as one neighborhood, because it isn't — Flamingo Park, El Cid, Northwood, and downtown all feel different. It's the most diverse market I work in, and it's still noticeably cheaper than doing the same search in Miami. If you want walkable, urban, and close to the water without the Miami price tag, this is where I send people.",
+      "West Palm Beach gives families something none of the western suburbs can — real walkability, a downtown they'll actually use, and entry points into Palm Beach County that still make sense on a family budget. I've helped buyers find solid 3-bedroom homes here for less than what a condo costs in Boca. And with SunFest, the GreenMarket, the Zoo, and Dreyfoos all in the same city, there's a quality of life here that's easy to underestimate.",
     lifestyleTags: [
       'Urban & Walkable',
       'Diverse Community',
@@ -301,40 +301,40 @@ export const neighborhoods: Neighborhood[] = [
       'More Affordable Than Miami',
     ],
     census: {
-      population: '122,290',
-      medianAge: '41.1',
-      medianHouseholdIncome: '$73,446',
-      perCapitaIncome: '$47,465',
-      ownerOccupied: '50.5%',
-      renterOccupied: '49.5%',
+      population: '120,000',
+      medianAge: '40',
+      medianHouseholdIncome: '$69,261',
+      perCapitaIncome: '$44,508',
+      ownerOccupied: '50%',
+      renterOccupied: '50%',
       foreignBorn: '27.1%',
-      topLanguages: ['Spanish', 'Haitian Creole'],
-      source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '$425K',
-      avgDaysOnMarket: '87',
+      medianPrice: '$609K',
+      avgDaysOnMarket: '65',
       pricePerSqFt: '$306',
-      lastUpdated: 'Q2 2026 (Redfin)',
+      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
     },
     budgetGuide: [
       {
         tier: 'Under $300K',
-        label: 'Older Condos',
+        label: 'Condos & Townhomes',
         description:
-          "Mostly older condos outside the downtown core — 55+ communities like Century Village have units in the $90K–$155K range. Inside downtown itself, almost nothing trades below $300K anymore.",
+          "Primarily 2-bedroom condos and townhomes in complexes 40–60 years old, with HOA fees worth budgeting for. This is currently a deep buyer's market — the condo median has dropped to $255K with nearly 9 months of supply — making it the most affordable real entry point into Palm Beach County.",
       },
       {
         tier: '$300K – $500K',
-        label: 'Condos & Townhomes',
+        label: 'Single-Family Homes',
         description:
-          'This is the heart of the market, right around the $425K citywide median. Expect a 1-bedroom downtown condo (median around $375K) or a small single-family home or townhome in neighborhoods like Flamingo Park or Northwood.',
+          "The heart of WPB's single-family market for working families — 3-bedroom, 2-bath homes in established neighborhoods, typically 30–50 years old, some recently renovated. Good inventory exists, but the citywide single-family median has climbed past $600K, so this bracket takes some patience or a willingness to look in less-trendy pockets.",
       },
       {
-        tier: '$500K – $800K+',
-        label: 'Historic & Waterfront',
+        tier: '$500K+',
+        label: 'Updated & Historic Single-Family',
         description:
-          'Two-bedroom downtown condos (median near $699K), historic bungalows in the El Cid and Flamingo Park historic districts, and homes with Intracoastal proximity live in this range.',
+          'Updated or newer homes in neighborhoods like Flamingo Park, El Cid, SoSo, and Northwood Shores — increasingly overlapping with the historic market, where renovated 1920s–1940s homes command a premium. The May single-family median of $608,750 sits right at the bottom of this range.',
       },
     ],
     schools: [
@@ -357,52 +357,68 @@ export const neighborhoods: Neighborhood[] = [
         greatSchoolsUrl: 'https://www.greatschools.org/florida/west-palm-beach/2315-Alexander-W-Dreyfoos-Junior-School-Of-The-Arts/',
       },
       {
-        name: 'G-Star School of the Arts',
-        level: 'Charter',
-        rating: '5/10',
-        greatSchoolsUrl: 'https://www.greatschools.org/florida/west-palm-beach/5375-G-Star-School-Of-The-Arts/',
+        name: 'Forest Hill Community High School',
+        level: 'High',
+        rating: '3/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/west-palm-beach/2235-Forest-Hill-Community-High-School/',
       },
     ],
     schoolNote:
-      "West Palm Beach is a big city with dozens of zoned schools, and district-wide performance runs below the Florida average. But the city is also home to some of the most competitive magnet options in the county — Bak Middle and Dreyfoos High are audition-based arts schools that draw applicants from across Palm Beach County and significantly outperform the district average. Worth knowing the difference between your zoned neighborhood school and these choice programs before you assume either way.",
+      "West Palm Beach's school quality varies significantly by zone — there's no single 'WPB schools are great' answer here. Bak Middle (10/10) and Dreyfoos High (8/10) are exceptional magnet schools, but both require a separate application and audition, not just living in the zone. Forest Hill, the primary comprehensive high school for much of western WPB, rates considerably lower at 3/10. Use the Palm Beach County school locator by address before assuming what you're zoned for.",
     pointsOfInterest: [
       {
-        name: 'Clematis Street',
+        name: 'Clematis Street & Meyer Amphitheatre',
         category: 'Dining',
         description:
-          "Downtown's main entertainment strip — restaurants, bars, and live music, plus the free 'Clematis by Night' concert every Thursday and a Saturday Green Market (October–April).",
+          "The beating heart of downtown — a walkable strip of restaurants, bars, and shops along the waterfront, plus the free 'Clematis by Night' concert series and year-round events at the Meyer Amphitheatre.",
+        url: 'https://clematisstreet.org/',
+      },
+      {
+        name: 'WPB GreenMarket',
+        category: 'Shopping',
+        description:
+          "Every Saturday morning along the waterfront, October through May — voted the #1 farmers market in America. Now in its 31st season with 150 vendors; a genuine weekly ritual, not a tourist stop.",
+        url: 'https://www.wpb.org/Residents/Community-Events/Events/WPB-GreenMarket',
+      },
+      {
+        name: 'Grassy Waters Preserve',
+        category: 'Park',
+        description:
+          "A 20-square-mile wetland that's also the city's primary water supply and a historic Everglades headwater. Free to visit, with a cypress boardwalk, nature center, and kayak launches.",
+      },
+      {
+        name: 'Okeeheelee Park',
+        category: 'Recreation',
+        description:
+          'A massive 1,700-acre county park on the western edge with disc golf, BMX, a par-3 course, nature trails, a lake, and cable wakeboarding at Shark Wake Park.',
+        url: 'https://discover.pbc.gov/parks/Locations/Okeeheelee.aspx',
+      },
+      {
+        name: 'Palm Beach Zoo & Cox Science Center',
+        category: 'Community',
+        description:
+          'Side by side in Dreher Park — a 23-acre zoo with tigers, jaguars, and Florida panthers, plus a science center with a planetarium, hands-on exhibits, and mini golf.',
+        url: 'https://www.coxsciencecenter.org/',
+      },
+      {
+        name: 'Manatee Lagoon',
+        category: 'Community',
+        description:
+          'A free FPL-run eco-discovery center on the Intracoastal where manatees gather near the plant\'s warm-water outflow in winter — exhibits, an observation deck, and a boardwalk.',
+        url: 'https://visitmanateelagoon.com/',
       },
       {
         name: 'Rosemary Square (CityPlace)',
         category: 'Shopping',
         description:
-          'An open-air shopping and dining center with an AMC theater — and home to the only full-size grocery store in downtown, a Publix at 375 S Rosemary Ave.',
+          'An open-air shopping and dining center with an AMC theater, adjacent to the Kravis Center — restaurants, Restoration Hardware, Pottery Barn, and more.',
       },
       {
-        name: 'Flagler Drive Waterfront',
-        category: 'Recreation',
+        name: 'Publix at Village Commons',
+        category: 'Shopping',
         description:
-          'The Intracoastal promenade running along downtown — popular for jogging, biking, and watching the sunset over Palm Beach across the water.',
-      },
-      {
-        name: 'Grassy Waters Preserve',
-        category: 'Park',
-        description: "24 square miles of wetlands with boardwalk trails — one of the city's best spots for birdwatching and a quiet nature break.",
-      },
-      {
-        name: 'Okeeheelee Park',
-        category: 'Recreation',
-        description: 'A large county park with hiking and biking trails, a lake, sports fields, and a water ski area — a short drive west of downtown.',
-      },
-      {
-        name: 'Norton Museum of Art',
-        category: 'Community',
-        description: 'A major art museum with American, European, and Chinese collections — free or discounted admission for local residents on select days.',
-      },
-      {
-        name: 'Mandel Public Library of West Palm Beach',
-        category: 'Community',
-        description: "The city's main library branch downtown, with children's programming, study space, and community meeting rooms.",
+          "One of roughly six Publix locations spread across the city — this one off Okeechobee Blvd is convenient to the Village Commons area. There's no Whole Foods or Trader Joe's inside WPB city limits; the nearest are about 15 minutes north in Palm Beach Gardens.",
+        url: 'https://www.publix.com/locations/1497-village-commons',
       },
     ],
     rentalMarket: {
@@ -428,56 +444,163 @@ export const neighborhoods: Neighborhood[] = [
       'Low-density, family-focused planned community',
       'Active sports and recreation scene year-round',
     ],
-    medianHomePrice: '$490K',
-    avgDaysOnMarket: '42',
+    medianHomePrice: '$750K',
+    avgDaysOnMarket: '73',
     bestFor: 'Families, equestrian enthusiasts, and buyers wanting space and strong schools',
     coordinates: { lat: 26.6595, lng: -80.2686 },
+    imageSrc: '/images/neighborhoods/wellington.jpg',
     resources: [
       { label: 'Village of Wellington', url: 'https://www.wellingtonfl.gov', category: 'city' },
       { label: 'Palm Beach County', url: 'https://www.pbcgov.org', category: 'county' },
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
-    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
-    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    // TODO: Have Jose review and adjust in his own words
+    joseNote:
+      "I've lived in Wellington since 2004 — I've watched this village grow from a quiet equestrian community into one of the most sought-after addresses in Palm Beach County. What I tell buyers is this: the schools, the parks, and the sense of neighborhood here are genuinely hard to find anywhere else in South Florida at this price point. And you don't have to own a horse to love living here.",
+    lifestyleTags: [
+      'Equestrian Culture',
+      'Family-Friendly',
+      'Top-Rated Schools',
+      'Master-Planned Community',
+      'Award-Winning Parks',
+      'Western Palm Beach County',
+    ],
     census: {
-      population: '[PLACEHOLDER]',
-      medianAge: '[PLACEHOLDER]',
-      medianHouseholdIncome: '[PLACEHOLDER]',
-      perCapitaIncome: '[PLACEHOLDER]',
-      ownerOccupied: '[PLACEHOLDER]',
-      renterOccupied: '[PLACEHOLDER]',
-      foreignBorn: '[PLACEHOLDER]',
-      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
-      source: '[PLACEHOLDER — census source and year]',
+      population: '61,497',
+      medianAge: '42',
+      medianHouseholdIncome: '$110,294',
+      perCapitaIncome: '$53,964',
+      ownerOccupied: '74%',
+      renterOccupied: '26%',
+      foreignBorn: '24.2%',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '[PLACEHOLDER]',
-      avgDaysOnMarket: '[PLACEHOLDER]',
-      pricePerSqFt: '[PLACEHOLDER]',
-      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+      medianPrice: '$750K',
+      avgDaysOnMarket: '73',
+      pricePerSqFt: '$334',
+      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
     },
     budgetGuide: [
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      {
+        tier: 'Under $450K',
+        label: 'Condos, Villas & Townhomes',
+        description:
+          'Typically 2-bedroom units, often in gated communities or golf course developments — some with substantial HOA fees. The most accessible way to get a Wellington address and its school zoning without the single-family price tag.',
+      },
+      {
+        tier: '$450K – $650K',
+        label: 'Entry-Level Single-Family',
+        description:
+          '3-bedroom, 2-bath homes typically 30–40 years old on smaller lots. Some are well-maintained originals, others need updating — and this is the most competitive bracket, with homes often drawing multiple offers.',
+      },
+      {
+        tier: '$650K+',
+        label: 'Established Single-Family & Estates',
+        description:
+          'The heart of the Wellington single-family market — 3-4 bedroom homes with updated kitchens, community amenities, and often private pools. Equestrian estates with acreage and barn access begin here and extend into the millions.',
+      },
     ],
     schools: [
-      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      {
+        name: 'Binks Forest Elementary School',
+        level: 'Elementary',
+        rating: '10/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/wellington/4685-Binks-Forest-Elementary-School/',
+      },
+      {
+        name: 'Equestrian Trails Elementary School',
+        level: 'Elementary',
+        rating: '10/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/wellington/5369-Equestrian-Trails-Elementary-School/',
+      },
+      {
+        name: 'Wellington Landings Middle School',
+        level: 'Middle',
+        rating: '8/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/wellington/2296-Wellington-Landings-Middle-School/',
+      },
+      {
+        name: 'Wellington High School',
+        level: 'High',
+        rating: '6/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/wellington/2305-Wellington-High-School/',
+      },
     ],
-    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    schoolNote:
+      "Wellington's elementary schools are exceptional — both Binks Forest and Equestrian Trails rate a perfect 10/10 on GreatSchools, and Wellington Landings Middle isn't far behind at 8/10, well above the district average in math and reading proficiency. Wellington High School rates more modestly at 6/10, though it offers a strong AP program with roughly 50% student participation — worth visiting in person to judge for your family.",
     pointsOfInterest: [
-      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
-      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
-      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+      {
+        name: 'Wellington Village Park & Amphitheater',
+        category: 'Park',
+        description:
+          "The social heart of the village — a free outdoor amphitheater hosting 'Thursday Nights in Wellington' summer concerts, plus the new Aquatics Center, tennis courts, athletic fields, and the barrier-free Scott's Place playground.",
+        url: 'https://www.wellingtonfl.gov/603/Amphitheater',
+        imageSrc: '/images/neighborhoods/poi/wellington-village-park.jpg',
+      },
+      {
+        name: 'Peaceful Waters Sanctuary',
+        category: 'Park',
+        description:
+          'A 30-acre wetlands preserve inside Village Park with 1,500 feet of boardwalk and a mile of trails — herons, turtles, and the occasional alligator. Wellington\'s nature escape without leaving town.',
+        url: 'https://www.wellingtonfl.gov/facilities/facility/details/Peaceful-Waters-Sanctuary-56',
+        imageSrc: '/images/neighborhoods/poi/wellington-peaceful-waters.jpg',
+      },
+      {
+        name: 'Wellington International (Winter Equestrian Festival)',
+        category: 'Recreation',
+        description:
+          'The world\'s largest and longest-running equestrian event — 13 weeks each January through March drawing riders from 52 countries. General admission is free; families can walk the grounds and watch world-class show jumping at no cost.',
+        url: 'https://www.wellingtoninternational.com/',
+        imageSrc: '/images/neighborhoods/poi/wellington-international.jpg',
+      },
+      {
+        name: 'National Polo Center',
+        category: 'Recreation',
+        description:
+          'Home to the Palm Beach Polo Season, late December through May, with matches most weeks. General admission is $35, and Sunday brunch matches are the social highlight of the season.',
+        url: 'https://www.nationalpolocenter.com/',
+        imageSrc: '/images/neighborhoods/poi/wellington-polo-center.jpg',
+      },
+      {
+        name: 'Okeeheelee Park',
+        category: 'Recreation',
+        description:
+          'A massive county park on Wellington\'s eastern edge with a BMX track, disc golf, a par-3 course, and lake access with a boat ramp — draws families from across western Palm Beach County.',
+        url: 'https://discover.pbc.gov/parks/Locations/Okeeheelee.aspx',
+        imageSrc: '/images/neighborhoods/poi/wellington-okeeheelee.jpg',
+      },
+      {
+        name: 'Publix at Courtyard Shops',
+        category: 'Shopping',
+        description:
+          'A 58,834 sq ft flagship Publix that opened in late 2024, with a wine and coffee bar, made-to-order burrito and pizza bars, and upstairs seating — now one of the most-visited Publix locations in the county.',
+        url: 'https://www.publix.com/locations/1894-courtyard-shops-at-wellington',
+        imageSrc: '/images/neighborhoods/poi/wellington-publix.jpg',
+      },
+      {
+        name: 'Whole Foods Market',
+        category: 'Shopping',
+        description: 'Full-service Whole Foods on State Road 7, with a strong prepared foods selection and Prime member savings.',
+        url: 'https://www.wholefoodsmarket.com/stores/wellington',
+        imageSrc: '/images/neighborhoods/poi/wellington-whole-foods.jpg',
+      },
+      {
+        name: 'The Mall at Wellington Green',
+        category: 'Shopping',
+        description: "A two-story regional mall with Macy's, Dillard's, JCPenney, H&M, and a food court — Wellington's main indoor retail destination.",
+        url: 'https://shopwellingtongreen.com/',
+        imageSrc: '/images/neighborhoods/poi/wellington-mall.jpg',
+      },
     ],
     rentalMarket: {
       active: true,
-      rangeMin: '[$X,XXX]',
-      rangeMax: '[$X,XXX]',
-      description: '[PLACEHOLDER — rental market description goes here.]',
+      rangeMin: '$2,200',
+      rangeMax: '$6,000',
+      description:
+        "Wellington's rental market skews higher than the western suburbs given the village's larger lot sizes and equestrian properties — typical 2-4 bedroom homes and townhomes run from about $2,200 to $6,000 a month, with larger properties and horse-country estates commanding considerably more, especially during the winter equestrian season. Jose can help renters navigate available inventory and connect with listings here.",
     },
   },
   {
@@ -495,8 +618,8 @@ export const neighborhoods: Neighborhood[] = [
       'Newer gated communities like Arden alongside established rural properties',
       'More land per dollar than anywhere else in Palm Beach County',
     ],
-    medianHomePrice: '$520K',
-    avgDaysOnMarket: '50',
+    medianHomePrice: '$691K',
+    avgDaysOnMarket: '76',
     bestFor: 'Buyers wanting space, equestrian families, investors, and those looking for rural Florida character',
     coordinates: { lat: 26.7, lng: -80.335 },
     resources: [
@@ -505,46 +628,137 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Acreage-Loxahatchee Chamber', url: 'https://www.acreageloxahatcheechamber.com', category: 'chamber' },
     ],
-    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
-    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    // TODO: Have Jose review and adjust in his own words
+    joseNote:
+      "When buyers ask me where they can get a real piece of land in Palm Beach County without an HOA telling them what color to paint their fence, I always point them to The Acreage. I've worked this market for years — you're 15 minutes from Wellington, 20 minutes from West Palm Beach, and you come home to over an acre that's yours. For a family that wants space to raise kids, keep animals, park the boat, and build equity without monthly fees eating into their budget, it's hard to beat.",
+    lifestyleTags: [
+      'No HOA',
+      '1+ Acre Lots',
+      'Equestrian Culture',
+      '92% Owner-Occupied',
+      'Rural & Spacious',
+      'Well & Septic',
+    ],
     census: {
-      population: '[PLACEHOLDER]',
-      medianAge: '[PLACEHOLDER]',
-      medianHouseholdIncome: '[PLACEHOLDER]',
-      perCapitaIncome: '[PLACEHOLDER]',
-      ownerOccupied: '[PLACEHOLDER]',
-      renterOccupied: '[PLACEHOLDER]',
-      foreignBorn: '[PLACEHOLDER]',
-      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
-      source: '[PLACEHOLDER — census source and year]',
+      population: '40,000',
+      medianAge: '43',
+      medianHouseholdIncome: '$105,405',
+      perCapitaIncome: '$40,975',
+      ownerOccupied: '92%',
+      renterOccupied: '8%',
+      foreignBorn: '19.8%',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '[PLACEHOLDER]',
-      avgDaysOnMarket: '[PLACEHOLDER]',
-      pricePerSqFt: '[PLACEHOLDER]',
-      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+      medianPrice: '$691K',
+      avgDaysOnMarket: '76',
+      pricePerSqFt: '$323',
+      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
     },
     budgetGuide: [
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      {
+        tier: 'Under $450K',
+        label: 'Land & Fixer-Uppers',
+        description:
+          'Raw 1.25-acre lots for buyers who want to build custom, or occasionally an older home needing significant work. Cash is often preferred at this end given well/septic systems and property condition — this is the entry point for those with the address and the land in mind but a longer timeline.',
+      },
+      {
+        tier: '$450K – $650K',
+        label: 'Working-Family Sweet Spot',
+        description:
+          'The heart of the market — a 3-bedroom, 2-bath CBS home, 1,500–2,200 sq ft, 20–40 years old, on a fully fenced 1.25-acre lot, often with a pool and a shop or garage. Many have 2024–2025 roofs from post-storm rebuilding, a genuinely positive buying signal.',
+      },
+      {
+        tier: '$650K+',
+        label: 'Updated & Equestrian Properties',
+        description:
+          'Updated or newer-construction 4–5 bedroom homes on 1.25–2+ acres, often move-in ready with modern systems and pools. Equestrian properties with barns, paddocks, and arena access start here, with some new construction reaching $800K+ on acre-plus lots.',
+      },
     ],
     schools: [
-      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      {
+        name: 'Frontier Elementary School',
+        level: 'Elementary',
+        rating: '8/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/loxahatchee/5032-Frontier-Elementary-School/',
+      },
+      {
+        name: 'Acreage Pines Elementary School',
+        level: 'Elementary',
+        rating: '7/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/loxahatchee/2323-Acreage-Pines-Elementary-School/',
+      },
+      {
+        name: 'Osceola Creek Middle School',
+        level: 'Middle',
+        rating: '6/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/loxahatchee/6369-Osceola-Creek-Middle-School/',
+      },
+      {
+        name: 'Seminole Ridge Community High School',
+        level: 'High',
+        rating: '4/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/loxahatchee/7584-Seminole-Ridge-Community-High-School/',
+      },
     ],
-    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    schoolNote:
+      "Loxahatchee-area schools average an 8/10 district ranking overall — solidly above the Florida average. Both elementary options are strong (Frontier 8/10, Acreage Pines 7/10), and Osceola Creek Middle (6/10) posts particularly strong math scores, with over 90% of students proficient in Algebra 1 and Geometry. Seminole Ridge High rates lower at 4/10 on aggregate test scores, but it offers AP, AICE, Cambridge International, and a Biotechnology Academy — worth a closer look at the specialized programs rather than just the headline number.",
     pointsOfInterest: [
-      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
-      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
-      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+      {
+        name: 'Acreage Community Park',
+        category: 'Park',
+        description:
+          "The community's primary gathering place — a 25-acre park run by the Indian Trail Improvement District with sports fields, pavilions, playgrounds, and a new synthetic turf field built to the same spec used at the University of Miami and Miami Dolphins training facilities.",
+        url: 'https://www.indiantrail.com/Home/Components/FacilityDirectory/FacilityDirectory/2/97',
+      },
+      {
+        name: 'Arthur R. Marshall Loxahatchee National Wildlife Refuge',
+        category: 'Park',
+        description:
+          "One of the largest urban wildlife refuges in the country at over 145,000 acres, right on The Acreage's eastern edge — hiking, canoeing, fishing, and a cypress boardwalk trail through habitat for 250+ bird species.",
+        url: 'https://www.fws.gov/refuge/arthur-r-marshall-loxahatchee',
+      },
+      {
+        name: 'JW Corbett Wildlife Management Area',
+        category: 'Recreation',
+        description:
+          "A 60,000-acre state-managed natural area bordering The Acreage to the west, with hiking, fishing, hunting, and primitive camping — a true backyard wilderness extension for residents.",
+        url: 'https://myfwc.com/recreation/lead/j-w-corbett/',
+      },
+      {
+        name: 'Lion Country Safari',
+        category: 'Recreation',
+        description:
+          "A drive-through safari park on 600+ acres, founded in 1967 as the country's first cageless zoo. Under new ownership since late 2024, some attractions have been phased out, but the core drive-through safari experience remains open.",
+        url: 'https://www.lioncountrysafari.com/',
+      },
+      {
+        name: 'Fox Trail Equestrian Community',
+        category: 'Community',
+        description:
+          'A private equestrian neighborhood within The Acreage with 29 miles of dedicated horse trails on paved private roads — its presence reinforces the equestrian culture that runs through the broader community, even for non-residents.',
+      },
+      {
+        name: 'Acreage Athletic League',
+        category: 'Community',
+        description:
+          "The community's youth sports organization, running leagues for baseball, softball, football, and more — one of the primary social anchors for families with school-age kids.",
+      },
+      {
+        name: 'Publix at The Acreage',
+        category: 'Shopping',
+        description:
+          "The primary grocery anchor for the entire community, at Seminole Pratt Whitney Rd and Orange Blvd — there's no competing major grocery store within The Acreage itself.",
+        url: 'https://www.publix.com/locations/851-publix-at-the-acreage',
+      },
     ],
     rentalMarket: {
       active: true,
-      rangeMin: '[$X,XXX]',
-      rangeMax: '[$X,XXX]',
-      description: '[PLACEHOLDER — rental market description goes here.]',
+      rangeMin: '$1,800',
+      rangeMax: '$4,800',
+      description:
+        "Rental inventory is limited compared to denser parts of Palm Beach County, but it exists — single-family homes on acreage typically rent from about $1,800 up to $4,800 a month, with 3-4 bedroom homes making up most of the market. Jose has helped renters find homes here, including in the newer gated Arden community, for those who want the land and lifestyle without buying right away.",
     },
   },
   {
@@ -561,8 +775,8 @@ export const neighborhoods: Neighborhood[] = [
       'Strong multilingual community — significant Spanish-speaking population',
       'Historic Lake Worth Casino Beach and Pier',
     ],
-    medianHomePrice: '$330K',
-    avgDaysOnMarket: '45',
+    medianHomePrice: '$615K',
+    avgDaysOnMarket: '62',
     bestFor: 'First-time buyers, investors, and buyers who value walkability and community character',
     coordinates: { lat: 26.6167, lng: -80.0584 },
     resources: [
@@ -571,46 +785,138 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
-    joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
-    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    // TODO: Have Jose review and adjust in his own words
+    joseNote:
+      "Lake Worth Beach is the kind of place where you can walk to the beach, grab breakfast at Benny's on the pier, and still have money left over for a down payment — because unlike the towns just across the bridge, it hasn't been priced out of reach for regular families. And with Tri-Rail right in the city, buyers who commute to Fort Lauderdale or Miami can actually make this work. I've helped Spanish-speaking families plant roots here for years — this community feels like home from the first day.",
+    lifestyleTags: [
+      'Walkable & Arts-Forward',
+      'Tri-Rail Access',
+      'Majority Renter',
+      'Diverse Community',
+      'Historic Bungalows',
+      'Beach & Pier',
+    ],
     census: {
-      population: '[PLACEHOLDER]',
-      medianAge: '[PLACEHOLDER]',
-      medianHouseholdIncome: '[PLACEHOLDER]',
-      perCapitaIncome: '[PLACEHOLDER]',
-      ownerOccupied: '[PLACEHOLDER]',
-      renterOccupied: '[PLACEHOLDER]',
-      foreignBorn: '[PLACEHOLDER]',
-      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
-      source: '[PLACEHOLDER — census source and year]',
+      population: '43,000',
+      medianAge: '37',
+      medianHouseholdIncome: '$60,978',
+      perCapitaIncome: '$29,711',
+      ownerOccupied: '46%',
+      renterOccupied: '54%',
+      foreignBorn: '35%',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '[PLACEHOLDER]',
-      avgDaysOnMarket: '[PLACEHOLDER]',
-      pricePerSqFt: '[PLACEHOLDER]',
-      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+      medianPrice: '$615K',
+      avgDaysOnMarket: '62',
+      pricePerSqFt: '$316',
+      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
     },
     budgetGuide: [
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      {
+        tier: 'Under $300K',
+        label: 'Condos & Co-ops',
+        description:
+          "Primarily the condo and co-op market — median list price runs about $161K–$165K, ranging from older units needing work near $100K up to $275K for updated or larger ones, many in mid-century or 55+ buildings. A genuine entry point into Palm Beach County coastal living that doesn't exist elsewhere in Jose's territory.",
+      },
+      {
+        tier: '$300K – $500K',
+        label: 'Townhomes & Smaller Single-Family',
+        description:
+          'The working-family sweet spot — updated condos at the top of this range, townhomes, or smaller 2-3 bedroom single-family homes (900–1,500 sq ft) in established, walkable neighborhoods. Expect 1940s–1970s construction, some needing cosmetic work — this tier rewards buyers who want character and location over square footage.',
+      },
+      {
+        tier: '$500K+',
+        label: 'Updated & Historic Single-Family',
+        description:
+          'Single-family homes in the more desirable pockets — updated historic bungalows, canal-front homes, or larger 3-4 bedroom houses in better condition. The single-family median list price was around $595K in April 2026, and ocean-side or Intracoastal-adjacent properties at the top of this range can exceed $1M.',
+      },
     ],
     schools: [
-      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      {
+        name: 'North Grade Elementary School',
+        level: 'Elementary',
+        rating: '5/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/lake-worth/2243-North-Grade-Elementary-School/',
+      },
+      {
+        name: 'South Grade Elementary School',
+        level: 'Elementary',
+        rating: '5/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/lake-worth/5029-South-Grade-Elementary-School/',
+      },
+      {
+        name: 'Lake Worth Community Middle School',
+        level: 'Middle',
+        rating: '3/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/lake-worth/2322-Lake-Worth-Community-Middle-School/',
+      },
+      {
+        name: 'Lake Worth High School',
+        level: 'High',
+        rating: '2/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/lake-worth/2244-Lake-Worth-High-School/',
+      },
     ],
-    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    schoolNote:
+      "Lake Worth Beach city schools serve a high-need, diverse student population and post lower aggregate test scores than schools in Jose's western Palm Beach County neighborhoods — North Grade and South Grade Elementary both rate 5/10, Lake Worth Community Middle 3/10, and Lake Worth High 2/10. This is common in urban coastal cities with this demographic mix, and it doesn't tell the whole story for every family — use the Palm Beach County school locator by address, and visit in person before drawing conclusions.",
     pointsOfInterest: [
-      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
-      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
-      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+      {
+        name: 'Lake Worth Beach Park & Municipal Pier',
+        category: 'Park',
+        description:
+          'A guarded white-sand beach, the William O. Lockhart Municipal Pier for fishing and walks, a municipal pool, and the historic 1920s Casino Building with restaurants and shops — including Benny\'s On The Beach, perched right at the pier.',
+        url: 'https://lakeworthbeachfl.gov/casino-and-beach-complex/home',
+      },
+      {
+        name: 'Bryant Park',
+        category: 'Park',
+        description:
+          'A waterfront park on the Lake Worth Lagoon with a bandshell, fishing pier, boat ramp, horseshoe pits, and a one-mile fitness trail — catches the afternoon light beautifully and hosts regular music festivals.',
+        url: 'https://lakeworthbeachfl.gov/locations/bryant-park',
+      },
+      {
+        name: 'Downtown Lake Avenue & Lucerne Avenue',
+        category: 'Dining',
+        description:
+          "The city's bohemian, art-filled downtown — galleries, boutiques, coffee houses, and mom-and-pop restaurants, plus the Cultural Council for Palm Beach County's rotating exhibits.",
+      },
+      {
+        name: 'Lake Worth Playhouse',
+        category: 'Community',
+        description:
+          'A historic community theater on Lake Avenue — the oldest surviving Art Deco building in Palm Beach County — hosting plays, concerts, and film events year-round.',
+        url: 'https://lakeworthplayhouse.org/',
+      },
+      {
+        name: 'Snook Islands Natural Area',
+        category: 'Park',
+        description:
+          'A 100+ acre wetland restoration in the Lake Worth Lagoon with a boardwalk, fishing pier, and kayak launch — free to visit, with dolphins and manatees regularly spotted.',
+        url: 'https://discover.pbc.gov/erm/NaturalAreas/Snook-Islands.aspx',
+      },
+      {
+        name: 'John Prince Memorial Park',
+        category: 'Recreation',
+        description:
+          'A 726-acre county park on Lake Osborne with a campground, 4.5-mile biking path, boating, sports courts, a splash park, and the popular five-section Lake Woof Dog Park.',
+        url: 'https://johnprincepark.com/',
+      },
+      {
+        name: 'Publix at Lake Worth',
+        category: 'Shopping',
+        description:
+          'The primary downtown-area grocery anchor on N Dixie Hwy, with a strong selection of Spanish foods — within walking distance of much of the city\'s residential core.',
+        url: 'https://www.publix.com/locations/1384-publix-at-lake-worth',
+      },
     ],
     rentalMarket: {
       active: true,
-      rangeMin: '[$X,XXX]',
-      rangeMax: '[$X,XXX]',
-      description: '[PLACEHOLDER — rental market description goes here.]',
+      rangeMin: '$1,800',
+      rangeMax: '$3,400',
+      description:
+        "Lake Worth Beach has the most active rental market of Jose's coastal cities — with 54% of residents renting, it's a defining feature of the city, not a side market. Typical 2-bedroom units run $1,800–$2,700 and 3-bedroom single-family homes from about $2,800–$3,400, depending on proximity to downtown or the water.",
     },
   },
   {
