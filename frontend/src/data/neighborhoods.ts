@@ -933,8 +933,8 @@ export const neighborhoods: Neighborhood[] = [
       'Diverse, multilingual community',
       "Easy access to I-95 and Florida's Turnpike",
     ],
-    medianHomePrice: '$370K',
-    avgDaysOnMarket: '48',
+    medianHomePrice: '$410,000',
+    avgDaysOnMarket: '49',
     bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
     coordinates: { lat: 26.5317, lng: -80.0906 },
     resources: [
@@ -944,46 +944,119 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Greater Boynton Beach Chamber', url: 'https://www.boyntonbeachchamber.org', category: 'chamber' },
     ],
+    // TODO: Have Jose review and adjust in his own words
     joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
-    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    lifestyleTags: [
+      'Family-Friendly',
+      'Diverse Community',
+      'Accessible Entry Point',
+      'Congress Avenue Corridor',
+      'Active Adult Communities',
+      'Central Palm Beach County',
+    ],
     census: {
-      population: '[PLACEHOLDER]',
-      medianAge: '[PLACEHOLDER]',
-      medianHouseholdIncome: '[PLACEHOLDER]',
-      perCapitaIncome: '[PLACEHOLDER]',
-      ownerOccupied: '[PLACEHOLDER]',
-      renterOccupied: '[PLACEHOLDER]',
-      foreignBorn: '[PLACEHOLDER]',
-      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
-      source: '[PLACEHOLDER — census source and year]',
+      population: '81,000',
+      medianAge: '43',
+      medianHouseholdIncome: '$71,378',
+      perCapitaIncome: '$39,198',
+      ownerOccupied: '64%',
+      renterOccupied: '36%',
+      foreignBorn: '',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     marketSnapshot: {
-      medianPrice: '[PLACEHOLDER]',
-      avgDaysOnMarket: '[PLACEHOLDER]',
-      pricePerSqFt: '[PLACEHOLDER]',
-      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+      medianPrice: '$410,000',
+      avgDaysOnMarket: '49',
+      lastUpdated: 'June 2026 (RPR)',
     },
     budgetGuide: [
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      {
+        tier: 'Under $300K',
+        label: 'Condos & Townhomes',
+        description:
+          'Largely condo and co-op territory — the condo/TH median sold price was $266K in May 2026, often older 55+ or garden-style communities with HOA age restrictions. A genuine entry point into Palm Beach County homeownership, though not typically single-family detached.',
+      },
+      {
+        tier: '$300K – $500K',
+        label: 'Single-Family Homes',
+        description:
+          'The core of the Boynton Beach single-family market — 3-bed/2-bath homes built in the 1980s–2000s, often with updated kitchens or roofs, in established neighborhoods. This is where most working and middle-class family buyers land, right around the citywide median.',
+      },
+      {
+        tier: '$500K+',
+        label: 'Newer Construction & Gated Communities',
+        description:
+          'Newer construction or larger homes in gated communities further west (33472/33473 zip codes), typically with more updated systems, bigger lots, and community amenities like pools and clubhouses.',
+      },
     ],
     schools: [
-      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      {
+        name: 'Citrus Cove Elementary School',
+        level: 'Elementary',
+        rating: '7/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/boynton-beach/2314-Citrus-Cove-Elementary-School/',
+      },
+      {
+        name: 'Congress Community Middle School',
+        level: 'Middle',
+        rating: '3/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/boynton-beach/2277-Congress-Community-Middle-School/',
+      },
+      {
+        name: 'Boynton Beach Community High School',
+        level: 'High',
+        rating: '3/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/boynton-beach/5028-Boynton-Beach-Community-High-School/',
+      },
     ],
-    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    schoolNote:
+      "Boynton Beach's strongest anchor is Citrus Cove Elementary (7/10), which runs a Gifted & Talented magnet program. Congress Middle and Boynton Beach High both rate 3/10 on aggregate test scores, though both offer Cambridge International, AP, and Project Lead The Way magnet tracks — worth visiting in person rather than judging by the headline number alone. Actual school zoning varies significantly across the city's multiple zip codes; verify your specific address with the Palm Beach County school locator before drawing conclusions.",
     pointsOfInterest: [
-      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
-      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
-      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+      {
+        name: 'Congress Avenue Barrier Free Park',
+        category: 'Park',
+        description:
+          'A fully accessible park at 3111 S. Congress Ave. with a splash pad, accessible playground, open play fields, and a walking path — a standout for families with kids of all abilities and one of the city\'s best-equipped parks.',
+        url: 'https://www.boynton-beach.org/parks-recreation',
+      },
+      {
+        name: 'Ezell Hester Jr. Community Center & Park',
+        category: 'Community',
+        description:
+          "One of the city's main community hubs at 1901 N. Seacrest Blvd — a large multi-use facility with a gym, weight room, nature preserve, picnic shelters, and courts for basketball, tennis, racquetball, and baseball.",
+        url: 'https://www.boynton-beach.org/parks-recreation/community-centers',
+      },
+      {
+        name: 'Jaycee Park',
+        category: 'Park',
+        description:
+          'A community gathering spot on the Intracoastal Waterway with waterfront views and walking paths — a local favorite for evening strolls and sunset watching.',
+      },
+      {
+        name: 'Caloosa Park',
+        category: 'Recreation',
+        description:
+          "A large multi-sport park with tennis courts, sports fields, playgrounds, and picnic areas — popular with families across the city's western neighborhoods.",
+      },
+      {
+        name: 'Oceanfront Park',
+        category: 'Park',
+        description:
+          'The closest beachfront access point for Boynton Beach residents at 6415 N. Ocean Blvd — a guarded beach with a boardwalk, concessions, grills, picnic shelters, and a playground.',
+      },
+      {
+        name: 'Boynton Lakes Plaza Corridor',
+        category: 'Shopping',
+        description:
+          'The practical daily-life spine of west-central Boynton Beach along Congress Avenue — Publix at 4770 N. Congress Ave., plus Costco, Walmart, L.A. Fitness, CVS, Walgreens, and a wide corridor of quick-service restaurants and everyday retail.',
+      },
     ],
     rentalMarket: {
-      active: true,
-      rangeMin: '[$X,XXX]',
-      rangeMax: '[$X,XXX]',
-      description: '[PLACEHOLDER — rental market description goes here.]',
+      active: false,
+      rangeMin: '',
+      rangeMax: '',
+      description: '',
     },
   },
   {
@@ -1000,8 +1073,8 @@ export const neighborhoods: Neighborhood[] = [
       'Active arts and cultural scene year-round',
       'Wide price range — entry-level condos to oceanfront estates',
     ],
-    medianHomePrice: '$490K',
-    avgDaysOnMarket: '41',
+    medianHomePrice: '$438,695',
+    avgDaysOnMarket: '61',
     bestFor: 'Active buyers of all ages, lifestyle-driven families, and investors',
     coordinates: { lat: 26.4615, lng: -80.0728 },
     resources: [
@@ -1010,46 +1083,131 @@ export const neighborhoods: Neighborhood[] = [
       { label: 'Palm Beach County Schools', url: 'https://www.palmbeachschools.org', category: 'schools' },
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
     ],
+    // TODO: Have Jose review and adjust in his own words
     joseNote: '[PLACEHOLDER — Jose\'s personal note about this neighborhood goes here.]',
-    lifestyleTags: ['[Tag 1]', '[Tag 2]', '[Tag 3]', '[Tag 4]'],
+    lifestyleTags: [
+      'Walkable & Arts-Forward',
+      'Blue Flag Beach',
+      'Historic Downtown',
+      'Wide Price Range',
+      'Lifestyle & Leisure',
+      'Eastern Palm Beach County',
+    ],
     census: {
-      population: '[PLACEHOLDER]',
-      medianAge: '[PLACEHOLDER]',
-      medianHouseholdIncome: '[PLACEHOLDER]',
-      perCapitaIncome: '[PLACEHOLDER]',
-      ownerOccupied: '[PLACEHOLDER]',
-      renterOccupied: '[PLACEHOLDER]',
-      foreignBorn: '[PLACEHOLDER]',
-      topLanguages: ['[Language 1]', '[Language 2]', '[Language 3]'],
-      source: '[PLACEHOLDER — census source and year]',
+      population: '67,000',
+      medianAge: '52',
+      medianHouseholdIncome: '$79,393',
+      perCapitaIncome: '$56,068',
+      ownerOccupied: '65%',
+      renterOccupied: '35%',
+      foreignBorn: '',
+      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
+      source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     marketSnapshot: {
-      medianPrice: '[PLACEHOLDER]',
-      avgDaysOnMarket: '[PLACEHOLDER]',
-      pricePerSqFt: '[PLACEHOLDER]',
-      lastUpdated: '[PLACEHOLDER — e.g. Q1 2025]',
+      medianPrice: '$438,695',
+      avgDaysOnMarket: '61',
+      lastUpdated: 'June 2026 (RPR)',
     },
     budgetGuide: [
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
-      { tier: '[Price Range]', label: '[Property Type]', description: '[PLACEHOLDER — 2-sentence honest description of what this budget gets you.]' },
+      {
+        tier: 'Under $200K',
+        label: '55+ Community Condos',
+        description:
+          'Primarily age-restricted communities on the far west side — Kings Point and similar developments where one-bedroom units have listed near $90K and two-bedrooms near $150K. Not representative of the general family-buyer market; largely retirement-oriented with strict HOA age restrictions.',
+      },
+      {
+        tier: '$300K – $550K',
+        label: 'Condos, Townhomes & Entry SF',
+        description:
+          'The realistic entry point for non-age-restricted buyers — condos, townhomes, or smaller single-family homes generally located west of I-95 in established neighborhoods like the Lake Ida area. This bracket roughly aligns with the citywide blended median sale price.',
+      },
+      {
+        tier: '$550K – $1M',
+        label: 'Single-Family West of I-95',
+        description:
+          'The core single-family market in most non-luxury Delray Beach neighborhoods, particularly west of I-95 in newer or well-maintained suburban pockets. Closer to downtown or east of Swinton, list prices push toward the top of this range and beyond.',
+      },
+      {
+        tier: '$1M+',
+        label: 'Waterfront, Downtown & Premium East Side',
+        description:
+          'Intracoastal, oceanfront, and premium downtown single-family homes — a genuine luxury tier, with pockets like The Oaks and Tropic Isle posting median SF prices in the $2M–$3M+ range. The single-family-only median sits near $912K, driven significantly by this segment.',
+      },
     ],
     schools: [
-      { name: '[Elementary School Name]', level: 'Elementary', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[Middle School Name]', level: 'Middle', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
-      { name: '[High School Name]', level: 'High', rating: '[X/10]', greatSchoolsUrl: 'https://www.greatschools.org/' },
+      {
+        name: 'Morikami Park Elementary School',
+        level: 'Elementary',
+        rating: '10/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/delray-beach/',
+      },
+      {
+        name: 'S.D. Spady Elementary School',
+        level: 'Elementary',
+        rating: '7/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/delray-beach/',
+      },
+      {
+        name: 'Carver Middle School',
+        level: 'Middle',
+        rating: '2/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/delray-beach/',
+      },
+      {
+        name: 'Atlantic High School',
+        level: 'High',
+        rating: '4/10',
+        greatSchoolsUrl: 'https://www.greatschools.org/florida/delray-beach/',
+      },
     ],
-    schoolNote: '[PLACEHOLDER — plain-English nuance about the school situation, if needed.]',
+    schoolNote:
+      "Delray Beach schools are highly uneven — Morikami Park Elementary is a genuine standout at 10/10, and Spady Elementary offers a strong Montessori magnet at 7/10. Carver Middle rates 2/10 on aggregate test scores despite being an IB World School; Atlantic High offers one of Palm Beach County's six IB programs but rates 4/10 overall. As with all Palm Beach County schools, zoning varies significantly by address — use the district locator to confirm your zone. Note: individual GreatSchools links need verification before publishing; current links point to the Delray Beach school directory.",
     pointsOfInterest: [
-      { name: '[Park Name]', category: 'Park', description: '[Placeholder description — 1-2 sentences about this park and why it matters to families.]' },
-      { name: '[Shopping Center]', category: 'Shopping', description: '[Placeholder description.]' },
-      { name: '[Dining Area]', category: 'Dining', description: '[Placeholder description.]' },
+      {
+        name: 'Atlantic Avenue & Old School Square',
+        category: 'Dining',
+        description:
+          'The city\'s defining corridor — a walkable stretch of galleries, boutiques, and restaurants anchored by Old School Square\'s fine arts museum, art school, and outdoor concert stage. Named Best Beach Town in Florida multiple years running.',
+        url: 'https://oldschoolsquare.org/',
+      },
+      {
+        name: 'Atlantic Dunes Park',
+        category: 'Park',
+        description:
+          'One of the few shaded oceanfront parks in the area — picnic tables, pavilion rentals, and a boardwalk leading to a guarded Blue Flag beach. Calmer and less crowded than many South Florida beach parks.',
+      },
+      {
+        name: 'Pompey Park',
+        category: 'Recreation',
+        description:
+          'A 17.5-acre community hub at 1101 NW 2nd St. with a gym, indoor/outdoor basketball and tennis courts, baseball fields, a pool, and a full auditorium — hosts youth sports leagues and community events year-round.',
+        url: 'https://www.delraybeachfl.gov/residents/parks-recreation',
+      },
+      {
+        name: 'Leon M. Weekes Environmental Preserve',
+        category: 'Park',
+        description:
+          'A quiet scrubland nature preserve offering walking trails and birdwatching — a rare green respite in a coastal city, and a distinct alternative to the beach for residents who want undisturbed natural Florida.',
+      },
+      {
+        name: 'Banyan Creek Park',
+        category: 'Park',
+        description:
+          'A family-oriented park with picnic areas, playgrounds, walking trails, and shade from mature banyan trees, plus a small wildlife pond — a quieter option away from the downtown energy.',
+      },
+      {
+        name: 'Publix, Trader Joe\'s & Whole Foods Corridor',
+        category: 'Shopping',
+        description:
+          'Multiple Publix locations anchor the west side (including 4771 W Atlantic Ave and 7375 W Atlantic Ave), with Trader Joe\'s and Whole Foods also in the city — unusually well-served for a market of this size.',
+      },
     ],
     rentalMarket: {
-      active: true,
-      rangeMin: '[$X,XXX]',
-      rangeMax: '[$X,XXX]',
-      description: '[PLACEHOLDER — rental market description goes here.]',
+      active: false,
+      rangeMin: '',
+      rangeMax: '',
+      description: '',
     },
   },
   {
