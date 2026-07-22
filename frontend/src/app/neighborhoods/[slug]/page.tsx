@@ -3,8 +3,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  TrendingUp,
-  Clock,
   MapPin,
   Quote,
   TreePine,
@@ -19,11 +17,9 @@ import {
   Home,
   ShieldCheck,
   Sparkles,
-  Send,
   KeyRound,
   DollarSign,
   Calendar,
-  Globe,
   Waves,
   Wallet,
 } from 'lucide-react';
@@ -76,7 +72,6 @@ const CENSUS_ICONS = {
   perCapitaIncome: Wallet,
   ownerOccupied: Home,
   renterOccupied: KeyRound,
-  foreignBorn: Globe,
 } as const;
 
 export async function generateStaticParams() {
@@ -113,20 +108,20 @@ export default async function NeighborhoodPage({
     tagline,
     description,
     highlights,
-    medianHomePrice,
-    avgDaysOnMarket,
     population,
     imageSrc,
     resources,
     joseNote,
     lifestyleTags,
     census,
-    marketSnapshot,
     budgetGuide,
     schools,
     schoolNote,
     pointsOfInterest,
     rentalMarket,
+    buyerNote,
+    sellerNote,
+    testimonial,
   } = neighborhood;
 
   return (
@@ -188,21 +183,7 @@ export default async function NeighborhoodPage({
           {/* Quick stat strip */}
           <div className="relative bg-navy/70 backdrop-blur-sm border-t border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div>
-                  <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
-                    <TrendingUp size={11} />
-                    Median Price
-                  </p>
-                  <p className="font-sans font-bold text-white text-base">{medianHomePrice}</p>
-                </div>
-                <div>
-                  <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
-                    <Clock size={11} />
-                    Avg Days
-                  </p>
-                  <p className="font-sans font-bold text-white text-base">{avgDaysOnMarket} days</p>
-                </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
                     <MapPin size={11} />
@@ -210,13 +191,15 @@ export default async function NeighborhoodPage({
                   </p>
                   <p className="font-sans font-bold text-white text-base">{county}</p>
                 </div>
-                {population && (
+                {(census?.population ?? population) && (
                   <div>
                     <p className="font-sans text-[10px] text-white/50 flex items-center gap-1 mb-0.5">
                       <Users size={11} />
                       Population
                     </p>
-                    <p className="font-sans font-bold text-white text-base">{population}</p>
+                    <p className="font-sans font-bold text-white text-base">
+                      {census?.population ?? population}
+                    </p>
                   </div>
                 )}
               </div>
@@ -306,6 +289,22 @@ export default async function NeighborhoodPage({
               </AnimateOnScroll>
             )}
 
+            {/* Testimonial — add a real client quote to neighborhoods.ts to activate */}
+            {testimonial && (
+              <AnimateOnScroll>
+                <div className="bg-cream rounded-2xl p-8 md:p-10">
+                  <Quote size={28} className="text-gold mb-4" aria-hidden="true" />
+                  <blockquote className="font-serif text-lg text-navy italic leading-relaxed mb-5">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-px bg-gold/50 shrink-0" />
+                    <p className="font-sans text-sm font-semibold text-gray-500">{testimonial.attribution}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            )}
+
             {/* Section 5: Community Snapshot */}
             {census && (
               <div>
@@ -320,7 +319,6 @@ export default async function NeighborhoodPage({
                     { key: 'perCapitaIncome' as const, label: 'Per Capita Income', value: census.perCapitaIncome },
                     { key: 'ownerOccupied' as const, label: 'Owner-Occupied', value: census.ownerOccupied },
                     { key: 'renterOccupied' as const, label: 'Renter-Occupied', value: census.renterOccupied },
-                    { key: 'foreignBorn' as const, label: 'Foreign-Born', value: census.foreignBorn },
                   ].map((stat, i) => {
                     const Icon = CENSUS_ICONS[stat.key];
                     return (
@@ -336,17 +334,7 @@ export default async function NeighborhoodPage({
                     );
                   })}
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {census.topLanguages.map((lang) => (
-                    <span
-                      key={lang}
-                      className="font-sans text-xs font-semibold px-3 py-1.5 rounded-full bg-gold/10 text-gold-dark border border-gold/30"
-                    >
-                      {lang}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-4 font-sans text-xs text-gray-400">{census.source}</p>
+                <p className="mt-6 font-sans text-xs text-gray-400">{census.source}</p>
               </div>
             )}
 
@@ -367,12 +355,28 @@ export default async function NeighborhoodPage({
                           {tier.tier}
                         </p>
                         <h3 className="font-serif text-lg font-bold text-navy mb-3">{tier.label}</h3>
-                        <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                        <p className="font-sans text-sm text-gray-600 leading-relaxed line-clamp-4">
                           {tier.description}
                         </p>
                       </div>
                     </AnimateOnScroll>
                   ))}
+                </div>
+                {/* Seller hook */}
+                <div className="mt-6 bg-white rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-gray-100">
+                  <div className="flex-1">
+                    <p className="font-sans font-semibold text-navy text-sm mb-1">Own a home in {name}?</p>
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed">Jose does a free comparative market analysis — what it&apos;s worth today, recent comparable sales, and realistic days on market.</p>
+                  </div>
+                  <a
+                    href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27d+like+to+know+what+my+home+in+${encodeURIComponent(name)}+is+worth`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-full font-sans font-semibold text-navy text-sm border border-gold/40 hover:bg-gold/5 transition-colors whitespace-nowrap"
+                  >
+                    <MessageCircle size={15} className="text-gold" />
+                    What&apos;s my home worth?
+                  </a>
                 </div>
               </div>
             )}
@@ -478,7 +482,7 @@ export default async function NeighborhoodPage({
                               <h3 className="font-serif text-base font-bold text-white mb-1.5">
                                 {poi.name}
                               </h3>
-                              <p className="font-sans text-sm text-white/80 leading-relaxed">
+                              <p className="font-sans text-sm text-white/80 leading-relaxed line-clamp-3">
                                 {poi.description}
                               </p>
                             </div>
@@ -512,7 +516,7 @@ export default async function NeighborhoodPage({
                           <h3 className="font-serif text-base font-bold text-navy mb-1.5">
                             {poi.name}
                           </h3>
-                          <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                          <p className="font-sans text-sm text-gray-600 leading-relaxed line-clamp-3">
                             {poi.description}
                           </p>
                         </CardTag>
@@ -523,44 +527,79 @@ export default async function NeighborhoodPage({
               </div>
             )}
 
-            {/* Section 9: Rental Market — intentional navy break */}
-            {rentalMarket?.active && (
-              <AnimateOnScroll>
-                <div className="bg-navy rounded-2xl p-8 md:p-12 text-center">
-                  <div className="mb-6 flex flex-col items-center">
-                    <SectionHeading eyebrow="Renting Here" title={`Rental market in ${name}`} align="center" light />
-                  </div>
-                  <p className="font-serif text-3xl md:text-4xl font-bold text-gold mb-6">
-                    {rentalMarket.rangeMin} – {rentalMarket.rangeMax}
-                    <span className="block text-sm font-sans font-normal text-white/60 mt-1">
-                      per month
-                    </span>
-                  </p>
-                  <p className="font-sans text-white/80 leading-relaxed max-w-xl mx-auto">
-                    {rentalMarket.description}
-                  </p>
-                  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Section 9: Intent Block — Buying · Renting · Selling */}
+            <AnimateOnScroll>
+              <div className="bg-navy rounded-2xl p-8 md:p-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+
+                  {/* Buying */}
+                  <div className="flex flex-col pb-8 md:pb-0 md:pr-8">
+                    <p className="font-sans text-[10px] font-semibold tracking-widest uppercase text-gold mb-3">Buying Here</p>
+                    <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
+                      {`Looking to buy in ${name}?`}
+                    </h3>
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
+                      {buyerNote ?? 'Jose knows which streets to target and which to avoid — before you start searching listings.'}
+                    </p>
                     <a
-                      href="https://wa.me/19546141351"
+                      href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27m+interested+in+buying+in+${encodeURIComponent(name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
                       style={{ backgroundColor: '#25D366' }}
                     >
-                      <MessageCircle size={18} />
+                      <MessageCircle size={16} />
                       Chat on WhatsApp
                     </a>
+                  </div>
+
+                  {/* Renting */}
+                  <div className="flex flex-col py-8 md:py-0 md:px-8">
+                    <p className="font-sans text-[10px] font-semibold tracking-widest uppercase text-gold mb-3">Renting Here</p>
+                    <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
+                      {`Looking to rent in ${name}?`}
+                    </h3>
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
+                      {rentalMarket?.active && rentalMarket.description
+                        ? rentalMarket.description
+                        : 'Jose tracks this rental market and can walk you through current availability and what to expect in your price range.'}
+                    </p>
                     <a
-                      href="tel:+19546141351"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
+                      href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27m+looking+to+rent+in+${encodeURIComponent(name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                      style={{ backgroundColor: '#25D366' }}
                     >
-                      <Phone size={18} />
-                      (954) 614-1351
+                      <MessageCircle size={16} />
+                      Chat on WhatsApp
                     </a>
                   </div>
+
+                  {/* Selling */}
+                  <div className="flex flex-col pt-8 md:pt-0 md:pl-8">
+                    <p className="font-sans text-[10px] font-semibold tracking-widest uppercase text-gold mb-3">Selling Here</p>
+                    <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
+                      {`Thinking of selling in ${name}?`}
+                    </h3>
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
+                      {sellerNote ?? 'Jose does free comparative market analyses — pricing, recent comparable sales, and realistic days on market. No listing required.'}
+                    </p>
+                    <a
+                      href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27d+like+a+market+analysis+for+my+home+in+${encodeURIComponent(name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                      style={{ backgroundColor: '#25D366' }}
+                    >
+                      <MessageCircle size={16} />
+                      Chat on WhatsApp
+                    </a>
+                  </div>
+
                 </div>
-              </AnimateOnScroll>
-            )}
+              </div>
+            </AnimateOnScroll>
 
             {/* Section 10: About — always, SEO content */}
             <div>
@@ -618,79 +657,46 @@ export default async function NeighborhoodPage({
                 </div>
                 <div className="space-y-2.5">
                   <a
+                    href="https://wa.me/19546141351"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: '#25D366' }}
+                  >
+                    <MessageCircle size={16} />
+                    Chat on WhatsApp
+                  </a>
+                  <a
                     href="tel:+19546141351"
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm border border-gray-200 hover:border-gold transition-colors"
                   >
                     <Phone size={16} className="text-gold" />
                     Call or Text
                   </a>
-                  <a
-                    href="https://wa.me/19546141351"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: '#25D366' }}
-                  >
-                    <MessageCircle size={16} />
-                    Chat on WhatsApp
-                  </a>
-                  <Link
-                    href="/contact"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm bg-cream hover:bg-gold/10 transition-colors"
-                  >
-                    <Send size={16} className="text-gold" />
-                    Send a Message
-                  </Link>
                 </div>
-                <div className="mt-5 pt-5 border-t border-gray-100">
-                  <label className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 block">
-                    I&apos;m looking to...
-                  </label>
-                  <select
-                    defaultValue="explore"
-                    className="w-full border border-gray-200 rounded-lg px-3 py-2.5 font-sans text-sm text-navy focus:outline-none focus:border-gold"
-                  >
-                    <option value="buy">Buy</option>
-                    <option value="rent">Rent</option>
-                    <option value="sell">Sell</option>
-                    <option value="explore">Just exploring</option>
-                  </select>
+                <div className="mt-5 pt-5 border-t border-gray-100 text-center space-y-1.5">
+                  <p className="font-sans text-xs text-gray-400">Jose responds the same day.</p>
+                  <p className="font-sans text-xs font-semibold text-navy">20+ Years · Palm Beach County</p>
+                  <p className="font-sans text-[11px] font-semibold text-gold tracking-wide">EN · ES · PT</p>
                 </div>
               </div>
 
-              {/* Card 2: Market Snapshot */}
-              {marketSnapshot && (
-                <div className="bg-cream rounded-2xl p-6">
-                  <p className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                    Market Snapshot
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="font-sans text-sm text-gray-600">Median Price</span>
-                      <span className="font-sans font-bold text-navy text-sm">
-                        {marketSnapshot.medianPrice}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-sans text-sm text-gray-600">Avg Days on Market</span>
-                      <span className="font-sans font-bold text-navy text-sm">
-                        {marketSnapshot.avgDaysOnMarket}
-                      </span>
-                    </div>
-                    {marketSnapshot.pricePerSqFt && (
-                      <div className="flex items-center justify-between">
-                        <span className="font-sans text-sm text-gray-600">Price / Sq Ft</span>
-                        <span className="font-sans font-bold text-navy text-sm">
-                          {marketSnapshot.pricePerSqFt}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <p className="mt-4 font-sans text-xs text-gray-400">
-                    Updated {marketSnapshot.lastUpdated}.
-                  </p>
-                </div>
-              )}
+              {/* Card 2: Current Market Report CTA */}
+              <div className="bg-cream rounded-2xl p-6">
+                <p className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                  Current Market Data
+                </p>
+                <p className="font-sans text-sm text-gray-700 leading-relaxed mb-4">
+                  Jose pulls live pricing, days on market, and comparable sales for {name} — free, no obligation.
+                </p>
+                <a
+                  href="tel:+19546141351"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm border border-gray-200 hover:border-gold transition-colors"
+                >
+                  <Phone size={16} className="text-gold" />
+                  Get a Free Market Report
+                </a>
+              </div>
             </div>
           </div>
         </div>
