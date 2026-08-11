@@ -10,7 +10,7 @@ interface CTASectionProps {
 export default function CTASection({
   title = 'Ready to make your move in South Florida?',
   subtitle =
-    "Whether you're buying, selling, or just exploring your options — Jose is here to guide you every step of the way. Let's start with a free, no-pressure conversation.",
+    "Whether you're buying, selling, or just exploring your options, Jose is here to guide you every step of the way. Let's start with a free, no-pressure conversation.",
   primaryCTA = { label: 'Schedule a Free Call', href: '/contact' },
   secondaryCTA = { label: 'Browse Neighborhoods', href: '/neighborhoods' },
 }: CTASectionProps) {

@@ -289,7 +289,7 @@ export default async function NeighborhoodPage({
               </AnimateOnScroll>
             )}
 
-            {/* Testimonial — add a real client quote to neighborhoods.ts to activate */}
+            {/* Testimonial - add a real client quote to neighborhoods.ts to activate */}
             {testimonial && (
               <AnimateOnScroll>
                 <div className="bg-cream rounded-2xl p-8 md:p-10">
@@ -344,7 +344,7 @@ export default async function NeighborhoodPage({
                 <SectionHeading
                   eyebrow="What You'll Pay"
                   title="What does your budget get you here?"
-                  subtitle="Honest ranges — not the headline number on Zillow."
+                  subtitle="Honest ranges, not the headline number on Zillow."
                   align="left"
                 />
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -355,7 +355,7 @@ export default async function NeighborhoodPage({
                           {tier.tier}
                         </p>
                         <h3 className="font-serif text-lg font-bold text-navy mb-3">{tier.label}</h3>
-                        <p className="font-sans text-sm text-gray-600 leading-relaxed line-clamp-4">
+                        <p className="font-sans text-sm text-gray-600 leading-relaxed">
                           {tier.description}
                         </p>
                       </div>
@@ -366,7 +366,7 @@ export default async function NeighborhoodPage({
                 <div className="mt-6 bg-white rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 border border-gray-100">
                   <div className="flex-1">
                     <p className="font-sans font-semibold text-navy text-sm mb-1">Own a home in {name}?</p>
-                    <p className="font-sans text-sm text-gray-500 leading-relaxed">Jose does a free comparative market analysis — what it&apos;s worth today, recent comparable sales, and realistic days on market.</p>
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed">Jose does a free comparative market analysis: what it&apos;s worth today, recent comparable sales, and realistic days on market.</p>
                   </div>
                   <a
                     href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27d+like+to+know+what+my+home+in+${encodeURIComponent(name)}+is+worth`}
@@ -388,7 +388,7 @@ export default async function NeighborhoodPage({
                   <SectionHeading
                     eyebrow="The Schools"
                     title={`Schools in ${name}`}
-                    subtitle="Ratings from GreatSchools.org — always visit in person."
+                    subtitle="Ratings from GreatSchools.org. Always visit in person."
                     align="left"
                   />
                 </div>
@@ -482,7 +482,7 @@ export default async function NeighborhoodPage({
                               <h3 className="font-serif text-base font-bold text-white mb-1.5">
                                 {poi.name}
                               </h3>
-                              <p className="font-sans text-sm text-white/80 leading-relaxed line-clamp-3">
+                              <p className="font-sans text-sm text-white/80 leading-relaxed">
                                 {poi.description}
                               </p>
                             </div>
@@ -516,7 +516,7 @@ export default async function NeighborhoodPage({
                           <h3 className="font-serif text-base font-bold text-navy mb-1.5">
                             {poi.name}
                           </h3>
-                          <p className="font-sans text-sm text-gray-600 leading-relaxed line-clamp-3">
+                          <p className="font-sans text-sm text-gray-600 leading-relaxed">
                             {poi.description}
                           </p>
                         </CardTag>
@@ -527,7 +527,7 @@ export default async function NeighborhoodPage({
               </div>
             )}
 
-            {/* Section 9: Intent Block — Buying · Renting · Selling */}
+            {/* Section 9: Intent Block - Buying · Renting · Selling */}
             <AnimateOnScroll>
               <div className="bg-navy rounded-2xl p-8 md:p-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
@@ -538,8 +538,8 @@ export default async function NeighborhoodPage({
                     <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
                       {`Looking to buy in ${name}?`}
                     </h3>
-                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
-                      {buyerNote ?? 'Jose knows which streets to target and which to avoid — before you start searching listings.'}
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6">
+                      {buyerNote ?? 'Jose knows which streets to target and which to avoid, before you start searching listings.'}
                     </p>
                     <a
                       href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27m+interested+in+buying+in+${encodeURIComponent(name)}`}
@@ -559,7 +559,7 @@ export default async function NeighborhoodPage({
                     <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
                       {`Looking to rent in ${name}?`}
                     </h3>
-                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6">
                       {rentalMarket?.active && rentalMarket.description
                         ? rentalMarket.description
                         : 'Jose tracks this rental market and can walk you through current availability and what to expect in your price range.'}
@@ -582,8 +582,8 @@ export default async function NeighborhoodPage({
                     <h3 className="font-serif text-xl font-bold text-white mb-3 leading-snug">
                       {`Thinking of selling in ${name}?`}
                     </h3>
-                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6 line-clamp-3">
-                      {sellerNote ?? 'Jose does free comparative market analyses — pricing, recent comparable sales, and realistic days on market. No listing required.'}
+                    <p className="font-sans text-sm text-white/70 leading-relaxed mb-6">
+                      {sellerNote ?? 'Jose does free comparative market analyses: pricing, recent comparable sales, and realistic days on market. No listing required.'}
                     </p>
                     <a
                       href={`https://wa.me/19546141351?text=Hi+Jose%2C+I%27d+like+a+market+analysis+for+my+home+in+${encodeURIComponent(name)}`}
@@ -601,7 +601,7 @@ export default async function NeighborhoodPage({
               </div>
             </AnimateOnScroll>
 
-            {/* Section 10: About — always, SEO content */}
+            {/* Section 10: About - always, SEO content */}
             <div>
               <div className="mb-4">
                 <SectionHeading eyebrow="The Full Story" title={`About ${name}`} align="left" />
@@ -687,7 +687,7 @@ export default async function NeighborhoodPage({
                   Current Market Data
                 </p>
                 <p className="font-sans text-sm text-gray-700 leading-relaxed mb-4">
-                  Jose pulls live pricing, days on market, and comparable sales for {name} — free, no obligation.
+                  Jose pulls live pricing, days on market, and comparable sales for {name}, free and no obligation.
                 </p>
                 <a
                   href="tel:+19546141351"
@@ -706,7 +706,7 @@ export default async function NeighborhoodPage({
       <div id="cta-section">
         <CTASection
           title={`Thinking about ${name}?`}
-          subtitle={`Whether you're looking to rent, buy, or eventually sell in ${name} — Jose knows this market and is available in English, Spanish, and Portuguese.`}
+          subtitle={`Whether you're looking to rent, buy, or eventually sell in ${name}, Jose knows this market and is available in English, Spanish, and Portuguese.`}
           primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
           secondaryCTA={{ label: 'View All Neighborhoods', href: '/neighborhoods' }}
         />

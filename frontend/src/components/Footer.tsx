@@ -33,9 +33,9 @@ const areas = [
   { label: 'Royal Palm Beach', href: '/neighborhoods/royal-palm-beach' },
   { label: 'Wellington', href: '/neighborhoods/wellington' },
   { label: 'West Palm Beach', href: '/neighborhoods/west-palm-beach' },
+  { label: 'Lake Worth', href: '/neighborhoods/lake-worth' },
   { label: 'Davie', href: '/neighborhoods/davie' },
-  { label: 'Hialeah', href: '/neighborhoods/hialeah' },
-  { label: 'Port St. Lucie', href: '/neighborhoods/port-st-lucie' },
+  { label: 'Palm Beach Gardens', href: '/neighborhoods/palm-beach-gardens' },
 ];
 
 const pages = [
@@ -65,9 +65,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-sans text-sm text-white/70 leading-relaxed mb-4">
-              Your Palm Beach County realtor — helping families rent, buy, and sell across
-              western Palm Beach County, Broward, the Treasure Coast, and South Florida. Fluent
-              in English, Español, and Português.
+              Your Palm Beach County realtor, helping families rent, buy, and sell across
+              western Palm Beach County and Broward County. Fluent in English, Português, and
+              Español.
             </p>
             <div className="flex gap-3">
               <a
@@ -165,8 +165,10 @@ export default function Footer() {
                   Atlantic Florida Properties
                 </p>
                 <p className="font-sans text-xs text-white/50 mt-1">
-                  {/* TODO: Replace with real license number */}
-                  FL License # [LICENSE_NUMBER]
+                  FL License #3132965
+                </p>
+                <p className="font-sans text-xs text-white/50 mt-0.5">
+                  Office License #1035228
                 </p>
               </li>
             </ul>
@@ -178,9 +180,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-20 md:pb-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-white/50 text-center md:text-left">
-            © 2025 Jose Costa, Realtor® | Atlantic Florida Properties |{' '}
-            {/* TODO: Replace with real license number */}
-            FL License # [LICENSE_NUMBER]
+            © 2025 Jose Costa, Realtor® | Atlantic Florida Properties | FL Lic. #3132965
           </p>
           <p className="font-sans text-xs text-white/40 text-center">
             Equal Housing Opportunity. Jose Costa is a licensed real estate agent affiliated with

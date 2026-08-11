@@ -8,16 +8,16 @@ import AnimateOnScroll from '@/components/AnimateOnScroll';
 export const metadata: Metadata = {
   title: 'About Jose Costa',
   description:
-    'Meet Jose Costa — a Palm Beach County realtor with over a decade of experience, fluent in English, Spanish, and Portuguese, serving western Palm Beach County, Broward, and South Florida.',
+    'Meet Jose Costa, a Palm Beach County realtor with over 15 years of experience, fluent in English, Portuguese, and Spanish, serving western Palm Beach County, Broward, and South Florida.',
 };
 
 // TODO: Replace all stat values with Jose's real numbers
-// TODO: Confirm with Jose — approximate rental transactions he's handled
+// TODO: Confirm with Jose - approximate rental transactions he's handled
 // (MLS data shows 50+ rental listings in BeachesMLS alone; RE/MAX years add more)
 // before adding a rentals-specific stat here.
 const STATS = [
   { value: '15+', label: 'Years of Experience' },
-  { value: '44+', label: 'Families Helped' },
+  { value: '400+', label: 'Clients Served' },
   { value: '3', label: 'Languages Spoken' },
   { value: '$10M+', label: 'In Closed Sales' },
 ];
@@ -58,10 +58,10 @@ export default function AboutPage() {
             Meet Jose Costa
           </h1>
           <p className="mt-4 font-sans text-xl text-white/80 max-w-xl">
-            A South Florida realtor who speaks your language — literally.
+            A South Florida realtor who speaks your language, literally.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            {['English', 'Español', 'Português'].map((lang) => (
+            {['English', 'Português', 'Español'].map((lang) => (
               <span
                 key={lang}
                 className="font-sans text-xs font-semibold px-4 py-1.5 rounded-full bg-gold/20 text-gold border border-gold/30"
@@ -103,12 +103,12 @@ export default function AboutPage() {
                   Jose Costa has been helping South Florida families navigate one of the
                   country&apos;s most dynamic real estate markets for over a decade. Jose first
                   made South Florida home in Fort Lauderdale before settling in Wellington, where
-                  he has lived since 2004 — bringing a personal understanding of what it means to
+                  he has lived since 2004, bringing a personal understanding of what it means to
                   put down roots in this region.
                 </p>
                 <p>
-                  Over his career, Jose has helped hundreds of families find rental homes —
-                  particularly in western Palm Beach County — and helped property owners find
+                  Over his career, Jose has helped hundreds of families find rental homes,
+                  particularly in western Palm Beach County, and helped property owners find
                   reliable tenants. Many of his closest long-term client relationships started
                   with a rental and grew into a homeownership journey. It&apos;s a part of the
                   business he takes as seriously as any sale.
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 <p>
                   What sets Jose apart from the moment you meet him is simple: he listens. In a
                   region as culturally diverse as South Florida, that means more than just speaking
-                  the language — though Jose speaks three of them. It means understanding how
+                  the language, though Jose speaks three of them. It means understanding how
                   different families make decisions, what matters to them in a home, and how they
                   want to be treated throughout what is often the biggest financial transaction of
                   their lives.
@@ -193,8 +193,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 flex items-center justify-center gap-4 flex-wrap">
             <span className="font-sans text-xs text-gray-500">
-              {/* TODO: Replace with real license number */}
-              FL License # [LICENSE_NUMBER]
+              FL License #3132965 | Office #1035228
             </span>
             <span className="text-gray-300">|</span>
             <span className="font-sans text-xs text-gray-500">Equal Housing Opportunity</span>

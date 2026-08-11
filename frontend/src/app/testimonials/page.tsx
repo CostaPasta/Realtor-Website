@@ -36,7 +36,7 @@ export default function TestimonialsPage() {
             What Jose&apos;s Clients Are Saying
           </h1>
           <p className="mt-4 font-sans text-white/80 max-w-xl">
-            Real stories from buyers and sellers across South Florida — in English, Español, and
+            Real stories from buyers and sellers across South Florida, in English, Español, and
             Português.
           </p>
         </div>
@@ -83,11 +83,11 @@ export default function TestimonialsPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-serif text-2xl md:text-3xl text-navy italic leading-relaxed">
             &ldquo;My job isn&apos;t done when you sign. It&apos;s done when you&apos;re settled
-            and happy in your new home — and when you feel confident recommending me to someone you
+            and happy in your new home, and when you feel confident recommending me to someone you
             care about.&rdquo;
           </p>
           <p className="mt-6 font-sans text-sm font-semibold text-gold uppercase tracking-widest">
-            — Jose Costa
+            Jose Costa
           </p>
         </div>
       </section>

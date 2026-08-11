@@ -13,7 +13,7 @@ import { testimonials } from '@/data/testimonials';
 
 const STATS = [
   { value: '15+', label: 'Years of Experience' },
-  { value: '44+', label: 'Families Helped' },
+  { value: '400+', label: 'Clients Served' },
   { value: '3', label: 'Languages Spoken' },
   { value: '$10M+', label: 'In Closed Sales' },
 ];
@@ -22,14 +22,14 @@ const FEATURES = [
   {
     icon: MessageSquare,
     title: 'Three Languages, One Realtor',
-    body: "Jose communicates natively in English, Spanish, and Portuguese — a critical advantage in South Florida's diverse international buyer market.",
+    body: "Jose speaks English, Portuguese, and Spanish. For many clients, working with someone in their own language changes the whole experience. Every question gets answered, and every document makes sense.",
     iconBg: '#0D2442',
     iconColor: '#C4A35A',
   },
   {
     icon: Home,
     title: 'Deep Local Expertise',
-    body: 'With over 11 years in the South Florida market, Jose knows which neighborhoods are undervalued, which streets to avoid, and where the best schools are.',
+    body: 'With 15 years in the South Florida market, Jose knows which neighborhoods are growing, which streets to avoid, and where to find the best schools.',
     iconBg: '#C4A35A',
     iconColor: '#0D2442',
   },
@@ -42,8 +42,8 @@ const FEATURES = [
   },
   {
     icon: KeyRound,
-    title: 'From Rental to Ownership — Jose Knows the Journey',
-    body: "Many of Jose's clients start by renting through him and return years later to buy their first home. He understands both sides of the South Florida housing market and is genuinely invested in your long-term story, not just a single transaction.",
+    title: 'From Rental to Ownership',
+    body: "Many of Jose's clients start by renting through him and come back a few years later to buy their first home. He knows both sides of the South Florida market and stays with you for the long run, not just one transaction.",
     iconBg: '#1A3A5C',
     iconColor: '#D4BC84',
   },
@@ -81,7 +81,6 @@ export default function HomePage() {
               'West Palm Beach, Florida',
               'Palm Beach County, Florida',
               'Broward County, Florida',
-              'St. Lucie County, Florida',
             ],
             knowsLanguage: ['en', 'es', 'pt'],
             sameAs: [
@@ -125,13 +124,12 @@ export default function HomePage() {
                 .
               </h1>
               <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed">
-                Jose Costa has spent over a decade helping South Florida families rent, buy, and
-                sell homes — in English, Spanish, and Portuguese. Based in Palm Beach County,
-                serving working families across western Palm Beach County, Broward, the Treasure
-                Coast, and beyond.
+                Jose Costa has helped South Florida families rent, buy, and sell homes for over
+                15 years. Based in Palm Beach County, he works in English, Portuguese, and Spanish
+                so every client can communicate comfortably and confidently.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                {['English', 'Español', 'Português'].map((lang) => (
+                {['English', 'Português', 'Español'].map((lang) => (
                   <span
                     key={lang}
                     className="font-sans text-xs font-semibold px-4 py-1.5 rounded-full bg-gold/20 text-gold border border-gold/30"
@@ -148,10 +146,10 @@ export default function HomePage() {
                   Schedule a Free Call
                 </Link>
                 <Link
-                  href="/buy"
+                  href="/about"
                   className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
                 >
-                  How I Can Help
+                  About Jose
                 </Link>
               </div>
               <div className="mt-10 inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
@@ -213,7 +211,7 @@ export default function HomePage() {
               },
               {
                 label: 'Sell or Lease Your Property',
-                sub: 'Port St. Lucie · Davie · Palm Beach Gardens',
+                sub: 'Royal Palm Beach · Wellington · Lake Worth',
                 image: '/images/category-selling.jpg',
                 href: '/sell',
               },
@@ -301,8 +299,9 @@ export default function HomePage() {
               Buying in South Florida
             </h2>
             <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">
-              Get expert guidance from search to keys. Jose curates properties, negotiates on your
-              behalf, and guides you through every step — in your language.
+              Get expert guidance from your first showing all the way to closing. Jose finds the
+              right properties, negotiates on your behalf, and walks you through every step in your
+              language.
             </p>
             <Link
               href="/buy"
@@ -324,7 +323,7 @@ export default function HomePage() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(160, 124, 56, 0.82)' }} aria-hidden="true" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(160, 124, 56, 0.93)' }} aria-hidden="true" />
           <div className="relative z-10">
             <p className="font-sans text-xs font-semibold tracking-widest uppercase text-navy/60 mb-4">
               For Sellers
@@ -333,8 +332,9 @@ export default function HomePage() {
               Selling Your Home
             </h2>
             <p className="mt-4 font-sans text-navy/80 text-base leading-relaxed">
-              Most sellers leave money on the table. Jose&apos;s pricing strategy, targeted marketing,
-              and negotiation experience consistently delivers above-asking results.
+              Getting the price right from day one makes all the difference. Jose handles the
+              pricing strategy, marketing, and negotiations so you walk away with the best possible
+              outcome.
             </p>
             <Link
               href="/sell"
@@ -353,7 +353,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Local Expertise"
               title="South Florida Areas Jose Knows Best"
-              subtitle="Deep knowledge of the communities Jose's clients call home — from western Palm Beach County to Broward and beyond."
+              subtitle="A closer look at the communities where Jose works every week, from Royal Palm Beach and Wellington to Broward County."
             />
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -381,7 +381,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Client Stories"
               title="What Jose's clients are saying"
-              subtitle="English, Spanish, Portuguese — Jose builds trust in every language."
+              subtitle="Jose builds trust in every language: English, Portuguese, and Spanish."
             />
           </AnimateOnScroll>
           <div className="mt-14">

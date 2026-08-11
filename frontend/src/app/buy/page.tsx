@@ -11,57 +11,62 @@ import { neighborhoods } from '@/data/neighborhoods';
 export const metadata: Metadata = {
   title: 'Buy a Home in South Florida',
   description:
-    'Looking to buy your first home in Palm Beach County? Jose Costa provides expert buyer representation in English, Spanish, and Portuguese across western Palm Beach County, Broward, and South Florida.',
+    'Looking to buy a home in Palm Beach County? Jose Costa provides expert buyer representation in English, Spanish, and Portuguese across Palm Beach County, Broward, and South Florida.',
 };
 
 const FIRST_TIME_BUYER_ITEMS = [
   {
     icon: Calculator,
     title: 'What can I actually afford?',
-    body: "Before you search, Jose will walk you through a realistic picture of what your budget covers in today's Palm Beach County market — including HOA fees, property taxes, and insurance, not just the purchase price.",
+    body: "Before you search, Jose will walk you through a realistic picture of what your budget covers in today's Palm Beach County market, including HOA fees, property taxes, and insurance, not just the purchase price.",
   },
   {
     icon: PiggyBank,
     title: 'Down payment options',
-    body: 'There are multiple first-time buyer programs in Florida, including FHA loans (3.5% down), conventional loans, and down payment assistance programs for qualifying buyers. Jose will connect you with the right lender.',
+    body: 'From FHA loans (3.5% down) to conventional financing, VA loans, and down payment assistance programs for qualifying buyers, there are more options than most people realize. Jose will connect you with a trusted local lender who fits your situation.',
   },
   {
     icon: BadgeDollarSign,
     title: 'No cost to you as a buyer',
-    body: "In Florida, the seller pays both agents' commissions. Jose's representation costs you nothing — and he negotiates on your behalf every step of the way.",
+    body: "In Florida, the seller pays both agents' commissions. Jose's representation costs you nothing, and he negotiates on your behalf every step of the way.",
   },
   {
     icon: Languages,
     title: 'Available in your language',
-    body: 'Every document, every phone call, every step of the process — in English, Spanish, or Portuguese. No confusion. No getting lost in the details.',
+    body: 'Every document, every phone call, every step of the process, in English, Spanish, or Portuguese. No confusion. No getting lost in the details.',
   },
 ];
 
 const STEPS = [
   {
     number: '01',
-    title: 'Free Consultation',
-    body: "We start with a no-pressure call to understand your must-haves, budget, and timeline. Jose will be honest about what you can realistically find in your target range.",
+    title: 'Get Pre-Approved',
+    body: "Before you start searching, get your financing in order. Jose will help you understand your options and connect you with trusted local lenders if you need them, or work alongside the bank you already have a relationship with. Going in pre-approved means you can move quickly when the right home comes up.",
   },
   {
     number: '02',
-    title: 'Smart Search',
-    body: "Jose doesn't just send you MLS links. He curates properties based on your priorities, pre-screens for issues, and gets you in to see homes before competing offers appear.",
+    title: 'Buyer Consultation',
+    body: "Jose sits down with you to understand your must-haves, your budget, and your timeline. He'll be honest about what you can realistically find and in which neighborhoods, so your search has direction from day one.",
   },
   {
     number: '03',
+    title: 'Smart Search',
+    body: "Jose doesn't just send you MLS links. He curates properties based on your priorities, pre-screens for red flags, and uses his agent network to get you into homes before competing offers appear.",
+  },
+  {
+    number: '04',
     title: 'Making the Offer',
     body: "Jose analyzes comparable sales, advises on offer strategy, and handles negotiations. In South Florida's competitive market, how you make an offer matters as much as the price.",
   },
   {
-    number: '04',
-    title: 'Due Diligence',
-    body: 'Inspections, appraisals, title searches — Jose coordinates the entire process and explains every document in plain language (in your preferred language).',
+    number: '05',
+    title: 'Home Inspection and Review',
+    body: "Inspections, appraisals, title searches. Jose coordinates the entire process and explains every document in plain language, in your preferred language. No surprises at the table.",
   },
   {
-    number: '05',
-    title: 'Closing Day',
-    body: 'Jose walks you through the closing statement, attends the closing with you, and hands you the keys.',
+    number: '06',
+    title: 'Closing Day and Beyond',
+    body: "Jose attends closing with you, walks you through the closing statement line by line, and hands you the keys. His job doesn't end there. He stays in touch after closing, connects you with trusted contractors and service providers, and is available whenever questions come up.",
   },
 ];
 
@@ -105,6 +110,9 @@ export default function BuyPage() {
               Book a Buyer Consultation
             </Link>
           </div>
+          <p className="mt-3 font-sans text-xs text-white/50">
+            Free buyer representation · No obligation · In your language
+          </p>
         </div>
       </section>
 
@@ -115,7 +123,7 @@ export default function BuyPage() {
             <SectionHeading
               eyebrow="The Process"
               title="How Jose guides buyers from search to keys"
-              subtitle="A clear, step-by-step process with no surprises — and someone in your corner at every stage."
+              subtitle="Six steps from first call to closing day, with someone in your corner the whole way."
             />
           </AnimateOnScroll>
           <div className="mt-14">
@@ -137,7 +145,7 @@ export default function BuyPage() {
               <p className="mt-6 font-sans text-gray-700 leading-relaxed">
                 In Florida, sellers pay both the listing agent&apos;s and buyer&apos;s agent&apos;s
                 commission. Working with Jose as your buyer&apos;s agent costs you nothing out of
-                pocket — and gives you professional representation throughout the transaction.
+                pocket and gives you professional representation throughout the transaction.
               </p>
               <p className="mt-4 font-sans text-gray-700 leading-relaxed">
                 Without a buyer&apos;s agent, you are negotiating against a professional whose job
@@ -175,17 +183,16 @@ export default function BuyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
             <SectionHeading
-              eyebrow="First-Time Buyers"
-              title="Buying your first home? Jose has done this hundreds of times."
+              eyebrow="Common Questions"
+              title="Whether it's your first home or your fifth, Jose has done this hundreds of times."
             />
           </AnimateOnScroll>
           <AnimateOnScroll>
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
-              Buying your first home is the most significant financial decision most people make
-              — and it can feel overwhelming. Jose&apos;s job is to make that process feel
-              manageable, not mysterious. He&apos;ll tell you honestly what your budget can get
-              you, walk you through every document before you sign it, and be available in
-              English, Spanish, or Portuguese throughout.
+              Buying a home, whether for the first time or the tenth, can feel like a lot. Jose&apos;s
+              job is to make the process clear and manageable. He&apos;ll give you an honest read on
+              what your budget can get you, walk you through every document before you sign it, and
+              be available in English, Portuguese, or Spanish throughout.
             </p>
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -210,10 +217,10 @@ export default function BuyPage() {
           <SectionHeading
             eyebrow="Coverage"
             title="Areas Jose serves buyers"
-            subtitle="Active across western Palm Beach County, Broward, the Treasure Coast, and beyond."
+            subtitle="Active across Palm Beach County and Broward County."
           />
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {neighborhoods.map((n) => (
+            {neighborhoods.filter((n) => !n.hidden).map((n) => (
               <Link
                 key={n.slug}
                 href={`/neighborhoods/${n.slug}`}

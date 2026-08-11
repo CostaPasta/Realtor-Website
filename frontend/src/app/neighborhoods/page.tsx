@@ -24,19 +24,17 @@ const REGIONS = [
   'All',
   'Palm Beach County',
   'Broward County',
-  'Treasure Coast',
-  'Miami-Dade County',
-  'Space Coast',
 ] as const;
 type RegionFilter = (typeof REGIONS)[number];
 
 export default function NeighborhoodsPage() {
   const [activeRegion, setActiveRegion] = useState<RegionFilter>('All');
 
+  const visible = neighborhoods.filter((n) => !n.hidden);
   const filtered =
     activeRegion === 'All'
-      ? neighborhoods
-      : neighborhoods.filter((n) => n.region === activeRegion);
+      ? visible
+      : visible.filter((n) => n.region === activeRegion);
 
   return (
     <>
@@ -47,13 +45,11 @@ export default function NeighborhoodsPage() {
             Local Expertise
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
-            South Florida Neighborhoods — Jose&apos;s Backyard
+            South Florida Neighborhoods
           </h1>
           <p className="mt-4 font-sans text-white/80 max-w-xl leading-relaxed">
-            Jose is based in western Palm Beach County and has spent over a decade helping
-            families rent, buy, and sell homes across Palm Beach County, Broward, the Treasure
-            Coast, Miami-Dade, and beyond. Here&apos;s a deep look at the communities where he
-            helps clients every week.
+            Jose has been helping families rent, buy, and sell homes in Palm Beach County and
+            Broward for over 15 years. Here is a closer look at the communities he knows best.
           </p>
         </div>
       </section>
@@ -99,7 +95,7 @@ export default function NeighborhoodsPage() {
 
       <CTASection
         title="Looking to buy or sell in South Florida?"
-        subtitle="Tell Jose which neighborhoods interest you — he'll give you a candid read on what your budget can get and what the market looks like right now."
+        subtitle="Tell Jose which neighborhoods interest you and he'll give you a candid read on what your budget can get and what the market looks like right now."
         primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
         secondaryCTA={{ label: 'Read Market Updates', href: '/market-updates' }}
       />

@@ -19,11 +19,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jose Costa — Palm Beach County Realtor | Rentals, Sales & More',
+    default: 'Jose Costa | Palm Beach County Realtor | Rentals, Sales & More',
     template: '%s | Jose Costa Realtor',
   },
   description:
-    'Jose Costa is a Palm Beach County realtor helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida — in English, Spanish, and Portuguese. Specializing in affordable family homes and rental properties.',
+    'Jose Costa is a Palm Beach County realtor helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese. Specializing in affordable family homes and rental properties.',
   keywords: [
     'Palm Beach County realtor',
     'Royal Palm Beach realtor',
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.josecostarealtor.com',
     siteName: 'Jose Costa Realtor',
-    title: 'Jose Costa — Palm Beach County Realtor',
+    title: 'Jose Costa | Palm Beach County Realtor',
     description:
-      'Helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida — in English, Spanish, and Portuguese.',
+      'Helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jose Costa — Palm Beach County Realtor',
+    title: 'Jose Costa | Palm Beach County Realtor',
     description:
       'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales.',
   },

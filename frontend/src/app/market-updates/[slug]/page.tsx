@@ -97,7 +97,7 @@ export default async function MarketUpdatePage({
             <div>
               <p className="font-sans font-semibold text-navy text-sm">Jose Costa</p>
               <p className="font-sans text-xs text-gray-500">
-                South Florida Realtor — Atlantic Florida Properties
+                South Florida Realtor, Atlantic Florida Properties
               </p>
             </div>
           </div>

@@ -9,8 +9,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-// Centered on the Royal Palm Beach / Wellington corridor — Jose's primary
-// market — rather than the geographic midpoint of the full coverage area
+// Centered on the Royal Palm Beach / Wellington corridor - Jose's primary
+// market - rather than the geographic midpoint of the full coverage area
 const INITIAL_VIEW = {
   longitude: -80.22,
   latitude: 26.72,
@@ -19,7 +19,7 @@ const INITIAL_VIEW = {
 };
 
 // Reserve space above the marker, in screen pixels, so the popup (which
-// renders above the marker) always lands fully inside the map container —
+// renders above the marker) always lands fully inside the map container -
 // pixel-based padding is exact regardless of zoom or latitude, unlike a
 // manual lat offset which is projection-dependent and was the source of a
 // bug where the popup could clip above (or below) the map.
@@ -71,7 +71,7 @@ export default function NeighborhoodsMap() {
         cooperativeGestures
       >
         <NavigationControl position="top-right" />
-        {neighborhoods.map((neighborhood) => (
+        {neighborhoods.filter((n) => !n.hidden).map((neighborhood) => (
           <Marker
             key={neighborhood.slug}
             longitude={neighborhood.coordinates.lng}

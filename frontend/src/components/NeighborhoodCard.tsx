@@ -16,7 +16,7 @@ interface NeighborhoodCardProps {
   imageSrc?: string;
 }
 
-// Warm gradient "photo" per neighborhood — swap for real photos later
+// Warm gradient "photo" per neighborhood - swap for real photos later
 // TODO: Replace each gradient with <Image src="..." /> of the actual neighborhood
 const GRADIENTS: Record<string, string> = {
   'coral-gables':       'linear-gradient(135deg, #7B3F20 0%, #C17B3C 55%, #E8B87A 100%)',
@@ -78,6 +78,7 @@ export default function NeighborhoodCard({
           />
         )}
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
         <div className="relative px-5 pb-4">
           <span className="inline-block font-sans text-[10px] font-semibold tracking-widest uppercase text-white/80 bg-white/10 backdrop-blur-sm rounded-full px-2 py-0.5 mb-1">
             {county} County

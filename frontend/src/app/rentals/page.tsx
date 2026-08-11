@@ -9,7 +9,7 @@ import LandlordPropertyForm from '@/components/LandlordPropertyForm';
 export const metadata: Metadata = {
   title: 'Rental Homes in Palm Beach County',
   description:
-    'Looking to rent a home in Royal Palm Beach, West Palm Beach, Wellington, or surrounding Palm Beach County? Jose Costa helps renters find quality homes and helps landlords find reliable tenants — in English, Spanish, and Portuguese.',
+    'Looking to rent a home in Royal Palm Beach, West Palm Beach, Wellington, or surrounding Palm Beach County? Jose Costa helps renters find quality homes and helps landlords find reliable tenants, in English, Spanish, and Portuguese.',
   keywords: [
     'homes for rent Royal Palm Beach',
     'rental homes Palm Beach County',
@@ -30,7 +30,7 @@ const RENTER_CARDS = [
   {
     icon: Languages,
     title: 'In your language',
-    body: 'Jose handles every part of the rental process in English, Spanish, or Portuguese — applications, lease review, move-in walkthroughs.',
+    body: 'Jose handles every part of the rental process in English, Spanish, or Portuguese: applications, lease review, and move-in walkthroughs.',
   },
   {
     icon: ShieldCheck,
@@ -91,7 +91,7 @@ export default function RentalsPage() {
           </h1>
           <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
             Jose Costa has helped hundreds of families find quality rental homes across western
-            Palm Beach County — in English, Spanish, and Portuguese. Whether you&apos;re looking
+            Palm Beach County, in English, Spanish, and Portuguese. Whether you&apos;re looking
             for your next rental or you&apos;re a property owner seeking reliable tenants, Jose
             knows this market.
           </p>
@@ -192,7 +192,7 @@ export default function RentalsPage() {
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
               Jose has placed tenants in rental properties across Royal Palm Beach, Loxahatchee,
               West Palm Beach, and beyond. His multilingual network gives property owners access
-              to a larger, more qualified tenant pool — and his deep roots in the community mean
+              to a larger, more qualified tenant pool, and his deep roots in the community mean
               he knows the difference between a reliable long-term tenant and someone who isn&apos;t
               the right fit.
             </p>

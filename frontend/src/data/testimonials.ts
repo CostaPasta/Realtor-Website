@@ -42,7 +42,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '4',
     quote:
-      'Jose sold our Boca Raton property in 22 days — well under the market average. He handled everything professionally and was always available when we had questions. We\'ve already referred three neighbors to him.',
+      'Jose sold our Boca Raton property in 22 days, well under the market average. He handled everything professionally and was always available when we had questions. We\'ve already referred three neighbors to him.',
     name: 'Robert & Sandra K.',
     location: 'Boca Raton',
     transactionType: 'Seller',
@@ -52,7 +52,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '5',
     quote:
-      'Como investidor imobiliário, já trabalhei com muitos corretores. Jose é diferente — ele entende o mercado de forma analítica e sempre apresenta dados reais, não apenas otimismo.',
+      'Como investidor imobiliário, já trabalhei com muitos corretores. Jose é diferente: ele entende o mercado de forma analítica e sempre apresenta dados reais, não apenas otimismo.',
     name: 'Gustavo A.',
     location: 'Hallandale Beach',
     transactionType: 'Buyer',

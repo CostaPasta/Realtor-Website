@@ -39,7 +39,7 @@ function ContactForm() {
       <div className="text-center py-12">
         <p className="font-serif text-2xl text-navy font-bold">Message sent!</p>
         <p className="mt-3 font-sans text-gray-600">
-          Thank you for reaching out. Jose will be in touch within 24 hours — in your preferred
+          Thank you for reaching out. Jose will be in touch within 24 hours, in your preferred
           language.
         </p>
       </div>
@@ -216,7 +216,7 @@ export default function ContactPage() {
               </div>
               <h3 className="font-serif text-xl font-bold text-navy mb-2">WhatsApp</h3>
               <p className="font-sans text-sm text-gray-600 mb-5 leading-relaxed">
-                Prefer to message? Send Jose a message on WhatsApp — he typically responds within a
+                Prefer to message? Send Jose a message on WhatsApp and he typically responds within a
                 few hours.
               </p>
               <a
@@ -268,7 +268,7 @@ export default function ContactPage() {
             <SectionHeading
               eyebrow="Send a Message"
               title="Get in touch with Jose"
-              subtitle="Fill out the form and Jose will respond within 24 hours — in your preferred language."
+              subtitle="Fill out the form and Jose will respond within 24 hours, in your preferred language."
             />
             <div className="mt-10">
               <ContactForm />

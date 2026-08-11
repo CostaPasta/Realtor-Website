@@ -78,10 +78,10 @@ export default function MarketUpdatesPage() {
             Market Intelligence
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
-            South Florida Market Updates — Straight from the Field
+            South Florida Market Updates: Straight from the Field
           </h1>
           <p className="mt-4 font-sans text-white/80 max-w-2xl leading-relaxed">
-            Jose shares his read on the South Florida real estate market regularly — no national
+            Jose shares his read on the South Florida real estate market regularly. No national
             statistics misapplied to local conditions, just ground-level insight from someone who
             is actually writing offers here.
           </p>

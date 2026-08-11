@@ -18,7 +18,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Free Home Valuation',
-    body: "Jose provides a detailed comparative market analysis — not a Zestimate, but a real analysis of what your specific home is worth in the current market.",
+    body: "Jose provides a detailed comparative market analysis, not a Zestimate, but a real analysis of what your specific home is worth in the current market.",
   },
   {
     number: '02',
@@ -70,7 +70,7 @@ export default function SellPage() {
             Sell your South Florida home for what it&apos;s worth.
           </h1>
           <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
-            Most homeowners leave money on the table when they sell — not because of bad luck, but
+            Most homeowners leave money on the table when they sell, not because of bad luck, but
             because of poor pricing strategy, weak marketing, and inexperienced negotiation. Jose
             fixes all three.
           </p>
@@ -91,7 +91,7 @@ export default function SellPage() {
           <AnimateOnScroll>
             <SectionHeading
               eyebrow="Jose's Seller Process"
-              title="From valuation to closing — here's how it works"
+              title="From valuation to closing: here's how it works"
               subtitle="A proven process that consistently delivers above-asking results in the South Florida market."
             />
           </AnimateOnScroll>
@@ -108,7 +108,7 @@ export default function SellPage() {
             <SectionHeading
               eyebrow="Get Started"
               title="What's your home worth?"
-              subtitle="Get a free, no-obligation home valuation from Jose — a real analysis, not an algorithm estimate."
+              subtitle="Get a free, no-obligation home valuation from Jose, a real analysis, not an algorithm estimate."
             />
             <div className="mt-10 bg-white rounded-2xl p-8 shadow-sm">
               <ValuationForm />
@@ -127,7 +127,7 @@ export default function SellPage() {
           </AnimateOnScroll>
           <AnimateOnScroll>
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
-              Jose doesn&apos;t only help sellers — he also helps property owners find quality
+              Jose doesn&apos;t only help sellers. He also helps property owners find quality
               tenants and lease their homes at market rate. If you&apos;re considering your
               options before committing to a sale, Jose can give you an honest comparison of what
               you&apos;d net from a sale versus what you&apos;d earn as a landlord in today&apos;s
@@ -141,7 +141,7 @@ export default function SellPage() {
                   <Home size={22} className="text-gold" />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-navy mb-3">
-                  Sell — and move on with your equity.
+                  Sell and move on with your equity.
                 </h3>
                 <p className="font-sans text-sm text-gray-600 leading-relaxed">
                   Jose prices, markets, and negotiates your sale to maximize your net proceeds, so
@@ -155,7 +155,7 @@ export default function SellPage() {
                   <KeyRound size={22} className="text-gold" />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-navy mb-3">
-                  Lease — and build long-term wealth.
+                  Lease and build long-term wealth.
                 </h3>
                 <p className="font-sans text-sm text-gray-600 leading-relaxed">
                   Jose finds and screens reliable tenants and manages the leasing process, so your
