@@ -111,7 +111,7 @@ export default function NeighborhoodsMap() {
               <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">
                 {selectedNeighborhood.county} County
               </p>
-              <h3 className="text-base font-semibold text-navy mb-2">
+              <h3 className="font-sans text-base font-semibold text-navy mb-2">
                 {selectedNeighborhood.name}
               </h3>
               <div className="grid grid-cols-2 gap-2 mb-3">
