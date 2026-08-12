@@ -3,7 +3,7 @@ export interface Testimonial {
   quote: string;
   name: string;
   location: string;
-  transactionType: 'Buyer' | 'Seller' | 'Buyer & Seller';
+  transactionType: 'Buyer' | 'Seller' | 'Buyer & Seller' | 'Renter';
   language: 'English' | 'Spanish' | 'Portuguese';
   year: number;
 }
@@ -67,6 +67,46 @@ export const testimonials: Testimonial[] = [
     location: 'Fort Lauderdale',
     transactionType: 'Buyer',
     language: 'English',
+    year: 2024,
+  },
+  {
+    id: '7',
+    quote:
+      'Jose sold our Boca Raton home in four days and got us $28,000 over asking. He came in with real comps, not a guess. When multiple offers landed, he knew exactly who to push back on.',
+    name: 'Maria & Carlos R.',
+    location: 'Boca Raton',
+    transactionType: 'Seller',
+    language: 'English',
+    year: 2023,
+  },
+  {
+    id: '8',
+    quote:
+      'We interviewed three agents before choosing Jose. He was the only one who arrived with a real neighborhood analysis, a clear marketing plan, and connections to Brazilian buyers no local agent could reach. Sold in 11 days.',
+    name: 'David F.',
+    location: 'Wellington',
+    transactionType: 'Seller',
+    language: 'English',
+    year: 2023,
+  },
+  {
+    id: '9',
+    quote:
+      'Jose found us a 3-bedroom home in Royal Palm Beach within 10 days of us calling him. He handled everything in Portuguese so my mother-in-law could be part of every conversation. We never felt lost.',
+    name: 'Ana & Roberto M.',
+    location: 'Royal Palm Beach',
+    transactionType: 'Renter',
+    language: 'Portuguese',
+    year: 2024,
+  },
+  {
+    id: '10',
+    quote:
+      'We moved from Brazil and had no idea how Florida rentals worked. Jose explained the lease, the deposit, and tenant rights in one conversation. Patient, honest, and got us into a great home.',
+    name: 'Fernanda S.',
+    location: 'Loxahatchee',
+    transactionType: 'Renter',
+    language: 'Portuguese',
     year: 2024,
   },
 ];

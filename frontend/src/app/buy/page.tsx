@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calculator, PiggyBank, BadgeDollarSign, Languages, Quote, ChevronDown } from 'lucide-react';
+import { Calculator, PiggyBank, BadgeDollarSign, Languages, ChevronDown } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import WhyJoseBackground from '@/components/WhyJoseBackground';
+import TestimonialCard from '@/components/TestimonialCard';
 import { neighborhoods } from '@/data/neighborhoods';
+import { testimonials } from '@/data/testimonials';
 
 export const metadata: Metadata = {
   title: 'Buy a Home in South Florida',
@@ -18,12 +20,12 @@ const BUYER_ITEMS = [
   {
     icon: Calculator,
     title: 'What can I actually afford?',
-    body: "Before you search, Jose will walk you through a realistic picture of what your budget covers in today's Palm Beach County market, including HOA fees, property taxes, and insurance, not just the purchase price.",
+    body: "Before you search, Jose walks you through what your budget actually covers in today's Palm Beach County market: the purchase price, but also HOA fees, property taxes, and insurance.",
   },
   {
     icon: PiggyBank,
     title: 'Down payment options',
-    body: 'From FHA loans (3.5% down) to conventional financing, VA loans, and down payment assistance programs for qualifying buyers, there are more options than most people realize. Jose will connect you with a trusted local lender who fits your situation.',
+    body: 'Most buyers have more financing options than they realize: FHA loans (3.5% down), conventional financing, VA loans, and down payment assistance programs for qualifying buyers. Jose connects you with a lender who fits your situation.',
   },
   {
     icon: BadgeDollarSign,
@@ -33,7 +35,7 @@ const BUYER_ITEMS = [
   {
     icon: Languages,
     title: 'Available in your language',
-    body: 'Every document, every phone call, every step of the process, in English, Spanish, or Portuguese. No confusion. No getting lost in the details.',
+    body: 'Jose handles every part of the process in English, Spanish, or Portuguese. Applications, document review, walkthroughs, phone calls.',
   },
 ];
 
@@ -69,14 +71,14 @@ const STEPS = [
   {
     number: '05',
     title: 'Inspection and Review',
-    body: "Inspections, appraisals, title searches. Jose coordinates the entire process and explains every document in plain language, in your preferred language. No surprises at the table.",
+    body: "Jose coordinates inspections, appraisals, and title searches, and explains every document before you sign it. He does this in English, Spanish, or Portuguese.",
     numberColor: '#2D5F8A',
     dark: false,
   },
   {
     number: '06',
     title: 'Closing Day and Beyond',
-    body: "Jose attends closing with you, walks you through the closing statement line by line, and hands you the keys. He stays in touch after closing, connects you with trusted contractors, and is available when questions come up.",
+    body: "Jose attends closing with you and walks you through the closing statement line by line. After that he stays in touch, connects you with contractors he knows, and picks up the phone when questions come up.",
     numberColor: '#C4A35A',
     dark: true,
   },
@@ -226,9 +228,9 @@ export default function BuyPage() {
               Fifteen years reading<br className="hidden md:block" /> the South Florida market.
             </h2>
             <p className="mt-6 font-sans text-base md:text-lg text-white/75 leading-relaxed max-w-xl mx-auto">
-              Every neighborhood has a rhythm. Jose has spent 15 years learning the ones that
-              matter: which streets appreciate, which schools drive demand, and where value
-              still exists before the market catches up.
+              Jose has spent 15 years in this market. He knows which streets have appreciated,
+              which school zones drive buyer demand, and where prices have not yet caught up to
+              what a neighborhood is becoming.
             </p>
             <Link
               href="/neighborhoods"
@@ -240,24 +242,24 @@ export default function BuyPage() {
         </div>
       </section>
 
-      {/* ─── Testimonial Pull-Quote ─── */}
-      <section className="pt-20 md:pt-24 pb-0 bg-navy">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ─── Buyer Testimonials ─── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <Quote size={40} className="text-gold/40 mx-auto mb-6" />
-            <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-white leading-relaxed">
-              Jose found us an off-market property in Fort Lauderdale that never hit Zillow.
-              That&apos;s the kind of access and network you simply cannot replicate by searching
-              on your own.
-            </blockquote>
-            <div className="mt-8 flex items-center justify-center gap-3">
-              <div className="h-px w-10 bg-gold/40" />
-              <p className="font-sans text-sm font-semibold text-gold tracking-wide">
-                Michael T. &nbsp;·&nbsp; Fort Lauderdale &nbsp;·&nbsp; Buyer, 2024
-              </p>
-              <div className="h-px w-10 bg-gold/40" />
-            </div>
+            <SectionHeading
+              eyebrow="What Buyers Say"
+              title="Real buyers. Real results."
+            />
           </AnimateOnScroll>
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {testimonials
+              .filter((t) => t.transactionType === 'Buyer')
+              .map((t, i) => (
+                <AnimateOnScroll key={t.id} delay={i * 0.08}>
+                  <TestimonialCard {...t} />
+                </AnimateOnScroll>
+              ))}
+          </div>
         </div>
       </section>
 
@@ -296,14 +298,13 @@ export default function BuyPage() {
               </p>
               <p className="mt-4 font-sans text-white/70 leading-relaxed">
                 Without a buyer&apos;s agent, you are negotiating against a professional whose job
-                is to protect the seller&apos;s interests. That is not a fair fight. Jose levels
-                the playing field.
+                is to protect the seller&apos;s interests. Jose&apos;s job is to protect yours.
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   {
                     title: 'Market Analysis',
-                    desc: 'On every property before you make an offer — not just the ones you tour.',
+                    desc: 'On every property you are seriously considering, before an offer goes in, including homes you have not toured yet.',
                   },
                   {
                     title: 'Zero Cost to You',

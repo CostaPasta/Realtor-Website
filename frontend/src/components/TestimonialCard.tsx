@@ -2,7 +2,7 @@ interface TestimonialCardProps {
   quote: string;
   name: string;
   location: string;
-  transactionType: 'Buyer' | 'Seller' | 'Buyer & Seller';
+  transactionType: 'Buyer' | 'Seller' | 'Buyer & Seller' | 'Renter';
   language?: 'English' | 'Spanish' | 'Portuguese';
   year?: number;
 }
@@ -11,6 +11,7 @@ const BADGE: Record<string, string> = {
   Buyer: 'bg-navy/10 text-navy',
   Seller: 'bg-coral/10 text-coral',
   'Buyer & Seller': 'bg-gold/10 text-gold-dark',
+  Renter: 'bg-emerald-50 text-emerald-700',
 };
 
 const LANGUAGE_BADGE: Record<string, string> = {

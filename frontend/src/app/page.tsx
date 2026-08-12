@@ -22,7 +22,7 @@ const FEATURES = [
   {
     icon: MessageSquare,
     title: 'Three Languages, One Realtor',
-    body: "Jose speaks English, Portuguese, and Spanish. For many clients, working with someone in their own language changes the whole experience. Every question gets answered, and every document makes sense.",
+    body: "Jose speaks English, Portuguese, and Spanish. For many clients, having an agent who speaks their language changes how much they actually understand throughout the process. He answers every question and explains every document before you sign.",
     iconBg: '#0D2442',
     iconColor: '#C4A35A',
   },
@@ -43,7 +43,7 @@ const FEATURES = [
   {
     icon: KeyRound,
     title: 'From Rental to Ownership',
-    body: "Many of Jose's clients start by renting through him and come back a few years later to buy their first home. He knows both sides of the South Florida market and stays with you for the long run, not just one transaction.",
+    body: "Many of Jose's clients start by renting through him and come back a few years later to buy. He knows both sides of the market, and many clients stay in touch long after they close.",
     iconBg: '#1A3A5C',
     iconColor: '#D4BC84',
   },
@@ -257,7 +257,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Why Jose?"
               title="What makes working with Jose different?"
-              subtitle="In one of the country's most competitive real estate markets, experience and language matter."
+              subtitle="South Florida attracts buyers and sellers from across the world. Experience matters. So does language."
             />
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -299,9 +299,9 @@ export default function HomePage() {
               Buying in South Florida
             </h2>
             <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">
-              Get expert guidance from your first showing all the way to closing. Jose finds the
-              right properties, negotiates on your behalf, and walks you through every step in your
-              language.
+              Jose identifies properties worth seeing, negotiates on your behalf, and handles every
+              step in English, Spanish, or Portuguese. Buyer representation costs you nothing in
+              Florida.
             </p>
             <Link
               href="/buy"
@@ -332,9 +332,8 @@ export default function HomePage() {
               Selling Your Home
             </h2>
             <p className="mt-4 font-sans text-navy/80 text-base leading-relaxed">
-              Getting the price right from day one makes all the difference. Jose handles the
-              pricing strategy, marketing, and negotiations so you walk away with the best possible
-              outcome.
+              The right price from the start attracts the right buyers. Jose handles pricing,
+              marketing, and negotiation so you close at a number that works for you.
             </p>
             <Link
               href="/sell"
@@ -353,7 +352,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Local Expertise"
               title="South Florida Areas Jose Knows Best"
-              subtitle="A closer look at the communities where Jose works every week, from Royal Palm Beach and Wellington to Broward County."
+              subtitle="The communities where Jose works every week."
             />
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -381,7 +380,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Client Stories"
               title="What Jose's clients are saying"
-              subtitle="Jose builds trust in every language: English, Portuguese, and Spanish."
+              subtitle="Buyers, sellers, and renters who have worked with Jose across South Florida."
             />
           </AnimateOnScroll>
           <div className="mt-14">

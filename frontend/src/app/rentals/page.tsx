@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Search, Languages, ShieldCheck, Users, TrendingUp, ClipboardCheck, MessageCircle, Phone } from 'lucide-react';
+import { Search, Languages, ShieldCheck, Users, TrendingUp, ClipboardCheck } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import LandlordPropertyForm from '@/components/LandlordPropertyForm';
+import RenterInquiryForm from '@/components/RenterInquiryForm';
+import TestimonialCard from '@/components/TestimonialCard';
+import { testimonials } from '@/data/testimonials';
 
 export const metadata: Metadata = {
   title: 'Rental Homes in Palm Beach County',
@@ -43,7 +46,7 @@ const LANDLORD_CARDS = [
   {
     icon: Users,
     title: 'Wider tenant pool',
-    body: "Jose's English, Spanish, and Portuguese fluency opens the door to qualified tenants across South Florida's multilingual communities.",
+    body: "Jose works in English, Spanish, and Portuguese. That reaches qualified tenants in communities that most single-language agents never get in front of.",
   },
   {
     icon: ShieldCheck,
@@ -53,14 +56,16 @@ const LANDLORD_CARDS = [
   {
     icon: TrendingUp,
     title: 'Market-rate pricing',
-    body: "Jose knows what comparable properties rent for in every neighborhood he works in. He'll price your property to attract quality tenants quickly without leaving money on the table.",
+    body: "Jose knows what comparable properties rent for in every neighborhood he works in. He'll price yours to fill quickly at a rate that holds.",
   },
   {
     icon: ClipboardCheck,
     title: 'Full-process management',
-    body: "From listing and showings through lease signing and move-in, Jose manages the entire process so you don't have to.",
+    body: "Jose handles listing, showings, lease signing, and move-in coordination. You hand it off; he takes it from there.",
   },
 ];
+
+const renterTestimonials = testimonials.filter((t) => t.transactionType === 'Renter');
 
 export default function RentalsPage() {
   return (
@@ -90,10 +95,9 @@ export default function RentalsPage() {
             Find your next home to rent in Palm Beach County.
           </h1>
           <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
-            Jose Costa has helped hundreds of families find quality rental homes across western
-            Palm Beach County, in English, Spanish, and Portuguese. Whether you&apos;re looking
-            for your next rental or you&apos;re a property owner seeking reliable tenants, Jose
-            knows this market.
+            Jose Costa has placed hundreds of families in rental homes across western Palm Beach
+            County, working in English, Spanish, and Portuguese. He works with renters and
+            landlords both, and he knows this market well.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
@@ -113,7 +117,7 @@ export default function RentalsPage() {
       </section>
 
       {/* ─── For Renters ─── */}
-      <section id="renters" className="py-20 md:py-24 bg-white">
+      <section id="renters" className="py-20 md:py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
             <SectionHeading
@@ -122,10 +126,34 @@ export default function RentalsPage() {
             />
           </AnimateOnScroll>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* ── Pricing callout ── */}
+          <AnimateOnScroll>
+            <div className="mt-8 max-w-2xl mx-auto text-center">
+              <p className="font-serif text-4xl md:text-5xl font-bold text-navy">
+                $1,400 <span className="text-gold">–</span> $3,000
+                <span className="font-sans text-lg font-normal text-gray-500 ml-2">/ mo</span>
+              </p>
+              <p className="mt-2 font-sans text-sm text-gray-500">
+                Typical range for 2–4 bedroom homes across western Palm Beach County
+              </p>
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                {['Royal Palm Beach', 'Wellington', 'Loxahatchee', 'West Palm Beach'].map((area) => (
+                  <span
+                    key={area}
+                    className="inline-block px-3 py-1 bg-white border border-cream-dark rounded-full font-sans text-xs text-navy"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* ── Feature cards ── */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {RENTER_CARDS.map(({ icon: Icon, title, body }, i) => (
               <AnimateOnScroll key={title} delay={i * 0.08}>
-                <div className="bg-cream rounded-2xl p-8 h-full">
+                <div className="bg-white rounded-2xl p-8 h-full border border-cream-dark shadow-sm">
                   <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
                     <Icon size={22} className="text-gold" />
                   </div>
@@ -136,42 +164,57 @@ export default function RentalsPage() {
             ))}
           </div>
 
-          <AnimateOnScroll>
-            <div className="mt-10 max-w-3xl bg-gold/10 border border-gold/30 rounded-2xl p-6">
-              <p className="font-sans text-sm text-navy leading-relaxed">
-                Jose&apos;s rental listings in Palm Beach County typically range from{' '}
-                <span className="font-bold">$1,400 to $3,000 per month</span> for 2–4 bedroom
-                homes. Contact him to discuss current availability.
-              </p>
-            </div>
-          </AnimateOnScroll>
+          {/* ── Renter testimonials ── */}
+          <div className="mt-14 pt-10 border-t border-cream-dark grid md:grid-cols-2 gap-6">
+            {renterTestimonials.map((t, i) => (
+              <AnimateOnScroll key={t.id} delay={i * 0.1}>
+                <TestimonialCard {...t} />
+              </AnimateOnScroll>
+            ))}
+          </div>
 
+          {/* ── Renter inquiry form ── */}
           <AnimateOnScroll>
-            <div className="mt-10 bg-navy rounded-2xl p-8 md:p-10 text-center">
-              <h3 className="font-serif text-xl md:text-2xl font-bold text-white mb-3">
-                Ready to find a rental?
-              </h3>
-              <p className="font-sans text-sm text-white/70 mb-6 max-w-md mx-auto">
-                Contact Jose on WhatsApp or call (954) 614-1351.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://wa.me/19546141351"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#25D366' }}
-                >
-                  <MessageCircle size={18} />
-                  Chat on WhatsApp
-                </a>
-                <a
-                  href="tel:+19546141351"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
-                >
-                  <Phone size={18} />
-                  (954) 614-1351
-                </a>
+            <div className="mt-14 max-w-5xl mx-auto">
+              <div className="bg-white rounded-2xl border border-cream-dark shadow-sm overflow-hidden">
+                <div className="grid md:grid-cols-[2fr_3fr]">
+                  {/* Left: Jose photo + copy */}
+                  <div className="relative hidden md:block min-h-[480px]">
+                    <Image
+                      src="/images/jose-portrait.jpeg"
+                      alt="Jose Costa, Realtor"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 0px, 40vw"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          'linear-gradient(to top, rgba(8,18,28,0.80) 0%, rgba(8,18,28,0.20) 55%, transparent 100%)',
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="font-serif text-lg font-bold text-white leading-snug">
+                        Tell Jose what you&apos;re looking for.
+                      </p>
+                      <p className="mt-2 font-sans text-sm text-white/70 leading-relaxed">
+                        He&apos;ll reach out within 24 hours with available properties that match, often before they hit the open market.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right: form */}
+                  <div className="p-8 md:p-10">
+                    <h3 className="font-serif text-xl font-bold text-navy mb-1">
+                      Submit your rental criteria
+                    </h3>
+                    <p className="font-sans text-sm text-gray-500 mb-7">
+                      No commitment. Jose will be in touch within 24 hours.
+                    </p>
+                    <RenterInquiryForm />
+                  </div>
+                </div>
               </div>
             </div>
           </AnimateOnScroll>
@@ -179,7 +222,7 @@ export default function RentalsPage() {
       </section>
 
       {/* ─── For Property Owners ─── */}
-      <section id="landlords" className="py-20 md:py-24 bg-cream">
+      <section id="landlords" className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
             <SectionHeading
@@ -190,18 +233,17 @@ export default function RentalsPage() {
 
           <AnimateOnScroll>
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
-              Jose has placed tenants in rental properties across Royal Palm Beach, Loxahatchee,
-              West Palm Beach, and beyond. His multilingual network gives property owners access
-              to a larger, more qualified tenant pool, and his deep roots in the community mean
-              he knows the difference between a reliable long-term tenant and someone who isn&apos;t
-              the right fit.
+              Jose has placed tenants across Royal Palm Beach, Loxahatchee, West Palm Beach, and
+              surrounding areas. Working in three languages, he draws from a wider applicant pool
+              than most agents. He has lived in this community for over two decades, which means
+              he knows what a reliable long-term tenant actually looks like.
             </p>
           </AnimateOnScroll>
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {LANDLORD_CARDS.map(({ icon: Icon, title, body }, i) => (
               <AnimateOnScroll key={title} delay={i * 0.08}>
-                <div className="bg-white rounded-2xl p-6 h-full border border-gray-100">
+                <div className="bg-cream rounded-2xl p-6 h-full border border-cream-dark">
                   <div className="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
                     <Icon size={20} className="text-gold" />
                   </div>
@@ -213,7 +255,7 @@ export default function RentalsPage() {
           </div>
 
           <AnimateOnScroll>
-            <div className="mt-14 max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-sm">
+            <div className="mt-14 max-w-2xl mx-auto bg-cream rounded-2xl p-8 border border-cream-dark">
               <h3 className="font-serif text-xl font-bold text-navy mb-2 text-center">
                 Contact Jose about your property
               </h3>
