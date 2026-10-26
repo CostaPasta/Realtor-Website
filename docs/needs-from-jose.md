@@ -59,3 +59,41 @@ Goal: his active listings, rentals, and recent sales appear on the site and upda
   - Are sold listings allowed on an agent's website, and for how long after closing?
 - **Ask Jose:** only his own listings, or full MLS search too?
 - Note: rentals only come through the feed when he is the listing agent. Rentals where he represents the tenant still go in `frontend/src/data/rentals.ts` by hand.
+
+## 8. Every three months: update market stats
+
+The "Median House Price" and "Days on Market" figures on the neighborhood cards and map come from one file, `frontend/src/data/market-stats.ts`. Refreshing them takes about 15 minutes with MLS access. Do it in early January, April, July, and October.
+
+MLS rules usually don't allow sharing a login, so Jose should pull the numbers himself (a screenshot of each result is enough).
+
+**In the MLS, for each city below:**
+
+1. Search **closed sales**, property type **single-family / houses only** (no condos or townhouses), with a closing date from **January 1 through the last day of the most recent full month**. In January, use the whole previous year.
+2. Write down the **median sale price** and the **median days on market**. Use medians, not averages, to match the labels on the site.
+
+| Page | MLS city to search |
+|---|---|
+| Royal Palm Beach | Royal Palm Beach |
+| West Palm Beach | West Palm Beach |
+| Wellington | Wellington |
+| The Acreage and Loxahatchee | Loxahatchee |
+| Lake Worth Beach | Lake Worth Beach |
+| Boynton Beach | Boynton Beach |
+| Delray Beach | Delray Beach |
+| Palm Beach Gardens | Palm Beach Gardens |
+| Jupiter | Jupiter |
+| Davie | Davie |
+| Oakland Park | Oakland Park |
+| Wilton Manors | Wilton Manors |
+| Pompano Beach | Pompano Beach |
+
+**Then in `frontend/src/data/market-stats.ts`:**
+
+3. Update `medianHousePrice` (the full dollar amount, like `566_000`) and `daysOnMarket` for each city.
+4. Update `MARKET_STATS_PERIOD` (for example `'Houses sold January–December 2026'`), `MARKET_STATS_SOURCE` (`'Beaches MLS'` once Jose pulls them himself), and `MARKET_STATS_UPDATED` (today's date, `YYYY-MM-DD`).
+5. Delete any `note` that no longer applies (the Acreage one only explains the current period).
+6. Commit and push. Vercel redeploys, and the cards and map update on every page.
+
+**No need to touch:** the neighborhood page text. Its numbers are dated ("from January through September 2026"), so they stay true. Refresh them during a bigger copy update, or write a new Market Updates report instead.
+
+If a city had fewer than about 10 house sales in the period, its median can swing a lot; mention it in that city's `note`.

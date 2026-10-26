@@ -1,3 +1,11 @@
+import {
+  MARKET_STATS_PERIOD,
+  MARKET_STATS_SOURCE,
+  MARKET_STATS_UPDATED,
+  formatPrice,
+  marketStats,
+} from './market-stats';
+
 export type County =
   | 'Palm Beach'
   | 'Martin'
@@ -87,7 +95,12 @@ export interface Neighborhood {
   };
 }
 
-export const neighborhoods: Neighborhood[] = [
+// Price and days-on-market come from market-stats.ts for every neighborhood listed there;
+// only neighborhoods missing from that file set medianHomePrice and avgDaysOnMarket here.
+type NeighborhoodData = Omit<Neighborhood, 'medianHomePrice' | 'avgDaysOnMarket'> &
+  Partial<Pick<Neighborhood, 'medianHomePrice' | 'avgDaysOnMarket'>>;
+
+const neighborhoodData: NeighborhoodData[] = [
   // ── PALM BEACH COUNTY ─────────────────────────────────────────────────────
   {
     name: 'Royal Palm Beach',
@@ -105,8 +118,6 @@ export const neighborhoods: Neighborhood[] = [
       'Houses sold at a median of $566,000 in January through September 2026',
       '82 rentals listed in late October 2026, with three-bedrooms asking a median of $2,800',
     ],
-    medianHomePrice: '$566K',
-    avgDaysOnMarket: '35',
     bestFor: 'Families, first-time buyers, renters, and landlords seeking reliable tenants',
     coordinates: { lat: 26.7082, lng: -80.2262 },
     imageSrc: '/images/neighborhoods/royal-palm-beach.jpg',
@@ -138,11 +149,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '28.9%',
       topLanguages: ['Spanish', 'Portuguese', 'Haitian Creole'],
       source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$566K',
-      avgDaysOnMarket: '35',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -292,8 +298,6 @@ export const neighborhoods: Neighborhood[] = [
       'Norton Museum of Art and the Kravis Center for the Performing Arts',
       'About half of households rent; 943 rentals listed in late October 2026',
     ],
-    medianHomePrice: '$575K',
-    avgDaysOnMarket: '41',
     bestFor: 'Urban professionals, first-time buyers, and investors',
     coordinates: { lat: 26.7153, lng: -80.0534 },
     population: '120,000',
@@ -325,11 +329,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '27.1%',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
-    },
-    marketSnapshot: {
-      medianPrice: '$575K',
-      avgDaysOnMarket: '41',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -470,8 +469,6 @@ export const neighborhoods: Neighborhood[] = [
       'Low-density planned community with village parks, an aquatics complex, and an amphitheater',
       'Polo season at the National Polo Center from late December through early May',
     ],
-    medianHomePrice: '$755K',
-    avgDaysOnMarket: '34',
     bestFor: 'Families, equestrian enthusiasts, and buyers wanting space and strong schools',
     coordinates: { lat: 26.6595, lng: -80.2686 },
     imageSrc: '/images/neighborhoods/wellington.jpg',
@@ -502,11 +499,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '24.2%',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
-    },
-    marketSnapshot: {
-      medianPrice: '$755K',
-      avgDaysOnMarket: '34',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -646,8 +638,6 @@ export const neighborhoods: Neighborhood[] = [
       'Newer gated communities like Arden alongside established rural properties',
       'Next to the 60,000-acre J.W. Corbett Wildlife Management Area',
     ],
-    medianHomePrice: '$700K',
-    avgDaysOnMarket: '46',
     bestFor: 'Buyers wanting space, equestrian families, investors, and those looking for rural Florida character',
     coordinates: { lat: 26.7, lng: -80.335 },
     resources: [
@@ -677,11 +667,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '19.8%',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
-    },
-    marketSnapshot: {
-      medianPrice: '$700K',
-      avgDaysOnMarket: '46',
-      lastUpdated: 'Loxahatchee houses: price Jan–Sep 2026, days on market Oct 2025–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -820,8 +805,6 @@ export const neighborhoods: Neighborhood[] = [
       'Large Spanish-speaking community',
       'City beach with a fishing pier and the rebuilt 1920s Casino Building',
     ],
-    medianHomePrice: '$560K',
-    avgDaysOnMarket: '35',
     bestFor: 'First-time buyers, investors, and buyers who value walkability and community character',
     coordinates: { lat: 26.6167, lng: -80.0584 },
     resources: [
@@ -851,11 +834,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '35%',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
-    },
-    marketSnapshot: {
-      medianPrice: '$560K',
-      avgDaysOnMarket: '35',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -995,8 +973,6 @@ export const neighborhoods: Neighborhood[] = [
       'Diverse, multilingual community',
       "Easy access to I-95 and Florida's Turnpike",
     ],
-    medianHomePrice: '$525K',
-    avgDaysOnMarket: '35',
     bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
     coordinates: { lat: 26.5317, lng: -80.0906 },
     resources: [
@@ -1025,11 +1001,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
-    },
-    marketSnapshot: {
-      medianPrice: '$525K',
-      avgDaysOnMarket: '35',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1143,8 +1114,6 @@ export const neighborhoods: Neighborhood[] = [
       'Morikami Museum and Wakodahatchee Wetlands, both in western Delray',
       'Price range from 55+ condos under $200K to Intracoastal estates over $2M',
     ],
-    medianHomePrice: '$873K',
-    avgDaysOnMarket: '36',
     bestFor: 'Active buyers of all ages, lifestyle-driven families, and investors',
     coordinates: { lat: 26.4615, lng: -80.0728 },
     resources: [
@@ -1172,11 +1141,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
-    },
-    marketSnapshot: {
-      medianPrice: '$873K',
-      avgDaysOnMarket: '36',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1307,8 +1271,6 @@ export const neighborhoods: Neighborhood[] = [
       'PGA National, BallenIsles, and Mirasol offer bundled golf, pools, and tennis within gated communities',
       '15 minutes to Jupiter Beach, Palm Beach, and the Intracoastal',
     ],
-    medianHomePrice: '$1.1M',
-    avgDaysOnMarket: '52',
     bestFor: 'Families with elementary-age children, golf enthusiasts, and professionals relocating from the Northeast',
     coordinates: { lat: 26.8237, lng: -80.1337 },
     resources: [
@@ -1338,11 +1300,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '14.2%',
       topLanguages: ['Spanish', 'Italian', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$1.1M',
-      avgDaysOnMarket: '52',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1469,8 +1426,6 @@ export const neighborhoods: Neighborhood[] = [
       'DuBois Park, 18-acre inlet park with a guarded snorkeling lagoon and kayak access',
       'No high-rise density; population of 62,000 spread across a low-rise town footprint',
     ],
-    medianHomePrice: '$1.07M',
-    avgDaysOnMarket: '29',
     bestFor: 'Families prioritizing K–12 school quality, outdoor enthusiasts, and buyers who value natural Florida',
     coordinates: { lat: 26.9342, lng: -80.0942 },
     resources: [
@@ -1500,11 +1455,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '17.5%',
       topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$1.07M',
-      avgDaysOnMarket: '29',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1781,8 +1731,6 @@ export const neighborhoods: Neighborhood[] = [
       'Flamingo Gardens, 60-acre botanical garden and Everglades wildlife sanctuary',
       'Accessible to I-595, Florida Turnpike, Fort Lauderdale, Miami, and Boca Raton',
     ],
-    medianHomePrice: '$810K',
-    avgDaysOnMarket: '31',
     bestFor: 'Families, investors, and Latino community members seeking space and Broward value',
     coordinates: { lat: 26.0765, lng: -80.2521 },
     resources: [
@@ -1812,11 +1760,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '32.2%',
       topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$810K',
-      avgDaysOnMarket: '31',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1943,8 +1886,6 @@ export const neighborhoods: Neighborhood[] = [
       'Interior canals for kayaking and paddleboarding without a waterfront premium',
       'Diverse community, Hispanic, Haitian-American, and Caribbean cultural presence',
     ],
-    medianHomePrice: '$540K',
-    avgDaysOnMarket: '34',
     bestFor: 'First-time buyers, investors, and buyers seeking Fort Lauderdale adjacency without Fort Lauderdale prices',
     coordinates: { lat: 26.1726, lng: -80.132 },
     resources: [
@@ -1973,11 +1914,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '35.1%',
       topLanguages: ['Spanish', 'Haitian Creole', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$540K',
-      avgDaysOnMarket: '34',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -2096,8 +2032,6 @@ export const neighborhoods: Neighborhood[] = [
       'Steps from Fort Lauderdale Las Olas, Flagler Village, and the beach',
       'Colohatchee Park, mangrove preserve, boardwalk, and kayak launch on the Middle River',
     ],
-    medianHomePrice: '$850K',
-    avgDaysOnMarket: '57',
     bestFor: 'LGBTQ+ buyers, walkability-focused buyers, established professionals, and buyers seeking walkable Broward living',
     coordinates: { lat: 26.162, lng: -80.1342 },
     resources: [
@@ -2126,11 +2060,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '20.8%',
       topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$850K',
-      avgDaysOnMarket: '57',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -2235,8 +2164,6 @@ export const neighborhoods: Neighborhood[] = [
       'Fishing Village and renovated Fisher Family Pier, oceanfront dining and beach access',
       'Palm Aire Country Club, semi-private golf and country club within city limits',
     ],
-    medianHomePrice: '$530K',
-    avgDaysOnMarket: '47',
     bestFor: 'Value-oriented buyers, families with high-school-aged children, and investors watching the redevelopment trajectory',
     coordinates: { lat: 26.2379, lng: -80.1248 },
     resources: [
@@ -2266,11 +2193,6 @@ export const neighborhoods: Neighborhood[] = [
       foreignBorn: '39.8%',
       topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
-    },
-    marketSnapshot: {
-      medianPrice: '$530K',
-      avgDaysOnMarket: '47',
-      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -2712,3 +2634,28 @@ export const neighborhoods: Neighborhood[] = [
   },
 
 ];
+
+function withMarketStats(n: NeighborhoodData): Neighborhood {
+  const stats = marketStats[n.slug];
+  if (!stats) {
+    if (!n.medianHomePrice || !n.avgDaysOnMarket) {
+      throw new Error(`Add ${n.slug} to market-stats.ts or give it medianHomePrice and avgDaysOnMarket`);
+    }
+    return n as Neighborhood;
+  }
+  const price = formatPrice(stats.medianHousePrice);
+  const days = String(stats.daysOnMarket);
+  const note = stats.note ? `; ${stats.note}` : '';
+  return {
+    ...n,
+    medianHomePrice: price,
+    avgDaysOnMarket: days,
+    marketSnapshot: {
+      medianPrice: price,
+      avgDaysOnMarket: days,
+      lastUpdated: `${MARKET_STATS_PERIOD}, ${MARKET_STATS_SOURCE} (${MARKET_STATS_UPDATED})${note}`,
+    },
+  };
+}
+
+export const neighborhoods: Neighborhood[] = neighborhoodData.map(withMarketStats);
