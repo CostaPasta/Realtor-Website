@@ -29,8 +29,8 @@ const BUYER_ITEMS = [
   },
   {
     icon: BadgeDollarSign,
-    title: 'No cost to you as a buyer',
-    body: "In Florida, the seller pays both agents' commissions. Jose's representation costs you nothing, and he negotiates on your behalf every step of the way.",
+    title: 'Clear costs, in writing',
+    body: "Before you tour homes, Jose explains how his fee works and puts it in writing. In many Florida sales the seller covers it, and he negotiates for that on your behalf.",
   },
   {
     icon: Languages,
@@ -89,6 +89,8 @@ const STATS = [
   { value: '15+', label: 'Years Experience' },
   { value: '3', label: 'Languages' },
 ];
+
+const buyerTestimonials = testimonials.filter((t) => t.transactionType === 'Buyer');
 
 export default function BuyPage() {
   return (
@@ -243,6 +245,7 @@ export default function BuyPage() {
       </section>
 
       {/* ─── Buyer Testimonials ─── */}
+      {buyerTestimonials.length > 0 && (
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
@@ -252,16 +255,15 @@ export default function BuyPage() {
             />
           </AnimateOnScroll>
           <div className="mt-12 grid md:grid-cols-2 gap-6">
-            {testimonials
-              .filter((t) => t.transactionType === 'Buyer')
-              .map((t, i) => (
-                <AnimateOnScroll key={t.id} delay={i * 0.08}>
-                  <TestimonialCard {...t} />
-                </AnimateOnScroll>
-              ))}
+            {buyerTestimonials.map((t, i) => (
+              <AnimateOnScroll key={t.id} delay={i * 0.08}>
+                <TestimonialCard {...t} />
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
       </section>
+      )}
 
       {/* ─── Why Buyer Representation Matters ─── */}
       <section className="pt-16 pb-20 md:pb-24 bg-navy">
@@ -287,14 +289,15 @@ export default function BuyPage() {
             <AnimateOnScroll className="flex flex-col justify-center">
               <SectionHeading
                 eyebrow="Know Your Rights"
-                title="Buyer representation costs you nothing."
+                title="Buyer representation, explained."
                 align="left"
                 light
               />
               <p className="mt-6 font-sans text-white/70 leading-relaxed">
-                In Florida, sellers pay both the listing agent&apos;s and buyer&apos;s agent&apos;s
-                commission. Working with Jose as your buyer&apos;s agent costs you nothing out of
-                pocket and gives you professional representation throughout the transaction.
+                Florida buyers now sign a written agreement with their agent before touring homes,
+                and it spells out how the agent is paid. In many sales the seller covers that cost,
+                and Jose negotiates for it as part of your offer. You know the numbers before you
+                commit to anything.
               </p>
               <p className="mt-4 font-sans text-white/70 leading-relaxed">
                 Without a buyer&apos;s agent, you are negotiating against a professional whose job
@@ -307,8 +310,8 @@ export default function BuyPage() {
                     desc: 'On every property you are seriously considering, before an offer goes in, including homes you have not toured yet.',
                   },
                   {
-                    title: 'Zero Cost to You',
-                    desc: 'The seller pays both commissions. Representation costs you nothing.',
+                    title: 'Costs in Writing',
+                    desc: 'You see exactly how Jose is paid before you tour a single home.',
                   },
                   {
                     title: 'Agent Network Access',

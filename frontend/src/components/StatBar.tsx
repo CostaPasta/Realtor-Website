@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { useCountUp } from '@/hooks/useCountUp';
 
 interface Stat {
@@ -12,28 +13,12 @@ interface StatBarProps {
   dark?: boolean;
 }
 
-function parseValue(value: string) {
-  const match = value.match(/^(\D*)(\d+)(.*)$/);
-  if (!match) return null;
-  const [, prefix, number, suffix] = match;
-  return { prefix, number: parseInt(number, 10), suffix };
-}
-
 function AnimatedStat({ value, delay }: { value: string; delay: number }) {
-  const parsed = parseValue(value);
-  const { count, ref } = useCountUp(parsed?.number ?? 0, 1400, delay);
+  const ref = useRef<HTMLSpanElement>(null);
+  useCountUp(ref, value, 1400, delay);
 
-  if (!parsed) {
-    return <span>{value}</span>;
-  }
-
-  return (
-    <span ref={ref}>
-      {parsed.prefix}
-      {count}
-      {parsed.suffix}
-    </span>
-  );
+  // Rendered as one text node so the count-up can rewrite it in place.
+  return <span ref={ref}>{value}</span>;
 }
 
 export default function StatBar({ stats, dark = false }: StatBarProps) {

@@ -25,9 +25,9 @@ import {
 } from 'lucide-react';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
-import MobileStickyBar from '@/components/MobileStickyBar';
 import SectionHeading from '@/components/SectionHeading';
 import { neighborhoods } from '@/data/neighborhoods';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const POI_ICONS = {
   Park: TreePine,
@@ -112,6 +112,7 @@ export default async function NeighborhoodPage({
     imageSrc,
     resources,
     joseNote,
+    joseNoteApproved,
     lifestyleTags,
     census,
     budgetGuide,
@@ -254,8 +255,8 @@ export default async function NeighborhoodPage({
               </div>
             </div>
 
-            {/* Section 4: Jose's Personal Note */}
-            {joseNote && (
+            {/* Section 4: Jose's Personal Note (hidden until he approves the wording) */}
+            {joseNote && joseNoteApproved && (
               <AnimateOnScroll>
                 <div className="bg-cream rounded-2xl p-8 md:p-12 text-center">
                   <p className="text-xs font-sans font-semibold tracking-widest uppercase text-gold mb-5">
@@ -657,7 +658,7 @@ export default async function NeighborhoodPage({
                 </div>
                 <div className="space-y-2.5">
                   <a
-                    href="https://wa.me/19546141351"
+                    href={whatsappLink('en', 'general', name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
@@ -703,16 +704,12 @@ export default async function NeighborhoodPage({
       </div>
 
       {/* ─── Section 12: CTA ─── */}
-      <div id="cta-section">
-        <CTASection
-          title={`Thinking about ${name}?`}
-          subtitle={`Whether you're looking to rent, buy, or eventually sell in ${name}, Jose knows this market and is available in English, Spanish, and Portuguese.`}
-          primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
-          secondaryCTA={{ label: 'View All Neighborhoods', href: '/neighborhoods' }}
-        />
-      </div>
-
-      <MobileStickyBar />
+      <CTASection
+        title={`Thinking about ${name}?`}
+        subtitle={`Whether you're looking to rent, buy, or eventually sell in ${name}, Jose knows this market and is available in English, Spanish, and Portuguese.`}
+        primaryCTA={{ label: 'Contact Jose', href: '/contact' }}
+        secondaryCTA={{ label: 'View All Neighborhoods', href: '/neighborhoods' }}
+      />
     </>
   );
 }

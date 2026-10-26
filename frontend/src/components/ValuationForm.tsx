@@ -1,7 +1,9 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { formsDictionary } from '@/i18n/forms';
+import { useLeadSubmit } from '@/lib/useLeadSubmit';
+import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
 
 interface ValuationFormData {
   name: string;
@@ -9,102 +11,117 @@ interface ValuationFormData {
   phone: string;
   address: string;
   notes: string;
+  company: string;
 }
 
+const inputClass =
+  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
+const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
+
 export default function ValuationForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const { common } = formsDictionary.en;
+  const { status, submit } = useLeadSubmit('valuation');
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ValuationFormData>();
 
-  // TODO: Replace with API route that sends email via Resend or Nodemailer
-  const onSubmit = (data: ValuationFormData) => {
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nAddress: ${data.address}\nNotes: ${data.notes}`
+  const onSubmit = (data: ValuationFormData) =>
+    submit(
+      {
+        Name: data.name,
+        Email: data.email,
+        Phone: data.phone,
+        'Property Address': data.address,
+        Notes: data.notes,
+      },
+      data.company
     );
-    window.location.href = `mailto:USARealtor1@gmail.com?subject=Home Valuation Request&body=${body}`;
-    setSubmitted(true);
-  };
 
-  if (submitted) {
+  if (status === 'sent') {
     return (
-      <div className="text-center py-12">
-        <p className="font-serif text-2xl text-navy font-bold">Thank you!</p>
-        <p className="mt-3 font-sans text-gray-600">
-          Your valuation request has been sent. Jose will be in touch within 24 hours.
-        </p>
-      </div>
+      <SentMessage
+        title="Thank you!"
+        body="Your valuation request has been sent. Jose will be in touch within 24 hours."
+      />
     );
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-5" noValidate>
+      <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
+          <label htmlFor="valuation-name" className={labelClass}>
             Full Name *
           </label>
           <input
+            id="valuation-name"
+            autoComplete="name"
             {...register('name', { required: 'Name is required' })}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+            className={inputClass}
             placeholder="Your full name"
           />
           {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
         </div>
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
+          <label htmlFor="valuation-email" className={labelClass}>
             Email *
           </label>
           <input
+            id="valuation-email"
             type="email"
-            {...register('email', { required: 'Email is required' })}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+            autoComplete="email"
+            {...register('email', {
+              required: 'Email is required',
+              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
+            })}
+            className={inputClass}
             placeholder="your@email.com"
           />
           {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
         </div>
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
+        <label htmlFor="valuation-phone" className={labelClass}>
           Phone
         </label>
         <input
+          id="valuation-phone"
           type="tel"
+          autoComplete="tel"
           {...register('phone')}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+          className={inputClass}
           placeholder="(954) 000-0000"
         />
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
+        <label htmlFor="valuation-address" className={labelClass}>
           Property Address *
         </label>
         <input
+          id="valuation-address"
+          autoComplete="street-address"
           {...register('address', { required: 'Property address is required' })}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
-          placeholder="123 Main St, Boca Raton, FL 33432"
+          className={inputClass}
+          placeholder="123 Main St, Royal Palm Beach, FL 33411"
         />
         {errors.address && <p className="mt-1 text-xs text-coral">{errors.address.message}</p>}
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
+        <label htmlFor="valuation-notes" className={labelClass}>
           Anything else we should know?
         </label>
         <textarea
+          id="valuation-notes"
           {...register('notes')}
           rows={3}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold resize-none"
+          className={`${inputClass} resize-none`}
           placeholder="Recent upgrades, target timeline, any questions..."
         />
       </div>
-      <button
-        type="submit"
-        className="w-full py-4 bg-gold text-navy font-sans font-semibold rounded-lg hover:bg-gold-light transition-colors text-sm"
-      >
-        Request My Free Valuation
-      </button>
+      <SubmitButton status={status} label="Request My Free Valuation" common={common} />
     </form>
   );
 }

@@ -116,7 +116,7 @@ export default async function MarketUpdatePage({
       <CTASection
         title="Have questions about what this means for you?"
         subtitle="Every client's situation is different. Talk to Jose directly for a personalized read on how current market conditions affect your buying or selling timeline."
-        primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
+        primaryCTA={{ label: 'Contact Jose', href: '/contact' }}
         secondaryCTA={{ label: 'Browse More Updates', href: '/market-updates' }}
       />
     </>

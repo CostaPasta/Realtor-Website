@@ -2,8 +2,19 @@
 
 import { MessageCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { type Locale, localeFromPath } from '@/i18n/locales';
+import { whatsappLinkForPath } from '@/lib/whatsapp';
+
+const LABELS: Record<Locale, { aria: string; text: string }> = {
+  en: { aria: 'Chat with Jose on WhatsApp', text: 'Chat on WhatsApp' },
+  es: { aria: 'Escribirle a Jose por WhatsApp', text: 'Escribir por WhatsApp' },
+  pt: { aria: 'Chamar o Jose no WhatsApp', text: 'Chamar no WhatsApp' },
+};
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  const label = LABELS[localeFromPath(pathname)];
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -16,12 +27,13 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/19546141351"
+      href={whatsappLinkForPath(pathname)}
       target="_blank"
       rel="noopener noreferrer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label="Chat with Jose on WhatsApp"
+      aria-label={label.aria}
+      data-floating-whatsapp
       className={`fixed bottom-6 right-4 z-50 flex items-center gap-2 rounded-full shadow-lg transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
@@ -41,7 +53,7 @@ export default function WhatsAppButton() {
           hovered ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'
         }`}
       >
-        Chat on WhatsApp
+        {label.text}
       </span>
     </a>
   );

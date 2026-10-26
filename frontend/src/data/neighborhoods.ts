@@ -30,7 +30,10 @@ export interface Neighborhood {
     url: string;
     category: 'city' | 'county' | 'schools' | 'property-appraiser' | 'chamber' | 'visitor';
   }[];
+  /** First-person "Jose's Take". Written in his name, so it only shows once he approves it. */
   joseNote?: string;
+  /** Set to true after Jose has read the joseNote (or it came from his own words) and signed off. */
+  joseNoteApproved?: boolean;
   lifestyleTags?: string[];
   census?: {
     population: string;
@@ -273,10 +276,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Jose's home turf and most active market, he knows every block, every builder, and what a listing price actually means here.",
     sellerNote: "Over 82% of RPB residents own their homes. When a home lists here, Jose knows what buyers are actually willing to pay, free CMA, no obligation.",
-    testimonial: {
-      quote: "We came to Jose with a budget that other realtors didn't take seriously. He showed us Royal Palm Beach on a Tuesday. We put in an offer that Friday. That was four years ago. Our kids grew up on that street.",
-      attribution: "Ana & Rodrigo M., Royal Palm Beach",
-    },
   },
   {
     name: 'West Palm Beach',
@@ -457,10 +456,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "WPB has 15+ distinct micro-neighborhoods with very different values. Jose will show you which fit what you're looking for, and help you avoid overpaying for a zip code.",
     sellerNote: "WPB values vary sharply by neighborhood and have moved meaningfully in recent years. Jose's free CMA shows exactly where your home sits in today's market.",
-    testimonial: {
-      quote: "I'd been looking in Miami for months before my sister-in-law gave me Jose's number. He pulled up three neighborhoods I'd never heard of, drove me through each one. Within a week I actually understood the city. Where to look, where to stay away from. Closed two months later.",
-      attribution: "Marcus P., West Palm Beach",
-    },
   },
   {
     name: 'Wellington',
@@ -637,10 +632,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "A-rated schools, international equestrian events, and a community that has been thoughtfully built over decades. Jose has worked every neighborhood here.",
     sellerNote: "Wellington's equestrian season brings a wave of international and out-of-state buyers each winter. Jose knows when to list, and who the likely buyers will be.",
-    testimonial: {
-      quote: "The school zoning in Wellington is more complicated than it looks from the outside. Jose had it memorized. He could tell us which streets fell in the Binks Forest zone and what that meant for our kids long-term. That knowledge alone was worth more than any listing sheet.",
-      attribution: "Jennifer & Tom H., Wellington",
-    },
   },
   {
     name: 'The Acreage and Loxahatchee',
@@ -817,10 +808,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "No HOA. More land per dollar than anywhere in Palm Beach County. Jose knows which pockets have the infrastructure and which to approach carefully.",
     sellerNote: "Acreage homes attract a buyer profile that doesn't shop Zillow the same way. Jose knows how to reach them and price for land value, not just square footage.",
-    testimonial: {
-      quote: "I told Jose I wanted an acre, no HOA, and room for my horses. He didn't try to talk me out of it or steer me somewhere more convenient. He just found it.",
-      attribution: "Rick B., Loxahatchee",
-    },
   },
   {
     name: 'Lake Worth Beach',
@@ -997,10 +984,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Walkable downtown, a historic beach casino, Tri-Rail access, and no-HOA bungalows still starting in the $400s. Not many coastal cities in South Florida offer that combination at this price. Jose has worked this market for years.",
     sellerNote: "With 54% of residents renting, Lake Worth Beach draws both owner-occupant buyers and investors. Jose knows how to position a listing for both audiences.",
-    testimonial: {
-      quote: "I rented in Lake Worth Beach for almost two years before I bought here. I liked the neighborhood enough that I didn't want to leave when my lease was up. Jose walked me through what buying actually looked like and the numbers worked out. Three years later, still here.",
-      attribution: "Christine L., Lake Worth Beach",
-    },
   },
   {
     name: 'Boynton Beach',
@@ -1149,10 +1132,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Lower median price than both Delray Beach and Lake Worth Beach, with a wider range of housing types than either, from 55+ condos in the $100s to newer gated homes in the $600s. Jose has worked this market long enough to know which streets have moved and which haven't.",
     sellerNote: "Boynton Beach prices run below Delray and Boca on comparable product. Positioning matters here. Jose knows how buyers shop across Boynton's zip codes and will price accordingly.",
-    testimonial: {
-      quote: "We weren't expecting to fall in love with Boynton Beach. Jose took us down to the marina area and through a few streets we never would have found on our own. We put in an offer within the week. We just closed on our second property here last spring.",
-      attribution: "Kevin & Yolanda R., Boynton Beach",
-    },
   },
   {
     name: 'Delray Beach',
@@ -1315,10 +1294,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Delray has a real east-west split in both price and character. Starter condos west of I-95 and oceanfront estates east of A1A are very different conversations. Jose has worked both sides and can help buyers understand where the value actually sits.",
     sellerNote: "Delray Beach prices run above most of its Palm Beach County neighbors, but values vary significantly by street. Jose's free CMA shows exactly where your home sits in today's market.",
-    testimonial: {
-      quote: "Delray had already decided for me before I ever thought about buying. Every visit made it harder to leave. When I finally called Jose to ask if I could actually afford it, it turned out I could. I've lived here two years now and haven't thought about renting since.",
-      attribution: "Diane F., Delray Beach",
-    },
   },
   {
     name: 'Palm Beach Gardens',
@@ -1482,10 +1457,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Marsh Pointe and Timber Trace at 10/10, PGA National out the back door, and The Gardens Mall and Legacy Place covering retail without a long drive. For families with elementary-age kids, the infrastructure case is strong. Buyers with teenagers need to do the high school math before committing.",
     sellerNote: "Palm Beach Gardens inventory has grown, giving sellers more competition than in 2022–2023. Jose's free CMA shows where your home sits and what pricing strategy moves it at full value.",
-    testimonial: {
-      quote: "We moved from Miami-Dade in 2022 and were skeptical. Everyone told us Palm Beach Gardens was for retirees. Then our kids started at Timber Trace and Marsh Pointe and we just stopped questioning it. The schools are something else.",
-      attribution: "Homeowner in Palm Beach Gardens since 2022",
-    },
   },
   {
     name: 'Jupiter',
@@ -1655,10 +1626,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Beacon Cove at 10/10 through Jupiter High at 7/10 with Cambridge AICE. That K–12 public arc is real and uncommon in Palm Beach County. The river, Jonathan Dickinson, and DuBois Park are all within the town footprint. Jose has worked every corner of this market and knows which streets carry a waterfront premium worth paying and which don't.",
     sellerNote: "School-driven demand keeps buyer activity consistent across price points in Jupiter, particularly in the $550K–$825K family bracket. Jose's free CMA shows exactly where your home sits in today's market.",
-    testimonial: {
-      quote: "I rented in Abacoa for a year just to test it. Then I saw the market move and called Jose. We closed on a townhouse the following spring. I bike to Harborside now and I still can't believe I actually live here.",
-      attribution: "Resident of Jupiter since 2023",
-    },
   },
   {
     name: 'Palm Beach',
@@ -1797,10 +1764,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "The Town of Palm Beach is off-market and relationship-driven. Most significant sales never reach MLS. Jose works with South American buyers and international clients in this market and can facilitate introductions to the right brokers for your specific situation.",
     sellerNote: "Significant Palm Beach sales are handled with discretion and often never hit MLS. Jose can connect you to the right representation for your specific property and timeline.",
-    testimonial: {
-      quote: "Jose understands how the Palm Beach market actually works. Introductions, timing, discretion. He connected us to the right people and the transaction went smoothly. That is what matters here.",
-      attribution: "International buyer, Palm Beach",
-    },
   },
 
   // ── BROWARD COUNTY ─────────────────────────────────────────────────────────
@@ -1970,10 +1933,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "More house and more land than coastal Broward at this price, with a strong Venezuelan and Colombian community presence. Jose knows which HOA communities carry surprise dues and which are priced fairly, a real differentiator in this market.",
     sellerNote: "Davie's value appeal draws a consistent buyer pool from price-pressured coastal Broward. Jose's free CMA shows exactly where your home sits, and how to price for the buyers who are actively looking here.",
-    testimonial: {
-      quote: "My parents live twenty minutes away in Doral. Davie gave me the space I needed without the Miami traffic every morning. NSU is right there for my kids, the schools are decent, and I can still find arepas on a Tuesday night.",
-      attribution: "Homeowner in Davie since 2021",
-    },
   },
   {
     name: 'Oakland Park',
@@ -2129,10 +2088,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "One of the only places in Broward County where the $300K–$400K budget still reaches a detached single-family home with a yard. The Culinary Arts District is real and growing. Buyers need to do address-level homework, Jose knows which streets work and which to approach carefully.",
     sellerNote: "Oakland Park's value appeal draws a consistent first-time buyer pool from higher-priced Fort Lauderdale. Jose's free CMA shows exactly where your home sits in this evolving market.",
-    testimonial: {
-      quote: "I kept hearing you can't buy anything decent in Broward under 400K. I walked through three homes in Oakland Park in one afternoon. My agent called it right. The Culinary District changed what this neighborhood means.",
-      attribution: "First-time buyer in Oakland Park",
-    },
   },
   {
     name: 'Wilton Manors',
@@ -2272,10 +2227,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Turnkey single-family in Wilton Manors starts above $650K and inventory is tight year-round. Buyers who want the walkability need to be ready to move when something appears. Jose knows what's actually available and what's worth waiting for in this market.",
     sellerNote: "Wilton Manors' fixed land supply and consistent buyer demand mean well-priced homes move without sitting long. Jose's free CMA shows exactly where your home sits in this supply-constrained market.",
-    testimonial: {
-      quote: "We spent a year on Zoom calls with Jose from Chicago. Every question we had, he had a real answer for. When we finally visited, we walked Wilton Drive for twenty minutes and both knew. There was nothing to think about after that.",
-      attribution: "Buyers relocated from Chicago, Wilton Manors",
-    },
   },
   {
     name: 'Pompano Beach',
@@ -2423,10 +2374,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "The Pomp redevelopment is real and underway. Pompano Beach High is a National Blue Ribbon, all-magnet campus with Cambridge AICE and a Florida A state grade, worth knowing for families with high-schoolers. And there are still water-adjacent single-family homes in the $500K–$600K range that don't exist at that price in Fort Lauderdale. Block-level research matters more here than in most Broward cities.",
     sellerNote: "Pompano Beach's redevelopment is driving values unevenly across the eastern and central sections. Jose's free CMA shows exactly where your property sits in today's market.",
-    testimonial: {
-      quote: "The Blue Ribbon high school was the thing I would not compromise on. Jose sent me listings in Pompano I would not have found myself. The house we got two blocks from Pompano Beach High was more than I expected at that price point.",
-      attribution: "Single mother, Pompano Beach",
-    },
   },
 
   // ── TREASURE COAST ─────────────────────────────────────────────────────────
@@ -2592,10 +2539,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "New construction at prices Palm Beach County buyers have stopped expecting. A 3BR/2BA with a 2-car garage and community amenities for under $430K exists here and doesn't in most of Broward or Palm Beach County. The school district and the commute are both real factors; research both before committing.",
     sellerNote: "Port St. Lucie's inventory has grown, giving sellers real competition. Jose's free CMA shows exactly where your home sits in today's market and what pricing strategy matches current conditions.",
-    testimonial: {
-      quote: "We spent eighteen months looking in Broward. We kept getting outbid on houses we didn't even like that much. A friend in PSL told us to just come look. We put in an offer three weeks after our first visit.",
-      attribution: "Buyers relocated from Broward to Port St. Lucie",
-    },
   },
   {
     name: 'Stuart',
@@ -2777,10 +2720,6 @@ export const neighborhoods: Neighborhood[] = [
     },
     buyerNote: "Martin County's public schools rank 11th in the state and Clark Advanced Learning Center is a 10/10 public charter. For families where school quality is the deciding factor, Stuart is one of the strongest value plays in all of South Florida.",
     sellerNote: "Martin County home values have held better than most Florida markets. Jose's free CMA shows exactly what your home is worth in a county where school-driven demand keeps competition real.",
-    testimonial: {
-      quote: "We did the research for three years before we pulled the trigger. Stuart kept coming back to the top of our list. The river, the downtown, the size. Jose walked us through the market before we ever flew down. We signed that spring.",
-      attribution: "Retired couple relocated from Connecticut",
-    },
   },
 
 ];

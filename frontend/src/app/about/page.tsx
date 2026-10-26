@@ -85,7 +85,7 @@ export default function AboutPage() {
             </h1>
             <p className="mt-5 font-sans text-lg text-white/75 leading-relaxed">
               A realtor who speaks your language. Literally. Born in Brazil, built in Florida,
-              fluent in three languages and two decades of this market.
+              fluent in three languages, with 15 years in this market.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {LANGUAGES.map((l) => (
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
               >
-                Schedule a Free Call
+                Contact Jose
               </Link>
             </div>
           </div>

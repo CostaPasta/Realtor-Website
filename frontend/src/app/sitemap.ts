@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { neighborhoods } from '@/data/neighborhoods';
 import { marketUpdates } from '@/data/market-updates';
+import { testimonials } from '@/data/testimonials';
+import { TRANSLATED_PATHS, localizedPath } from '@/i18n/locales';
 
 const BASE_URL = 'https://www.josecostarealtor.com';
 
@@ -42,12 +44,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${BASE_URL}/testimonials`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    ...(testimonials.length > 0
+      ? [
+          {
+            url: `${BASE_URL}/testimonials`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+          },
+        ]
+      : []),
     {
       url: `${BASE_URL}/market-updates`,
       lastModified: new Date(),
@@ -62,12 +68,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const neighborhoodPages: MetadataRoute.Sitemap = neighborhoods.map((n) => ({
-    url: `${BASE_URL}/neighborhoods/${n.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  const translatedPages: MetadataRoute.Sitemap = (['es', 'pt'] as const).flatMap((locale) =>
+    TRANSLATED_PATHS.map((path) => ({
+      url: `${BASE_URL}${localizedPath(locale, path)}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: path === '/' ? 0.9 : 0.8,
+    }))
+  );
+
+  const neighborhoodPages: MetadataRoute.Sitemap = neighborhoods
+    .filter((n) => !n.hidden)
+    .map((n) => ({
+      url: `${BASE_URL}/neighborhoods/${n.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
 
   const marketUpdatePages: MetadataRoute.Sitemap = marketUpdates.map((u) => ({
     url: `${BASE_URL}/market-updates/${u.slug}`,
@@ -76,5 +93,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...neighborhoodPages, ...marketUpdatePages];
+  return [...staticPages, ...translatedPages, ...neighborhoodPages, ...marketUpdatePages];
 }

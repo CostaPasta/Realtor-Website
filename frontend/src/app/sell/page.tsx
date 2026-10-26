@@ -166,6 +166,7 @@ export default function SellPage() {
       </section>
 
       {/* ─── Testimonials ─── */}
+      {sellerTestimonials.length > 0 && (
       <section className="py-20 md:py-24 bg-cream">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
@@ -184,6 +185,7 @@ export default function SellPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ─── Free Valuation Form ─── */}
       <section id="valuation" className="py-20 md:py-24 bg-white">

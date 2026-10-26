@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import MobileStickyBar from '@/components/MobileStickyBar';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -18,6 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.josecostarealtor.com'),
   title: {
     default: 'Jose Costa | Palm Beach County Realtor | Rentals, Sales & More',
     template: '%s | Jose Costa Realtor',
@@ -56,9 +58,6 @@ export const metadata: Metadata = {
     description:
       'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales.',
   },
-  alternates: {
-    canonical: 'https://www.josecostarealtor.com',
-  },
 };
 
 export default function RootLayout({
@@ -73,6 +72,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <MobileStickyBar />
       </body>
     </html>
   );
