@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import SectionHeading from '@/components/SectionHeading';
 import TestimonialCard from '@/components/TestimonialCard';
 import CTASection from '@/components/CTASection';
 import { testimonials } from '@/data/testimonials';

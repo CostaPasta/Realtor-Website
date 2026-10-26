@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import SectionHeading from '@/components/SectionHeading';
 import NeighborhoodCard from '@/components/NeighborhoodCard';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';

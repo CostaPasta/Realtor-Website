@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { track } from '@vercel/analytics';
 import type { Locale } from '@/i18n/locales';
 
 export type LeadType = 'contact' | 'rental' | 'landlord' | 'valuation';
@@ -22,6 +23,7 @@ export function useLeadSubmit(type: LeadType, locale: Locale = 'en') {
         body: JSON.stringify({ type, locale, fields, company }),
       });
       setStatus(res.ok ? 'sent' : 'error');
+      if (res.ok) track('Lead', { form: type, language: locale, page: window.location.pathname });
     } catch {
       setStatus('error');
     }

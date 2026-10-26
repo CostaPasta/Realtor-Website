@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import MobileStickyBar from '@/components/MobileStickyBar';
+import SiteAnalytics from '@/components/SiteAnalytics';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -73,6 +74,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <MobileStickyBar />
+        <SiteAnalytics />
       </body>
     </html>
   );
