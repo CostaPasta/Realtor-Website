@@ -31,7 +31,7 @@ const LANGUAGE_VALUES: Record<Locale, string> = {
 
 export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, contact: t } = formsDictionary[locale];
-  const { status, submit } = useLeadSubmit('contact', locale);
+  const { status, submit, mailtoHref } = useLeadSubmit('contact', locale);
   const {
     register,
     handleSubmit,
@@ -164,7 +164,7 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
         />
       </div>
 
-      <SubmitButton status={status} label={t.submit} common={common} />
+      <SubmitButton status={status} label={t.submit} common={common} mailtoHref={mailtoHref} />
     </form>
   );
 }

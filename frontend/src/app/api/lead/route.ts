@@ -22,6 +22,8 @@ type LeadType = keyof typeof SUBJECTS;
 type Locale = keyof typeof LANGUAGE_NAMES;
 
 const MAX_FIELD_LENGTH = 2000;
+const MIN_FILL_MS = 2000;
+const MAX_LINKS = 2;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function isLeadType(value: unknown): value is LeadType {
@@ -40,10 +42,16 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: 'invalid_json' }, { status: 400 });
   }
 
-  const { type, locale, fields, company } = (payload ?? {}) as Record<string, unknown>;
+  const { type, locale, fields, company, elapsedMs } = (payload ?? {}) as Record<string, unknown>;
 
   // Honeypot: real visitors never see or fill this field. Pretend success so bots move on.
   if (typeof company === 'string' && company.trim() !== '') {
+    return Response.json({ ok: true });
+  }
+
+  // Nobody fills out a form in under two seconds; scripts do. Same silent success.
+  if (typeof elapsedMs === 'number' && elapsedMs < MIN_FILL_MS) {
+    console.log('[lead] dropped: submitted too fast');
     return Response.json({ ok: true });
   }
 
@@ -56,6 +64,13 @@ export async function POST(request: Request) {
     if (typeof value !== 'string') continue;
     const trimmed = value.trim().slice(0, MAX_FIELD_LENGTH);
     if (trimmed) clean[key.slice(0, 60)] = trimmed;
+  }
+
+  // Link-stuffed messages are almost always spam; real inquiries rarely include links.
+  const linkCount = Object.values(clean).join(' ').match(/https?:\/\/|www\./gi)?.length ?? 0;
+  if (linkCount > MAX_LINKS) {
+    console.log('[lead] dropped: too many links');
+    return Response.json({ ok: true });
   }
 
   const email = clean['Email'];

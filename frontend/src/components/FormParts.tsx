@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { localeFromPath, localizedPath } from '@/i18n/locales';
 import { whatsappLinkForPath } from '@/lib/whatsapp';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 import type { LeadStatus } from '@/lib/useLeadSubmit';
@@ -23,10 +25,13 @@ export function SubmitButton({
   status,
   label,
   common,
+  mailtoHref,
 }: {
   status: LeadStatus;
   label: string;
   common: FormsDictionary['common'];
+  /** Pre-filled email with the visitor's details, shown when sending fails. */
+  mailtoHref?: string;
 }) {
   const pathname = usePathname();
   return (
@@ -35,6 +40,14 @@ export function SubmitButton({
         <div role="alert" className="rounded-lg bg-coral/10 border border-coral/30 px-4 py-3 font-sans text-sm text-navy">
           <p className="font-semibold">{common.error}</p>
           <p className="mt-1">
+            {mailtoHref && (
+              <>
+                <a href={mailtoHref} className="underline hover:text-gold">
+                  {common.errorEmail}
+                </a>
+                {' · '}
+              </>
+            )}
             <a href="tel:+19546141351" className="underline hover:text-gold">
               {common.errorCall}
             </a>
@@ -57,6 +70,16 @@ export function SubmitButton({
       >
         {status === 'sending' ? common.sending : label}
       </button>
+      <p className="font-sans text-xs text-gray-500 leading-relaxed">
+        {common.consentBefore}
+        <Link
+          href={localizedPath(localeFromPath(pathname), '/privacy')}
+          className="underline hover:text-navy"
+        >
+          {common.consentLink}
+        </Link>
+        {common.consentAfter}
+      </p>
     </>
   );
 }
