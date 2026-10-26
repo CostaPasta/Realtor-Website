@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { neighborhoods } from '@/data/neighborhoods';
-import { marketUpdates } from '@/data/market-updates';
+import { visibleMarketUpdates } from '@/data/market-updates';
 import { testimonials } from '@/data/testimonials';
 import { TRANSLATED_PATHS, localizedPath } from '@/i18n/locales';
 
@@ -86,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  const marketUpdatePages: MetadataRoute.Sitemap = marketUpdates.map((u) => ({
+  const marketUpdatePages: MetadataRoute.Sitemap = visibleMarketUpdates().map((u) => ({
     url: `${BASE_URL}/market-updates/${u.slug}`,
     lastModified: new Date(u.date),
     changeFrequency: 'never' as const,

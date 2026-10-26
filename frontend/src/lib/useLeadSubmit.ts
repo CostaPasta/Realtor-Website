@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { track } from '@vercel/analytics';
 import type { Locale } from '@/i18n/locales';
 
-export type LeadType = 'contact' | 'rental' | 'landlord' | 'valuation';
+export type LeadType = 'contact' | 'rental' | 'landlord' | 'valuation' | 'subscribe';
 export type LeadStatus = 'idle' | 'sending' | 'sent' | 'error';
 
 /**

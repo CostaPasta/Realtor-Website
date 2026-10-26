@@ -13,6 +13,7 @@ const SUBJECTS = {
   rental: 'Rental home inquiry',
   landlord: 'Landlord property inquiry',
   valuation: 'Home valuation request',
+  subscribe: 'Market update signup',
 } as const;
 
 const LANGUAGE_NAMES = { en: 'English', es: 'Spanish', pt: 'Portuguese' } as const;

@@ -2,10 +2,13 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
-import { marketUpdates } from '@/data/market-updates';
+import Image from 'next/image';
+import { Phone, MessageCircle } from 'lucide-react';
+import { visibleMarketUpdates } from '@/data/market-updates';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export async function generateStaticParams() {
-  return marketUpdates.map((u) => ({ slug: u.slug }));
+  return visibleMarketUpdates().map((u) => ({ slug: u.slug }));
 }
 
 export async function generateMetadata({
@@ -14,11 +17,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const update = marketUpdates.find((u) => u.slug === slug);
+  const update = visibleMarketUpdates().find((u) => u.slug === slug);
   if (!update) return {};
   return {
     title: update.title,
     description: update.summary,
+    alternates: { canonical: `/market-updates/${update.slug}` },
   };
 }
 
@@ -35,13 +39,14 @@ export default async function MarketUpdatePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const update = marketUpdates.find((u) => u.slug === slug);
+  const update = visibleMarketUpdates().find((u) => u.slug === slug);
   if (!update) notFound();
 
   const date = new Date(update.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'UTC',
   });
 
   return (
@@ -79,26 +84,88 @@ export default async function MarketUpdatePage({
             {update.summary}
           </p>
           <div className="prose prose-lg max-w-none">
-            {update.body.split('\n\n').map((paragraph, i) => (
-              <p
-                key={i}
-                className="font-sans text-gray-700 leading-relaxed mb-6 text-base"
-              >
-                {paragraph}
-              </p>
-            ))}
+            {update.body.split('\n\n').map((block, i) =>
+              block.startsWith('## ') ? (
+                <h2 key={i} className="font-serif text-2xl font-bold text-navy mt-10 mb-4 first:mt-0">
+                  {block.slice(3)}
+                </h2>
+              ) : (
+                <p key={i} className="font-sans text-gray-700 leading-relaxed mb-6 text-base">
+                  {block}
+                </p>
+              )
+            )}
           </div>
 
-          {/* Author attribution */}
-          <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center shrink-0">
-              <span className="font-sans font-bold text-gold text-lg">JC</span>
-            </div>
-            <div>
-              <p className="font-sans font-semibold text-navy text-sm">Jose Costa</p>
-              <p className="font-sans text-xs text-gray-500">
-                South Florida Realtor, Atlantic Florida Properties
+          {update.sources && update.sources.length > 0 && (
+            <div className="mt-10 pt-6 border-t border-gray-100">
+              <h2 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-3">
+                Sources
+              </h2>
+              <ul className="space-y-2 font-sans text-sm text-gray-600 list-disc pl-5">
+                {update.sources.map((source) => (
+                  <li key={source.label}>
+                    {source.url ? (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-gray-300 hover:text-navy hover:decoration-gold"
+                      >
+                        {source.label}
+                      </a>
+                    ) : (
+                      source.label
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 font-sans text-xs text-gray-400">
+                Asking rents are list prices, not signed leases. Figures are deemed reliable but not
+                guaranteed.
               </p>
+            </div>
+          )}
+
+          {/* Contact card: questions about the numbers go to Jose */}
+          <div className="mt-10 rounded-2xl bg-cream p-6 flex flex-col sm:flex-row sm:items-center gap-5">
+            <div className="flex items-center gap-4 flex-1">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-gold/50 shrink-0">
+                <Image
+                  src="/images/jose-portrait.jpeg"
+                  alt="Jose Costa"
+                  fill
+                  sizes="56px"
+                  className="object-cover object-[50%_25%]"
+                />
+              </div>
+              <div>
+                <p className="font-sans font-semibold text-navy text-sm">
+                  Questions about these numbers for a specific home?
+                </p>
+                <p className="font-sans text-xs text-gray-500 mt-0.5">
+                  Jose Costa, Realtor® · Atlantic Florida Properties · English, Português, Español
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <a
+                href="tel:+19546141351"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-navy text-white font-sans text-sm font-semibold hover:bg-navy-light transition-colors"
+              >
+                <Phone size={15} />
+                Call
+              </a>
+              <a
+                href={whatsappLink('en', 'general')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-white font-sans text-sm font-semibold hover:opacity-90"
+                style={{ backgroundColor: '#25D366' }}
+              >
+                <MessageCircle size={15} />
+                WhatsApp
+              </a>
             </div>
           </div>
 
