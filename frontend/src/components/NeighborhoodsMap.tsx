@@ -116,13 +116,13 @@ export default function NeighborhoodsMap() {
               </h3>
               <div className="grid grid-cols-2 gap-2 mb-3">
                 <div>
-                  <p className="text-xs text-gray-500">Median Price</p>
+                  <p className="text-xs text-gray-500">Median House Price</p>
                   <p className="text-sm font-semibold text-navy">
                     {selectedNeighborhood.medianHomePrice}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500">Avg Days</p>
+                  <p className="text-xs text-gray-500">Days on Market</p>
                   <p className="text-sm font-semibold text-navy">
                     {selectedNeighborhood.avgDaysOnMarket}
                   </p>

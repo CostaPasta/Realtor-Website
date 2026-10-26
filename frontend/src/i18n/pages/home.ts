@@ -192,7 +192,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     },
     cardLabels: {
       county: 'Condado de {county}',
-      medianPrice: 'Precio medio',
+      medianPrice: 'Precio medio (casas)',
       avgDays: 'Días en el mercado',
       days: 'días',
       bestFor: 'Ideal para:',
@@ -305,7 +305,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     },
     cardLabels: {
       county: 'Condado de {county}',
-      medianPrice: 'Preço mediano',
+      medianPrice: 'Preço mediano (casas)',
       avgDays: 'Dias no mercado',
       days: 'dias',
       bestFor: 'Ideal para:',

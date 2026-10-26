@@ -28,8 +28,8 @@ export interface NeighborhoodCardLabels {
 
 const EN_LABELS: NeighborhoodCardLabels = {
   county: '{county} County',
-  medianPrice: 'Median Price',
-  avgDays: 'Avg Days',
+  medianPrice: 'Median House Price',
+  avgDays: 'Days on Market',
   days: 'days',
   bestFor: 'Best for:',
 };

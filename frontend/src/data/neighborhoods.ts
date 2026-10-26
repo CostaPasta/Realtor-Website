@@ -105,8 +105,8 @@ export const neighborhoods: Neighborhood[] = [
       'Houses sold at a median of $566,000 in January through September 2026',
       '82 rentals listed in late October 2026, with three-bedrooms asking a median of $2,800',
     ],
-    medianHomePrice: '$508K',
-    avgDaysOnMarket: '93',
+    medianHomePrice: '$566K',
+    avgDaysOnMarket: '35',
     bestFor: 'Families, first-time buyers, renters, and landlords seeking reliable tenants',
     coordinates: { lat: 26.7082, lng: -80.2262 },
     imageSrc: '/images/neighborhoods/royal-palm-beach.jpg',
@@ -140,10 +140,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$508K',
-      avgDaysOnMarket: '93',
-      pricePerSqFt: '$263',
-      lastUpdated: 'February 2026 (Redfin)',
+      medianPrice: '$566K',
+      avgDaysOnMarket: '35',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -293,8 +292,8 @@ export const neighborhoods: Neighborhood[] = [
       'Norton Museum of Art and the Kravis Center for the Performing Arts',
       'About half of households rent; 943 rentals listed in late October 2026',
     ],
-    medianHomePrice: '$609K',
-    avgDaysOnMarket: '65',
+    medianHomePrice: '$575K',
+    avgDaysOnMarket: '41',
     bestFor: 'Urban professionals, first-time buyers, and investors',
     coordinates: { lat: 26.7153, lng: -80.0534 },
     population: '120,000',
@@ -328,10 +327,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '$609K',
-      avgDaysOnMarket: '65',
-      pricePerSqFt: '$306',
-      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
+      medianPrice: '$575K',
+      avgDaysOnMarket: '41',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -472,8 +470,8 @@ export const neighborhoods: Neighborhood[] = [
       'Low-density planned community with village parks, an aquatics complex, and an amphitheater',
       'Polo season at the National Polo Center from late December through early May',
     ],
-    medianHomePrice: '$750K',
-    avgDaysOnMarket: '73',
+    medianHomePrice: '$755K',
+    avgDaysOnMarket: '34',
     bestFor: 'Families, equestrian enthusiasts, and buyers wanting space and strong schools',
     coordinates: { lat: 26.6595, lng: -80.2686 },
     imageSrc: '/images/neighborhoods/wellington.jpg',
@@ -506,10 +504,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '$750K',
-      avgDaysOnMarket: '73',
-      pricePerSqFt: '$334',
-      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
+      medianPrice: '$755K',
+      avgDaysOnMarket: '34',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -649,8 +646,8 @@ export const neighborhoods: Neighborhood[] = [
       'Newer gated communities like Arden alongside established rural properties',
       'Next to the 60,000-acre J.W. Corbett Wildlife Management Area',
     ],
-    medianHomePrice: '$691K',
-    avgDaysOnMarket: '76',
+    medianHomePrice: '$700K',
+    avgDaysOnMarket: '46',
     bestFor: 'Buyers wanting space, equestrian families, investors, and those looking for rural Florida character',
     coordinates: { lat: 26.7, lng: -80.335 },
     resources: [
@@ -682,10 +679,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '$691K',
-      avgDaysOnMarket: '76',
-      pricePerSqFt: '$323',
-      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
+      medianPrice: '$700K',
+      avgDaysOnMarket: '46',
+      lastUpdated: 'Loxahatchee houses: price Jan–Sep 2026, days on market Oct 2025–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -824,8 +820,8 @@ export const neighborhoods: Neighborhood[] = [
       'Large Spanish-speaking community',
       'City beach with a fishing pier and the rebuilt 1920s Casino Building',
     ],
-    medianHomePrice: '$615K',
-    avgDaysOnMarket: '62',
+    medianHomePrice: '$560K',
+    avgDaysOnMarket: '35',
     bestFor: 'First-time buyers, investors, and buyers who value walkability and community character',
     coordinates: { lat: 26.6167, lng: -80.0584 },
     resources: [
@@ -857,10 +853,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     marketSnapshot: {
-      medianPrice: '$615K',
-      avgDaysOnMarket: '62',
-      pricePerSqFt: '$316',
-      lastUpdated: 'May 2026 (BeachesMLS + RPR)',
+      medianPrice: '$560K',
+      avgDaysOnMarket: '35',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1000,8 +995,8 @@ export const neighborhoods: Neighborhood[] = [
       'Diverse, multilingual community',
       "Easy access to I-95 and Florida's Turnpike",
     ],
-    medianHomePrice: '$410,000',
-    avgDaysOnMarket: '49',
+    medianHomePrice: '$525K',
+    avgDaysOnMarket: '35',
     bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
     coordinates: { lat: 26.5317, lng: -80.0906 },
     resources: [
@@ -1032,9 +1027,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     marketSnapshot: {
-      medianPrice: '$410,000',
-      avgDaysOnMarket: '49',
-      lastUpdated: 'June 2026 (RPR)',
+      medianPrice: '$525K',
+      avgDaysOnMarket: '35',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1148,8 +1143,8 @@ export const neighborhoods: Neighborhood[] = [
       'Morikami Museum and Wakodahatchee Wetlands, both in western Delray',
       'Price range from 55+ condos under $200K to Intracoastal estates over $2M',
     ],
-    medianHomePrice: '$438,695',
-    avgDaysOnMarket: '61',
+    medianHomePrice: '$873K',
+    avgDaysOnMarket: '36',
     bestFor: 'Active buyers of all ages, lifestyle-driven families, and investors',
     coordinates: { lat: 26.4615, lng: -80.0728 },
     resources: [
@@ -1179,9 +1174,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     marketSnapshot: {
-      medianPrice: '$438,695',
-      avgDaysOnMarket: '61',
-      lastUpdated: 'June 2026 (RPR)',
+      medianPrice: '$873K',
+      avgDaysOnMarket: '36',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1312,8 +1307,8 @@ export const neighborhoods: Neighborhood[] = [
       'PGA National, BallenIsles, and Mirasol offer bundled golf, pools, and tennis within gated communities',
       '15 minutes to Jupiter Beach, Palm Beach, and the Intracoastal',
     ],
-    medianHomePrice: '$790K',
-    avgDaysOnMarket: '82',
+    medianHomePrice: '$1.1M',
+    avgDaysOnMarket: '52',
     bestFor: 'Families with elementary-age children, golf enthusiasts, and professionals relocating from the Northeast',
     coordinates: { lat: 26.8237, lng: -80.1337 },
     resources: [
@@ -1345,10 +1340,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$790K',
-      avgDaysOnMarket: '82',
-      pricePerSqFt: '$380',
-      lastUpdated: 'March 2026 (Houzeo/Redfin)',
+      medianPrice: '$1.1M',
+      avgDaysOnMarket: '52',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1475,8 +1469,8 @@ export const neighborhoods: Neighborhood[] = [
       'DuBois Park, 18-acre inlet park with a guarded snorkeling lagoon and kayak access',
       'No high-rise density; population of 62,000 spread across a low-rise town footprint',
     ],
-    medianHomePrice: '$670K',
-    avgDaysOnMarket: '65',
+    medianHomePrice: '$1.07M',
+    avgDaysOnMarket: '29',
     bestFor: 'Families prioritizing K–12 school quality, outdoor enthusiasts, and buyers who value natural Florida',
     coordinates: { lat: 26.9342, lng: -80.0942 },
     resources: [
@@ -1508,10 +1502,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$670K',
-      avgDaysOnMarket: '65',
-      pricePerSqFt: '$450',
-      lastUpdated: 'May 2026 (Redfin)',
+      medianPrice: '$1.07M',
+      avgDaysOnMarket: '29',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1779,7 +1772,7 @@ export const neighborhoods: Neighborhood[] = [
     region: 'Broward County',
     tagline: "More house and more land than coastal Broward, with equestrian zoning and Nova Southeastern anchoring the west side.",
     description:
-      "Davie occupies an unusual position in Broward County: a town of over 112,000 that has deliberately preserved its horse-country character even as it grew into a fully suburban city. Equestrian zoning protects riding trails along residential streets in designated sections, Bergeron Grounds hosts Wednesday jackpot rodeos and a handful of PRCA events each year, and ranch-style homes on larger lots remain available at prices impossible in coastal Broward. The Latino community, drawn heavily from Venezuela, Colombia, and Central America, gives Davie's commercial corridors, restaurants, and social fabric a South American cultural character that distinguishes it from whiter, more insular Broward suburbs.\n\nNova Southeastern University's campus provides a stable professional and academic anchor, employment base, and rental demand that protects the market against the seasonal volatility that affects beach cities. The South Florida Education Center corridor (Nova Southeastern, Broward College, and FAU's Davie campus in close proximity) reinforces this dynamic. Commutes to downtown Fort Lauderdale, Miami, and Boca Raton are all managed via I-595 and the Florida Turnpike.\n\nThe honest tradeoffs: Davie is not walkable, and almost nothing is accessible without a car. Traffic on University Drive and Davie Road can be heavy. The median home price has climbed above $500K, which means buyers under $420K will be looking at condos rather than the single-family homes that define the neighborhood's character. HOA fees in condo and gated communities can significantly affect true monthly cost. The eastern sections near the Broward College campus feel denser and more urban; the western sections near the Everglades edge are quieter and more rural, these micro-zones carry meaningfully different lifestyles, and buyers should tour both.",
+      "Davie occupies an unusual position in Broward County: a town of over 112,000 that has deliberately preserved its horse-country character even as it grew into a fully suburban city. Equestrian zoning protects riding trails along residential streets in designated sections, Bergeron Grounds hosts Wednesday jackpot rodeos and a handful of PRCA events each year, and ranch-style homes on larger lots remain available at prices impossible in coastal Broward. The Latino community, drawn heavily from Venezuela, Colombia, and Central America, gives Davie's commercial corridors, restaurants, and social fabric a South American cultural character that distinguishes it from whiter, more insular Broward suburbs.\n\nNova Southeastern University's campus provides a stable professional and academic anchor, employment base, and rental demand that protects the market against the seasonal volatility that affects beach cities. The South Florida Education Center corridor (Nova Southeastern, Broward College, and FAU's Davie campus in close proximity) reinforces this dynamic. Commutes to downtown Fort Lauderdale, Miami, and Boca Raton are all managed via I-595 and the Florida Turnpike.\n\nThe honest tradeoffs: Davie is not walkable, and almost nothing is accessible without a car. Traffic on University Drive and Davie Road can be heavy. Houses sold at a median of $810,000 from January through September 2026, so buyers under $420K will mostly be looking at condos and townhomes rather than the single-family homes that define the neighborhood. HOA fees in condo and gated communities can significantly affect true monthly cost. The eastern sections near the Broward College campus feel denser and more urban; the western sections near the Everglades edge are quieter and more rural, these micro-zones carry meaningfully different lifestyles, and buyers should tour both.",
     highlights: [
       'Equestrian zoning, horse trails protected by town ordinance in designated areas',
       'Nova Southeastern University, major employment anchor and year-round rental demand',
@@ -1788,8 +1781,8 @@ export const neighborhoods: Neighborhood[] = [
       'Flamingo Gardens, 60-acre botanical garden and Everglades wildlife sanctuary',
       'Accessible to I-595, Florida Turnpike, Fort Lauderdale, Miami, and Boca Raton',
     ],
-    medianHomePrice: '$520K',
-    avgDaysOnMarket: '77',
+    medianHomePrice: '$810K',
+    avgDaysOnMarket: '31',
     bestFor: 'Families, investors, and Latino community members seeking space and Broward value',
     coordinates: { lat: 26.0765, lng: -80.2521 },
     resources: [
@@ -1821,10 +1814,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$520K',
-      avgDaysOnMarket: '77',
-      pricePerSqFt: '$328',
-      lastUpdated: 'February 2026 (Redfin)',
+      medianPrice: '$810K',
+      avgDaysOnMarket: '31',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -1951,8 +1943,8 @@ export const neighborhoods: Neighborhood[] = [
       'Interior canals for kayaking and paddleboarding without a waterfront premium',
       'Diverse community, Hispanic, Haitian-American, and Caribbean cultural presence',
     ],
-    medianHomePrice: '$415K',
-    avgDaysOnMarket: '84',
+    medianHomePrice: '$540K',
+    avgDaysOnMarket: '34',
     bestFor: 'First-time buyers, investors, and buyers seeking Fort Lauderdale adjacency without Fort Lauderdale prices',
     coordinates: { lat: 26.1726, lng: -80.132 },
     resources: [
@@ -1983,10 +1975,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$415K',
-      avgDaysOnMarket: '84',
-      pricePerSqFt: '$315',
-      lastUpdated: 'October 2025 (Redfin)',
+      medianPrice: '$540K',
+      avgDaysOnMarket: '34',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -2105,8 +2096,8 @@ export const neighborhoods: Neighborhood[] = [
       'Steps from Fort Lauderdale Las Olas, Flagler Village, and the beach',
       'Colohatchee Park, mangrove preserve, boardwalk, and kayak launch on the Middle River',
     ],
-    medianHomePrice: '$650K',
-    avgDaysOnMarket: '75',
+    medianHomePrice: '$850K',
+    avgDaysOnMarket: '57',
     bestFor: 'LGBTQ+ buyers, walkability-focused buyers, established professionals, and buyers seeking walkable Broward living',
     coordinates: { lat: 26.162, lng: -80.1342 },
     resources: [
@@ -2137,10 +2128,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$650K',
-      avgDaysOnMarket: '75',
-      pricePerSqFt: '$413',
-      lastUpdated: 'November 2025 (Redfin)',
+      medianPrice: '$850K',
+      avgDaysOnMarket: '57',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
@@ -2236,7 +2226,7 @@ export const neighborhoods: Neighborhood[] = [
     region: 'Broward County',
     tagline: "Broward's coastal value play, Intracoastal access, active redevelopment, and a National Blue Ribbon high school.",
     description:
-      "Pompano Beach is in the middle of a real transition, and buyers in 2025–2026 are entering at an interesting moment. Years of targeted investment, the Fishing Village renovation, The Amp, the downtown corridor upgrades, and now the massive Pomp project anchored by Topgolf and Live! entertainment, are changing the city's offer to residents in ways that won't fully materialize for several more years. For buyers who want coastal Broward County proximity without Fort Lauderdale or Deerfield Beach pricing, Pompano is one of few options still available. The Intracoastal runs the length of the city's eastern portion, and waterfront or water-adjacent homes in the $500K–$600K range exist here that simply don't exist in neighboring cities at those prices.\n\nThe city's market is internally split by property type in a way that requires explanation. The overall median (all types) runs $330K–$380K, largely influenced by a large inventory of older condos that declined about 11% year-over-year through 2025. Single-family homes performed very differently, with a median around $555K and 15.6% year-over-year appreciation through the same period. Buyers should understand which market they're actually in.\n\nThe foreign-born population (nearly 40%) is among the highest in Broward, reflected in a diverse cultural landscape with Caribbean, Central American, South American, and Haitian communities all meaningfully present. Pompano Beach High School is an all-magnet campus with Cambridge AICE curriculum and a Florida A state grade, worth knowing for families with high-school-age children.\n\nThe honest caution: Pompano Beach is a large city internally inconsistent in ways that require block-level research. The western sections along the Turnpike corridor have seen less investment than the eastern and central areas. Crime statistics vary significantly by area, city-level averages are not reliable for specific address decisions. The older condo inventory carries heightened insurance and special assessment exposure in the post-Ian environment.",
+      "Pompano Beach is in the middle of a real transition, and buyers in 2025–2026 are entering at an interesting moment. Years of targeted investment, the Fishing Village renovation, The Amp, the downtown corridor upgrades, and now the massive Pomp project anchored by Topgolf and Live! entertainment, are changing the city's offer to residents in ways that won't fully materialize for several more years. For buyers who want coastal Broward County proximity without Fort Lauderdale or Deerfield Beach pricing, Pompano is one of few options still available. The Intracoastal runs the length of the city's eastern portion, and waterfront or water-adjacent homes in the $500K–$600K range exist here that simply don't exist in neighboring cities at those prices.\n\nThe city's market is internally split by property type in a way that requires explanation. The overall median (all types) runs $330K–$380K, largely influenced by a large inventory of older condos that declined about 11% year-over-year through 2025. Single-family houses went the other way: they sold at a median of $530,000 from January through September 2026, up 6% from $500,000 in the same months of 2025. Buyers should understand which market they're actually in.\n\nThe foreign-born population (nearly 40%) is among the highest in Broward, reflected in a diverse cultural landscape with Caribbean, Central American, South American, and Haitian communities all meaningfully present. Pompano Beach High School is an all-magnet campus with Cambridge AICE curriculum and a Florida A state grade, worth knowing for families with high-school-age children.\n\nThe honest caution: Pompano Beach is a large city internally inconsistent in ways that require block-level research. The western sections along the Turnpike corridor have seen less investment than the eastern and central areas. Crime statistics vary significantly by area, city-level averages are not reliable for specific address decisions. The older condo inventory carries heightened insurance and special assessment exposure in the post-Ian environment.",
     highlights: [
       'Pompano Beach High is a National Blue Ribbon, all-magnet campus with Cambridge AICE and a Florida A state grade',
       'The Pomp, 223-acre redevelopment with Topgolf and Live! entertainment (now open)',
@@ -2245,8 +2235,8 @@ export const neighborhoods: Neighborhood[] = [
       'Fishing Village and renovated Fisher Family Pier, oceanfront dining and beach access',
       'Palm Aire Country Club, semi-private golf and country club within city limits',
     ],
-    medianHomePrice: '$355K',
-    avgDaysOnMarket: '95',
+    medianHomePrice: '$530K',
+    avgDaysOnMarket: '47',
     bestFor: 'Value-oriented buyers, families with high-school-aged children, and investors watching the redevelopment trajectory',
     coordinates: { lat: 26.2379, lng: -80.1248 },
     resources: [
@@ -2278,10 +2268,9 @@ export const neighborhoods: Neighborhood[] = [
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     marketSnapshot: {
-      medianPrice: '$355K (all types) / $555K (single-family)',
-      avgDaysOnMarket: '95',
-      pricePerSqFt: '$308',
-      lastUpdated: 'November 2025 (Redfin), note: median reflects all property types; SF and condo markets perform very differently',
+      medianPrice: '$530K',
+      avgDaysOnMarket: '47',
+      lastUpdated: 'Houses sold Jan–Sep 2026, Beaches MLS via PBP Real Estate (Oct 26, 2026)',
     },
     budgetGuide: [
       {
