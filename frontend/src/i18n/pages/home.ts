@@ -199,13 +199,13 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Un pueblo familiar en el oeste del condado de Palm Beach.',
+        tagline: 'Casas para familias, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
         bestFor:
           'Familias, compradores de primera vivienda, inquilinos y dueños que buscan inquilinos confiables',
       },
       'the-acreage': {
         name: 'The Acreage y Loxahatchee',
-        tagline: 'Terrenos de 1.25 acres, sin HOA y a 15 minutos de Wellington.',
+        tagline: 'Terrenos de 1.25 acres, muchos sin HOA, a unos 15 minutos de Wellington.',
         bestFor:
           'Compradores que buscan espacio, familias con caballos, inversionistas y quienes quieren la Florida rural',
       },
@@ -312,13 +312,13 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Uma cidade familiar no oeste do condado de Palm Beach.',
+        tagline: 'Casas para famílias, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
         bestFor:
           'Famílias, quem vai comprar o primeiro imóvel, inquilinos e proprietários em busca de inquilinos confiáveis',
       },
       'the-acreage': {
         name: 'The Acreage e Loxahatchee',
-        tagline: 'Terrenos de 1,25 acre, sem HOA e a 15 minutos de Wellington.',
+        tagline: 'Terrenos de 1,25 acre, muitos sem HOA, a uns 15 minutos de Wellington.',
         bestFor:
           'Quem quer espaço, famílias com cavalos, investidores e quem busca o lado rural da Flórida',
       },
