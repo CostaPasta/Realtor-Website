@@ -52,3 +52,25 @@ export function formatPrice(dollars: number): string {
   }
   return `$${Math.round(dollars / 1_000)}K`;
 }
+
+// Median asking rents for homes and condos listed on the MLS, shown on the landlord page.
+// Update with the quarterly stats (same steps, "for lease" listings instead of sales).
+
+/** The day the rental listings were pulled (YYYY-MM-DD). */
+export const RENTAL_STATS_DATE = '2026-10-26';
+
+export interface CityRentStats {
+  slug: string;
+  twoBedroom: number;
+  threeBedroom: number;
+  /** Median days the rental listings had been on the market. */
+  daysListed: number;
+}
+
+export const rentalStats: CityRentStats[] = [
+  { slug: 'royal-palm-beach', twoBedroom: 2_200, threeBedroom: 2_800, daysListed: 34 },
+  { slug: 'west-palm-beach', twoBedroom: 2_185, threeBedroom: 3_000, daysListed: 33 },
+  { slug: 'lake-worth-beach', twoBedroom: 2_100, threeBedroom: 3_000, daysListed: 27 },
+  { slug: 'boynton-beach', twoBedroom: 2_350, threeBedroom: 3_400, daysListed: 31 },
+  { slug: 'wellington', twoBedroom: 2_950, threeBedroom: 4_200, daysListed: 42 },
+];

@@ -242,6 +242,14 @@ export default function BuyContent({ locale }: { locale: Locale }) {
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
               {t.questions.intro}
             </p>
+            <p className="mt-4 text-center">
+              <Link
+                href={localizedPath(locale, '/rent-vs-buy')}
+                className="font-sans text-sm font-semibold text-navy underline decoration-gold underline-offset-4 hover:text-gold transition-colors"
+              >
+                {t.questions.calculator}
+              </Link>
+            </p>
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.questions.items.map(({ title, body }, i) => {

@@ -56,7 +56,15 @@ export function whatsappLinkForPath(pathname: string | null): string {
   const locale = localeFromPath(pathname);
   const path = (pathname ?? '/').replace(/^\/(es|pt)(?=\/|$)/, '') || '/';
   const topic: WhatsAppTopic =
-    path.startsWith('/rentals') ? 'rent' : path.startsWith('/buy') ? 'buy' : path.startsWith('/sell') ? 'sell' : 'general';
+    path.startsWith('/rentals')
+      ? 'rent'
+      : path.startsWith('/landlords')
+        ? 'landlord'
+        : path.startsWith('/buy') || path.startsWith('/rent-vs-buy')
+          ? 'buy'
+          : path.startsWith('/sell')
+            ? 'sell'
+            : 'general';
   return whatsappLink(locale, topic);
 }
 

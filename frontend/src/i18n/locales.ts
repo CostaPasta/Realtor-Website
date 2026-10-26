@@ -8,7 +8,7 @@ export const LOCALE_LABELS: Record<Locale, { short: string; native: string }> = 
 };
 
 // Pages that have Spanish and Portuguese versions at /es/... and /pt/...
-export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact', '/privacy'] as const;
+export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact', '/privacy', '/landlords', '/rent-vs-buy'] as const;
 
 // Neighborhood pages with Spanish and Portuguese versions at /es/neighborhoods/... and
 // /pt/neighborhoods/... (their text lives in data/neighborhoods-i18n.ts).

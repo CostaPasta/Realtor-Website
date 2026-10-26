@@ -62,7 +62,9 @@ const COPY: Record<
       'Equal Housing Opportunity. Jose Costa is a licensed real estate agent affiliated with Atlantic Florida Properties. All information herein is deemed reliable but not guaranteed.',
     pages: [
       { label: 'Rentals', href: '/rentals' },
+      { label: 'For Landlords', href: '/landlords' },
       { label: 'Buy', href: '/buy' },
+      { label: 'Rent vs. Buy', href: '/rent-vs-buy' },
       { label: 'Sell', href: '/sell' },
       { label: 'Neighborhoods', href: '/neighborhoods' },
       { label: 'Market Updates', href: '/market-updates' },
@@ -84,7 +86,9 @@ const COPY: Record<
       'Igualdad de Oportunidades en la Vivienda. Jose Costa es un agente de bienes raíces con licencia, afiliado a Atlantic Florida Properties. La información de este sitio se considera confiable, pero no está garantizada.',
     pages: [
       { label: 'Alquileres', href: '/es/rentals' },
+      { label: 'Para dueños', href: '/es/landlords' },
       { label: 'Comprar', href: '/es/buy' },
+      { label: 'Alquilar o comprar', href: '/es/rent-vs-buy' },
       { label: 'Vender', href: '/es/sell' },
       { label: 'Vecindarios', href: '/neighborhoods' },
       { label: 'Mercado', href: '/market-updates' },
@@ -106,7 +110,9 @@ const COPY: Record<
       'Igualdade de Oportunidades na Habitação. Jose Costa é corretor de imóveis licenciado, afiliado à Atlantic Florida Properties. As informações deste site são consideradas confiáveis, mas não são garantidas.',
     pages: [
       { label: 'Aluguel', href: '/pt/rentals' },
+      { label: 'Para proprietários', href: '/pt/landlords' },
       { label: 'Comprar', href: '/pt/buy' },
+      { label: 'Alugar ou comprar', href: '/pt/rent-vs-buy' },
       { label: 'Vender', href: '/pt/sell' },
       { label: 'Bairros', href: '/neighborhoods' },
       { label: 'Mercado', href: '/market-updates' },

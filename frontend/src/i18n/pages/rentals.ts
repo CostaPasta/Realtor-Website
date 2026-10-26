@@ -31,6 +31,7 @@ export interface RentalsDictionary {
     cards: [Copy, Copy, Copy, Copy];
     formTitle: string;
     formSubtitle: string;
+    pageLink: string;
   };
   available: {
     eyebrow: string;
@@ -115,6 +116,7 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       ],
       formTitle: 'Contact Jose about your property',
       formSubtitle: "Tell Jose about your rental and he'll follow up with next steps.",
+      pageLink: 'See current rents by city and how Jose works with owners',
     },
     available: {
       eyebrow: 'Available Now',
@@ -203,6 +205,7 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       ],
       formTitle: 'Contacte a Jose sobre su propiedad',
       formSubtitle: 'Cuéntele sobre su propiedad y él le dirá cuáles son los siguientes pasos.',
+      pageLink: 'Vea los alquileres actuales por ciudad y cómo trabaja Jose con los dueños',
     },
     available: {
       eyebrow: 'Disponibles ahora',
@@ -291,6 +294,7 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       ],
       formTitle: 'Fale com o Jose sobre seu imóvel',
       formSubtitle: 'Conte sobre o seu imóvel e ele retorna com os próximos passos.',
+      pageLink: 'Veja os aluguéis atuais por cidade e como o Jose trabalha com proprietários',
     },
     available: {
       eyebrow: 'Disponíveis agora',

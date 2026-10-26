@@ -17,7 +17,7 @@ export interface BuyDictionary {
     paragraphs: [string, string];
     items: { title: string; desc: string }[];
   };
-  questions: { eyebrow: string; title: string; intro: string; items: [Copy, Copy, Copy, Copy] };
+  questions: { eyebrow: string; title: string; intro: string; items: [Copy, Copy, Copy, Copy]; calculator: string };
   areas: { eyebrow: string; title: string; subtitle: string; all: string };
   cta: { title: string; subtitle: string; primary: string; secondary: string };
 }
@@ -99,6 +99,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       ],
     },
     questions: {
+      calculator: 'Compare your rent with the monthly cost of owning →',
       eyebrow: 'Common Questions',
       title: "Whether it's your first home or your fifth, Jose walks you through it.",
       intro:
@@ -213,6 +214,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       ],
     },
     questions: {
+      calculator: 'Compare su alquiler con el costo mensual de ser dueño →',
       eyebrow: 'Preguntas frecuentes',
       title: 'Sea su primera casa o su quinta, Jose lo acompaña en cada paso.',
       intro:
@@ -327,6 +329,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       ],
     },
     questions: {
+      calculator: 'Compare o seu aluguel com o custo mensal da casa própria →',
       eyebrow: 'Perguntas frequentes',
       title: 'Seja a sua primeira casa ou a quinta, o Jose acompanha você em cada etapa.',
       intro:
