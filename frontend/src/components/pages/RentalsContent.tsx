@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Search,
   Languages,
@@ -16,7 +17,7 @@ import RenterInquiryForm from '@/components/RenterInquiryForm';
 import TestimonialCard from '@/components/TestimonialCard';
 import { testimonials } from '@/data/testimonials';
 import { availableRentals } from '@/data/rentals';
-import type { Locale } from '@/i18n/locales';
+import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentalsDictionary } from '@/i18n/pages/rentals';
 import { rentalListingMessage, whatsappHref, whatsappLink } from '@/lib/whatsapp';
 
@@ -67,12 +68,12 @@ export default function RentalsContent({ locale }: { locale: Locale }) {
             >
               {t.hero.renterCta}
             </a>
-            <a
-              href="#landlords"
+            <Link
+              href={localizedPath(locale, '/landlords')}
               className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
             >
               {t.hero.landlordCta}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -274,6 +275,14 @@ export default function RentalsContent({ locale }: { locale: Locale }) {
           <AnimateOnScroll>
             <p className="mt-6 max-w-3xl mx-auto text-center font-sans text-gray-700 leading-relaxed">
               {t.landlords.intro}
+            </p>
+            <p className="mt-4 text-center">
+              <Link
+                href={localizedPath(locale, '/landlords')}
+                className="font-sans text-sm font-semibold text-navy underline decoration-gold underline-offset-4 hover:text-gold transition-colors"
+              >
+                {t.landlords.pageLink}
+              </Link>
             </p>
           </AnimateOnScroll>
 
