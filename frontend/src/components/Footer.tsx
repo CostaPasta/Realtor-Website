@@ -238,7 +238,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Jose Costa, Realtor® | Atlantic Florida Properties | FL Lic.
             #3132965
           </p>
-          <p className="font-sans text-xs text-white/40 text-center">
+          <p className="font-sans text-xs text-white/60 text-center">
             {t.disclaimer}{' '}
             <Link href={localizedPath(locale, '/privacy')} className="underline hover:text-gold">
               {t.privacy}
