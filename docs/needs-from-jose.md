@@ -47,7 +47,15 @@ A three-language guide for renters, especially newcomers. We need his real-world
 - How fast does he actually reply on WhatsApp? The site promises a reply within 24 hours. If it's usually within the hour, we should say so.
 - Read the Spanish and Portuguese pages (`/es`, `/pt`) and flag anything that sounds off.
 
-## 7. MLS access (for showing listings on the site)
+## 7. MLS access (for showing his listings on the site automatically)
 
-- Ask his broker (Atlantic Florida Properties) whether they have an IDX agreement with Beaches MLS, and which IDX vendor (if any) they already use.
-- Find out whether he wants every MLS listing searchable on the site, or only his own listings and rentals.
+Goal: his active listings, rentals, and recent sales appear on the site and update on their own from the MLS.
+
+- **His Beaches MLS agent ID** (used to filter the feed down to his own listings).
+- **Ask his broker (Atlantic Florida Properties):**
+  - Do they have an IDX agreement with Beaches MLS?
+  - Do they already pay for an IDX vendor (IDX Broker, iHomefinder, Showcase IDX, etc.)? If so, does that plan include API access?
+  - Can a developer get a direct data feed (RESO Web API) under the broker's IDX agreement, and what does Beaches MLS charge for it?
+  - Are sold listings allowed on an agent's website, and for how long after closing?
+- **Ask Jose:** only his own listings, or full MLS search too?
+- Note: rentals only come through the feed when he is the listing agent. Rentals where he represents the tenant still go in `frontend/src/data/rentals.ts` by hand.
