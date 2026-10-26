@@ -964,13 +964,13 @@ const neighborhoodData: NeighborhoodData[] = [
     imageSrc: '/images/neighborhoods/boynton-beach.jpg',
     county: 'Palm Beach',
     region: 'Palm Beach County',
-    tagline: 'Lower median price than Delray Beach and Lake Worth Beach, with 55+ condos under $200K, single-family homes in the $400s, and a municipal beach.',
+    tagline: 'A lower house median than Delray Beach or Lake Worth Beach, 55+ condos under $200K, and a city beach.',
     description:
-      "Boynton Beach sits between Delray Beach and Lake Worth Beach with a lower median price than both, a wide mix of housing types from 55+ condos to western gated communities, and a municipal beach residents can park at year-round for $65. The Federal Highway corridor is mid-redevelopment, with 500 Ocean already built and more retail and residential coming. The city has a significant Haitian and Spanish-speaking community, and Jose works in both.",
+      "Boynton Beach sits between Delray Beach and Lake Worth Beach. From January through September 2026, its houses sold at a median of $525,000, below Lake Worth Beach ($560,000) and well below Delray ($872,500), and condos and townhouses at $266,750. Housing runs from 55+ condos near the coast to gated communities out west, and residents can park at the city's guarded beach for $65 a year.\n\nThe Federal Highway corridor downtown has been redeveloping, with 500 Ocean built and the city-owned Boynton Harbor Marina rebuilt in phases. The city has large Haitian and Spanish-speaking communities, and Jose works with families from both.",
     highlights: [
-      'Lower median price than Delray Beach and Lake Worth Beach',
-      'Boynton Harbor Marina redevelopment underway',
-      'Diverse, multilingual community',
+      'Houses at a 2026 median of $525,000, below Delray Beach and Lake Worth Beach',
+      'City-owned Boynton Harbor Marina, rebuilt in phases',
+      'Large Haitian and Spanish-speaking communities',
       "Easy access to I-95 and Florida's Turnpike",
     ],
     bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
@@ -1007,13 +1007,13 @@ const neighborhoodData: NeighborhoodData[] = [
         tier: 'Under $300K',
         label: 'Condos and Townhomes',
         description:
-          'Mostly 55+ age-restricted condos and co-ops in older communities, with HOA fees as low as $175/month in places like Leisureville. Expect age restrictions on most options in this range, not typically single-family.',
+          'Mostly 55+ age-restricted condos and co-ops in older communities like Leisureville, so check the age rules before you look. Condos and townhouses sold at a median of $266,750 from January through September 2026.',
       },
       {
         tier: '$300K – $500K',
         label: 'Single-Family Homes',
         description:
-          '3BR/2BA homes built 1980s–2000s in established neighborhoods, often with updated kitchens or roofs, right around the citywide median. This is where most family buyers land.',
+          'Three-bedroom, two-bath houses built from the 1980s to the 2000s in established neighborhoods, often with updated kitchens or roofs. This range sits just below the 2026 house median of $525,000.',
       },
       {
         tier: '$500K+',
@@ -1038,18 +1038,18 @@ const neighborhoodData: NeighborhoodData[] = [
       {
         name: 'Boynton Beach Community High School',
         level: 'High',
-        rating: '3/10',
+        rating: '4/10',
         greatSchoolsUrl: 'https://www.greatschools.org/florida/boynton-beach/5028-Boynton-Beach-Community-High-School/',
       },
     ],
     schoolNote:
-      "Boynton Beach's strongest anchor is Citrus Cove Elementary (7/10), which runs a Gifted & Talented magnet program. Congress Middle and Boynton Beach High both rate 3/10 on aggregate test scores, though both offer Cambridge International, AP, and Project Lead The Way magnet tracks, worth visiting in person rather than judging by the headline number alone. Actual school zoning varies significantly across the city's multiple zip codes; verify your specific address with the Palm Beach County school locator before drawing conclusions.",
+      "Citrus Cove Elementary rates 7/10 on GreatSchools and runs a gifted magnet program. Congress Community Middle rates 3/10 and Boynton Beach Community High 4/10; both are magnet schools, and the high school offers AP and Cambridge courses. Zones vary across the city's ZIP codes, so confirm a specific address with the School District of Palm Beach County's boundary locator.",
     pointsOfInterest: [
       {
         name: 'Congress Avenue Barrier Free Park',
         category: 'Park',
         description:
-          'Fully accessible 14-acre park on S. Congress Ave. with a splash pad, three themed play areas, and ADA trails. Named one of the top 10 public playgrounds in the US by USA Today.',
+          'A fully accessible park on S. Congress Ave. built for children of all abilities, with a splash pad, themed play areas, and accessible trails.',
         url: 'https://www.boynton-beach.org/parks-recreation',
         imageSrc: '/images/neighborhoods/poi/bb-barrier-free-park.jpg',
       },
@@ -1072,32 +1072,33 @@ const neighborhoodData: NeighborhoodData[] = [
         name: 'Caloosa Park',
         category: 'Recreation',
         description:
-          '64-acre park near Woolbright and Congress with tennis, softball, a roller rink, basketball, pickleball, a fishing lake, and picnic pavilions.',
+          'A large park near Woolbright Rd. and Congress Ave. with tennis, softball, basketball, pickleball, a lake, and picnic pavilions.',
         imageSrc: '/images/neighborhoods/poi/bb-caloosa-park.jpg',
       },
       {
         name: 'Oceanfront Park',
         category: 'Park',
         description:
-          'City-operated guarded beach at N. Ocean Blvd. with a boardwalk, grills, playground, and concessions. Parking is $3.50/hour or $65/year.',
+          'The city\'s guarded beach on N. Ocean Blvd. with a boardwalk, grills, and a playground; residents can buy a $65 annual parking permit.',
         imageSrc: '/images/neighborhoods/poi/bb-oceanfront-park.jpg',
       },
       {
-        name: 'Boynton Lakes Plaza Corridor',
+        name: 'Congress Avenue Shopping Corridor',
         category: 'Shopping',
         description:
-          'Congress Avenue corridor with Publix, Costco, Walmart, L.A. Fitness, CVS, and Walgreens, plus everyday retail and dining.',
+          'The city\'s main shopping strip, with grocery stores, big-box retail, pharmacies, gyms, and casual dining.',
         imageSrc: '/images/neighborhoods/poi/bb-plaza-corridor.jpg',
       },
     ],
     rentalMarket: {
-      active: false,
-      rangeMin: '',
-      rangeMax: '',
-      description: '',
+      active: true,
+      rangeMin: '$1,750',
+      rangeMax: '$3,400',
+      description:
+        "On October 26, 2026, 294 homes and condos were listed for rent in Boynton Beach, with a median asking rent of $2,600. One-bedrooms asked $1,750, two-bedrooms $2,350, and three-bedrooms $3,400, and rentals were listed for a median of 31 days.",
     },
-    buyerNote: "Lower median price than both Delray Beach and Lake Worth Beach, with a wider range of housing types than either, from 55+ condos in the $100s to newer gated homes in the $600s. Jose has worked this market long enough to know which streets have moved and which haven't.",
-    sellerNote: "Boynton Beach prices run below Delray and Boca on comparable product. Positioning matters here. Jose knows how buyers shop across Boynton's zip codes and will price accordingly.",
+    buyerNote: "Housing runs from 55+ condos in the $100s to newer gated homes in the $600s and up. With 3.5 months of house inventory and 44% of listings below their original price in October 2026, buyers have some room to negotiate.",
+    sellerNote: "Houses that sold in September 2026 closed at 97% of their final asking price. Buyers compare across Boynton's ZIP codes and against Delray, so pricing to the right comparables matters. Jose's free CMA shows where your home fits.",
   },
   {
     name: 'Delray Beach',
