@@ -42,8 +42,8 @@ export default function HomeContent({ locale }: { locale: Locale }) {
 
   const scenes = [
     { ...t.scenes.rent, image: '/images/category-rental.jpg', href: localizedPath(locale, '/rentals') },
-    { ...t.scenes.buy, image: '/images/category-buying.jpg', href: '/buy' },
-    { ...t.scenes.sell, image: '/images/category-selling.jpg', href: '/sell' },
+    { ...t.scenes.buy, image: '/images/category-buying.jpg', href: localizedPath(locale, '/buy') },
+    { ...t.scenes.sell, image: '/images/category-selling.jpg', href: localizedPath(locale, '/sell') },
   ];
 
   const featuredNeighborhoods = FEATURED_SLUGS.map((slug) => {
@@ -265,7 +265,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
             </h2>
             <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">{t.buyer.body}</p>
             <Link
-              href="/buy"
+              href={localizedPath(locale, '/buy')}
               className="mt-8 inline-block font-sans text-sm font-semibold text-gold hover:text-gold-light transition-colors"
             >
               {t.buyer.link}
@@ -285,7 +285,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
             </h2>
             <p className="mt-4 font-sans text-navy/80 text-base leading-relaxed">{t.seller.body}</p>
             <Link
-              href="/sell"
+              href={localizedPath(locale, '/sell')}
               className="mt-8 inline-block font-sans text-sm font-semibold text-navy hover:text-navy-light transition-colors"
             >
               {t.seller.link}

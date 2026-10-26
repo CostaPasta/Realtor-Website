@@ -45,6 +45,18 @@ export interface FormsDictionary {
     sentTitle: string;
     sentBody: string;
   };
+  valuation: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    phone: string;
+    address: string;
+    notes: string;
+    notesPlaceholder: string;
+    submit: string;
+    sentTitle: string;
+    sentBody: string;
+  };
   landlord: {
     name: string;
     namePlaceholder: string;
@@ -137,6 +149,18 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       sentTitle: 'Thank you!',
       sentBody: 'Your inquiry has been sent. Jose will reach out within 24 hours.',
     },
+    valuation: {
+      name: 'Full Name *',
+      namePlaceholder: 'Your full name',
+      email: 'Email *',
+      phone: 'Phone',
+      address: 'Property Address *',
+      notes: 'Anything else we should know?',
+      notesPlaceholder: 'Recent upgrades, target timeline, any questions...',
+      submit: 'Request My Free Valuation',
+      sentTitle: 'Thank you!',
+      sentBody: 'Your valuation request has been sent. Jose will be in touch within 24 hours.',
+    },
     landlord: {
       name: 'Full Name *',
       namePlaceholder: 'Your full name',
@@ -213,6 +237,18 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       sentTitle: '¡Gracias!',
       sentBody: 'Su solicitud fue enviada. Jose se comunicará con usted en menos de 24 horas.',
     },
+    valuation: {
+      name: 'Nombre completo *',
+      namePlaceholder: 'Su nombre completo',
+      email: 'Correo electrónico *',
+      phone: 'Teléfono',
+      address: 'Dirección de la propiedad *',
+      notes: '¿Algo más que debamos saber?',
+      notesPlaceholder: 'Mejoras recientes, plazos, preguntas...',
+      submit: 'Pedir mi valoración gratis',
+      sentTitle: '¡Gracias!',
+      sentBody: 'Su solicitud fue enviada. Jose se comunicará con usted en menos de 24 horas.',
+    },
     landlord: {
       name: 'Nombre completo *',
       namePlaceholder: 'Su nombre completo',
@@ -286,6 +322,18 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       message: 'Mais alguma coisa? (opcional)',
       messagePlaceholder: 'Animais de estimação, o que não pode faltar, dúvidas…',
       submit: 'Enviar minha solicitação',
+      sentTitle: 'Obrigado!',
+      sentBody: 'Sua solicitação foi enviada. O Jose vai entrar em contato em até 24 horas.',
+    },
+    valuation: {
+      name: 'Nome completo *',
+      namePlaceholder: 'Seu nome completo',
+      email: 'E-mail *',
+      phone: 'Telefone',
+      address: 'Endereço do imóvel *',
+      notes: 'Mais alguma coisa que devemos saber?',
+      notesPlaceholder: 'Reformas recentes, prazo, dúvidas...',
+      submit: 'Pedir minha avaliação gratuita',
       sentTitle: 'Obrigado!',
       sentBody: 'Sua solicitação foi enviada. O Jose vai entrar em contato em até 24 horas.',
     },

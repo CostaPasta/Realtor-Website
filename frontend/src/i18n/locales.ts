@@ -8,7 +8,7 @@ export const LOCALE_LABELS: Record<Locale, { short: string; native: string }> = 
 };
 
 // Pages that have Spanish and Portuguese versions at /es/... and /pt/...
-export const TRANSLATED_PATHS = ['/', '/rentals', '/contact'] as const;
+export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact'] as const;
 
 export function localeFromPath(pathname: string | null): Locale {
   const segment = pathname?.split('/')[1];

@@ -1,6 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import type { Locale } from '@/i18n/locales';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
@@ -18,9 +19,9 @@ const inputClass =
   'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
 const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
-export default function ValuationForm() {
-  const { common } = formsDictionary.en;
-  const { status, submit } = useLeadSubmit('valuation');
+export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
+  const { common, valuation: t } = formsDictionary[locale];
+  const { status, submit } = useLeadSubmit('valuation', locale);
   const {
     register,
     handleSubmit,
@@ -40,12 +41,7 @@ export default function ValuationForm() {
     );
 
   if (status === 'sent') {
-    return (
-      <SentMessage
-        title="Thank you!"
-        body="Your valuation request has been sent. Jose will be in touch within 24 hours."
-      />
-    );
+    return <SentMessage title={t.sentTitle} body={t.sentBody} />;
   }
 
   return (
@@ -54,27 +50,27 @@ export default function ValuationForm() {
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="valuation-name" className={labelClass}>
-            Full Name *
+            {t.name}
           </label>
           <input
             id="valuation-name"
             autoComplete="name"
-            {...register('name', { required: 'Name is required' })}
+            {...register('name', { required: common.required })}
             className={inputClass}
-            placeholder="Your full name"
+            placeholder={t.namePlaceholder}
           />
           {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
         </div>
         <div>
           <label htmlFor="valuation-email" className={labelClass}>
-            Email *
+            {t.email}
           </label>
           <input
             id="valuation-email"
             type="email"
             autoComplete="email"
             {...register('email', {
-              required: 'Email is required',
+              required: common.required,
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
             })}
             className={inputClass}
@@ -85,7 +81,7 @@ export default function ValuationForm() {
       </div>
       <div>
         <label htmlFor="valuation-phone" className={labelClass}>
-          Phone
+          {t.phone}
         </label>
         <input
           id="valuation-phone"
@@ -98,12 +94,12 @@ export default function ValuationForm() {
       </div>
       <div>
         <label htmlFor="valuation-address" className={labelClass}>
-          Property Address *
+          {t.address}
         </label>
         <input
           id="valuation-address"
           autoComplete="street-address"
-          {...register('address', { required: 'Property address is required' })}
+          {...register('address', { required: common.required })}
           className={inputClass}
           placeholder="123 Main St, Royal Palm Beach, FL 33411"
         />
@@ -111,17 +107,17 @@ export default function ValuationForm() {
       </div>
       <div>
         <label htmlFor="valuation-notes" className={labelClass}>
-          Anything else we should know?
+          {t.notes}
         </label>
         <textarea
           id="valuation-notes"
           {...register('notes')}
           rows={3}
           className={`${inputClass} resize-none`}
-          placeholder="Recent upgrades, target timeline, any questions..."
+          placeholder={t.notesPlaceholder}
         />
       </div>
-      <SubmitButton status={status} label="Request My Free Valuation" common={common} />
+      <SubmitButton status={status} label={t.submit} common={common} />
     </form>
   );
 }

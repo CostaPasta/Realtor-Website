@@ -176,13 +176,13 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       eyebrow: 'Para compradores',
       title: 'Comprar en el sur de la Florida',
       body: 'Jose encuentra las propiedades que vale la pena ver, negocia por usted y se encarga de cada paso en español, inglés o portugués. Antes de que usted firme algo, le explica por escrito cómo funciona su comisión.',
-      link: 'Empiece su búsqueda (en inglés) →',
+      link: 'Empiece su búsqueda →',
     },
     seller: {
       eyebrow: 'Para vendedores',
       title: 'Vender su casa',
       body: 'El precio correcto desde el principio atrae a los compradores correctos. Jose se encarga del precio, la publicidad y la negociación para que usted cierre con un número que le convenga.',
-      link: 'Pida una valoración de su casa (en inglés) →',
+      link: 'Pida una valoración de su casa →',
     },
     areas: {
       eyebrow: 'Conocimiento local',
@@ -289,13 +289,13 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       eyebrow: 'Para compradores',
       title: 'Comprar no sul da Flórida',
       body: 'Jose seleciona os imóveis que valem a visita, negocia por você e cuida de cada etapa em português, inglês ou espanhol. Antes de você assinar qualquer coisa, ele explica por escrito como funciona a comissão dele.',
-      link: 'Comece sua busca (em inglês) →',
+      link: 'Comece sua busca →',
     },
     seller: {
       eyebrow: 'Para vendedores',
       title: 'Vender sua casa',
       body: 'O preço certo desde o início atrai os compradores certos. Jose cuida do preço, da divulgação e da negociação para você fechar por um valor que faça sentido.',
-      link: 'Peça uma avaliação do seu imóvel (em inglês) →',
+      link: 'Peça uma avaliação do seu imóvel →',
     },
     areas: {
       eyebrow: 'Conhecimento local',

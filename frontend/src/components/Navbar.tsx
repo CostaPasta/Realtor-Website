@@ -14,8 +14,8 @@ import {
   switchLocalePath,
 } from '@/i18n/locales';
 
-// Rentals lead: they are most of Jose's business. Only Rentals and Contact have
-// translated pages; the rest link to the English versions.
+// Rentals lead: they are most of Jose's business. Neighborhoods and Market Updates
+// are English-only, so those links go to the English pages.
 const NAV: Record<Locale, { links: { label: string; href: string }[]; contact: string }> = {
   en: {
     links: [
@@ -31,22 +31,22 @@ const NAV: Record<Locale, { links: { label: string; href: string }[]; contact: s
   es: {
     links: [
       { label: 'Alquileres', href: '/es/rentals' },
-      { label: 'Comprar', href: '/buy' },
-      { label: 'Vender', href: '/sell' },
+      { label: 'Comprar', href: '/es/buy' },
+      { label: 'Vender', href: '/es/sell' },
       { label: 'Vecindarios', href: '/neighborhoods' },
       { label: 'Mercado', href: '/market-updates' },
-      { label: 'Sobre Jose', href: '/about' },
+      { label: 'Sobre Jose', href: '/es/about' },
     ],
     contact: 'Contactar a Jose',
   },
   pt: {
     links: [
       { label: 'Aluguel', href: '/pt/rentals' },
-      { label: 'Comprar', href: '/buy' },
-      { label: 'Vender', href: '/sell' },
+      { label: 'Comprar', href: '/pt/buy' },
+      { label: 'Vender', href: '/pt/sell' },
       { label: 'Bairros', href: '/neighborhoods' },
       { label: 'Mercado', href: '/market-updates' },
-      { label: 'Sobre o Jose', href: '/about' },
+      { label: 'Sobre o Jose', href: '/pt/about' },
     ],
     contact: 'Falar com o Jose',
   },
