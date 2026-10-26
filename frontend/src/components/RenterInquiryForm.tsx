@@ -1,7 +1,10 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import type { Locale } from '@/i18n/locales';
+import { formsDictionary } from '@/i18n/forms';
+import { useLeadSubmit } from '@/lib/useLeadSubmit';
+import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
 
 interface RenterInquiryData {
   name: string;
@@ -12,61 +15,72 @@ interface RenterInquiryData {
   timeline: string;
   area: string;
   message: string;
+  company: string;
 }
 
 const selectClass =
   'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold bg-white text-gray-800 appearance-none';
 const inputClass =
   'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
+const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
-export default function RenterInquiryForm() {
-  const [submitted, setSubmitted] = useState(false);
+export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }) {
+  const { common, renter: t } = formsDictionary[locale];
+  const { status, submit } = useLeadSubmit('rental', locale);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<RenterInquiryData>();
 
-  const onSubmit = (data: RenterInquiryData) => {
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nBedrooms: ${data.bedrooms}\nMonthly Budget: ${data.budget}\nMove-in Timeline: ${data.timeline}\nPreferred Area: ${data.area}\nMessage: ${data.message}`
+  const onSubmit = (data: RenterInquiryData) =>
+    submit(
+      {
+        Name: data.name,
+        Email: data.email,
+        Phone: data.phone,
+        Bedrooms: data.bedrooms,
+        'Monthly Budget': data.budget,
+        'Move-in Timeline': data.timeline,
+        'Preferred Area': data.area,
+        Message: data.message,
+      },
+      data.company
     );
-    window.location.href = `mailto:USARealtor1@gmail.com?subject=Rental Home Inquiry&body=${body}`;
-    setSubmitted(true);
-  };
 
-  if (submitted) {
-    return (
-      <div className="text-center py-12">
-        <p className="font-serif text-2xl text-navy font-bold">Thank you!</p>
-        <p className="mt-3 font-sans text-gray-600">
-          Your inquiry has been sent. Jose will reach out within 24 hours.
-        </p>
-      </div>
-    );
+  if (status === 'sent') {
+    return <SentMessage title={t.sentTitle} body={t.sentBody} />;
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-5" noValidate>
+      <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Full Name *
+          <label htmlFor="renter-name" className={labelClass}>
+            {t.name}
           </label>
           <input
-            {...register('name', { required: 'Name is required' })}
+            id="renter-name"
+            autoComplete="name"
+            {...register('name', { required: common.required })}
             className={inputClass}
-            placeholder="Your full name"
+            placeholder={t.namePlaceholder}
           />
           {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
         </div>
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Email *
+          <label htmlFor="renter-email" className={labelClass}>
+            {t.email}
           </label>
           <input
+            id="renter-email"
             type="email"
-            {...register('email', { required: 'Email is required' })}
+            autoComplete="email"
+            {...register('email', {
+              required: common.required,
+              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
+            })}
             className={inputClass}
             placeholder="your@email.com"
           />
@@ -75,11 +89,13 @@ export default function RenterInquiryForm() {
       </div>
 
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Phone (optional)
+        <label htmlFor="renter-phone" className={labelClass}>
+          {t.phone}
         </label>
         <input
+          id="renter-phone"
           type="tel"
+          autoComplete="tel"
           {...register('phone')}
           className={inputClass}
           placeholder="(954) 000-0000"
@@ -88,65 +104,68 @@ export default function RenterInquiryForm() {
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Bedrooms *
+          <label htmlFor="renter-bedrooms" className={labelClass}>
+            {t.bedrooms}
           </label>
           <select
-            {...register('bedrooms', { required: 'Please select bedrooms' })}
+            id="renter-bedrooms"
+            {...register('bedrooms', { required: common.required })}
             className={selectClass}
           >
-            <option value="">Select…</option>
-            <option value="Studio">Studio</option>
-            <option value="1 BR">1 Bedroom</option>
-            <option value="2 BR">2 Bedrooms</option>
-            <option value="3 BR">3 Bedrooms</option>
-            <option value="4+ BR">4+ Bedrooms</option>
+            <option value="">{common.select}</option>
+            {t.bedroomOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
           </select>
           {errors.bedrooms && <p className="mt-1 text-xs text-coral">{errors.bedrooms.message}</p>}
         </div>
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Monthly Budget *
+          <label htmlFor="renter-budget" className={labelClass}>
+            {t.budget}
           </label>
           <select
-            {...register('budget', { required: 'Please select a budget' })}
+            id="renter-budget"
+            {...register('budget', { required: common.required })}
             className={selectClass}
           >
-            <option value="">Select…</option>
-            <option value="Under $1,400">Under $1,400</option>
-            <option value="$1,400–$1,800">$1,400 – $1,800</option>
-            <option value="$1,800–$2,200">$1,800 – $2,200</option>
-            <option value="$2,200–$2,800">$2,200 – $2,800</option>
-            <option value="$2,800–$3,500">$2,800 – $3,500</option>
-            <option value="$3,500+">$3,500+</option>
+            <option value="">{common.select}</option>
+            {t.budgetOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
           </select>
           {errors.budget && <p className="mt-1 text-xs text-coral">{errors.budget.message}</p>}
         </div>
       </div>
 
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Move-in Timeline *
+        <label htmlFor="renter-timeline" className={labelClass}>
+          {t.timeline}
         </label>
         <select
-          {...register('timeline', { required: 'Please select a timeline' })}
+          id="renter-timeline"
+          {...register('timeline', { required: common.required })}
           className={selectClass}
         >
-          <option value="">Select…</option>
-          <option value="ASAP">As soon as possible</option>
-          <option value="Within 30 days">Within 30 days</option>
-          <option value="1–3 months">1–3 months</option>
-          <option value="3+ months">3+ months</option>
-          <option value="Flexible">Flexible</option>
+          <option value="">{common.select}</option>
+          {t.timelineOptions.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
         </select>
         {errors.timeline && <p className="mt-1 text-xs text-coral">{errors.timeline.message}</p>}
       </div>
 
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Preferred area or neighborhood (optional)
+        <label htmlFor="renter-area" className={labelClass}>
+          {t.area}
         </label>
         <input
+          id="renter-area"
           {...register('area')}
           className={inputClass}
           placeholder="Royal Palm Beach, Wellington, Loxahatchee…"
@@ -154,23 +173,19 @@ export default function RenterInquiryForm() {
       </div>
 
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Anything else? (optional)
+        <label htmlFor="renter-message" className={labelClass}>
+          {t.message}
         </label>
         <textarea
+          id="renter-message"
           {...register('message')}
           rows={3}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold resize-none"
-          placeholder="Pets, must-haves, questions…"
+          className={`${inputClass} resize-none`}
+          placeholder={t.messagePlaceholder}
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full py-4 bg-gold text-navy font-sans font-semibold rounded-lg hover:bg-gold-light transition-colors text-sm"
-      >
-        Send My Rental Inquiry
-      </button>
+      <SubmitButton status={status} label={t.submit} common={common} />
     </form>
   );
 }

@@ -1,9 +1,9 @@
 # Node modules
 node_modules/
 
-# Environment variables
-.env
-.env.development.local
+# Environment variables (any .env variant, anywhere in the repo)
+.env*
+!.env.example
 
 # Production build
 build/

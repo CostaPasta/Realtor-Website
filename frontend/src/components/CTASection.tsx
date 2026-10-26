@@ -10,12 +10,13 @@ interface CTASectionProps {
 export default function CTASection({
   title = 'Ready to make your move in South Florida?',
   subtitle =
-    "Whether you're buying, selling, or just exploring your options, Jose is here to guide you every step of the way. Let's start with a free, no-pressure conversation.",
-  primaryCTA = { label: 'Schedule a Free Call', href: '/contact' },
+    "Whether you're renting, buying, selling, or just exploring your options, the first conversation with Jose is free and comes with no pressure.",
+  primaryCTA = { label: 'Contact Jose', href: '/contact' },
   secondaryCTA = { label: 'Browse Neighborhoods', href: '/neighborhoods' },
 }: CTASectionProps) {
   return (
-    <section className="bg-navy py-20 md:py-24">
+    // The id lets the mobile Call / WhatsApp bar step aside once this section is reached.
+    <section id="cta-section" className="bg-navy py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-white leading-tight">

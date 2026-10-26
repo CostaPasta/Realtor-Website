@@ -14,7 +14,25 @@ interface NeighborhoodCardProps {
   avgDaysOnMarket: string;
   bestFor: string;
   imageSrc?: string;
+  labels?: NeighborhoodCardLabels;
 }
+
+export interface NeighborhoodCardLabels {
+  /** `{county}` is replaced with the county name. */
+  county: string;
+  medianPrice: string;
+  avgDays: string;
+  days: string;
+  bestFor: string;
+}
+
+const EN_LABELS: NeighborhoodCardLabels = {
+  county: '{county} County',
+  medianPrice: 'Median House Price',
+  avgDays: 'Days on Market',
+  days: 'days',
+  bestFor: 'Best for:',
+};
 
 // Warm gradient "photo" per neighborhood - swap for real photos later
 // TODO: Replace each gradient with <Image src="..." /> of the actual neighborhood
@@ -50,6 +68,7 @@ export default function NeighborhoodCard({
   avgDaysOnMarket,
   bestFor,
   imageSrc,
+  labels = EN_LABELS,
 }: NeighborhoodCardProps) {
   const gradient = GRADIENTS[slug] ?? COUNTY_FALLBACK[county] ?? 'linear-gradient(135deg, #0D2442 0%, #1A3A5C 100%)';
 
@@ -81,9 +100,9 @@ export default function NeighborhoodCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
         <div className="relative px-5 pb-4">
           <span className="inline-block font-sans text-[10px] font-semibold tracking-widest uppercase text-white/80 bg-white/10 backdrop-blur-sm rounded-full px-2 py-0.5 mb-1">
-            {county} County
+            {labels.county.replace('{county}', county)}
           </span>
-          <h3 className="font-serif text-xl font-bold text-white drop-shadow-sm group-hover:text-gold transition-colors">
+          <h3 className="font-serif text-xl font-bold text-white group-hover:text-gold transition-colors" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}>
             {name}
           </h3>
         </div>
@@ -95,19 +114,21 @@ export default function NeighborhoodCard({
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="bg-cream rounded-lg p-3">
             <p className="text-[10px] font-sans text-gray-400 flex items-center gap-1 mb-0.5">
-              <TrendingUp size={10} /> Median Price
+              <TrendingUp size={10} /> {labels.medianPrice}
             </p>
             <p className="font-sans font-bold text-navy text-sm">{medianHomePrice}</p>
           </div>
           <div className="bg-cream rounded-lg p-3">
             <p className="text-[10px] font-sans text-gray-400 flex items-center gap-1 mb-0.5">
-              <Clock size={10} /> Avg Days
+              <Clock size={10} /> {labels.avgDays}
             </p>
-            <p className="font-sans font-bold text-navy text-sm">{avgDaysOnMarket} days</p>
+            <p className="font-sans font-bold text-navy text-sm">
+              {avgDaysOnMarket} {labels.days}
+            </p>
           </div>
         </div>
         <p className="text-xs font-sans text-gray-500 leading-snug">
-          <span className="font-semibold text-coral">Best for:</span> {bestFor}
+          <span className="font-semibold text-coral">{labels.bestFor}</span> {bestFor}
         </p>
       </div>
     </Link>

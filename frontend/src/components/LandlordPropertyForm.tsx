@@ -1,7 +1,10 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import type { Locale } from '@/i18n/locales';
+import { formsDictionary } from '@/i18n/forms';
+import { useLeadSubmit } from '@/lib/useLeadSubmit';
+import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
 
 interface LandlordFormData {
   name: string;
@@ -11,125 +14,139 @@ interface LandlordFormData {
   bedrooms: string;
   rentGoal: string;
   message: string;
+  company: string;
 }
 
-export default function LandlordPropertyForm() {
-  const [submitted, setSubmitted] = useState(false);
+const inputClass =
+  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
+const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
+
+export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Locale }) {
+  const { common, landlord: t } = formsDictionary[locale];
+  const { status, submit } = useLeadSubmit('landlord', locale);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LandlordFormData>();
 
-  // TODO: Replace with API route that sends email via Resend or Nodemailer
-  const onSubmit = (data: LandlordFormData) => {
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nProperty Address: ${data.address}\nBedrooms: ${data.bedrooms}\nMonthly Rent Goal: ${data.rentGoal}\nMessage: ${data.message}`
+  const onSubmit = (data: LandlordFormData) =>
+    submit(
+      {
+        Name: data.name,
+        Phone: data.phone,
+        Email: data.email,
+        'Property Address': data.address,
+        Bedrooms: data.bedrooms,
+        'Monthly Rent Goal': data.rentGoal,
+        Message: data.message,
+      },
+      data.company
     );
-    window.location.href = `mailto:USARealtor1@gmail.com?subject=Landlord Property Inquiry&body=${body}`;
-    setSubmitted(true);
-  };
 
-  if (submitted) {
-    return (
-      <div className="text-center py-12">
-        <p className="font-serif text-2xl text-navy font-bold">Thank you!</p>
-        <p className="mt-3 font-sans text-gray-600">
-          Your property details have been sent. Jose will be in touch soon to discuss your rental.
-        </p>
-      </div>
-    );
+  if (status === 'sent') {
+    return <SentMessage title={t.sentTitle} body={t.sentBody} />;
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-5" noValidate>
+      <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Full Name *
+          <label htmlFor="landlord-name" className={labelClass}>
+            {t.name}
           </label>
           <input
-            {...register('name', { required: 'Name is required' })}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
-            placeholder="Your full name"
+            id="landlord-name"
+            autoComplete="name"
+            {...register('name', { required: common.required })}
+            className={inputClass}
+            placeholder={t.namePlaceholder}
           />
           {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
         </div>
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Phone *
+          <label htmlFor="landlord-phone" className={labelClass}>
+            {t.phone}
           </label>
           <input
+            id="landlord-phone"
             type="tel"
-            {...register('phone', { required: 'Phone is required' })}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+            autoComplete="tel"
+            {...register('phone', { required: common.required })}
+            className={inputClass}
             placeholder="(954) 000-0000"
           />
           {errors.phone && <p className="mt-1 text-xs text-coral">{errors.phone.message}</p>}
         </div>
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Email *
+        <label htmlFor="landlord-email" className={labelClass}>
+          {t.email}
         </label>
         <input
+          id="landlord-email"
           type="email"
-          {...register('email', { required: 'Email is required' })}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+          autoComplete="email"
+          {...register('email', {
+            required: common.required,
+            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
+          })}
+          className={inputClass}
           placeholder="your@email.com"
         />
         {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Property Address *
+        <label htmlFor="landlord-address" className={labelClass}>
+          {t.address}
         </label>
         <input
-          {...register('address', { required: 'Property address is required' })}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+          id="landlord-address"
+          autoComplete="street-address"
+          {...register('address', { required: common.required })}
+          className={inputClass}
           placeholder="123 Main St, Royal Palm Beach, FL 33411"
         />
         {errors.address && <p className="mt-1 text-xs text-coral">{errors.address.message}</p>}
       </div>
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Bedrooms
+          <label htmlFor="landlord-bedrooms" className={labelClass}>
+            {t.bedrooms}
           </label>
           <input
+            id="landlord-bedrooms"
             {...register('bedrooms')}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+            className={inputClass}
             placeholder="3"
           />
         </div>
         <div>
-          <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-            Monthly Rent Goal
+          <label htmlFor="landlord-rent" className={labelClass}>
+            {t.rentGoal}
           </label>
           <input
+            id="landlord-rent"
             {...register('rentGoal')}
-            className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold"
+            className={inputClass}
             placeholder="$2,200"
           />
         </div>
       </div>
       <div>
-        <label className="font-sans text-xs font-semibold text-gray-600 mb-1.5 block">
-          Message
+        <label htmlFor="landlord-message" className={labelClass}>
+          {t.message}
         </label>
         <textarea
+          id="landlord-message"
           {...register('message')}
           rows={3}
-          className="w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold resize-none"
-          placeholder="Tell Jose about your property, timeline, or any questions..."
+          className={`${inputClass} resize-none`}
+          placeholder={t.messagePlaceholder}
         />
       </div>
-      <button
-        type="submit"
-        className="w-full py-4 bg-gold text-navy font-sans font-semibold rounded-lg hover:bg-gold-light transition-colors text-sm"
-      >
-        Contact Jose About Your Property
-      </button>
+      <SubmitButton status={status} label={t.submit} common={common} />
     </form>
   );
 }

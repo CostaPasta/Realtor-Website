@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import SectionHeading from '@/components/SectionHeading';
 import NeighborhoodCard from '@/components/NeighborhoodCard';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
@@ -96,7 +95,7 @@ export default function NeighborhoodsPage() {
       <CTASection
         title="Looking to buy or sell in South Florida?"
         subtitle="Tell Jose which neighborhoods interest you and he'll give you a candid read on what your budget can get and what the market looks like right now."
-        primaryCTA={{ label: 'Schedule a Free Call', href: '/contact' }}
+        primaryCTA={{ label: 'Contact Jose', href: '/contact' }}
         secondaryCTA={{ label: 'Read Market Updates', href: '/market-updates' }}
       />
     </>
