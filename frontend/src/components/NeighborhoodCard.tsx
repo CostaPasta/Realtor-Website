@@ -15,6 +15,8 @@ interface NeighborhoodCardProps {
   bestFor: string;
   imageSrc?: string;
   labels?: NeighborhoodCardLabels;
+  /** Defaults to the English neighborhood page. */
+  href?: string;
 }
 
 export interface NeighborhoodCardLabels {
@@ -69,6 +71,7 @@ export default function NeighborhoodCard({
   bestFor,
   imageSrc,
   labels = EN_LABELS,
+  href,
 }: NeighborhoodCardProps) {
   const gradient = GRADIENTS[slug] ?? COUNTY_FALLBACK[county] ?? 'linear-gradient(135deg, #0D2442 0%, #1A3A5C 100%)';
 
@@ -79,7 +82,7 @@ export default function NeighborhoodCard({
       transition={{ duration: 0.22, ease: 'easeOut' }}
     >
     <Link
-      href={`/neighborhoods/${slug}`}
+      href={href ?? `/neighborhoods/${slug}`}
       className="group block bg-white rounded-2xl border border-gray-100 hover:border-gold/60 transition-colors duration-200 overflow-hidden"
     >
       <div

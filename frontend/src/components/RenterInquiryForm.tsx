@@ -26,7 +26,7 @@ const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, renter: t } = formsDictionary[locale];
-  const { status, submit } = useLeadSubmit('rental', locale);
+  const { status, submit, mailtoHref } = useLeadSubmit('rental', locale);
   const {
     register,
     handleSubmit,
@@ -185,7 +185,7 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
         />
       </div>
 
-      <SubmitButton status={status} label={t.submit} common={common} />
+      <SubmitButton status={status} label={t.submit} common={common} mailtoHref={mailtoHref} />
     </form>
   );
 }

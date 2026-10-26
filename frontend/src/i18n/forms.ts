@@ -12,6 +12,10 @@ export interface FormsDictionary {
     errorCall: string;
     errorWhatsApp: string;
     invalidEmail: string;
+    errorEmail: string;
+    consentBefore: string;
+    consentLink: string;
+    consentAfter: string;
   };
   contact: {
     firstName: string;
@@ -98,6 +102,11 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       errorCall: 'Call (954) 614-1351',
       errorWhatsApp: 'WhatsApp Jose',
       invalidEmail: 'Enter a valid email',
+      errorEmail: 'Email it to Jose instead',
+      consentBefore:
+        'By sending this, you agree Jose may contact you by phone, text, WhatsApp, or email about your inquiry. See the ',
+      consentLink: 'privacy policy',
+      consentAfter: '.',
     },
     contact: {
       firstName: 'First Name *',
@@ -186,6 +195,11 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       errorCall: 'Llame al (954) 614-1351',
       errorWhatsApp: 'Escríbale por WhatsApp',
       invalidEmail: 'Ingrese un correo válido',
+      errorEmail: 'Enviárselo a Jose por correo',
+      consentBefore:
+        'Al enviar este formulario, acepta que Jose lo contacte por teléfono, mensaje de texto, WhatsApp o correo electrónico sobre su consulta. Consulte la ',
+      consentLink: 'política de privacidad',
+      consentAfter: '.',
     },
     contact: {
       firstName: 'Nombre *',
@@ -274,6 +288,11 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
       errorCall: 'Ligue para (954) 614-1351',
       errorWhatsApp: 'Chame no WhatsApp',
       invalidEmail: 'Digite um e-mail válido',
+      errorEmail: 'Enviar por e-mail para o Jose',
+      consentBefore:
+        'Ao enviar, você concorda que o Jose entre em contato por telefone, mensagem de texto, WhatsApp ou e-mail sobre a sua solicitação. Veja a ',
+      consentLink: 'política de privacidade',
+      consentAfter: '.',
     },
     contact: {
       firstName: 'Nome *',

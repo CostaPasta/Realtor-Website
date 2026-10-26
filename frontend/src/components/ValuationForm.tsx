@@ -21,7 +21,7 @@ const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, valuation: t } = formsDictionary[locale];
-  const { status, submit } = useLeadSubmit('valuation', locale);
+  const { status, submit, mailtoHref } = useLeadSubmit('valuation', locale);
   const {
     register,
     handleSubmit,
@@ -117,7 +117,7 @@ export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
           placeholder={t.notesPlaceholder}
         />
       </div>
-      <SubmitButton status={status} label={t.submit} common={common} />
+      <SubmitButton status={status} label={t.submit} common={common} mailtoHref={mailtoHref} />
     </form>
   );
 }

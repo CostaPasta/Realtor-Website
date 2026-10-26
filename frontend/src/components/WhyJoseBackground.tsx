@@ -19,6 +19,13 @@ type FrondConfig = {
   parallax: ParallaxTier;
 };
 
+// Tells the browser how wide each frond really displays (phone width from the first
+// `w-[..px]` class, desktop from `width`) so it downloads a small image on phones.
+function frondSizes(frond: FrondConfig): string {
+  const mobile = frond.widthClass.match(/^w-\[(\d+)px\]/)?.[1];
+  return mobile ? `(max-width: 767px) ${mobile}px, ${frond.width}px` : `${frond.width}px`;
+}
+
 // 4 base fronds — used on the home page (WhyJose section)
 const FRONDS: FrondConfig[] = [
   {
@@ -171,6 +178,7 @@ function ParallaxFrond({
           aria-hidden
           width={frond.width}
           height={height}
+          sizes={frondSizes(frond)}
           className="h-auto w-full select-none"
           draggable={false}
         />

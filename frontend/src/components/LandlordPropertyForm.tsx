@@ -23,7 +23,7 @@ const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, landlord: t } = formsDictionary[locale];
-  const { status, submit } = useLeadSubmit('landlord', locale);
+  const { status, submit, mailtoHref } = useLeadSubmit('landlord', locale);
   const {
     register,
     handleSubmit,
@@ -146,7 +146,7 @@ export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Local
           placeholder={t.messagePlaceholder}
         />
       </div>
-      <SubmitButton status={status} label={t.submit} common={common} />
+      <SubmitButton status={status} label={t.submit} common={common} mailtoHref={mailtoHref} />
     </form>
   );
 }

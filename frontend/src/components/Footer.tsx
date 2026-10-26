@@ -45,10 +45,12 @@ const COPY: Record<
     license: string;
     office: string;
     disclaimer: string;
+    privacy: string;
     pages: { label: string; href: string; testimonials?: boolean }[];
   }
 > = {
   en: {
+    privacy: 'Privacy Policy',
     tagline:
       'Your Palm Beach County realtor, helping families rent, buy, and sell across western Palm Beach County and Broward County. Fluent in English, Português, and Español.',
     navigate: 'Navigate',
@@ -70,6 +72,7 @@ const COPY: Record<
     ],
   },
   es: {
+    privacy: 'Política de privacidad',
     tagline:
       'Su agente de bienes raíces en el condado de Palm Beach. Ayuda a familias a alquilar, comprar y vender en el oeste del condado de Palm Beach y en el condado de Broward. Habla español, inglés y portugués.',
     navigate: 'Navegación',
@@ -91,6 +94,7 @@ const COPY: Record<
     ],
   },
   pt: {
+    privacy: 'Política de privacidade',
     tagline:
       'Seu corretor de imóveis no condado de Palm Beach. Ajuda famílias a alugar, comprar e vender no oeste do condado de Palm Beach e no condado de Broward. Fala português, inglês e espanhol.',
     navigate: 'Navegação',
@@ -234,7 +238,12 @@ export default function Footer() {
             © {new Date().getFullYear()} Jose Costa, Realtor® | Atlantic Florida Properties | FL Lic.
             #3132965
           </p>
-          <p className="font-sans text-xs text-white/40 text-center">{t.disclaimer}</p>
+          <p className="font-sans text-xs text-white/60 text-center">
+            {t.disclaimer}{' '}
+            <Link href={localizedPath(locale, '/privacy')} className="underline hover:text-gold">
+              {t.privacy}
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

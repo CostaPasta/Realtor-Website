@@ -17,7 +17,7 @@ const inputClass =
 // Sends each signup to Jose's inbox through /api/lead; he keeps the list.
 export default function MarketUpdatesSignup() {
   const { common } = formsDictionary.en;
-  const { status, submit } = useLeadSubmit('subscribe');
+  const { status, submit, mailtoHref } = useLeadSubmit('subscribe');
   const {
     register,
     handleSubmit,
@@ -71,7 +71,7 @@ export default function MarketUpdatesSignup() {
           {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
         </div>
       </div>
-      <SubmitButton status={status} label="Get Updates" common={common} />
+      <SubmitButton status={status} label="Get Updates" common={common} mailtoHref={mailtoHref} />
     </form>
   );
 }

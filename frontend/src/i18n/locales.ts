@@ -8,7 +8,22 @@ export const LOCALE_LABELS: Record<Locale, { short: string; native: string }> = 
 };
 
 // Pages that have Spanish and Portuguese versions at /es/... and /pt/...
-export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact'] as const;
+export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact', '/privacy'] as const;
+
+// Neighborhood pages with Spanish and Portuguese versions at /es/neighborhoods/... and
+// /pt/neighborhoods/... (their text lives in data/neighborhoods-i18n.ts).
+export const TRANSLATED_NEIGHBORHOODS = [
+  'royal-palm-beach',
+  'the-acreage',
+  'west-palm-beach',
+  'lake-worth-beach',
+] as const;
+
+function isTranslatedPath(path: string): boolean {
+  if ((TRANSLATED_PATHS as readonly string[]).includes(path)) return true;
+  const slug = path.match(/^\/neighborhoods\/([^/]+)$/)?.[1];
+  return !!slug && (TRANSLATED_NEIGHBORHOODS as readonly string[]).includes(slug);
+}
 
 export function localeFromPath(pathname: string | null): Locale {
   const segment = pathname?.split('/')[1];
@@ -31,7 +46,7 @@ export function localizedPath(locale: Locale, path: string): string {
 /** Where the language switcher should send someone on `pathname` who picks `target`. */
 export function switchLocalePath(pathname: string, target: Locale): string {
   const base = stripLocale(pathname);
-  const translated = (TRANSLATED_PATHS as readonly string[]).includes(base);
+  const translated = isTranslatedPath(base);
   if (target === 'en') return base;
   return localizedPath(target, translated ? base : '/');
 }
