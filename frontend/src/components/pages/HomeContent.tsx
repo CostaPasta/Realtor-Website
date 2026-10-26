@@ -10,7 +10,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import WhyJoseBackground from '@/components/WhyJoseBackground';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
-import { type Locale, localizedPath } from '@/i18n/locales';
+import { type Locale, TRANSLATED_NEIGHBORHOODS, localizedPath } from '@/i18n/locales';
 import { homeDictionary } from '@/i18n/pages/home';
 
 const FEATURE_STYLES = [
@@ -303,7 +303,15 @@ export default function HomeContent({ locale }: { locale: Locale }) {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredNeighborhoods.map((n, i) => (
               <AnimateOnScroll key={n.slug} delay={i * 0.08}>
-                <NeighborhoodCard {...n} labels={t.cardLabels} />
+                <NeighborhoodCard
+                  {...n}
+                  labels={t.cardLabels}
+                  href={
+                    (TRANSLATED_NEIGHBORHOODS as readonly string[]).includes(n.slug)
+                      ? localizedPath(locale, `/neighborhoods/${n.slug}`)
+                      : undefined
+                  }
+                />
               </AnimateOnScroll>
             ))}
           </div>

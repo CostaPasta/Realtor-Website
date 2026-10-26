@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { neighborhoods } from '@/data/neighborhoods';
 import { visibleMarketUpdates } from '@/data/market-updates';
 import { testimonials } from '@/data/testimonials';
-import { TRANSLATED_PATHS, localizedPath } from '@/i18n/locales';
+import { TRANSLATED_NEIGHBORHOODS, TRANSLATED_PATHS, localizedPath } from '@/i18n/locales';
 
 const BASE_URL = 'https://www.josecostarealtor.com';
 
@@ -83,6 +83,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  const translatedNeighborhoodPages: MetadataRoute.Sitemap = (['es', 'pt'] as const).flatMap((locale) =>
+    TRANSLATED_NEIGHBORHOODS.map((slug) => ({
+      url: `${BASE_URL}${localizedPath(locale, `/neighborhoods/${slug}`)}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  );
+
   const neighborhoodPages: MetadataRoute.Sitemap = neighborhoods
     .filter((n) => !n.hidden)
     .map((n) => ({
@@ -99,5 +108,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...translatedPages, ...neighborhoodPages, ...marketUpdatePages];
+  return [
+    ...staticPages,
+    ...translatedPages,
+    ...neighborhoodPages,
+    ...translatedNeighborhoodPages,
+    ...marketUpdatePages,
+  ];
 }
