@@ -8,7 +8,6 @@ export interface RentVsBuyDictionary {
   hero: { eyebrow: string; title: string; intro: string };
   inputs: {
     title: string;
-    areaNote: string;
     rent: string;
     price: string;
     down: string;
@@ -25,6 +24,7 @@ export interface RentVsBuyDictionary {
     own: string;
     rent: string;
     perMonth: string;
+    empty: string;
     more: string;
     less: string;
     same: string;
@@ -41,7 +41,7 @@ export interface RentVsBuyDictionary {
     equityBody: string;
   };
   notes: { title: string; items: string[]; disclaimer: string };
-  cta: { title: string; subtitle: string; whatsapp: string; buy: string; message: string };
+  cta: { title: string; subtitle: string; whatsapp: string; buy: string; message: string; messageEmpty: string };
 }
 
 export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
@@ -59,7 +59,6 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Your numbers',
-      areaNote: 'Filled in for {area}: the median asking rent for a 3-bedroom, the price where houses there start, and 3.5% down (the FHA minimum).',
       rent: 'Monthly rent',
       price: 'Home price',
       down: 'Down payment',
@@ -76,6 +75,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       own: 'Owning',
       rent: 'Renting',
       perMonth: '/mo',
+      empty: 'Enter your monthly rent and a home price to see what owning would cost next to renting.',
       more: 'Owning costs {amount} more per month',
       less: 'Owning costs {amount} less per month',
       same: 'Owning and renting cost about the same per month',
@@ -110,6 +110,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       buy: 'How buying with Jose works',
       message:
         "Hi Jose, I used the rent vs. buy calculator on your website. I pay about {rent} in rent and I'm looking at homes around {price}.",
+      messageEmpty: 'Hi Jose, I used the rent vs. buy calculator on your website and have a question about buying a home.',
     },
   },
   es: {
@@ -126,7 +127,6 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Sus números',
-      areaNote: 'Con los números de {area}: el alquiler mediano pedido por una de 3 habitaciones, el precio desde el que empiezan las casas allí y 3.5% de pago inicial (el mínimo de FHA).',
       rent: 'Alquiler mensual',
       price: 'Precio de la casa',
       down: 'Pago inicial',
@@ -143,6 +143,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       own: 'Ser dueño',
       rent: 'Alquilar',
       perMonth: '/mes',
+      empty: 'Escriba su alquiler mensual y el precio de una casa para ver cuánto costaría ser dueño comparado con alquilar.',
       more: 'Ser dueño cuesta {amount} más por mes',
       less: 'Ser dueño cuesta {amount} menos por mes',
       same: 'Ser dueño y alquilar cuestan casi lo mismo por mes',
@@ -177,6 +178,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       buy: 'Cómo es comprar con Jose',
       message:
         'Hola Jose, usé la calculadora de alquilar o comprar en su página web. Pago cerca de {rent} de alquiler y busco casas de alrededor de {price}.',
+      messageEmpty: 'Hola Jose, usé la calculadora de alquilar o comprar en su página web y tengo una pregunta sobre comprar casa.',
     },
   },
   pt: {
@@ -193,7 +195,6 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Seus números',
-      areaNote: 'Com os números de {area}: o aluguel mediano pedido por uma de 3 quartos, o preço a partir do qual as casas começam ali e 3,5% de entrada (o mínimo do FHA).',
       rent: 'Aluguel mensal',
       price: 'Preço da casa',
       down: 'Entrada',
@@ -210,6 +211,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       own: 'Casa própria',
       rent: 'Aluguel',
       perMonth: '/mês',
+      empty: 'Informe o seu aluguel mensal e o preço de uma casa para ver quanto custaria a casa própria comparada ao aluguel.',
       more: 'A casa própria custa {amount} a mais por mês',
       less: 'A casa própria custa {amount} a menos por mês',
       same: 'Casa própria e aluguel custam quase o mesmo por mês',
@@ -244,6 +246,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
       buy: 'Como é comprar com o Jose',
       message:
         'Olá Jose, usei a calculadora de alugar ou comprar no seu site. Pago cerca de {rent} de aluguel e procuro casas por volta de {price}.',
+      messageEmpty: 'Olá Jose, usei a calculadora de alugar ou comprar no seu site e tenho uma dúvida sobre comprar uma casa.',
     },
   },
 };

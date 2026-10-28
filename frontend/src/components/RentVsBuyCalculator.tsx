@@ -1,20 +1,18 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { MessageCircle } from 'lucide-react';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentVsBuyDictionary } from '@/i18n/pages/rent-vs-buy';
-import type { CalculatorArea } from '@/lib/rent-vs-buy';
 import { whatsappHref } from '@/lib/whatsapp';
 
-// Starting values. Rent and price sit near the Royal Palm Beach 3-bedroom rent and
-// median house price in data/market-stats.ts. The rate is roughly the 30-year fixed
-// average in October 2026 (Freddie Mac); visitors are told to replace it with a quote.
+// Rent and price start empty so the page only ever shows the visitor's own numbers.
+// The rest are editable assumptions most renters wouldn't know. The rate is roughly the
+// 30-year fixed average in October 2026 (Freddie Mac); visitors are told to replace it.
 const DEFAULTS = {
-  rent: '2800',
-  price: '450000',
+  rent: '',
+  price: '',
   down: '5',
   rate: '7.4',
   tax: '1.8',
@@ -22,8 +20,6 @@ const DEFAULTS = {
   hoa: '0',
 };
 const DOWN_PRESETS = ['3.5', '5', '10', '20'];
-/** Neighborhood links start from a first-time buyer's FHA minimum. */
-const AREA_DOWN = '3.5';
 const MORTGAGE_INSURANCE_RATE = 0.005;
 const CLOSING_COST_RATE = 0.03;
 const TERM_MONTHS = 360;
@@ -40,11 +36,9 @@ function num(value: string): number {
   return Number.isFinite(n) && n > 0 ? n : 0;
 }
 
-function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea }) {
+export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
   const t = rentVsBuyDictionary[locale];
-  const [values, setValues] = useState(() =>
-    area ? { ...DEFAULTS, rent: String(area.rent), price: String(area.price), down: AREA_DOWN } : DEFAULTS
-  );
+  const [values, setValues] = useState(DEFAULTS);
   const set = (field: Field) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setValues((v) => ({ ...v, [field]: e.target.value }));
 
@@ -86,7 +80,10 @@ function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea })
     ...(mortgageInsurance > 0 ? [{ label: t.results.mortgageInsurance, value: mortgageInsurance }] : []),
   ];
 
-  const message = t.cta.message.replace('{rent}', money.format(rent)).replace('{price}', money.format(price));
+  const ready = rent > 0 && price > 0;
+  const message = ready
+    ? t.cta.message.replace('{rent}', money.format(rent)).replace('{price}', money.format(price))
+    : t.cta.messageEmpty;
 
   const moneyInput = (field: Field, label: string, hint?: string) => (
     <div>
@@ -152,11 +149,6 @@ function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea })
       {/* ─── Inputs ─── */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-cream-dark shadow-sm">
         <h2 className="font-serif text-2xl font-bold text-navy mb-6">{t.inputs.title}</h2>
-        {area && (
-          <p className="-mt-3 mb-6 font-sans text-sm text-gray-600 leading-relaxed">
-            {t.inputs.areaNote.replace('{area}', area.name)}
-          </p>
-        )}
         <div className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
             {moneyInput('rent', t.inputs.rent)}
@@ -218,69 +210,77 @@ function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea })
             {t.results.title}
           </h3>
 
-          <div className="space-y-5">
-            {[
-              { label: t.results.own, value: ownTotal, bar: 'bg-gold' },
-              { label: t.results.rent, value: rent, bar: 'bg-white/50' },
-            ].map((row) => (
-              <div key={row.label}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-sans text-sm text-white/80">{row.label}</span>
-                  <span className="font-serif text-3xl font-bold tabular-nums">
-                    {money.format(row.value)}
-                    <span className="font-sans text-sm font-normal text-white/60">{t.results.perMonth}</span>
-                  </span>
-                </div>
-                <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${row.bar} transition-[width] duration-300 motion-reduce:transition-none`}
-                    style={{ width: `${(row.value / barMax) * 100}%` }}
-                  />
-                </div>
+          {!ready && <p className="font-sans text-base text-white/80 leading-relaxed">{t.results.empty}</p>}
+          {ready && (
+            <>
+              <div className="space-y-5">
+                {[
+                  { label: t.results.own, value: ownTotal, bar: 'bg-gold' },
+                  { label: t.results.rent, value: rent, bar: 'bg-white/50' },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="font-sans text-sm text-white/80">{row.label}</span>
+                      <span className="font-serif text-3xl font-bold tabular-nums">
+                        {money.format(row.value)}
+                        <span className="font-sans text-sm font-normal text-white/60">{t.results.perMonth}</span>
+                      </span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${row.bar} transition-[width] duration-300 motion-reduce:transition-none`}
+                        style={{ width: `${(row.value / barMax) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <p className="mt-6 font-sans text-base font-semibold text-gold">{summary}</p>
+              <p className="mt-6 font-sans text-base font-semibold text-gold">{summary}</p>
 
-          <dl className="mt-6 pt-6 border-t border-white/10 space-y-2.5 font-sans text-sm">
-            {breakdown.map((item) => (
-              <div key={item.label} className="flex justify-between gap-4">
-                <dt className="text-white/70">{item.label}</dt>
-                <dd className="tabular-nums">{money.format(item.value)}</dd>
-              </div>
-            ))}
-          </dl>
+              <dl className="mt-6 pt-6 border-t border-white/10 space-y-2.5 font-sans text-sm">
+                {breakdown.map((item) => (
+                  <div key={item.label} className="flex justify-between gap-4">
+                    <dt className="text-white/70">{item.label}</dt>
+                    <dd className="tabular-nums">{money.format(item.value)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </>
+          )}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 border border-cream-dark">
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
-              {t.results.cashTitle}
-            </h3>
-            <dl className="space-y-2 font-sans text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-gray-600">{t.results.downPayment}</dt>
-                <dd className="tabular-nums text-gray-800">{money.format(downPayment)}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-gray-600">{t.results.closing}</dt>
-                <dd className="tabular-nums text-gray-800">{money.format(closing)}</dd>
-              </div>
-              <div className="flex justify-between gap-4 pt-2 border-t border-cream-dark font-semibold text-navy">
-                <dt>{t.results.cashTotal}</dt>
-                <dd className="tabular-nums">{money.format(downPayment + closing)}</dd>
-              </div>
-            </dl>
+        {ready && (
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 border border-cream-dark">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
+                {t.results.cashTitle}
+              </h3>
+              <dl className="space-y-2 font-sans text-sm">
+                <div className="flex justify-between gap-4">
+                  <dt className="text-gray-600">{t.results.downPayment}</dt>
+                  <dd className="tabular-nums text-gray-800">{money.format(downPayment)}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-gray-600">{t.results.closing}</dt>
+                  <dd className="tabular-nums text-gray-800">{money.format(closing)}</dd>
+                </div>
+                <div className="flex justify-between gap-4 pt-2 border-t border-cream-dark font-semibold text-navy">
+                  <dt>{t.results.cashTotal}</dt>
+                  <dd className="tabular-nums">{money.format(downPayment + closing)}</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="bg-white rounded-2xl p-6 border border-cream-dark">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
+                {t.results.equityTitle}
+              </h3>
+              <p className="font-serif text-3xl font-bold text-navy tabular-nums">{money.format(firstYearPrincipal)}</p>
+              <p className="mt-2 font-sans text-xs text-gray-600 leading-relaxed">{t.results.equityBody}</p>
+            </div>
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-cream-dark">
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
-              {t.results.equityTitle}
-            </h3>
-            <p className="font-serif text-3xl font-bold text-navy tabular-nums">{money.format(firstYearPrincipal)}</p>
-            <p className="mt-2 font-sans text-xs text-gray-600 leading-relaxed">{t.results.equityBody}</p>
-          </div>
-        </div>
+
+        )}
 
         <div className="flex flex-col sm:flex-row gap-3">
           <a
@@ -301,27 +301,5 @@ function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea })
         </div>
       </div>
     </div>
-  );
-}
-
-/** Reads ?area=<slug> so neighborhood pages can open the calculator with their own numbers. */
-function CalculatorFromUrl({ locale, areas }: { locale: Locale; areas: Record<string, CalculatorArea> }) {
-  const slug = useSearchParams().get('area') ?? '';
-  const area = Object.hasOwn(areas, slug) ? areas[slug] : undefined;
-  return <Calculator key={slug} locale={locale} area={area} />;
-}
-
-export default function RentVsBuyCalculator({
-  locale,
-  areas,
-}: {
-  locale: Locale;
-  areas: Record<string, CalculatorArea>;
-}) {
-  // The static HTML carries the default numbers; the URL's area swaps in on load.
-  return (
-    <Suspense fallback={<Calculator locale={locale} />}>
-      <CalculatorFromUrl locale={locale} areas={areas} />
-    </Suspense>
   );
 }

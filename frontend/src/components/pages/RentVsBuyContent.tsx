@@ -2,7 +2,6 @@ import CTASection from '@/components/CTASection';
 import RentVsBuyCalculator from '@/components/RentVsBuyCalculator';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentVsBuyDictionary } from '@/i18n/pages/rent-vs-buy';
-import { calculatorAreas } from '@/lib/rent-vs-buy';
 import { whatsappLink } from '@/lib/whatsapp';
 
 export default function RentVsBuyContent({ locale }: { locale: Locale }) {
@@ -24,7 +23,7 @@ export default function RentVsBuyContent({ locale }: { locale: Locale }) {
       {/* ─── Calculator ─── */}
       <section className="py-14 md:py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <RentVsBuyCalculator locale={locale} areas={calculatorAreas} />
+          <RentVsBuyCalculator locale={locale} />
 
           <div className="mt-14 max-w-3xl">
             <h2 className="font-serif text-xl font-bold text-navy mb-4">{t.notes.title}</h2>

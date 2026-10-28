@@ -27,7 +27,6 @@ import SectionHeading from '@/components/SectionHeading';
 import type { Neighborhood } from '@/data/neighborhoods';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { fill, neighborhoodUi } from '@/i18n/pages/neighborhood';
-import { calculatorAreas, rentVsBuyHref } from '@/lib/rent-vs-buy';
 import { whatsappLink } from '@/lib/whatsapp';
 
 const POI_ICONS = {
@@ -84,7 +83,6 @@ export default function NeighborhoodContent({
   locale: Locale;
 }) {
   const {
-    slug,
     name,
     county,
     region,
@@ -110,12 +108,6 @@ export default function NeighborhoodContent({
   const t = neighborhoodUi[locale];
   const f = (text: string) => fill(text, { name, county });
   const contactHref = localizedPath(locale, '/contact');
-  const calcArea = Object.hasOwn(calculatorAreas, slug) ? calculatorAreas[slug] : undefined;
-  const money = new Intl.NumberFormat(locale === 'pt' ? 'pt-BR' : locale === 'es' ? 'es-US' : 'en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  });
 
   return (
     <>
@@ -374,25 +366,19 @@ export default function NeighborhoodContent({
               </div>
             )}
 
-            {/* Rent vs. buy, with this city's numbers */}
-            {calcArea && (
-              <div className="bg-navy rounded-2xl p-8 flex flex-col md:flex-row md:items-center gap-6">
-                <div className="flex-1">
-                  <h2 className="font-serif text-2xl font-bold text-white">{f(t.calcTitle)}</h2>
-                  <p className="mt-3 font-sans text-sm text-white/75 leading-relaxed">
-                    {t.calcBody
-                      .replace('{rent}', money.format(calcArea.rent))
-                      .replace('{price}', money.format(calcArea.price))}
-                  </p>
-                </div>
-                <Link
-                  href={rentVsBuyHref(locale, slug)}
-                  className="shrink-0 inline-flex items-center justify-center px-6 py-3 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
-                >
-                  {t.calcCta}
-                </Link>
+            {/* Rent vs. buy */}
+            <div className="bg-navy rounded-2xl p-8 flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <h2 className="font-serif text-2xl font-bold text-white">{f(t.calcTitle)}</h2>
+                <p className="mt-3 font-sans text-sm text-white/75 leading-relaxed">{t.calcBody}</p>
               </div>
-            )}
+              <Link
+                href={localizedPath(locale, '/rent-vs-buy')}
+                className="shrink-0 inline-flex items-center justify-center px-6 py-3 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
+              >
+                {t.calcCta}
+              </Link>
+            </div>
 
             {/* Section 7: Schools */}
             {schools && schools.length > 0 && (

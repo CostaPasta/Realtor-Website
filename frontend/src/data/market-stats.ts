@@ -65,18 +65,12 @@ export interface CityRentStats {
   threeBedroom: number;
   /** Median days the rental listings had been on the market. */
   daysListed: number;
-  /**
-   * Where single-family houses start (the low end of the "Single-Family" range in the
-   * neighborhood's budget guide). The rent vs. buy calculator uses it as a first-time
-   * buyer's example, so keep it in step with that guide.
-   */
-  starterHousePrice: number;
 }
 
 export const rentalStats: CityRentStats[] = [
-  { slug: 'royal-palm-beach', twoBedroom: 2_200, threeBedroom: 2_800, daysListed: 34, starterHousePrice: 350_000 },
-  { slug: 'west-palm-beach', twoBedroom: 2_185, threeBedroom: 3_000, daysListed: 33, starterHousePrice: 300_000 },
-  { slug: 'lake-worth-beach', twoBedroom: 2_100, threeBedroom: 3_000, daysListed: 27, starterHousePrice: 300_000 },
-  { slug: 'boynton-beach', twoBedroom: 2_350, threeBedroom: 3_400, daysListed: 31, starterHousePrice: 300_000 },
-  { slug: 'wellington', twoBedroom: 2_950, threeBedroom: 4_200, daysListed: 42, starterHousePrice: 450_000 },
+  { slug: 'royal-palm-beach', twoBedroom: 2_200, threeBedroom: 2_800, daysListed: 34 },
+  { slug: 'west-palm-beach', twoBedroom: 2_185, threeBedroom: 3_000, daysListed: 33 },
+  { slug: 'lake-worth-beach', twoBedroom: 2_100, threeBedroom: 3_000, daysListed: 27 },
+  { slug: 'boynton-beach', twoBedroom: 2_350, threeBedroom: 3_400, daysListed: 31 },
+  { slug: 'wellington', twoBedroom: 2_950, threeBedroom: 4_200, daysListed: 42 },
 ];

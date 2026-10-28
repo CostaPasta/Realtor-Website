@@ -19,7 +19,6 @@ import { testimonials } from '@/data/testimonials';
 import { availableRentals } from '@/data/rentals';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentalsDictionary } from '@/i18n/pages/rentals';
-import { rentVsBuyHref } from '@/lib/rent-vs-buy';
 import { rentalListingMessage, whatsappHref, whatsappLink } from '@/lib/whatsapp';
 
 const DATE_LOCALES: Record<Locale, string> = { en: 'en-US', es: 'es-US', pt: 'pt-BR' };
@@ -274,7 +273,7 @@ export default function RentalsContent({ locale }: { locale: Locale }) {
             <p className="mt-3 font-sans text-sm md:text-base text-white/75 leading-relaxed max-w-2xl">{t.ownBand.body}</p>
           </div>
           <Link
-            href={rentVsBuyHref(locale)}
+            href={localizedPath(locale, '/rent-vs-buy')}
             className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
           >
             {t.ownBand.cta}
