@@ -61,6 +61,12 @@ export default function BuyContent({ locale }: { locale: Locale }) {
             >
               {t.hero.cta}
             </Link>
+            <Link
+              href={localizedPath(locale, '/rent-vs-buy')}
+              className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
+            >
+              {t.hero.calculator}
+            </Link>
           </div>
           <p className="mt-3 font-sans text-xs text-white/50">{t.hero.fine}</p>
         </div>

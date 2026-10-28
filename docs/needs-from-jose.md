@@ -98,7 +98,7 @@ MLS rules usually don't allow sharing a login, so Jose should pull the numbers h
 
 7. In the MLS, search **active rentals** (for lease) in Royal Palm Beach, West Palm Beach, Lake Worth Beach, Boynton Beach, and Wellington, houses and condos together.
 8. For each city write down the **median asking rent for 2 bedrooms**, the **median for 3 bedrooms**, and the **median days on market** of those listings.
-9. Update `rentalStats` and `RENTAL_STATS_DATE` at the bottom of `market-stats.ts`. The table, the date under its heading, and the "27 to 42 days" answer in the FAQ all update from these numbers. Commit and push as in step 6.
+9. Update `rentalStats` and `RENTAL_STATS_DATE` at the bottom of `market-stats.ts`. If a neighborhood's budget guide changes, update that city's `starterHousePrice` to match (it's the low end of the single-family range, used by the rent vs. buy calculator). The table, the date under its heading, and the "27 to 42 days" answer in the FAQ all update from these numbers. Commit and push as in step 6.
 
 **No need to touch:** the neighborhood page text. Its numbers are dated ("from January through September 2026"), so they stay true. Refresh them during a bigger copy update, or write a new Market Updates report instead.
 

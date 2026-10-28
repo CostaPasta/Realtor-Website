@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { MessageCircle } from 'lucide-react';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentVsBuyDictionary } from '@/i18n/pages/rent-vs-buy';
+import type { CalculatorArea } from '@/lib/rent-vs-buy';
 import { whatsappHref } from '@/lib/whatsapp';
 
 // Starting values. Rent and price sit near the Royal Palm Beach 3-bedroom rent and
@@ -20,6 +22,8 @@ const DEFAULTS = {
   hoa: '0',
 };
 const DOWN_PRESETS = ['3.5', '5', '10', '20'];
+/** Neighborhood links start from a first-time buyer's FHA minimum. */
+const AREA_DOWN = '3.5';
 const MORTGAGE_INSURANCE_RATE = 0.005;
 const CLOSING_COST_RATE = 0.03;
 const TERM_MONTHS = 360;
@@ -36,9 +40,11 @@ function num(value: string): number {
   return Number.isFinite(n) && n > 0 ? n : 0;
 }
 
-export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
+function Calculator({ locale, area }: { locale: Locale; area?: CalculatorArea }) {
   const t = rentVsBuyDictionary[locale];
-  const [values, setValues] = useState(DEFAULTS);
+  const [values, setValues] = useState(() =>
+    area ? { ...DEFAULTS, rent: String(area.rent), price: String(area.price), down: AREA_DOWN } : DEFAULTS
+  );
   const set = (field: Field) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setValues((v) => ({ ...v, [field]: e.target.value }));
 
@@ -146,6 +152,11 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
       {/* ─── Inputs ─── */}
       <div className="bg-white rounded-2xl p-6 sm:p-8 border border-cream-dark shadow-sm">
         <h2 className="font-serif text-2xl font-bold text-navy mb-6">{t.inputs.title}</h2>
+        {area && (
+          <p className="-mt-3 mb-6 font-sans text-sm text-gray-600 leading-relaxed">
+            {t.inputs.areaNote.replace('{area}', area.name)}
+          </p>
+        )}
         <div className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
             {moneyInput('rent', t.inputs.rent)}
@@ -290,5 +301,27 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Reads ?area=<slug> so neighborhood pages can open the calculator with their own numbers. */
+function CalculatorFromUrl({ locale, areas }: { locale: Locale; areas: Record<string, CalculatorArea> }) {
+  const slug = useSearchParams().get('area') ?? '';
+  const area = Object.hasOwn(areas, slug) ? areas[slug] : undefined;
+  return <Calculator key={slug} locale={locale} area={area} />;
+}
+
+export default function RentVsBuyCalculator({
+  locale,
+  areas,
+}: {
+  locale: Locale;
+  areas: Record<string, CalculatorArea>;
+}) {
+  // The static HTML carries the default numbers; the URL's area swaps in on load.
+  return (
+    <Suspense fallback={<Calculator locale={locale} />}>
+      <CalculatorFromUrl locale={locale} areas={areas} />
+    </Suspense>
   );
 }

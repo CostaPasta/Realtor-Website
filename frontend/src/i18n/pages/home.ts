@@ -20,7 +20,7 @@ export interface HomeDictionary {
   stats: { years: string; clients: string; languages: string; closed: string };
   scenes: { rent: Copy; buy: Copy; sell: Copy };
   why: { eyebrow: string; title: string; subtitle: string; features: [Copy, Copy, Copy, Copy] };
-  buyer: { eyebrow: string; title: string; body: string; link: string };
+  buyer: { eyebrow: string; title: string; body: string; link: string; calculator: string };
   seller: { eyebrow: string; title: string; body: string; link: string };
   areas: { eyebrow: string; title: string; subtitle: string; viewAll: string };
   cardLabels?: NeighborhoodCardLabels;
@@ -90,6 +90,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       title: 'Buying in South Florida',
       body: 'Jose identifies properties worth seeing, negotiates on your behalf, and handles every step in English, Spanish, or Portuguese. Before you sign anything, he explains in writing exactly how his fee works.',
       link: 'Start Your Search →',
+      calculator: 'Renting now? Compare it with owning →',
     },
     seller: {
       eyebrow: 'For Sellers',
@@ -177,6 +178,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       title: 'Comprar en el sur de la Florida',
       body: 'Jose encuentra las propiedades que vale la pena ver, negocia por usted y se encarga de cada paso en español, inglés o portugués. Antes de que usted firme algo, le explica por escrito cómo funciona su comisión.',
       link: 'Empiece su búsqueda →',
+      calculator: '¿Alquila ahora? Compárelo con ser dueño →',
     },
     seller: {
       eyebrow: 'Para vendedores',
@@ -290,6 +292,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       title: 'Comprar no sul da Flórida',
       body: 'Jose seleciona os imóveis que valem a visita, negocia por você e cuida de cada etapa em português, inglês ou espanhol. Antes de você assinar qualquer coisa, ele explica por escrito como funciona a comissão dele.',
       link: 'Comece sua busca →',
+      calculator: 'Paga aluguel? Compare com a casa própria →',
     },
     seller: {
       eyebrow: 'Para vendedores',

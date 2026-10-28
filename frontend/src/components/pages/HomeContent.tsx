@@ -266,9 +266,15 @@ export default function HomeContent({ locale }: { locale: Locale }) {
             <p className="mt-4 font-sans text-white/80 text-base leading-relaxed">{t.buyer.body}</p>
             <Link
               href={localizedPath(locale, '/buy')}
-              className="mt-8 inline-block font-sans text-sm font-semibold text-gold hover:text-gold-light transition-colors"
+              className="mt-8 block font-sans text-sm font-semibold text-gold hover:text-gold-light transition-colors"
             >
               {t.buyer.link}
+            </Link>
+            <Link
+              href={localizedPath(locale, '/rent-vs-buy')}
+              className="mt-3 block font-sans text-sm font-semibold text-white/80 hover:text-gold transition-colors"
+            >
+              {t.buyer.calculator}
             </Link>
           </div>
         </AnimateOnScroll>

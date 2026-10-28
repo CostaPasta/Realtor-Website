@@ -19,6 +19,7 @@ import { testimonials } from '@/data/testimonials';
 import { availableRentals } from '@/data/rentals';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentalsDictionary } from '@/i18n/pages/rentals';
+import { rentVsBuyHref } from '@/lib/rent-vs-buy';
 import { rentalListingMessage, whatsappHref, whatsappLink } from '@/lib/whatsapp';
 
 const DATE_LOCALES: Record<Locale, string> = { en: 'en-US', es: 'es-US', pt: 'pt-BR' };
@@ -262,6 +263,22 @@ export default function RentalsContent({ locale }: { locale: Locale }) {
               </div>
             </div>
           </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ─── Rent vs. buy ─── */}
+      <section className="bg-navy py-14">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+          <div className="flex-1">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-white">{t.ownBand.title}</h2>
+            <p className="mt-3 font-sans text-sm md:text-base text-white/75 leading-relaxed max-w-2xl">{t.ownBand.body}</p>
+          </div>
+          <Link
+            href={rentVsBuyHref(locale)}
+            className="shrink-0 inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
+          >
+            {t.ownBand.cta}
+          </Link>
         </div>
       </section>
 

@@ -8,6 +8,7 @@ export interface RentVsBuyDictionary {
   hero: { eyebrow: string; title: string; intro: string };
   inputs: {
     title: string;
+    areaNote: string;
     rent: string;
     price: string;
     down: string;
@@ -58,6 +59,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Your numbers',
+      areaNote: 'Filled in for {area}: the median asking rent for a 3-bedroom, the price where houses there start, and 3.5% down (the FHA minimum).',
       rent: 'Monthly rent',
       price: 'Home price',
       down: 'Down payment',
@@ -124,6 +126,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Sus números',
+      areaNote: 'Con los números de {area}: el alquiler mediano pedido por una de 3 habitaciones, el precio desde el que empiezan las casas allí y 3.5% de pago inicial (el mínimo de FHA).',
       rent: 'Alquiler mensual',
       price: 'Precio de la casa',
       down: 'Pago inicial',
@@ -190,6 +193,7 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
     },
     inputs: {
       title: 'Seus números',
+      areaNote: 'Com os números de {area}: o aluguel mediano pedido por uma de 3 quartos, o preço a partir do qual as casas começam ali e 3,5% de entrada (o mínimo do FHA).',
       rent: 'Aluguel mensal',
       price: 'Preço da casa',
       down: 'Entrada',

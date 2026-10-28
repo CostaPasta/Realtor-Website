@@ -32,6 +32,9 @@ export interface NeighborhoodUiDictionary {
   sellerHookTitle: string;
   sellerHookBody: string;
   sellerHookCta: string;
+  calcTitle: string;
+  calcBody: string;
+  calcCta: string;
   schoolsEyebrow: string;
   schoolsTitle: string;
   schoolsSubtitle: string;
@@ -95,6 +98,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       "Jose does a free comparative market analysis: what it's worth today, recent comparable sales, and realistic days on market.",
     sellerHookCta: "What's my home worth?",
+    calcTitle: 'Renting in {name}? Compare it with owning.',
+    calcBody: 'A 3-bedroom here is listed at a median of {rent} a month, and houses start around {price}. See what a starter house would cost you each month with 3.5% down.',
+    calcCta: 'Open the Calculator',
     schoolsEyebrow: 'The Schools',
     schoolsTitle: 'Schools in {name}',
     schoolsSubtitle: 'Ratings from GreatSchools.org. Always visit in person.',
@@ -168,6 +174,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       'Jose hace un análisis comparativo de mercado gratis: cuánto vale hoy, ventas comparables recientes y cuánto tardaría en venderse.',
     sellerHookCta: '¿Cuánto vale mi casa?',
+    calcTitle: '¿Alquila en {name}? Compárelo con ser dueño.',
+    calcBody: 'Aquí una casa de 3 habitaciones se anuncia por una mediana de {rent} al mes, y las casas empiezan alrededor de {price}. Vea cuánto le costaría cada mes una primera casa con 3.5% de pago inicial.',
+    calcCta: 'Abrir la calculadora',
     schoolsEyebrow: 'Las escuelas',
     schoolsTitle: 'Escuelas en {name}',
     schoolsSubtitle: 'Calificaciones de GreatSchools.org. Visítelas siempre en persona.',
@@ -241,6 +250,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       'O Jose faz uma análise comparativa de mercado gratuita: quanto vale hoje, vendas recentes de imóveis parecidos e o tempo realista de venda.',
     sellerHookCta: 'Quanto vale a minha casa?',
+    calcTitle: 'Paga aluguel em {name}? Compare com a casa própria.',
+    calcBody: 'Aqui uma casa de 3 quartos é anunciada por uma mediana de {rent} por mês, e as casas começam por volta de {price}. Veja quanto custaria por mês uma primeira casa com 3,5% de entrada.',
+    calcCta: 'Abrir a calculadora',
     schoolsEyebrow: 'As escolas',
     schoolsTitle: 'Escolas em {name}',
     schoolsSubtitle: 'Notas do GreatSchools.org. Visite sempre pessoalmente.',
