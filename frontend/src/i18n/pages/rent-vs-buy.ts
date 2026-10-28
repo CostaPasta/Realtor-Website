@@ -183,9 +183,9 @@ export const rentVsBuyDictionary: Record<Locale, RentVsBuyDictionary> = {
   },
   pt: {
     meta: {
-      title: 'Calculadora: alugar ou comprar? em Palm Beach County',
+      title: 'Calculadora de aluguel ou compra no condado de Palm Beach',
       description:
-        'Compare o seu aluguel mensal com o custo mensal completo de ter uma casa em Palm Beach County: financiamento, imposto, seguro, HOA e o dinheiro necessário para comprar.',
+        'Compare o seu aluguel mensal com o custo mensal completo de ter uma casa no condado de Palm Beach: financiamento, imposto, seguro, HOA e o dinheiro necessário para comprar.',
     },
     hero: {
       eyebrow: 'Alugar ou comprar',

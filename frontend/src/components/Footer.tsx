@@ -107,7 +107,7 @@ const COPY: Record<
     license: 'Licença FL',
     office: 'Licença do escritório',
     disclaimer:
-      'Igualdade de Oportunidades na Habitação. Jose Costa é corretor de imóveis licenciado, afiliado à Atlantic Florida Properties. As informações deste site são consideradas confiáveis, mas não são garantidas.',
+      'Igualdade de Oportunidades na Moradia. Jose Costa é corretor de imóveis licenciado, afiliado à Atlantic Florida Properties. As informações deste site são consideradas confiáveis, mas não são garantidas.',
     pages: [
       { label: 'Aluguel', href: '/pt/rentals' },
       { label: 'Para proprietários', href: '/pt/landlords' },

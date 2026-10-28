@@ -303,7 +303,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       lifestyleTags: [
         'Primeiro imóvel',
         'Mercado de aluguel ativo',
-        'Boas escolas fundamentais',
+        'Boas escolas de ensino fundamental',
         'Oeste do condado de Palm Beach',
       ],
       budgetGuide: [

@@ -53,7 +53,7 @@ export function translatedPageMetadata(
       languages: {
         en: path,
         es: localizedPath('es', path),
-        pt: localizedPath('pt', path),
+        'pt-BR': localizedPath('pt', path),
         'x-default': path,
       },
     },

@@ -189,7 +189,7 @@ export const aboutDictionary: Record<Locale, AboutDictionary> = {
       body: 'A Atlantic Florida Properties é uma imobiliária de serviço completo no sul da Flórida, que atende clientes residenciais e investidores nos condados de Miami-Dade, Broward e Palm Beach.',
       license: 'Licença FL',
       office: 'Escritório',
-      eho: 'Igualdade de Oportunidades na Habitação',
+      eho: 'Igualdade de Oportunidades na Moradia',
     },
     cta: {
       title: 'Pronto para dar o próximo passo?',
