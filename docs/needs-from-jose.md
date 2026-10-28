@@ -45,7 +45,6 @@ A three-language guide for renters, especially newcomers. We need his real-world
 
 ## 6. Quick confirmations
 
-- The number strips say "400+ clients served", "$10M+ in closed sales", and "60+ homes listed and sold" (Home, Buy, Sell, About). Are these right? If any is a guess, change it in that page's `stats` list or remove it.
 - How fast does he actually reply on WhatsApp? The site promises a reply within 24 hours. If it's usually within the hour, we should say so.
 - Read the Spanish and Portuguese pages (`/es`, `/pt`) and flag anything that sounds off.
 
