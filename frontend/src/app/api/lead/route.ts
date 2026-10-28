@@ -34,6 +34,25 @@ function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && value in LANGUAGE_NAMES;
 }
 
+/**
+ * "Where this lead came from" lines for the email, from lib/leadSource.ts. Campaign tags
+ * come from the short links in next.config.ts (see marketing/README.md).
+ */
+function sourceLines(source: unknown): string[] {
+  if (!source || typeof source !== 'object') return [];
+  const s = source as Record<string, unknown>;
+  const str = (key: string) => (typeof s[key] === 'string' ? (s[key] as string).trim().slice(0, 120) : '');
+  const campaign = [str('utmSource'), str('utmMedium') && `(${str('utmMedium')})`, str('utmCampaign')]
+    .filter(Boolean)
+    .join(' ');
+  return [
+    str('page') && `Sent from page: ${str('page')}`,
+    campaign && `Came from: ${campaign}`,
+    !campaign && str('referrer') && `Came from: ${str('referrer')}`,
+    str('landingPage') && str('landingPage') !== str('page') && `First page visited: ${str('landingPage')}`,
+  ].filter((line): line is string => Boolean(line));
+}
+
 export async function POST(request: Request) {
   let payload: unknown;
   try {
@@ -42,7 +61,7 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: 'invalid_json' }, { status: 400 });
   }
 
-  const { type, locale, fields, company, elapsedMs } = (payload ?? {}) as Record<string, unknown>;
+  const { type, locale, fields, company, elapsedMs, source } = (payload ?? {}) as Record<string, unknown>;
 
   // Honeypot: real visitors never see or fill this field. Pretend success so bots move on.
   if (typeof company === 'string' && company.trim() !== '') {
@@ -90,6 +109,7 @@ export async function POST(request: Request) {
     `Site language: ${language}`,
     '',
     ...Object.entries(clean).map(([key, value]) => `${key}: ${value}`),
+    ...(sourceLines(source).length ? ['', ...sourceLines(source)] : []),
   ].join('\n');
 
   const apiKey = process.env.RESEND_API_KEY;

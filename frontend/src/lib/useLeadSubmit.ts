@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { track } from '@vercel/analytics';
 import type { Locale } from '@/i18n/locales';
+import { readLeadSource } from '@/lib/leadSource';
 
 export type LeadType = 'contact' | 'rental' | 'landlord' | 'valuation' | 'subscribe';
 export type LeadStatus = 'idle' | 'sending' | 'sent' | 'error';
@@ -46,7 +47,14 @@ export function useLeadSubmit(type: LeadType, locale: Locale = 'en') {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type, locale, fields, company, elapsedMs: Date.now() - shownAt.current }),
+        body: JSON.stringify({
+          type,
+          locale,
+          fields,
+          company,
+          elapsedMs: Date.now() - shownAt.current,
+          source: { ...readLeadSource(), page: window.location.pathname },
+        }),
       });
       setStatus(res.ok ? 'sent' : 'error');
       if (res.ok) track('Lead', { form: type, language: locale, page: window.location.pathname });
