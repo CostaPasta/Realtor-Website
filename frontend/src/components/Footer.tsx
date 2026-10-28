@@ -129,7 +129,7 @@ export default function Footer() {
   const pages = t.pages.filter((p) => !p.testimonials || testimonials.length > 0);
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy-dark border-t border-gold/35 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Brand */}

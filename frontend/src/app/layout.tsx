@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import SiteAnalytics from '@/components/SiteAnalytics';
+import MotionProvider from '@/components/MotionProvider';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -66,7 +67,9 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <MotionProvider>{children}</MotionProvider>
+        </main>
         <Footer />
         <WhatsAppButton />
         <MobileStickyBar />

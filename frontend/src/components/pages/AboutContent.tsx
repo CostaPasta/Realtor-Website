@@ -6,11 +6,12 @@ import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { aboutDictionary } from '@/i18n/pages/about';
+import { cardOnWhite } from '@/lib/styles';
 
 const LANGUAGES = [
-  { code: 'pt', name: 'Português', native: true, borderColor: '#009C3B' },
-  { code: 'en', name: 'English', native: false, borderColor: '#002868' },
-  { code: 'es', name: 'Español', native: false, borderColor: '#AA151B' },
+  { code: 'pt', name: 'Português', native: true },
+  { code: 'en', name: 'English', native: false },
+  { code: 'es', name: 'Español', native: false },
 ] as const;
 
 export default function AboutContent({ locale }: { locale: Locale }) {
@@ -128,15 +129,12 @@ export default function AboutContent({ locale }: { locale: Locale }) {
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {LANGUAGES.map((lang, i) => (
               <AnimateOnScroll key={lang.code} delay={i * 0.08}>
-                <div
-                  className="bg-cream rounded-2xl p-8 h-full border-l-4"
-                  style={{ borderLeftColor: lang.borderColor }}
-                >
+                <div className={`${cardOnWhite} h-full`}>
                   <div className="flex items-baseline gap-3 mb-4">
                     <h3 className="font-serif text-2xl font-bold text-navy" lang={lang.code}>
                       {lang.name}
                     </h3>
-                    <span className="font-sans text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                    <span className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-widest">
                       {lang.native ? t.languages.native : t.languages.fluent}
                     </span>
                   </div>
@@ -153,7 +151,7 @@ export default function AboutContent({ locale }: { locale: Locale }) {
       {/* ─── Brokerage ─── */}
       <section className="py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-3">
+          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold-text mb-3">
             {t.brokerage.eyebrow}
           </p>
           <h2 className="font-serif text-2xl font-bold text-navy">{t.brokerage.title}</h2>

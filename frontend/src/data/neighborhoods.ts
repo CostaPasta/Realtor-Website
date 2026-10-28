@@ -28,7 +28,6 @@ export interface Neighborhood {
   highlights: string[];
   medianHomePrice: string;
   avgDaysOnMarket: string;
-  bestFor: string;
   coordinates: { lat: number; lng: number };
   hidden?: boolean;
   imageSrc?: string;
@@ -118,7 +117,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Houses sold at a median of $566,000 in January through September 2026',
       '82 rentals listed in late October 2026, with three-bedrooms asking a median of $2,800',
     ],
-    bestFor: 'Families, first-time buyers, renters, and landlords seeking reliable tenants',
     coordinates: { lat: 26.7082, lng: -80.2262 },
     imageSrc: '/images/neighborhoods/royal-palm-beach.jpg',
     population: '39,089',
@@ -132,9 +130,7 @@ const neighborhoodData: NeighborhoodData[] = [
     joseNote:
       "Royal Palm Beach is where I've done more deals than anywhere else, and honestly, it's home turf. People hear the name and picture something fancy, it's not. It's working families: Brazilian, Venezuelan, Colombian, Haitian, longtime Floridians, all on the same streets, shopping at the same Publix. The elementary schools are genuinely good, the parks are excellent for the price point, and you get more house and more yard here than almost anywhere else in the county for the same money. The high school isn't where I'd brag, and I tell people that straight up. If you're renting before you buy, or you're a first-time buyer trying to make the numbers work in Palm Beach County, this is usually the first place I point people to.",
     lifestyleTags: [
-      'Family-Friendly',
       'First-Time Buyers',
-      'Diverse Community',
       'Active Rental Market',
       'Strong Elementary Schools',
       'Western Palm Beach County',
@@ -298,7 +294,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Norton Museum of Art and the Kravis Center for the Performing Arts',
       'About half of households rent; 943 rentals listed in late October 2026',
     ],
-    bestFor: 'Urban professionals, first-time buyers, and investors',
     coordinates: { lat: 26.7153, lng: -80.0534 },
     population: '120,000',
     resources: [
@@ -313,7 +308,6 @@ const neighborhoodData: NeighborhoodData[] = [
       "West Palm Beach gives families something none of the western suburbs can: real walkability, a downtown they'll actually use, and homes in Palm Beach County that still fit a family budget. I've helped buyers find solid 3-bedroom homes here for less than what a condo costs in Boca. And with SunFest, the GreenMarket, the Zoo, and Dreyfoos all in the same city, it adds up to something the suburbs don't have.",
     lifestyleTags: [
       'Urban and Walkable',
-      'Diverse Community',
       'Intracoastal Waterfront',
       'Arts and Culture Scene',
       'Active Rental Market',
@@ -469,7 +463,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Low-density planned community with village parks, an aquatics complex, and an amphitheater',
       'Polo season at the National Polo Center from late December through early May',
     ],
-    bestFor: 'Families, equestrian enthusiasts, and buyers wanting space and strong schools',
     coordinates: { lat: 26.6595, lng: -80.2686 },
     imageSrc: '/images/neighborhoods/wellington.jpg',
     resources: [
@@ -483,7 +476,6 @@ const neighborhoodData: NeighborhoodData[] = [
       "I've lived in Wellington since 2004. I've watched it grow from a quiet equestrian community into one of the best places to raise a family in Palm Beach County. The schools are real, the parks are well-maintained, and you get a sense of neighborhood that just doesn't exist at this price point in most of South Florida. And you don't have to own a horse to love living here.",
     lifestyleTags: [
       'Equestrian Culture',
-      'Family-Friendly',
       'Top-Rated Schools',
       'Master-Planned Community',
       'Village Parks',
@@ -638,7 +630,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Newer gated communities like Arden alongside established rural properties',
       'Next to the 60,000-acre J.W. Corbett Wildlife Management Area',
     ],
-    bestFor: 'Buyers wanting space, equestrian families, investors, and those looking for rural Florida character',
     coordinates: { lat: 26.7, lng: -80.335 },
     resources: [
       { label: 'Palm Beach County', url: 'https://www.pbcgov.org', category: 'county' },
@@ -805,7 +796,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Large Spanish-speaking community',
       'City beach with a fishing pier and the rebuilt 1920s Casino Building',
     ],
-    bestFor: 'First-time buyers, investors, and buyers who value walkability and community character',
     coordinates: { lat: 26.6167, lng: -80.0584 },
     resources: [
       { label: 'City of Lake Worth Beach', url: 'https://www.lakeworthbeachfl.gov', category: 'city' },
@@ -820,7 +810,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Walkable and Arts-Forward',
       'Tri-Rail Access',
       'Majority Renter',
-      'Diverse Community',
       'Historic Bungalows',
       'Beach and Pier',
     ],
@@ -973,7 +962,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Large Haitian and Spanish-speaking communities',
       "Easy access to I-95 and Florida's Turnpike",
     ],
-    bestFor: 'First-time buyers, value-seekers, and investors spotting early-stage appreciation',
     coordinates: { lat: 26.5317, lng: -80.0906 },
     resources: [
       { label: 'City of Boynton Beach', url: 'https://www.boynton-beach.org', category: 'city' },
@@ -1115,7 +1103,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Morikami Museum and Wakodahatchee Wetlands, both in western Delray',
       'Price range from 55+ condos under $200K to Intracoastal estates over $2M',
     ],
-    bestFor: 'Active buyers of all ages, lifestyle-driven families, and investors',
     coordinates: { lat: 26.4615, lng: -80.0728 },
     resources: [
       { label: 'City of Delray Beach', url: 'https://www.mydelraybeach.com', category: 'city' },
@@ -1272,7 +1259,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'PGA National, BallenIsles, and Mirasol offer bundled golf, pools, and tennis within gated communities',
       '15 minutes to Jupiter Beach, Palm Beach, and the Intracoastal',
     ],
-    bestFor: 'Families with elementary-age children, golf enthusiasts, and professionals relocating from the Northeast',
     coordinates: { lat: 26.8237, lng: -80.1337 },
     resources: [
       { label: 'City of Palm Beach Gardens', url: 'https://www.pbgfl.com', category: 'city' },
@@ -1286,10 +1272,8 @@ const neighborhoodData: NeighborhoodData[] = [
     lifestyleTags: [
       'Top-Rated Elementary Schools',
       'Golf Communities',
-      'Family Suburbs',
       'PGA National',
       'Shopping and Dining Hub',
-      'Active Adult and Retiree Mix',
     ],
     census: {
       population: '60,959',
@@ -1427,7 +1411,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'DuBois Park, 18-acre inlet park with a guarded snorkeling lagoon and kayak access',
       'No high-rise density; population of 62,000 spread across a low-rise town footprint',
     ],
-    bestFor: 'Families prioritizing K–12 school quality, outdoor enthusiasts, and buyers who value natural Florida',
     coordinates: { lat: 26.9342, lng: -80.0942 },
     resources: [
       { label: 'Town of Jupiter', url: 'https://www.jupiter.fl.us', category: 'city' },
@@ -1590,7 +1573,6 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     medianHomePrice: '$2.6M',
     avgDaysOnMarket: '114',
-    bestFor: 'Ultra-luxury buyers, international investors, high-net-worth relocators, and second-home purchasers',
     coordinates: { lat: 26.7056, lng: -80.0364 },
     resources: [
       { label: 'Town of Palm Beach', url: 'https://www.townofpalmbeach.com', category: 'city' },
@@ -1732,7 +1714,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Flamingo Gardens, 60-acre botanical garden and Everglades wildlife sanctuary',
       'Accessible to I-595, Florida Turnpike, Fort Lauderdale, Miami, and Boca Raton',
     ],
-    bestFor: 'Families, investors, and Latino community members seeking space and Broward value',
     coordinates: { lat: 26.0765, lng: -80.2521 },
     resources: [
       { label: 'Town of Davie', url: 'https://www.davie-fl.gov', category: 'city' },
@@ -1749,7 +1730,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'University Town',
       'Tree-Lined Suburbs',
       'NSU Stable Demand',
-      'Family-Scaled',
     ],
     census: {
       population: '112,040',
@@ -1887,7 +1867,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Interior canals for kayaking and paddleboarding without a waterfront premium',
       'Diverse community, Hispanic, Haitian-American, and Caribbean cultural presence',
     ],
-    bestFor: 'First-time buyers, investors, and buyers seeking Fort Lauderdale adjacency without Fort Lauderdale prices',
     coordinates: { lat: 26.1726, lng: -80.132 },
     resources: [
       { label: 'City of Oakland Park', url: 'https://www.oaklandparkfl.gov', category: 'city' },
@@ -1901,7 +1880,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Entry-Level Opportunity',
       'Culinary Arts Scene',
       'Fort Lauderdale Adjacent',
-      'Diverse Community',
       'Revitalization Momentum',
       'Walkable Downtown Core',
     ],
@@ -2033,7 +2011,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Steps from Fort Lauderdale Las Olas, Flagler Village, and the beach',
       'Colohatchee Park, mangrove preserve, boardwalk, and kayak launch on the Middle River',
     ],
-    bestFor: 'LGBTQ+ buyers, walkability-focused buyers, established professionals, and buyers seeking walkable Broward living',
     coordinates: { lat: 26.162, lng: -80.1342 },
     resources: [
       { label: 'City of Wilton Manors', url: 'https://www.wiltonmanors.com', category: 'city' },
@@ -2045,7 +2022,6 @@ const neighborhoodData: NeighborhoodData[] = [
       "Wilton Manors is the only city in Broward County where you can walk to dinner and walk home without a car. That's not a marketing line; it's just what Wilton Drive makes possible. I'm upfront with buyers about price: single-family homes with any updates are above $650K, the inventory is small, and competition is real. The buyers who commit here tend to stay. Low turnover is part of why the supply stays tight.",
     lifestyleTags: [
       'Walkable Island City',
-      'LGBTQ+ Welcoming',
       'Strong Community Identity',
       'Waterfront Green Space',
       'Urban Village Feel',
@@ -2165,7 +2141,6 @@ const neighborhoodData: NeighborhoodData[] = [
       'Fishing Village and renovated Fisher Family Pier, oceanfront dining and beach access',
       'Palm Aire Country Club, semi-private golf and country club within city limits',
     ],
-    bestFor: 'Value-oriented buyers, families with high-school-aged children, and investors watching the redevelopment trajectory',
     coordinates: { lat: 26.2379, lng: -80.1248 },
     resources: [
       { label: 'City of Pompano Beach', url: 'https://www.pompanobeachfl.gov', category: 'city' },
@@ -2180,9 +2155,7 @@ const neighborhoodData: NeighborhoodData[] = [
       'Coastal Value Play',
       'Active Redevelopment',
       'Intracoastal Access',
-      'Diverse Waterfront',
       'Golf Community Legacy',
-      'Caribbean Cultural Mix',
     ],
     census: {
       population: '118,110',
@@ -2308,7 +2281,6 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     medianHomePrice: '$397K',
     avgDaysOnMarket: '88',
-    bestFor: 'First-time buyers, families relocating from Palm Beach County, and remote workers seeking space',
     coordinates: { lat: 27.293, lng: -80.3501 },
     resources: [
       { label: 'City of Port St. Lucie', url: 'https://www.cityofpsl.com', category: 'city' },
@@ -2471,7 +2443,6 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     medianHomePrice: '$405K',
     avgDaysOnMarket: '85',
-    bestFor: 'Families prioritizing top-ranked public schools, boaters, and buyers seeking a quieter community pace',
     coordinates: { lat: 27.1975, lng: -80.2528 },
     resources: [
       { label: 'City of Stuart', url: 'https://www.ci.stuart.fl.us', category: 'city' },

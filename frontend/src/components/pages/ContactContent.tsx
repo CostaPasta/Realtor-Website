@@ -1,9 +1,11 @@
 import { Phone, Mail, MessageCircle } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import ContactForm from '@/components/ContactForm';
+import { FormCard } from '@/components/FormParts';
 import type { Locale } from '@/i18n/locales';
 import { contactDictionary } from '@/i18n/pages/contact';
 import { whatsappLink } from '@/lib/whatsapp';
+import { card, eyebrowOnDark, iconTile } from '@/lib/styles';
 
 const EMAIL = 'USARealtor1@gmail.com';
 
@@ -15,7 +17,7 @@ export default function ContactContent({ locale }: { locale: Locale }) {
       {/* ─── Hero ─── */}
       <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
+          <p className={`${eyebrowOnDark} mb-4`}>
             {t.hero.eyebrow}
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl">
@@ -30,9 +32,9 @@ export default function ContactContent({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Call */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
-                <Phone size={22} className="text-gold" />
+            <div className={`${card} flex flex-col`}>
+              <div className={`${iconTile} mb-5`}>
+                <Phone size={20} />
               </div>
               <h2 className="font-serif text-xl font-bold text-navy mb-2">{t.call.title}</h2>
               <p className="font-sans text-sm text-gray-600 mb-5 leading-relaxed flex-1">{t.call.body}</p>
@@ -46,12 +48,9 @@ export default function ContactContent({ locale }: { locale: Locale }) {
             </div>
 
             {/* WhatsApp */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                <MessageCircle size={22} className="text-white" />
+            <div className={`${card} flex flex-col`}>
+              <div className={`${iconTile} mb-5`}>
+                <MessageCircle size={20} />
               </div>
               <h2 className="font-serif text-xl font-bold text-navy mb-2">{t.whatsapp.title}</h2>
               <p className="font-sans text-sm text-gray-600 mb-5 leading-relaxed flex-1">{t.whatsapp.body}</p>
@@ -59,8 +58,7 @@ export default function ContactContent({ locale }: { locale: Locale }) {
                 href={whatsappLink(locale, 'general')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#25D366' }}
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-whatsapp-ink text-sm transition hover:brightness-95 bg-whatsapp"
               >
                 <MessageCircle size={18} />
                 {t.whatsapp.button}
@@ -68,15 +66,15 @@ export default function ContactContent({ locale }: { locale: Locale }) {
             </div>
 
             {/* Email */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-              <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center mb-5">
-                <Mail size={22} className="text-gold" />
+            <div className={`${card} flex flex-col`}>
+              <div className={`${iconTile} mb-5`}>
+                <Mail size={20} />
               </div>
               <h2 className="font-serif text-xl font-bold text-navy mb-2">{t.email.title}</h2>
               <p className="font-sans text-sm text-gray-600 mb-5 leading-relaxed flex-1">{t.email.body}</p>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm border border-navy/20 hover:border-gold hover:text-gold transition-colors break-all"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-navy text-sm border border-navy/20 hover:border-gold transition-colors break-all"
               >
                 <Mail size={18} className="shrink-0" />
                 {EMAIL}
@@ -91,9 +89,9 @@ export default function ContactContent({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <SectionHeading eyebrow={t.form.eyebrow} title={t.form.title} subtitle={t.form.subtitle} />
-            <div className="mt-10">
+            <FormCard className="mt-10">
               <ContactForm locale={locale} />
-            </div>
+            </FormCard>
           </div>
         </div>
       </section>

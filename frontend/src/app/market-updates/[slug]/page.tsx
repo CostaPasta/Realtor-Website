@@ -23,13 +23,6 @@ export async function generateMetadata({
   return pageMetadata(`/market-updates/${update.slug}`, { title: update.title, description: update.summary });
 }
 
-const COUNTY_COLORS: Record<string, string> = {
-  'South Florida': 'bg-navy/10 text-navy',
-  'Miami-Dade': 'bg-coral/10 text-coral',
-  Broward: 'bg-gold/10 text-gold-dark',
-  'Palm Beach': 'bg-green-50 text-green-700',
-};
-
 export default async function MarketUpdatePage({
   params,
 }: {
@@ -62,7 +55,7 @@ export default async function MarketUpdatePage({
           </div>
           <div className="flex items-center gap-3 mb-5">
             <span
-              className={`font-sans text-xs font-semibold px-3 py-1 rounded-full ${COUNTY_COLORS[update.county] ?? 'bg-gray-100 text-gray-600'}`}
+              className="font-sans text-xs font-semibold px-3 py-1 rounded-full bg-cream-dark text-navy"
             >
               {update.county}
             </span>
@@ -117,7 +110,7 @@ export default async function MarketUpdatePage({
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 font-sans text-xs text-gray-400">
+              <p className="mt-3 font-sans text-xs text-gray-500">
                 Asking rents are list prices, not signed leases. Figures are deemed reliable but not
                 guaranteed.
               </p>
@@ -157,8 +150,7 @@ export default async function MarketUpdatePage({
                 href={whatsappLink('en', 'general')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-white font-sans text-sm font-semibold hover:opacity-90"
-                style={{ backgroundColor: '#25D366' }}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-whatsapp-ink font-sans text-sm font-semibold hover:brightness-95 bg-whatsapp"
               >
                 <MessageCircle size={15} />
                 WhatsApp

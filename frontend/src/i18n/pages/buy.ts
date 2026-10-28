@@ -6,7 +6,7 @@ export interface BuyDictionary {
   meta: { title: string; description: string };
   hero: { imageAlt: string; eyebrow: string; title: string; intro: string; cta: string; calculator: string; fine: string };
   stats: { clients: string; years: string; languages: string };
-  process: { eyebrow: string; title: string; subtitle: string; stepLabel: string; steps: Copy[] };
+  process: { eyebrow: string; title: string; subtitle: string; steps: Copy[] };
   local: { eyebrow: string; titleLine1: string; titleLine2: string; body: string; link: string };
   testimonials: { eyebrow: string; title: string };
   rights: {
@@ -30,7 +30,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
         'Looking to buy a home in Palm Beach County? Jose Costa provides expert buyer representation in English, Spanish, and Portuguese across Palm Beach County, Broward, and South Florida.',
     },
     hero: {
-      imageAlt: 'Buying a home in South Florida',
+      imageAlt: 'West Palm Beach across the Intracoastal Waterway',
       eyebrow: 'For Buyers',
       title: 'Find your South Florida home with an expert by your side.',
       intro:
@@ -44,7 +44,6 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       eyebrow: 'The Process',
       title: 'From first call to closing day',
       subtitle: 'Six clear steps. One agent in your corner the whole way.',
-      stepLabel: 'Step',
       steps: [
         {
           title: 'Get Pre-Approved',
@@ -146,7 +145,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
         '¿Quiere comprar casa en el condado de Palm Beach? Jose Costa lo representa como comprador en español, inglés y portugués en los condados de Palm Beach y Broward.',
     },
     hero: {
-      imageAlt: 'Comprar casa en el sur de la Florida',
+      imageAlt: 'West Palm Beach desde el Intracoastal',
       eyebrow: 'Para compradores',
       title: 'Encuentre su casa en el sur de la Florida con un experto a su lado.',
       intro:
@@ -160,7 +159,6 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       eyebrow: 'El proceso',
       title: 'De la primera llamada al día del cierre',
       subtitle: 'Seis pasos claros. Un agente de su lado todo el tiempo.',
-      stepLabel: 'Paso',
       steps: [
         {
           title: 'Obtenga su preaprobación',
@@ -262,7 +260,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
         'Quer comprar casa no condado de Palm Beach? Jose Costa representa compradores em português, inglês e espanhol nos condados de Palm Beach e Broward.',
     },
     hero: {
-      imageAlt: 'Comprar casa no sul da Flórida',
+      imageAlt: 'West Palm Beach vista do Intracoastal',
       eyebrow: 'Para compradores',
       title: 'Encontre sua casa no sul da Flórida com um especialista ao seu lado.',
       intro:
@@ -276,7 +274,6 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       eyebrow: 'O processo',
       title: 'Da primeira ligação ao dia do fechamento',
       subtitle: 'Seis etapas claras. Um corretor do seu lado o tempo todo.',
-      stepLabel: 'Etapa',
       steps: [
         {
           title: 'Faça a pré-aprovação',

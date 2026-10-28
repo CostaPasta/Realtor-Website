@@ -8,10 +8,13 @@
   --color-gold: #C4A35A;
   --color-gold-light: #D4BC84;
   --color-gold-dark: #A07C38;
+  /* Gold for small text on white or cream; plain gold is too faint there (2.2:1). */
+  --color-gold-text: #8A6A2C;
   --color-cream: #F8F4EC;
   --color-cream-dark: #EDE8DE;
-  --color-coral: #D85A30;
-  --color-coral-light: #E87B55;
+  /* WhatsApp buttons only. Dark text, since white on this green is hard to read. */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-ink: #0B3B1E;
 
   /* Fonts */
   --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
@@ -41,8 +44,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {

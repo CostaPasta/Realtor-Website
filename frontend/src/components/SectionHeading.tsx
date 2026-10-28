@@ -19,7 +19,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start';
   const titleColor = light ? 'text-white' : 'text-navy';
-  const eyebrowColor = light ? 'text-gold-light' : 'text-gold';
+  const eyebrowColor = light ? 'text-gold' : 'text-gold-text';
   const subtitleColor = light ? 'text-white/80' : 'text-gray-600';
 
   return (

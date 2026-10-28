@@ -21,7 +21,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         'Selling your home in South Florida? Jose Costa provides seller representation with a clear pricing strategy, targeted marketing, and negotiation experience in English, Spanish, and Portuguese.',
     },
     hero: {
-      imageAlt: 'Selling a home in South Florida',
+      imageAlt: 'Homes and canals in Wilton Manors from above',
       eyebrow: 'For Sellers',
       title: "Sell your South Florida home for what it's worth.",
       intro:
@@ -98,7 +98,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         '¿Quiere vender su casa en el sur de la Florida? Jose Costa lo representa como vendedor con una estrategia de precio clara, buena promoción y experiencia negociando, en español, inglés y portugués.',
     },
     hero: {
-      imageAlt: 'Vender una casa en el sur de la Florida',
+      imageAlt: 'Casas y canales de Wilton Manors desde el aire',
       eyebrow: 'Para vendedores',
       title: 'Venda su casa en el sur de la Florida por lo que realmente vale.',
       intro:
@@ -179,7 +179,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         'Quer vender sua casa no sul da Flórida? Jose Costa representa vendedores com estratégia de preço, boa divulgação e experiência em negociação, em português, inglês e espanhol.',
     },
     hero: {
-      imageAlt: 'Vender uma casa no sul da Flórida',
+      imageAlt: 'Casas e canais de Wilton Manors vistos do alto',
       eyebrow: 'Para vendedores',
       title: 'Venda sua casa no sul da Flórida pelo que ela vale.',
       intro:

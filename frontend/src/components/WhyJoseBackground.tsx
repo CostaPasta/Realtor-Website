@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
+import { motion, useMotionValue, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 
 const FROND_ASPECT = 820 / 647;
 
@@ -198,12 +198,16 @@ export default function WhyJoseBackground({ extended = false }: { extended?: boo
   const rotateMedium = useTransform(scrollYProgress, [0, 1], [-20, 20]);
   const rotateFast   = useTransform(scrollYProgress, [0, 1], [-30, 30]);
 
-  const parallaxY: Record<ParallaxTier, MotionValue<number>> = {
-    slow: ySlow, medium: yMedium, fast: yFast,
-  };
-  const parallaxRotate: Record<ParallaxTier, MotionValue<number>> = {
-    slow: rotateSlow, medium: rotateMedium, fast: rotateFast,
-  };
+  // With reduce motion turned on, the fronds stay where they are instead of drifting.
+  const reduceMotion = useReducedMotion();
+  const still = useMotionValue(0);
+
+  const parallaxY: Record<ParallaxTier, MotionValue<number>> = reduceMotion
+    ? { slow: still, medium: still, fast: still }
+    : { slow: ySlow, medium: yMedium, fast: yFast };
+  const parallaxRotate: Record<ParallaxTier, MotionValue<number>> = reduceMotion
+    ? { slow: still, medium: still, fast: still }
+    : { slow: rotateSlow, medium: rotateMedium, fast: rotateFast };
 
   const fronds = extended ? [...FRONDS, ...EXTRA_FRONDS] : FRONDS;
 

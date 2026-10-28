@@ -10,8 +10,14 @@ interface Stat {
 
 interface StatBarProps {
   stats: Stat[];
-  dark?: boolean;
 }
+
+// Tailwind only sees whole class names, so the column counts are spelled out.
+const COLUMNS: Record<number, string> = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-4',
+};
 
 function AnimatedStat({ value, delay }: { value: string; delay: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -21,27 +27,21 @@ function AnimatedStat({ value, delay }: { value: string; delay: number }) {
   return <span ref={ref}>{value}</span>;
 }
 
-export default function StatBar({ stats, dark = false }: StatBarProps) {
-  const bg = dark ? 'bg-navy' : 'bg-cream';
-  const valueColor = dark ? 'text-gold' : 'text-navy';
-  const labelColor = dark ? 'text-white/70' : 'text-gray-600';
-  const dividerColor = dark ? 'border-white/10' : 'border-gray-200';
-
+/** The one number strip, used under the header on Home, Buy, Sell, and About. */
+export default function StatBar({ stats }: StatBarProps) {
   return (
-    <div className={`${bg} py-12 md:py-16`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div className="bg-cream border-b border-cream-dark py-10 md:py-14">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`grid ${COLUMNS[stats.length] ?? COLUMNS[4]} gap-y-8`}>
           {stats.map((stat, i) => (
             <div
-              key={i}
-              className={`flex flex-col items-center text-center ${
-                i > 0 ? `border-l ${dividerColor} pl-8` : ''
-              }`}
+              key={stat.label}
+              className={`flex flex-col items-center text-center px-3 ${i > 0 ? 'md:border-l md:border-cream-dark' : ''}`}
             >
-              <span className={`font-serif text-4xl md:text-5xl font-bold ${valueColor}`}>
+              <span className="font-serif text-4xl md:text-5xl font-bold text-navy tabular-nums">
                 <AnimatedStat value={stat.value} delay={i * 100} />
               </span>
-              <span className={`mt-2 text-sm font-sans font-medium uppercase tracking-wide ${labelColor}`}>
+              <span className="mt-2 font-sans text-xs font-semibold uppercase tracking-widest text-gray-600">
                 {stat.label}
               </span>
             </div>

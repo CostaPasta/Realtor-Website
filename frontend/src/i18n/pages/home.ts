@@ -25,7 +25,7 @@ export interface HomeDictionary {
   areas: { eyebrow: string; title: string; subtitle: string; viewAll: string };
   cardLabels?: NeighborhoodCardLabels;
   /** Translated card text for featured neighborhoods; English reads straight from the data. */
-  featured?: Record<string, { name?: string; tagline: string; bestFor: string }>;
+  featured?: Record<string, { name?: string; tagline: string }>;
   testimonials: { eyebrow: string; title: string; subtitle: string; more: string };
   cta: { title: string; subtitle: string; primary: string; secondary: string };
 }
@@ -197,25 +197,18 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       medianPrice: 'Precio medio (casas)',
       avgDays: 'Días en el mercado',
       days: 'días',
-      bestFor: 'Ideal para:',
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Casas para familias, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
-        bestFor:
-          'Familias, compradores de primera vivienda, inquilinos y dueños que buscan inquilinos confiables',
+        tagline: 'Casas con patio, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
       },
       'the-acreage': {
         name: 'The Acreage y Loxahatchee',
         tagline: 'Terrenos de 1.25 acres, muchos sin HOA, a unos 15 minutos de Wellington.',
-        bestFor:
-          'Compradores que buscan espacio, familias con caballos, inversionistas y quienes quieren la Florida rural',
       },
       'lake-worth-beach': {
         tagline:
           'Un centro histórico para recorrer a pie, a dos millas del Atlántico, con acceso al Tri-Rail y bungalows sin HOA que todavía se consiguen por menos de $500,000.',
-        bestFor:
-          'Compradores de primera vivienda, inversionistas y quienes quieren hacer todo a pie en un barrio con carácter',
       },
     },
     testimonials: {
@@ -311,25 +304,18 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       medianPrice: 'Preço mediano (casas)',
       avgDays: 'Dias no mercado',
       days: 'dias',
-      bestFor: 'Ideal para:',
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Casas para famílias, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
-        bestFor:
-          'Famílias, quem vai comprar o primeiro imóvel, inquilinos e proprietários em busca de inquilinos confiáveis',
+        tagline: 'Casas com quintal, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
       },
       'the-acreage': {
         name: 'The Acreage e Loxahatchee',
         tagline: 'Terrenos de 1,25 acre, muitos sem HOA, a uns 15 minutos de Wellington.',
-        bestFor:
-          'Quem quer espaço, famílias com cavalos, investidores e quem busca o lado rural da Flórida',
       },
       'lake-worth-beach': {
         tagline:
           'Centro histórico para fazer tudo a pé, a duas milhas do Atlântico, com acesso ao Tri-Rail e bangalôs sem HOA ainda na faixa dos US$ 400 mil.',
-        bestFor:
-          'Quem vai comprar o primeiro imóvel, investidores e quem valoriza fazer tudo a pé num bairro com personalidade',
       },
     },
     testimonials: {

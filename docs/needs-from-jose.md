@@ -35,7 +35,7 @@ A three-language guide for renters, especially newcomers. We need his real-world
 - Real photos of him working: handing over keys, at a showing, next to his own sign on a real listing.
 - A photo of him with the fruit he grows and gives to clients (the About page story).
 - Optional: a 30-second phone video saying hello in English, Portuguese, and Spanish.
-- These replace the AI-generated images in `frontend/public/images/` (`category-buying.jpg`, `category-selling.jpg`, `category-rental.jpg`, `buy-bg.png`, `sell-bg.png`).
+- Until then, the Rentals, Landlords, Buy, and Sell headers and the three cards near the top of the home page use the area photos in `frontend/public/images/neighborhoods/`. His own photos go in place of those (the `src` of each header image in `frontend/src/components/pages/`).
 
 ## 5. Reviews
 
@@ -45,6 +45,7 @@ A three-language guide for renters, especially newcomers. We need his real-world
 ## 6. Quick confirmations
 
 - How fast does he actually reply on WhatsApp? The site promises a reply within 24 hours. If it's usually within the hour, we should say so.
+- The number strips say "400+ clients served", "$10M+ in closed sales", and "60+ homes listed and sold" (Home, Buy, Sell, About). Are these right? If any is a guess, change it in that page's `stats` list or remove it.
 - Read the Spanish and Portuguese pages (`/es`, `/pt`) and flag anything that sounds off.
 
 ## 7. MLS access (for showing his listings on the site automatically)

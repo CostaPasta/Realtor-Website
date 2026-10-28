@@ -14,7 +14,7 @@ const NeighborhoodsMap = dynamic(() => import('@/components/NeighborhoodsMap'), 
       className="w-full rounded-xl border border-gold/20 flex items-center justify-center h-[360px] md:h-[520px]"
       style={{ background: '#f8f4ec' }}
     >
-      <p className="text-center text-gray-400 text-sm">Loading map…</p>
+      <p className="text-center text-gray-500 text-sm">Loading map…</p>
     </div>
   ),
 });

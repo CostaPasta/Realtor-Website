@@ -12,13 +12,6 @@ export const metadata: Metadata = pageMetadata('/market-updates', {
     'Short, sourced reports on rents and home prices in Royal Palm Beach, The Acreage and Loxahatchee, and Lake Worth Beach, built from MLS data.',
 });
 
-const COUNTY_COLORS: Record<string, string> = {
-  'South Florida': 'bg-navy/10 text-navy',
-  'Miami-Dade': 'bg-coral/10 text-coral',
-  Broward: 'bg-gold/10 text-gold-dark',
-  'Palm Beach': 'bg-green-50 text-green-700',
-};
-
 export default function MarketUpdatesPage() {
   const updates = visibleMarketUpdates();
 
@@ -75,17 +68,17 @@ export default function MarketUpdatesPage() {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className={`font-sans text-xs font-semibold px-3 py-1 rounded-full ${COUNTY_COLORS[update.county] ?? 'bg-gray-100 text-gray-600'}`}
+                      className="font-sans text-xs font-semibold px-3 py-1 rounded-full bg-cream-dark text-navy"
                     >
                       {update.county}
                     </span>
-                    <span className="font-sans text-xs text-gray-400">{date}</span>
+                    <span className="font-sans text-xs text-gray-500">{date}</span>
                   </div>
                   <h2 className="font-serif text-lg font-bold text-navy leading-snug group-hover:text-gold transition-colors mb-3">
                     {update.title}
                   </h2>
                   <p className="font-sans text-sm text-gray-600 leading-relaxed line-clamp-3">{update.summary}</p>
-                  <p className="mt-4 font-sans text-xs font-semibold text-gold group-hover:text-gold-dark transition-colors">
+                  <p className="mt-4 font-sans text-xs font-semibold text-gold-text group-hover:text-navy transition-colors">
                     Read more →
                   </p>
                 </Link>

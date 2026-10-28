@@ -6,6 +6,7 @@ import { LOCALE_LABELS, locales } from '@/i18n/locales';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
+import { formInput, formLabel } from '@/lib/styles';
 
 interface ContactFormData {
   firstName: string;
@@ -18,10 +19,6 @@ interface ContactFormData {
   company: string;
 }
 
-const inputClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
-const selectClass = `${inputClass} bg-white`;
-const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 const LANGUAGE_VALUES: Record<Locale, string> = {
   en: 'English',
@@ -60,34 +57,34 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
       <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-first" className={labelClass}>
+          <label htmlFor="contact-first" className={formLabel}>
             {t.firstName}
           </label>
           <input
             id="contact-first"
             autoComplete="given-name"
             {...register('firstName', { required: common.required })}
-            className={inputClass}
+            className={formInput}
           />
-          {errors.firstName && <p className="mt-1 text-xs text-coral">{errors.firstName.message}</p>}
+          {errors.firstName && <p className="mt-1 text-xs text-red-700">{errors.firstName.message}</p>}
         </div>
         <div>
-          <label htmlFor="contact-last" className={labelClass}>
+          <label htmlFor="contact-last" className={formLabel}>
             {t.lastName}
           </label>
           <input
             id="contact-last"
             autoComplete="family-name"
             {...register('lastName', { required: common.required })}
-            className={inputClass}
+            className={formInput}
           />
-          {errors.lastName && <p className="mt-1 text-xs text-coral">{errors.lastName.message}</p>}
+          {errors.lastName && <p className="mt-1 text-xs text-red-700">{errors.lastName.message}</p>}
         </div>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-email" className={labelClass}>
+          <label htmlFor="contact-email" className={formLabel}>
             {t.email}
           </label>
           <input
@@ -98,13 +95,13 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
               required: common.required,
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
             })}
-            className={inputClass}
+            className={formInput}
             placeholder="you@email.com"
           />
-          {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email.message}</p>}
         </div>
         <div>
-          <label htmlFor="contact-phone" className={labelClass}>
+          <label htmlFor="contact-phone" className={formLabel}>
             {t.phone}
           </label>
           <input
@@ -112,7 +109,7 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
             type="tel"
             autoComplete="tel"
             {...register('phone')}
-            className={inputClass}
+            className={formInput}
             placeholder="(954) 000-0000"
           />
         </div>
@@ -120,13 +117,13 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="contact-role" className={labelClass}>
+          <label htmlFor="contact-role" className={formLabel}>
             {t.role}
           </label>
           <select
             id="contact-role"
             {...register('role', { required: common.required })}
-            className={selectClass}
+            className={formInput}
           >
             <option value="">{common.select}</option>
             {t.roleOptions.map((o) => (
@@ -135,13 +132,13 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
               </option>
             ))}
           </select>
-          {errors.role && <p className="mt-1 text-xs text-coral">{errors.role.message}</p>}
+          {errors.role && <p className="mt-1 text-xs text-red-700">{errors.role.message}</p>}
         </div>
         <div>
-          <label htmlFor="contact-language" className={labelClass}>
+          <label htmlFor="contact-language" className={formLabel}>
             {t.language}
           </label>
-          <select id="contact-language" {...register('language')} className={selectClass}>
+          <select id="contact-language" {...register('language')} className={formInput}>
             {locales.map((l) => (
               <option key={l} value={LANGUAGE_VALUES[l]}>
                 {LOCALE_LABELS[l].native}
@@ -152,14 +149,14 @@ export default function ContactForm({ locale = 'en' }: { locale?: Locale }) {
       </div>
 
       <div>
-        <label htmlFor="contact-message" className={labelClass}>
+        <label htmlFor="contact-message" className={formLabel}>
           {t.message}
         </label>
         <textarea
           id="contact-message"
           {...register('message')}
           rows={4}
-          className={`${inputClass} resize-none`}
+          className={`${formInput} resize-none`}
           placeholder={t.messagePlaceholder}
         />
       </div>

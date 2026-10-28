@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SubmitButton } from '@/components/FormParts';
+import { formInput } from '@/lib/styles';
 
 interface SignupData {
   name: string;
@@ -11,8 +12,6 @@ interface SignupData {
   company: string;
 }
 
-const inputClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
 
 // Sends each signup to Jose's inbox through /api/lead; he keeps the list.
 export default function MarketUpdatesSignup() {
@@ -49,9 +48,9 @@ export default function MarketUpdatesSignup() {
             autoComplete="name"
             {...register('name', { required: common.required })}
             placeholder="Your name"
-            className={inputClass}
+            className={formInput}
           />
-          {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-700">{errors.name.message}</p>}
         </div>
         <div className="flex-1">
           <label htmlFor="signup-email" className="sr-only">
@@ -66,9 +65,9 @@ export default function MarketUpdatesSignup() {
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
             })}
             placeholder="your@email.com"
-            className={inputClass}
+            className={formInput}
           />
-          {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email.message}</p>}
         </div>
       </div>
       <SubmitButton status={status} label="Get Updates" common={common} mailtoHref={mailtoHref} />
