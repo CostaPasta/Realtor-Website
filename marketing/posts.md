@@ -6,13 +6,15 @@ Copy, fill in the parts in [brackets], and post. Each template comes in English,
 
 **Florida rules for ads.** Every ad needs the brokerage name, so each template ends with "Atlantic Florida Properties". Keep it in.
 
-**Fair housing.** Describe the home, not who should live there. Don't write things like:
+**Fair housing.** Describe the home and the area, not who should live there or who already does. This applies to posts, listings, the website, and anything else that advertises a home. Don't write things like:
 
-- "perfect for families," "ideal for a couple," "great for young professionals," "adults only," "no kids"
-- anything about religion, national origin, disability, or what language the tenant speaks
+- "perfect for families," "ideal for a couple," "great for young professionals," "adults only," "no kids," "great for retirees"
+- anything about religion, race, national origin, disability, sex, sexual orientation, or gender identity
+- who lives in a neighborhood: "large Haitian community," "mostly Spanish-speaking," "diverse," "lots of young families," "LGBTQ+ friendly," a median age, or the share of residents born abroad
+- what language the tenant speaks
 - anything about housing vouchers, either way, unless his broker has approved the wording
 
-Saying what languages **Jose** speaks is fine ("Hablo español").
+Fine to write: the home's features, prices, schools and their ratings, parks, commute times, what's nearby, and that a community is legally age-restricted (55+) when it is. Saying what languages **Jose** speaks is fine ("Hablo español"), and so is posting in Spanish- or Portuguese-language groups, as long as he posts in English-language groups too.
 
 **Facebook Marketplace.** Links in Marketplace listings often aren't clickable, and some listings get rejected for them. Write the link as plain text, the way the templates do, and expect most people to message instead.
 
@@ -93,7 +95,7 @@ Jose Costa, Realtor®, Atlantic Florida Properties
 
 ## 2. Group post: for renters
 
-For local Facebook groups (city groups, Brazilian and Latin American community groups) and WhatsApp groups. Check each group's rules first; many only allow real estate posts on certain days.
+For local Facebook groups (city and neighborhood groups, plus Spanish- and Portuguese-language groups) and WhatsApp groups. Check each group's rules first; many only allow real estate posts on certain days.
 
 ### English
 

@@ -5,11 +5,14 @@ import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import LandlordPropertyForm from '@/components/LandlordPropertyForm';
+import ProcessTimeline from '@/components/ProcessTimeline';
+import { FormCard } from '@/components/FormParts';
 import { neighborhoods } from '@/data/neighborhoods';
 import { RENTAL_STATS_DATE, rentalStats } from '@/data/market-stats';
 import { type Locale, TRANSLATED_NEIGHBORHOODS, localizedPath } from '@/i18n/locales';
 import { landlordsDictionary } from '@/i18n/pages/landlords';
 import { whatsappLink } from '@/lib/whatsapp';
+import { buttonPrimary, buttonWhatsApp, cardOnWhite, eyebrowOnDark, iconTile } from '@/lib/styles';
 
 const SERVICE_ICONS = [Users, ShieldCheck, TrendingUp, ClipboardCheck];
 const NUMBER_LOCALES: Record<Locale, string> = { en: 'en-US', es: 'es-US', pt: 'pt-BR' };
@@ -41,7 +44,7 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
       {/* ─── Hero ─── */}
       <section className="relative overflow-hidden bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
         <Image
-          src="/images/category-rental.jpg"
+          src="/images/neighborhoods/davie.jpg"
           alt=""
           fill
           priority
@@ -51,26 +54,25 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
         <div
           className="absolute inset-0"
           aria-hidden="true"
-          style={{ background: 'linear-gradient(to bottom, rgba(8, 18, 28, 0.9) 0%, rgba(8, 18, 28, 0.84) 100%)' }}
+          style={{
+            background: 'linear-gradient(100deg, rgba(8, 24, 41, 0.92) 0%, rgba(13, 36, 66, 0.82) 50%, rgba(13, 36, 66, 0.45) 100%)',
+          }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">{t.hero.eyebrow}</p>
+          <p className={`${eyebrowOnDark} mb-4`}>{t.hero.eyebrow}</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl text-balance">
             {t.hero.title}
           </h1>
           <p className="mt-6 font-sans text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">{t.hero.intro}</p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#owner-form"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
-            >
+            <a href="#owner-form" className={buttonPrimary}>
               {t.hero.primary}
             </a>
             <a
               href={whatsappLink(locale, 'landlord')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
+              className={buttonWhatsApp}
             >
               <MessageCircle size={16} />
               {t.hero.whatsapp}
@@ -130,11 +132,11 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
               const Icon = SERVICE_ICONS[i];
               return (
                 <AnimateOnScroll key={title} delay={i * 0.08}>
-                  <div className="bg-cream rounded-2xl p-6 h-full border border-cream-dark">
-                    <div className="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-gold" />
+                  <div className={`${cardOnWhite} h-full`}>
+                    <div className={`${iconTile} mb-5`}>
+                      <Icon size={20} />
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-navy mb-2">{title}</h3>
+                    <h3 className="font-serif text-xl font-bold text-navy mb-2">{title}</h3>
                     <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
                   </div>
                 </AnimateOnScroll>
@@ -145,26 +147,14 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
       </section>
 
       {/* ─── How it works ─── */}
-      <section className="py-20 md:py-24 bg-navy">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-24 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll>
-            <SectionHeading eyebrow={t.process.eyebrow} title={t.process.title} light />
+            <SectionHeading eyebrow={t.process.eyebrow} title={t.process.title} />
           </AnimateOnScroll>
-          <ol className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {t.process.steps.map((step, i) => (
-              <AnimateOnScroll key={step.title} delay={i * 0.08}>
-                <li className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 h-full">
-                  <span className="shrink-0 w-9 h-9 rounded-full border border-gold/50 flex items-center justify-center font-sans text-sm font-bold text-gold">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-serif text-lg font-bold text-white mb-1.5">{step.title}</h3>
-                    <p className="font-sans text-sm text-white/70 leading-relaxed">{step.body}</p>
-                  </div>
-                </li>
-              </AnimateOnScroll>
-            ))}
-          </ol>
+          <div className="mt-14">
+            <ProcessTimeline steps={t.process.steps} />
+          </div>
         </div>
       </section>
 
@@ -179,7 +169,7 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
               <details key={item.title} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg font-bold text-navy">
                   {item.title}
-                  <span className="text-gold transition-transform group-open:rotate-45 text-2xl leading-none" aria-hidden="true">
+                  <span className="text-gold-text transition-transform group-open:rotate-45 text-2xl leading-none" aria-hidden="true">
                     +
                   </span>
                 </summary>
@@ -196,9 +186,9 @@ export default function LandlordsContent({ locale }: { locale: Locale }) {
           <AnimateOnScroll>
             <SectionHeading eyebrow={t.form.eyebrow} title={t.form.title} subtitle={t.form.subtitle} />
           </AnimateOnScroll>
-          <div className="mt-10 bg-white rounded-2xl p-8 border border-cream-dark shadow-sm">
+          <FormCard className="mt-10">
             <LandlordPropertyForm locale={locale} />
-          </div>
+          </FormCard>
         </div>
       </section>
 

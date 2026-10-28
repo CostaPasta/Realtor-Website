@@ -9,7 +9,7 @@ interface TestimonialCardProps {
 
 const BADGE: Record<string, string> = {
   Buyer: 'bg-navy/10 text-navy',
-  Seller: 'bg-coral/10 text-coral',
+  Seller: 'bg-gold/10 text-gold-text',
   'Buyer & Seller': 'bg-gold/10 text-gold-dark',
   Renter: 'bg-emerald-50 text-emerald-700',
 };
@@ -34,10 +34,8 @@ function getInitials(name: string) {
 const AVATAR_COLORS = [
   { bg: '#0D2442', text: '#C4A35A' }, // navy/gold
   { bg: '#C4A35A', text: '#0D2442' }, // gold/navy
-  { bg: '#D85A30', text: '#fff' },    // coral/white
   { bg: '#1A3A5C', text: '#D4BC84' }, // navy-light/gold-light
   { bg: '#A07C38', text: '#fff' },    // gold-dark/white
-  { bg: '#E87B55', text: '#fff' },    // coral-light/white
 ];
 
 export default function TestimonialCard({
@@ -85,7 +83,7 @@ export default function TestimonialCard({
 
         <div className="flex-1 min-w-0">
           <p className="font-sans font-semibold text-navy text-sm truncate">{name}</p>
-          <p className="font-sans text-xs text-gray-400 truncate">
+          <p className="font-sans text-xs text-gray-500 truncate">
             {location}{year ? ` · ${year}` : ''}
           </p>
         </div>

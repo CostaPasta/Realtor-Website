@@ -52,7 +52,7 @@ const COPY: Record<
   en: {
     privacy: 'Privacy Policy',
     tagline:
-      'Your Palm Beach County realtor, helping families rent, buy, and sell across western Palm Beach County and Broward County. Fluent in English, Português, and Español.',
+      'Your Palm Beach County realtor, helping people rent, buy, and sell across western Palm Beach County and Broward County. Fluent in English, Português, and Español.',
     navigate: 'Navigate',
     neighborhoods: 'Neighborhoods',
     contact: 'Contact',
@@ -76,7 +76,7 @@ const COPY: Record<
   es: {
     privacy: 'Política de privacidad',
     tagline:
-      'Su agente de bienes raíces en el condado de Palm Beach. Ayuda a familias a alquilar, comprar y vender en el oeste del condado de Palm Beach y en el condado de Broward. Habla español, inglés y portugués.',
+      'Su agente de bienes raíces en el condado de Palm Beach. Ayuda a sus clientes a alquilar, comprar y vender en el oeste del condado de Palm Beach y en el condado de Broward. Habla español, inglés y portugués.',
     navigate: 'Navegación',
     neighborhoods: 'Vecindarios',
     contact: 'Contacto',
@@ -100,7 +100,7 @@ const COPY: Record<
   pt: {
     privacy: 'Política de privacidade',
     tagline:
-      'Seu corretor de imóveis no condado de Palm Beach. Ajuda famílias a alugar, comprar e vender no oeste do condado de Palm Beach e no condado de Broward. Fala português, inglês e espanhol.',
+      'Seu corretor de imóveis no condado de Palm Beach. Ajuda clientes a alugar, comprar e vender no oeste do condado de Palm Beach e no condado de Broward. Fala português, inglês e espanhol.',
     navigate: 'Navegação',
     neighborhoods: 'Bairros',
     contact: 'Contato',
@@ -129,7 +129,7 @@ export default function Footer() {
   const pages = t.pages.filter((p) => !p.testimonials || testimonials.length > 0);
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy-dark border-t border-gold/35 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Column 1: Brand */}

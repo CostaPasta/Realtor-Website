@@ -25,7 +25,7 @@ export interface HomeDictionary {
   areas: { eyebrow: string; title: string; subtitle: string; viewAll: string };
   cardLabels?: NeighborhoodCardLabels;
   /** Translated card text for featured neighborhoods; English reads straight from the data. */
-  featured?: Record<string, { name?: string; tagline: string; bestFor: string }>;
+  featured?: Record<string, { name?: string; tagline: string }>;
   testimonials: { eyebrow: string; title: string; subtitle: string; more: string };
   cta: { title: string; subtitle: string; primary: string; secondary: string };
 }
@@ -35,7 +35,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Palm Beach County Realtor | Rentals, Sales & More',
       description:
-        'Jose Costa helps families rent, buy, and sell homes across western Palm Beach County, in English, Spanish, and Portuguese.',
+        'Jose Costa helps people rent, buy, and sell homes across western Palm Beach County, in English, Spanish, and Portuguese.',
     },
     hero: {
       imageAlt: 'South Florida waterfront',
@@ -44,7 +44,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'language you trust',
       titleEnd: '.',
       intro:
-        'Jose Costa has helped South Florida families rent, buy, and sell homes for over 15 years. Based in Palm Beach County, he works in English, Portuguese, and Spanish so every client can communicate comfortably and confidently.',
+        'Jose Costa has helped people across South Florida rent, buy, and sell homes for over 15 years. Based in Palm Beach County, he works in English, Portuguese, and Spanish so every client can communicate comfortably and confidently.',
       primaryCta: 'Find a Rental Home',
       secondaryCta: 'Contact Jose',
       licensed: 'Licensed with Atlantic Florida Properties',
@@ -123,7 +123,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Agente de bienes raíces en Palm Beach | Alquiler, compra y venta',
       description:
-        'Jose Costa ayuda a familias a alquilar, comprar y vender casas en el oeste del condado de Palm Beach, en español, inglés y portugués.',
+        'Jose Costa ayuda a sus clientes a alquilar, comprar y vender casas en el oeste del condado de Palm Beach, en español, inglés y portugués.',
     },
     hero: {
       imageAlt: 'Costa del sur de la Florida',
@@ -132,7 +132,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'idioma en que confía',
       titleEnd: '.',
       intro:
-        'Jose Costa ha ayudado a familias del sur de la Florida a alquilar, comprar y vender casas por más de 15 años. Desde el condado de Palm Beach, trabaja en español, inglés y portugués para que cada cliente entienda cada paso y decida con confianza.',
+        'Jose Costa ha ayudado a clientes de todo el sur de la Florida a alquilar, comprar y vender casas por más de 15 años. Desde el condado de Palm Beach, trabaja en español, inglés y portugués para que cada cliente entienda cada paso y decida con confianza.',
       primaryCta: 'Buscar casa para alquilar',
       secondaryCta: 'Contactar a Jose',
       licensed: 'Agente con licencia, afiliado a Atlantic Florida Properties',
@@ -197,25 +197,18 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       medianPrice: 'Precio medio (casas)',
       avgDays: 'Días en el mercado',
       days: 'días',
-      bestFor: 'Ideal para:',
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Casas para familias, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
-        bestFor:
-          'Familias, compradores de primera vivienda, inquilinos y dueños que buscan inquilinos confiables',
+        tagline: 'Casas con patio, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
       },
       'the-acreage': {
         name: 'The Acreage y Loxahatchee',
         tagline: 'Terrenos de 1.25 acres, muchos sin HOA, a unos 15 minutos de Wellington.',
-        bestFor:
-          'Compradores que buscan espacio, familias con caballos, inversionistas y quienes quieren la Florida rural',
       },
       'lake-worth-beach': {
         tagline:
           'Un centro histórico para recorrer a pie, a dos millas del Atlántico, con acceso al Tri-Rail y bungalows sin HOA que todavía se consiguen por menos de $500,000.',
-        bestFor:
-          'Compradores de primera vivienda, inversionistas y quienes quieren hacer todo a pie en un barrio con carácter',
       },
     },
     testimonials: {
@@ -237,7 +230,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Corretor de imóveis em Palm Beach | Aluguel, compra e venda',
       description:
-        'Jose Costa ajuda famílias a alugar, comprar e vender imóveis no oeste do condado de Palm Beach, em português, inglês e espanhol.',
+        'Jose Costa ajuda clientes a alugar, comprar e vender imóveis no oeste do condado de Palm Beach, em português, inglês e espanhol.',
     },
     hero: {
       imageAlt: 'Litoral do sul da Flórida',
@@ -246,7 +239,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'idioma em que você confia',
       titleEnd: '.',
       intro:
-        'Há mais de 15 anos, Jose Costa ajuda famílias do sul da Flórida a alugar, comprar e vender imóveis. Baseado no condado de Palm Beach, ele atende em português, inglês e espanhol, para que cada cliente entenda cada etapa e decida com segurança.',
+        'Há mais de 15 anos, Jose Costa ajuda clientes de todo o sul da Flórida a alugar, comprar e vender imóveis. Baseado no condado de Palm Beach, ele atende em português, inglês e espanhol, para que cada cliente entenda cada etapa e decida com segurança.',
       primaryCta: 'Encontrar casa para alugar',
       secondaryCta: 'Falar com o Jose',
       licensed: 'Corretor licenciado, afiliado à Atlantic Florida Properties',
@@ -311,25 +304,18 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       medianPrice: 'Preço mediano (casas)',
       avgDays: 'Dias no mercado',
       days: 'dias',
-      bestFor: 'Ideal para:',
     },
     featured: {
       'royal-palm-beach': {
-        tagline: 'Casas para famílias, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
-        bestFor:
-          'Famílias, quem vai comprar o primeiro imóvel, inquilinos e proprietários em busca de inquilinos confiáveis',
+        tagline: 'Casas com quintal, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
       },
       'the-acreage': {
         name: 'The Acreage e Loxahatchee',
         tagline: 'Terrenos de 1,25 acre, muitos sem HOA, a uns 15 minutos de Wellington.',
-        bestFor:
-          'Quem quer espaço, famílias com cavalos, investidores e quem busca o lado rural da Flórida',
       },
       'lake-worth-beach': {
         tagline:
           'Centro histórico para fazer tudo a pé, a duas milhas do Atlântico, com acesso ao Tri-Rail e bangalôs sem HOA ainda na faixa dos US$ 400 mil.',
-        bestFor:
-          'Quem vai comprar o primeiro imóvel, investidores e quem valoriza fazer tudo a pé num bairro com personalidade',
       },
     },
     testimonials: {

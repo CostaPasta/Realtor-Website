@@ -108,7 +108,7 @@ export default function NeighborhoodsMap() {
             className="neighborhoods-popup"
           >
             <div className="p-1 min-w-[200px]">
-              <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">
                 {selectedNeighborhood.county} County
               </p>
               <h3 className="font-sans text-base font-semibold text-navy mb-2">

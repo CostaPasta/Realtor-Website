@@ -14,7 +14,7 @@ const NeighborhoodsMap = dynamic(() => import('@/components/NeighborhoodsMap'), 
       className="w-full rounded-xl border border-gold/20 flex items-center justify-center h-[360px] md:h-[520px]"
       style={{ background: '#f8f4ec' }}
     >
-      <p className="text-center text-gray-400 text-sm">Loading map…</p>
+      <p className="text-center text-gray-500 text-sm">Loading map…</p>
     </div>
   ),
 });
@@ -47,7 +47,7 @@ export default function NeighborhoodsPage() {
             South Florida Neighborhoods
           </h1>
           <p className="mt-4 font-sans text-white/80 max-w-xl leading-relaxed">
-            Jose has been helping families rent, buy, and sell homes in Palm Beach County and
+            Jose has been helping people rent, buy, and sell homes in Palm Beach County and
             Broward for over 15 years. Here is a closer look at the communities he knows best.
           </p>
         </div>

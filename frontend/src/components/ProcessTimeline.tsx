@@ -1,35 +1,29 @@
 import AnimateOnScroll from './AnimateOnScroll';
 
 export interface ProcessStep {
-  number: string;
   title: string;
   body: string;
 }
 
-interface Props {
-  steps: ProcessStep[];
-}
-
-export default function ProcessTimeline({ steps }: Props) {
+/** The one step-by-step layout, used for the buying, selling, and landlord processes. */
+export default function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
   return (
-    <div className="relative max-w-3xl mx-auto">
-      <div
-        className="absolute left-5 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold to-gold/10"
-        aria-hidden="true"
-      />
-      {steps.map((step, i) => (
-        <AnimateOnScroll key={step.number} delay={i * 0.1}>
-          <div className={`relative flex gap-6 ${i < steps.length - 1 ? 'pb-10' : ''}`}>
-            <div className="relative z-10 w-10 h-10 rounded-full bg-gold text-navy font-semibold text-sm flex items-center justify-center shrink-0">
-              {step.number}
-            </div>
-            <div>
-              <h3 className="font-sans font-semibold text-base text-navy">{step.title}</h3>
-              <p className="mt-2 text-sm text-gray-600 leading-relaxed">{step.body}</p>
-            </div>
-          </div>
-        </AnimateOnScroll>
-      ))}
-    </div>
+    <ol className="max-w-2xl mx-auto">
+      {steps.map((step, i) => {
+        const last = i === steps.length - 1;
+        return (
+          <li key={step.title} className={`relative grid grid-cols-[3rem_1fr] gap-5 ${last ? '' : 'pb-9'}`}>
+            {!last && <span className="absolute left-6 top-12 bottom-0 w-0.5 -translate-x-1/2 bg-gold/30" aria-hidden="true" />}
+            <span className="relative w-12 h-12 rounded-full border-2 border-gold bg-white flex items-center justify-center font-serif text-lg font-bold text-navy">
+              {i + 1}
+            </span>
+            <AnimateOnScroll delay={i * 0.06}>
+              <h3 className="mt-2 font-serif text-xl font-bold text-navy">{step.title}</h3>
+              <p className="mt-2 font-sans text-sm md:text-base text-gray-600 leading-relaxed">{step.body}</p>
+            </AnimateOnScroll>
+          </li>
+        );
+      })}
+    </ol>
   );
 }

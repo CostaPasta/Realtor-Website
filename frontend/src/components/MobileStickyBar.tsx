@@ -102,8 +102,7 @@ function StickyBar({ locale, whatsappHref }: { locale: Locale; whatsappHref: str
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={visible ? undefined : -1}
-          className="flex items-center justify-center gap-2 font-sans font-semibold text-white text-sm"
-          style={{ backgroundColor: '#25D366' }}
+          className="flex items-center justify-center gap-2 font-sans font-semibold text-whatsapp-ink text-sm bg-whatsapp"
         >
           <MessageCircle size={16} />
           {label.whatsapp}

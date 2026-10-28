@@ -5,6 +5,7 @@ import type { Locale } from '@/i18n/locales';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
+import { formInput, formLabel } from '@/lib/styles';
 
 interface ValuationFormData {
   name: string;
@@ -15,9 +16,6 @@ interface ValuationFormData {
   company: string;
 }
 
-const inputClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
-const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, valuation: t } = formsDictionary[locale];
@@ -49,20 +47,20 @@ export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
       <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="valuation-name" className={labelClass}>
+          <label htmlFor="valuation-name" className={formLabel}>
             {t.name}
           </label>
           <input
             id="valuation-name"
             autoComplete="name"
             {...register('name', { required: common.required })}
-            className={inputClass}
+            className={formInput}
             placeholder={t.namePlaceholder}
           />
-          {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-700">{errors.name.message}</p>}
         </div>
         <div>
-          <label htmlFor="valuation-email" className={labelClass}>
+          <label htmlFor="valuation-email" className={formLabel}>
             {t.email}
           </label>
           <input
@@ -73,14 +71,14 @@ export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
               required: common.required,
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
             })}
-            className={inputClass}
+            className={formInput}
             placeholder="your@email.com"
           />
-          {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email.message}</p>}
         </div>
       </div>
       <div>
-        <label htmlFor="valuation-phone" className={labelClass}>
+        <label htmlFor="valuation-phone" className={formLabel}>
           {t.phone}
         </label>
         <input
@@ -88,32 +86,32 @@ export default function ValuationForm({ locale = 'en' }: { locale?: Locale }) {
           type="tel"
           autoComplete="tel"
           {...register('phone')}
-          className={inputClass}
+          className={formInput}
           placeholder="(954) 000-0000"
         />
       </div>
       <div>
-        <label htmlFor="valuation-address" className={labelClass}>
+        <label htmlFor="valuation-address" className={formLabel}>
           {t.address}
         </label>
         <input
           id="valuation-address"
           autoComplete="street-address"
           {...register('address', { required: common.required })}
-          className={inputClass}
+          className={formInput}
           placeholder="123 Main St, Royal Palm Beach, FL 33411"
         />
-        {errors.address && <p className="mt-1 text-xs text-coral">{errors.address.message}</p>}
+        {errors.address && <p className="mt-1 text-xs text-red-700">{errors.address.message}</p>}
       </div>
       <div>
-        <label htmlFor="valuation-notes" className={labelClass}>
+        <label htmlFor="valuation-notes" className={formLabel}>
           {t.notes}
         </label>
         <textarea
           id="valuation-notes"
           {...register('notes')}
           rows={3}
-          className={`${inputClass} resize-none`}
+          className={`${formInput} resize-none`}
           placeholder={t.notesPlaceholder}
         />
       </div>

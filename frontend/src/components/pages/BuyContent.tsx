@@ -1,19 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calculator, PiggyBank, BadgeDollarSign, Languages, ChevronDown } from 'lucide-react';
+import { Calculator, PiggyBank, BadgeDollarSign, Languages } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
+import ProcessTimeline from '@/components/ProcessTimeline';
+import StatBar from '@/components/StatBar';
 import WhyJoseBackground from '@/components/WhyJoseBackground';
 import TestimonialCard from '@/components/TestimonialCard';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { buyDictionary } from '@/i18n/pages/buy';
+import { buttonOnDark, buttonPrimary, cardOnWhite, eyebrowOnDark, iconTile } from '@/lib/styles';
 
 const QUESTION_ICONS = [Calculator, PiggyBank, BadgeDollarSign, Languages];
-
-const STEP_COLORS = ['#C4A35A', '#1A7AAF', '#D85A30', '#2D7A44', '#2D5F8A', '#C4A35A'];
 
 const buyerTestimonials = testimonials.filter((t) => t.transactionType === 'Buyer');
 
@@ -32,7 +33,7 @@ export default function BuyContent({ locale }: { locale: Locale }) {
       {/* ─── Hero ─── */}
       <section className="relative overflow-hidden bg-navy pt-32 pb-16 md:pt-40 md:pb-20">
         <Image
-          src="/images/category-buying.jpg"
+          src="/images/neighborhoods/west-palm-beach.jpg"
           alt={t.hero.imageAlt}
           fill
           priority
@@ -43,11 +44,11 @@ export default function BuyContent({ locale }: { locale: Locale }) {
           className="absolute inset-0"
           aria-hidden="true"
           style={{
-            background: 'linear-gradient(to bottom, rgba(8, 18, 28, 0.88) 0%, rgba(8, 18, 28, 0.82) 100%)',
+            background: 'linear-gradient(100deg, rgba(8, 24, 41, 0.92) 0%, rgba(13, 36, 66, 0.82) 50%, rgba(13, 36, 66, 0.45) 100%)',
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
+          <p className={`${eyebrowOnDark} mb-4`}>
             {t.hero.eyebrow}
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight">{t.hero.title}</h1>
@@ -55,16 +56,10 @@ export default function BuyContent({ locale }: { locale: Locale }) {
             {t.hero.intro}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link
-              href={contactHref}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
-            >
+            <Link href={contactHref} className={buttonPrimary}>
               {t.hero.cta}
             </Link>
-            <Link
-              href={localizedPath(locale, '/rent-vs-buy')}
-              className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
-            >
+            <Link href={localizedPath(locale, '/rent-vs-buy')} className={buttonOnDark}>
               {t.hero.calculator}
             </Link>
           </div>
@@ -72,21 +67,7 @@ export default function BuyContent({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* ─── Stats Bar ─── */}
-      <section className="bg-navy border-t border-gold/20 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-6 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="font-serif text-3xl md:text-4xl font-bold text-gold">{stat.value}</p>
-                <p className="font-sans text-[11px] md:text-xs text-white/50 mt-1 uppercase tracking-widest">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatBar stats={stats} />
 
       {/* ─── Process ─── */}
       <section className="py-20 md:py-24 bg-cream relative overflow-hidden">
@@ -95,51 +76,9 @@ export default function BuyContent({ locale }: { locale: Locale }) {
           <AnimateOnScroll>
             <SectionHeading eyebrow={t.process.eyebrow} title={t.process.title} subtitle={t.process.subtitle} />
           </AnimateOnScroll>
-          <div className="mt-14 max-w-2xl mx-auto flex flex-col">
-            {t.process.steps.map((step, i) => {
-              const number = String(i + 1).padStart(2, '0');
-              const dark = i === t.process.steps.length - 1;
-              return (
-                <AnimateOnScroll key={number} delay={i * 0.07}>
-                  <div
-                    className="relative rounded-2xl p-7 overflow-hidden"
-                    style={{
-                      backgroundColor: dark ? '#0D2442' : '#FFFFFF',
-                      border: dark ? '1px solid rgba(56,192,106,0.55)' : '1px solid #EDE8DE',
-                      boxShadow: dark
-                        ? '0 6px 28px rgba(8,18,28,0.45), 0 0 0 1px rgba(56,192,106,0.12), 0 0 18px rgba(56,192,106,0.22), 0 0 52px rgba(56,192,106,0.08)'
-                        : '0 2px 16px rgba(13,36,66,0.07), 0 1px 4px rgba(13,36,66,0.04)',
-                    }}
-                  >
-                    <div className="relative">
-                      <span
-                        className="inline-block font-sans text-xs font-black tracking-widest uppercase mb-3"
-                        style={{ color: STEP_COLORS[i] }}
-                      >
-                        {t.process.stepLabel} {number}
-                      </span>
-                      <h3
-                        className="font-serif font-bold text-xl mb-3"
-                        style={{ color: dark ? '#ffffff' : '#0D2442' }}
-                      >
-                        {step.title}
-                      </h3>
-                      <p
-                        className="font-sans text-sm leading-relaxed"
-                        style={{ color: dark ? 'rgba(255,255,255,0.70)' : '#4B5563' }}
-                      >
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                  {i < t.process.steps.length - 1 && (
-                    <div className="flex justify-center py-2" aria-hidden="true">
-                      <ChevronDown size={24} className="text-gold/50" />
-                    </div>
-                  )}
-                </AnimateOnScroll>
-              );
-            })}
+          {/* White panel so the palm leaves stay behind the steps instead of under the text. */}
+          <div className="mt-14 max-w-3xl mx-auto bg-white rounded-2xl border border-cream-dark shadow-sm px-6 py-10 sm:px-10">
+            <ProcessTimeline steps={t.process.steps} />
           </div>
         </div>
       </section>
@@ -159,7 +98,7 @@ export default function BuyContent({ locale }: { locale: Locale }) {
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimateOnScroll>
-            <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+            <p className={`${eyebrowOnDark} mb-5`}>
               {t.local.eyebrow}
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -262,11 +201,11 @@ export default function BuyContent({ locale }: { locale: Locale }) {
               const Icon = QUESTION_ICONS[i];
               return (
                 <AnimateOnScroll key={title} delay={i * 0.08}>
-                  <div className="bg-cream rounded-2xl p-6 h-full">
-                    <div className="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-gold" />
+                  <div className={`${cardOnWhite} h-full`}>
+                    <div className={`${iconTile} mb-5`}>
+                      <Icon size={20} />
                     </div>
-                    <h3 className="font-sans font-bold text-navy text-base mb-2">{title}</h3>
+                    <h3 className="font-serif text-xl font-bold text-navy mb-2">{title}</h3>
                     <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
                   </div>
                 </AnimateOnScroll>

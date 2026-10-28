@@ -6,7 +6,8 @@ Content on the site that only Jose can supply or approve. Each item says where i
 
 Every neighborhood page has a first-person "Jose's Take" box. The current text was AI-written, so the boxes are hidden until he approves them.
 
-- **Ask him for:** a 1–2 minute WhatsApp voice note per area he actually works (Portuguese is fine): who lives there, what renters and buyers should know, one honest caution.
+- **Ask him for:** a 1–2 minute WhatsApp voice note per area he actually works (Portuguese is fine): what the homes, parks, schools, and commute are like, what renters and buyers should know, one honest caution.
+- **Fair housing:** the note should describe the place, not the people. Leave out where residents are from, what languages they speak, their religion, age, or whether they have kids, and don't say who an area is "good for". Before it goes live, check it against the list in `marketing/posts.md`.
 - **Start with:** Royal Palm Beach, The Acreage / Loxahatchee, Wellington, West Palm Beach, Lake Worth Beach, Boynton Beach.
 - **Where it goes:** `joseNote` for that neighborhood in `frontend/src/data/neighborhoods.ts`, then set `joseNoteApproved: true`.
 
@@ -35,7 +36,7 @@ A three-language guide for renters, especially newcomers. We need his real-world
 - Real photos of him working: handing over keys, at a showing, next to his own sign on a real listing.
 - A photo of him with the fruit he grows and gives to clients (the About page story).
 - Optional: a 30-second phone video saying hello in English, Portuguese, and Spanish.
-- These replace the AI-generated images in `frontend/public/images/` (`category-buying.jpg`, `category-selling.jpg`, `category-rental.jpg`, `buy-bg.png`, `sell-bg.png`).
+- Until then, the Rentals, Landlords, Buy, and Sell headers and the three cards near the top of the home page use the area photos in `frontend/public/images/neighborhoods/`. His own photos go in place of those (the `src` of each header image in `frontend/src/components/pages/`).
 
 ## 5. Reviews
 

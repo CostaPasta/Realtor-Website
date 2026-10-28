@@ -21,7 +21,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         'Selling your home in South Florida? Jose Costa provides seller representation with a clear pricing strategy, targeted marketing, and negotiation experience in English, Spanish, and Portuguese.',
     },
     hero: {
-      imageAlt: 'Selling a home in South Florida',
+      imageAlt: 'Homes and canals in Wilton Manors from above',
       eyebrow: 'For Sellers',
       title: "Sell your South Florida home for what it's worth.",
       intro:
@@ -44,7 +44,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Marketing Your Home',
-          body: "Jose's listings receive professional photography, targeted social media promotion, and placement on MLS, Zillow, Realtor.com, and international platforms that reach the Brazilian and Latin American buyer pool.",
+          body: "Jose's listings receive professional photography, targeted social media promotion, and placement on MLS, Zillow, Realtor.com, and international platforms, with marketing in English, Spanish, and Portuguese.",
         },
         {
           title: 'Showings and Offers',
@@ -98,7 +98,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         '¿Quiere vender su casa en el sur de la Florida? Jose Costa lo representa como vendedor con una estrategia de precio clara, buena promoción y experiencia negociando, en español, inglés y portugués.',
     },
     hero: {
-      imageAlt: 'Vender una casa en el sur de la Florida',
+      imageAlt: 'Casas y canales de Wilton Manors desde el aire',
       eyebrow: 'Para vendedores',
       title: 'Venda su casa en el sur de la Florida por lo que realmente vale.',
       intro:
@@ -121,7 +121,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Promoción de su casa',
-          body: 'Las propiedades de Jose reciben fotografía profesional, promoción dirigida en redes sociales y publicación en el MLS, Zillow, Realtor.com y plataformas internacionales que llegan a compradores de Brasil y América Latina.',
+          body: 'Las propiedades de Jose reciben fotografía profesional, promoción dirigida en redes sociales y publicación en el MLS, Zillow, Realtor.com y plataformas internacionales, con promoción en español, inglés y portugués.',
         },
         {
           title: 'Visitas y ofertas',
@@ -179,7 +179,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         'Quer vender sua casa no sul da Flórida? Jose Costa representa vendedores com estratégia de preço, boa divulgação e experiência em negociação, em português, inglês e espanhol.',
     },
     hero: {
-      imageAlt: 'Vender uma casa no sul da Flórida',
+      imageAlt: 'Casas e canais de Wilton Manors vistos do alto',
       eyebrow: 'Para vendedores',
       title: 'Venda sua casa no sul da Flórida pelo que ela vale.',
       intro:
@@ -202,7 +202,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Divulgação do seu imóvel',
-          body: 'Os imóveis do Jose recebem fotos profissionais, divulgação direcionada nas redes sociais e anúncio no MLS, Zillow, Realtor.com e plataformas internacionais que alcançam compradores do Brasil e da América Latina.',
+          body: 'Os imóveis do Jose recebem fotos profissionais, divulgação direcionada nas redes sociais e anúncio no MLS, Zillow, Realtor.com e plataformas internacionais, com divulgação em português, inglês e espanhol.',
         },
         {
           title: 'Visitas e propostas',

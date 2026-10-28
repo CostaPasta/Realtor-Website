@@ -12,13 +12,9 @@ import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
 import { type Locale, TRANSLATED_NEIGHBORHOODS, localizedPath } from '@/i18n/locales';
 import { homeDictionary } from '@/i18n/pages/home';
+import { buttonOnDark, buttonPrimary, card, eyebrowOnDark, iconTile } from '@/lib/styles';
 
-const FEATURE_STYLES = [
-  { icon: MessageSquare, iconBg: '#0D2442', iconColor: '#C4A35A' },
-  { icon: Home, iconBg: '#C4A35A', iconColor: '#0D2442' },
-  { icon: Handshake, iconBg: '#D85A30', iconColor: '#fff' },
-  { icon: KeyRound, iconBg: '#1A3A5C', iconColor: '#D4BC84' },
-];
+const FEATURE_ICONS = [MessageSquare, Home, Handshake, KeyRound];
 
 // Where most of Jose's rental and first-time-buyer work happens.
 const FEATURED_SLUGS = ['royal-palm-beach', 'the-acreage', 'lake-worth-beach'];
@@ -41,9 +37,9 @@ export default function HomeContent({ locale }: { locale: Locale }) {
   ];
 
   const scenes = [
-    { ...t.scenes.rent, image: '/images/category-rental.jpg', href: localizedPath(locale, '/rentals') },
-    { ...t.scenes.buy, image: '/images/category-buying.jpg', href: localizedPath(locale, '/buy') },
-    { ...t.scenes.sell, image: '/images/category-selling.jpg', href: localizedPath(locale, '/sell') },
+    { ...t.scenes.rent, image: '/images/neighborhoods/davie.jpg', href: localizedPath(locale, '/rentals') },
+    { ...t.scenes.buy, image: '/images/neighborhoods/west-palm-beach.jpg', href: localizedPath(locale, '/buy') },
+    { ...t.scenes.sell, image: '/images/neighborhoods/wilton-manors.jpg', href: localizedPath(locale, '/sell') },
   ];
 
   const featuredNeighborhoods = FEATURED_SLUGS.map((slug) => {
@@ -92,7 +88,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
                   <p className="font-sans text-xs text-white/70">Atlantic Florida Properties</p>
                 </div>
               </div>
-              <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-6">
+              <p className={`${eyebrowOnDark} mb-6`}>
                 {t.hero.eyebrow}
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -126,16 +122,10 @@ export default function HomeContent({ locale }: { locale: Locale }) {
                 })}
               </nav>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Link
-                  href={localizedPath(locale, '/rentals')}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
-                >
+                <Link href={localizedPath(locale, '/rentals')} className={buttonPrimary}>
                   {t.hero.primaryCta}
                 </Link>
-                <Link
-                  href={localizedPath(locale, '/contact')}
-                  className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
-                >
+                <Link href={localizedPath(locale, '/contact')} className={buttonOnDark}>
                   {t.hero.secondaryCta}
                 </Link>
               </div>
@@ -169,7 +159,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
             className="w-[18px] h-[28px] rounded-[10px] flex justify-center pt-1.5"
             style={{ border: '1.5px solid rgba(255,255,255,0.3)' }}
           >
-            <span className="w-[3px] h-[6px] rounded-[2px] bg-white animate-scroll-dot" />
+            <span className="w-[3px] h-[6px] rounded-[2px] bg-white motion-safe:animate-scroll-dot" />
           </div>
         </div>
       </section>
@@ -224,15 +214,12 @@ export default function HomeContent({ locale }: { locale: Locale }) {
           </AnimateOnScroll>
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.why.features.map(({ title, body }, i) => {
-              const { icon: Icon, iconBg, iconColor } = FEATURE_STYLES[i];
+              const Icon = FEATURE_ICONS[i];
               return (
-                <AnimateOnScroll key={title} delay={i * 0.08}>
-                  <div className="bg-white rounded-2xl p-8 border-t-2 border-gold shadow-sm hover:shadow-md transition-shadow">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                      style={{ backgroundColor: iconBg }}
-                    >
-                      <Icon size={24} style={{ color: iconColor }} />
+                <AnimateOnScroll key={title} delay={i * 0.08} className="h-full">
+                  <div className={`${card} h-full`}>
+                    <div className={`${iconTile} mb-5`}>
+                      <Icon size={20} />
                     </div>
                     <h3 className="font-serif text-xl font-bold text-navy mb-3">{title}</h3>
                     <p className="font-sans text-sm text-gray-600 leading-relaxed">{body}</p>
@@ -248,7 +235,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
       <section className="grid md:grid-cols-2">
         <AnimateOnScroll className="relative overflow-hidden py-16 md:py-20 px-8 md:px-12 flex flex-col justify-center">
           <Image
-            src="/images/buy-bg.png"
+            src="/images/neighborhoods/palm-beach-gardens.jpg"
             alt=""
             aria-hidden="true"
             fill
@@ -257,7 +244,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
           />
           <div className="absolute inset-0 bg-navy/80" aria-hidden="true" />
           <div className="relative z-10">
-            <p className="font-sans text-xs font-semibold tracking-widest uppercase text-gold mb-4">
+            <p className={`${eyebrowOnDark} mb-4`}>
               {t.buyer.eyebrow}
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white leading-tight">

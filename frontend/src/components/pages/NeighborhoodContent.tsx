@@ -17,7 +17,6 @@ import {
   Sparkles,
   KeyRound,
   DollarSign,
-  Calendar,
   Waves,
   Wallet,
 } from 'lucide-react';
@@ -51,7 +50,7 @@ const HIGHLIGHT_ICONS = [Star, Home, TreePine, ShieldCheck, Users, Sparkles];
 
 function getHighlightIcon(text: string) {
   const t = text.toLowerCase();
-  if (/divers|brazilian|venezuelan|colombian|caribbean|haitian|cultur|multilingual|spanish-speaking|latin american|cuban|nació|nasceram|hispanohablante|fala espanhol|haitiano/.test(t)) return Users;
+  if (/cultur|community|comunidad|comunidade/.test(t)) return Users;
   if (/waterfront|intracoastal|oceanfront|beachfront|canal|marina|inlet|boating|fishing|sailfish/.test(t)) return Waves;
   if (/\bpark(?!ing)|acre|trail|nature|\blake|bird sanctuary|tree city|green space|parque|santuario|santuário|wildlife/.test(t)) return TreePine;
   if (/school|education|a-rated|escuela|escola/.test(t)) return GraduationCap;
@@ -67,7 +66,6 @@ function getHighlightIcon(text: string) {
 
 const CENSUS_ICONS = {
   population: Users,
-  medianAge: Calendar,
   medianHouseholdIncome: DollarSign,
   perCapitaIncome: Wallet,
   ownerOccupied: Home,
@@ -243,7 +241,7 @@ export default function NeighborhoodContent({
             {joseNote && joseNoteApproved && (
               <AnimateOnScroll>
                 <div className="bg-cream rounded-2xl p-8 md:p-12 text-center">
-                  <p className="text-xs font-sans font-semibold tracking-widest uppercase text-gold mb-5">
+                  <p className="text-xs font-sans font-semibold tracking-widest uppercase text-gold-text mb-5">
                     {t.joseTake}
                   </p>
                   <Quote size={36} className="text-gold mx-auto mb-4" aria-hidden="true" />
@@ -299,7 +297,6 @@ export default function NeighborhoodContent({
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
                     { key: 'population' as const, label: t.census.population, value: census.population },
-                    { key: 'medianAge' as const, label: t.census.medianAge, value: census.medianAge },
                     { key: 'medianHouseholdIncome' as const, label: t.census.medianHouseholdIncome, value: census.medianHouseholdIncome },
                     { key: 'perCapitaIncome' as const, label: t.census.perCapitaIncome, value: census.perCapitaIncome },
                     { key: 'ownerOccupied' as const, label: t.census.ownerOccupied, value: census.ownerOccupied },
@@ -319,7 +316,7 @@ export default function NeighborhoodContent({
                     );
                   })}
                 </div>
-                <p className="mt-6 font-sans text-xs text-gray-400">{census.source}</p>
+                <p className="mt-6 font-sans text-xs text-gray-500">{census.source}</p>
               </div>
             )}
 
@@ -336,7 +333,7 @@ export default function NeighborhoodContent({
                   {budgetGuide.map((tier, i) => (
                     <AnimateOnScroll key={`${tier.tier}-${i}`} delay={i * 0.08}>
                       <div className="bg-white rounded-xl p-6 h-full">
-                        <p className="font-sans font-bold text-gold text-sm uppercase tracking-wide mb-2">
+                        <p className="font-sans font-bold text-gold-text text-sm uppercase tracking-wide mb-2">
                           {tier.tier}
                         </p>
                         <h3 className="font-serif text-lg font-bold text-navy mb-3">{tier.label}</h3>
@@ -408,7 +405,7 @@ export default function NeighborhoodContent({
                             {school.rating}
                           </span>
                         </div>
-                        <p className="font-sans text-xs text-gray-400 uppercase tracking-wide mb-1">
+                        <p className="font-sans text-xs text-gray-500 uppercase tracking-wide mb-1">
                           {t.schoolLevels[school.level] ?? school.level}
                         </p>
                         <h3 className="font-sans font-semibold text-navy text-sm leading-snug">
@@ -544,8 +541,7 @@ export default function NeighborhoodContent({
                       href={whatsappLink(locale, 'buy', name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                      style={{ backgroundColor: '#25D366' }}
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-whatsapp-ink text-sm transition hover:brightness-95 bg-whatsapp"
                     >
                       <MessageCircle size={16} />
                       {t.whatsapp}
@@ -567,8 +563,7 @@ export default function NeighborhoodContent({
                       href={whatsappLink(locale, 'rent', name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                      style={{ backgroundColor: '#25D366' }}
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-whatsapp-ink text-sm transition hover:brightness-95 bg-whatsapp"
                     >
                       <MessageCircle size={16} />
                       {t.whatsapp}
@@ -588,8 +583,7 @@ export default function NeighborhoodContent({
                       href={whatsappLink(locale, 'sell', name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                      style={{ backgroundColor: '#25D366' }}
+                      className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-full font-sans font-semibold text-whatsapp-ink text-sm transition hover:brightness-95 bg-whatsapp"
                     >
                       <MessageCircle size={16} />
                       {t.whatsapp}
@@ -659,8 +653,7 @@ export default function NeighborhoodContent({
                     href={whatsappLink(locale, 'general', name)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-white text-sm transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: '#25D366' }}
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-whatsapp-ink text-sm transition hover:brightness-95 bg-whatsapp"
                   >
                     <MessageCircle size={16} />
                     {t.whatsapp}
@@ -674,9 +667,9 @@ export default function NeighborhoodContent({
                   </a>
                 </div>
                 <div className="mt-5 pt-5 border-t border-gray-100 text-center space-y-1.5">
-                  <p className="font-sans text-xs text-gray-400">{t.respondTime}</p>
+                  <p className="font-sans text-xs text-gray-500">{t.respondTime}</p>
                   <p className="font-sans text-xs font-semibold text-navy">{t.experience}</p>
-                  <p className="font-sans text-[11px] font-semibold text-gold tracking-wide">EN · ES · PT</p>
+                  <p className="font-sans text-[11px] font-semibold text-gold-text tracking-wide">EN · ES · PT</p>
                 </div>
               </div>
 

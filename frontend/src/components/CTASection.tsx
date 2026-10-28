@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { MessageCircle } from 'lucide-react';
+import { buttonOnDark, buttonPrimary, buttonWhatsApp } from '@/lib/styles';
 
 interface CTASectionProps {
   title?: string;
@@ -27,23 +29,35 @@ export default function CTASection({
             {subtitle}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={primaryCTA.href}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
-            >
-              {primaryCTA.label}
-            </Link>
-            {secondaryCTA && (
-              <Link
-                href={secondaryCTA.href}
-                className="inline-flex items-center justify-center px-8 py-4 border border-white/40 text-white font-sans font-semibold rounded-full hover:bg-white/10 transition-colors text-sm"
-              >
-                {secondaryCTA.label}
-              </Link>
-            )}
+            <CTALink {...primaryCTA} className={buttonPrimary} />
+            {secondaryCTA && <CTALink {...secondaryCTA} className={buttonOnDark} />}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+// WhatsApp links always get the green WhatsApp button, whichever slot they are in.
+function CTALink({ label, href, className }: { label: string; href: string; className: string }) {
+  if (href.startsWith('https://wa.me/')) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={buttonWhatsApp}>
+        <MessageCircle size={16} />
+        {label}
+      </a>
+    );
+  }
+  if (href.startsWith('tel:')) {
+    return (
+      <a href={href} className={className}>
+        {label}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {label}
+    </Link>
   );
 }

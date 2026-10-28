@@ -5,6 +5,7 @@ import type { Locale } from '@/i18n/locales';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
+import { formInput, formLabel } from '@/lib/styles';
 
 interface RenterInquiryData {
   name: string;
@@ -18,11 +19,6 @@ interface RenterInquiryData {
   company: string;
 }
 
-const selectClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold bg-white text-gray-800 appearance-none';
-const inputClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
-const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, renter: t } = formsDictionary[locale];
@@ -57,20 +53,20 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
       <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="renter-name" className={labelClass}>
+          <label htmlFor="renter-name" className={formLabel}>
             {t.name}
           </label>
           <input
             id="renter-name"
             autoComplete="name"
             {...register('name', { required: common.required })}
-            className={inputClass}
+            className={formInput}
             placeholder={t.namePlaceholder}
           />
-          {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-700">{errors.name.message}</p>}
         </div>
         <div>
-          <label htmlFor="renter-email" className={labelClass}>
+          <label htmlFor="renter-email" className={formLabel}>
             {t.email}
           </label>
           <input
@@ -81,15 +77,15 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
               required: common.required,
               pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
             })}
-            className={inputClass}
+            className={formInput}
             placeholder="your@email.com"
           />
-          {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
+          {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email.message}</p>}
         </div>
       </div>
 
       <div>
-        <label htmlFor="renter-phone" className={labelClass}>
+        <label htmlFor="renter-phone" className={formLabel}>
           {t.phone}
         </label>
         <input
@@ -97,20 +93,20 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
           type="tel"
           autoComplete="tel"
           {...register('phone')}
-          className={inputClass}
+          className={formInput}
           placeholder="(954) 000-0000"
         />
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="renter-bedrooms" className={labelClass}>
+          <label htmlFor="renter-bedrooms" className={formLabel}>
             {t.bedrooms}
           </label>
           <select
             id="renter-bedrooms"
             {...register('bedrooms', { required: common.required })}
-            className={selectClass}
+            className={formInput}
           >
             <option value="">{common.select}</option>
             {t.bedroomOptions.map((o) => (
@@ -119,16 +115,16 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
               </option>
             ))}
           </select>
-          {errors.bedrooms && <p className="mt-1 text-xs text-coral">{errors.bedrooms.message}</p>}
+          {errors.bedrooms && <p className="mt-1 text-xs text-red-700">{errors.bedrooms.message}</p>}
         </div>
         <div>
-          <label htmlFor="renter-budget" className={labelClass}>
+          <label htmlFor="renter-budget" className={formLabel}>
             {t.budget}
           </label>
           <select
             id="renter-budget"
             {...register('budget', { required: common.required })}
-            className={selectClass}
+            className={formInput}
           >
             <option value="">{common.select}</option>
             {t.budgetOptions.map((o) => (
@@ -137,18 +133,18 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
               </option>
             ))}
           </select>
-          {errors.budget && <p className="mt-1 text-xs text-coral">{errors.budget.message}</p>}
+          {errors.budget && <p className="mt-1 text-xs text-red-700">{errors.budget.message}</p>}
         </div>
       </div>
 
       <div>
-        <label htmlFor="renter-timeline" className={labelClass}>
+        <label htmlFor="renter-timeline" className={formLabel}>
           {t.timeline}
         </label>
         <select
           id="renter-timeline"
           {...register('timeline', { required: common.required })}
-          className={selectClass}
+          className={formInput}
         >
           <option value="">{common.select}</option>
           {t.timelineOptions.map((o) => (
@@ -157,30 +153,30 @@ export default function RenterInquiryForm({ locale = 'en' }: { locale?: Locale }
             </option>
           ))}
         </select>
-        {errors.timeline && <p className="mt-1 text-xs text-coral">{errors.timeline.message}</p>}
+        {errors.timeline && <p className="mt-1 text-xs text-red-700">{errors.timeline.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="renter-area" className={labelClass}>
+        <label htmlFor="renter-area" className={formLabel}>
           {t.area}
         </label>
         <input
           id="renter-area"
           {...register('area')}
-          className={inputClass}
+          className={formInput}
           placeholder="Royal Palm Beach, Wellington, Loxahatchee…"
         />
       </div>
 
       <div>
-        <label htmlFor="renter-message" className={labelClass}>
+        <label htmlFor="renter-message" className={formLabel}>
           {t.message}
         </label>
         <textarea
           id="renter-message"
           {...register('message')}
           rows={3}
-          className={`${inputClass} resize-none`}
+          className={`${formInput} resize-none`}
           placeholder={t.messagePlaceholder}
         />
       </div>

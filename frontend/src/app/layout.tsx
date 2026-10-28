@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import SiteAnalytics from '@/components/SiteAnalytics';
+import MotionProvider from '@/components/MotionProvider';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Jose Costa Realtor',
   },
   description:
-    'Jose Costa is a Palm Beach County realtor helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese. Specializing in affordable family homes and rental properties.',
+    'Jose Costa is a Palm Beach County realtor helping people rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese. Specializing in rentals and affordable homes.',
   keywords: [
     'Palm Beach County realtor',
     'Royal Palm Beach realtor',
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     siteName: 'Jose Costa Realtor',
     title: 'Jose Costa | Palm Beach County Realtor',
     description:
-      'Helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese.',
+      'Helping people rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese.',
   },
   // Title and description come from each page's openGraph, so they match the page being shared.
   twitter: { card: 'summary_large_image' },
@@ -66,7 +67,9 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <MotionProvider>{children}</MotionProvider>
+        </main>
         <Footer />
         <WhatsAppButton />
         <MobileStickyBar />

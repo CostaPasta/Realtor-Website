@@ -5,6 +5,7 @@ import type { Locale } from '@/i18n/locales';
 import { formsDictionary } from '@/i18n/forms';
 import { useLeadSubmit } from '@/lib/useLeadSubmit';
 import { HoneypotField, SentMessage, SubmitButton } from '@/components/FormParts';
+import { formInput, formLabel } from '@/lib/styles';
 
 interface LandlordFormData {
   name: string;
@@ -17,9 +18,6 @@ interface LandlordFormData {
   company: string;
 }
 
-const inputClass =
-  'w-full border border-gray-200 rounded-lg px-4 py-3 font-sans text-sm focus:outline-none focus:border-gold';
-const labelClass = 'font-sans text-xs font-semibold text-gray-600 mb-1.5 block';
 
 export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Locale }) {
   const { common, landlord: t } = formsDictionary[locale];
@@ -53,20 +51,20 @@ export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Local
       <HoneypotField registration={register('company')} />
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="landlord-name" className={labelClass}>
+          <label htmlFor="landlord-name" className={formLabel}>
             {t.name}
           </label>
           <input
             id="landlord-name"
             autoComplete="name"
             {...register('name', { required: common.required })}
-            className={inputClass}
+            className={formInput}
             placeholder={t.namePlaceholder}
           />
-          {errors.name && <p className="mt-1 text-xs text-coral">{errors.name.message}</p>}
+          {errors.name && <p className="mt-1 text-xs text-red-700">{errors.name.message}</p>}
         </div>
         <div>
-          <label htmlFor="landlord-phone" className={labelClass}>
+          <label htmlFor="landlord-phone" className={formLabel}>
             {t.phone}
           </label>
           <input
@@ -74,14 +72,14 @@ export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Local
             type="tel"
             autoComplete="tel"
             {...register('phone', { required: common.required })}
-            className={inputClass}
+            className={formInput}
             placeholder="(954) 000-0000"
           />
-          {errors.phone && <p className="mt-1 text-xs text-coral">{errors.phone.message}</p>}
+          {errors.phone && <p className="mt-1 text-xs text-red-700">{errors.phone.message}</p>}
         </div>
       </div>
       <div>
-        <label htmlFor="landlord-email" className={labelClass}>
+        <label htmlFor="landlord-email" className={formLabel}>
           {t.email}
         </label>
         <input
@@ -92,57 +90,57 @@ export default function LandlordPropertyForm({ locale = 'en' }: { locale?: Local
             required: common.required,
             pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: common.invalidEmail },
           })}
-          className={inputClass}
+          className={formInput}
           placeholder="your@email.com"
         />
-        {errors.email && <p className="mt-1 text-xs text-coral">{errors.email.message}</p>}
+        {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email.message}</p>}
       </div>
       <div>
-        <label htmlFor="landlord-address" className={labelClass}>
+        <label htmlFor="landlord-address" className={formLabel}>
           {t.address}
         </label>
         <input
           id="landlord-address"
           autoComplete="street-address"
           {...register('address', { required: common.required })}
-          className={inputClass}
+          className={formInput}
           placeholder="123 Main St, Royal Palm Beach, FL 33411"
         />
-        {errors.address && <p className="mt-1 text-xs text-coral">{errors.address.message}</p>}
+        {errors.address && <p className="mt-1 text-xs text-red-700">{errors.address.message}</p>}
       </div>
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="landlord-bedrooms" className={labelClass}>
+          <label htmlFor="landlord-bedrooms" className={formLabel}>
             {t.bedrooms}
           </label>
           <input
             id="landlord-bedrooms"
             {...register('bedrooms')}
-            className={inputClass}
+            className={formInput}
             placeholder="3"
           />
         </div>
         <div>
-          <label htmlFor="landlord-rent" className={labelClass}>
+          <label htmlFor="landlord-rent" className={formLabel}>
             {t.rentGoal}
           </label>
           <input
             id="landlord-rent"
             {...register('rentGoal')}
-            className={inputClass}
+            className={formInput}
             placeholder="$2,200"
           />
         </div>
       </div>
       <div>
-        <label htmlFor="landlord-message" className={labelClass}>
+        <label htmlFor="landlord-message" className={formLabel}>
           {t.message}
         </label>
         <textarea
           id="landlord-message"
           {...register('message')}
           rows={3}
-          className={`${inputClass} resize-none`}
+          className={`${formInput} resize-none`}
           placeholder={t.messagePlaceholder}
         />
       </div>

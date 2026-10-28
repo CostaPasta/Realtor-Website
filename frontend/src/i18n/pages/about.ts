@@ -58,9 +58,9 @@ export const aboutDictionary: Record<Locale, AboutDictionary> = {
       native: 'Native',
       fluent: 'Fluent',
       blurbs: {
-        pt: "Jose grew up speaking Portuguese in Brazil. For South Florida's Brazilian community, he is one of the few realtors who can handle the entire purchase or rental process in your native language.",
+        pt: "Jose grew up speaking Portuguese in Brazil. He is one of the few realtors in South Florida who can handle the entire purchase or rental process in Portuguese.",
         en: 'Jose moved to the United States in the 1980s and has worked in English his entire career. He has lived in the US longer than he lived in Brazil, and is comfortable in every register, from a kitchen-table conversation to a contract review.',
-        es: 'Spanish came naturally, given its closeness to Portuguese and how widely it is spoken in South Florida. Jose has worked with Cuban, Venezuelan, Colombian, and Argentinian clients across Palm Beach and Broward Counties.',
+        es: 'Spanish came naturally, given its closeness to Portuguese and how widely it is spoken in South Florida. He works with Spanish-speaking clients across Palm Beach and Broward Counties.',
       },
     },
     brokerage: {
@@ -118,9 +118,9 @@ export const aboutDictionary: Record<Locale, AboutDictionary> = {
       native: 'Nativo',
       fluent: 'Fluido',
       blurbs: {
-        pt: 'Jose creció hablando portugués en Brasil. Para la comunidad brasileña del sur de la Florida, es uno de los pocos agentes que puede manejar toda la compra o el alquiler en su idioma natal.',
+        pt: 'Jose creció hablando portugués en Brasil. Es uno de los pocos agentes del sur de la Florida que puede manejar toda la compra o el alquiler en portugués.',
         en: 'Jose llegó a los Estados Unidos en los años ochenta y ha trabajado en inglés toda su carrera. Ha vivido más tiempo en Estados Unidos que en Brasil y se desenvuelve igual de bien en una conversación en la cocina que en la revisión de un contrato.',
-        es: 'El español le llegó de forma natural, por su cercanía con el portugués y por lo mucho que se habla en el sur de la Florida. Jose ha trabajado con clientes cubanos, venezolanos, colombianos y argentinos en los condados de Palm Beach y Broward.',
+        es: 'El español le llegó de forma natural, por su cercanía con el portugués y por lo mucho que se habla en el sur de la Florida. Atiende en español a clientes de los condados de Palm Beach y Broward.',
       },
     },
     brokerage: {
@@ -178,9 +178,9 @@ export const aboutDictionary: Record<Locale, AboutDictionary> = {
       native: 'Nativo',
       fluent: 'Fluente',
       blurbs: {
-        pt: 'Jose cresceu falando português no Brasil. Para a comunidade brasileira do sul da Flórida, ele é um dos poucos corretores capazes de conduzir toda a compra ou o aluguel na sua língua materna.',
+        pt: 'Jose cresceu falando português no Brasil. Ele é um dos poucos corretores do sul da Flórida capazes de conduzir toda a compra ou o aluguel em português.',
         en: 'Jose chegou aos Estados Unidos nos anos 80 e trabalha em inglês desde o início da carreira. Já viveu mais tempo nos EUA do que no Brasil e fica à vontade tanto numa conversa na cozinha quanto na revisão de um contrato.',
-        es: 'O espanhol veio naturalmente, pela proximidade com o português e por ser tão falado no sul da Flórida. Jose já atendeu clientes cubanos, venezuelanos, colombianos e argentinos nos condados de Palm Beach e Broward.',
+        es: 'O espanhol veio naturalmente, pela proximidade com o português e por ser tão falado no sul da Flórida. Ele atende em espanhol clientes dos condados de Palm Beach e Broward.',
       },
     },
     brokerage: {

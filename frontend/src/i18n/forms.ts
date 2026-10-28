@@ -16,6 +16,8 @@ export interface FormsDictionary {
     consentBefore: string;
     consentLink: string;
     consentAfter: string;
+    /** Under Jose's name at the top of each form. */
+    replyNote: string;
   };
   contact: {
     firstName: string;
@@ -107,6 +109,7 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
         'By sending this, you agree Jose may contact you by phone, text, WhatsApp, or email about your inquiry. See the ',
       consentLink: 'privacy policy',
       consentAfter: '.',
+      replyNote: 'Replies within 24 hours, in English, Spanish, or Portuguese.',
     },
     contact: {
       firstName: 'First Name *',
@@ -200,6 +203,7 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
         'Al enviar este formulario, acepta que Jose lo contacte por teléfono, mensaje de texto, WhatsApp o correo electrónico sobre su consulta. Consulte la ',
       consentLink: 'política de privacidad',
       consentAfter: '.',
+      replyNote: 'Responde en menos de 24 horas, en español, inglés o portugués.',
     },
     contact: {
       firstName: 'Nombre *',
@@ -293,6 +297,7 @@ export const formsDictionary: Record<Locale, FormsDictionary> = {
         'Ao enviar, você concorda que o Jose entre em contato por telefone, mensagem de texto, WhatsApp ou e-mail sobre a sua solicitação. Veja a ',
       consentLink: 'política de privacidade',
       consentAfter: '.',
+      replyNote: 'Responde em até 24 horas, em português, inglês ou espanhol.',
     },
     contact: {
       firstName: 'Nome *',

@@ -12,7 +12,6 @@ interface NeighborhoodCardProps {
   tagline: string;
   medianHomePrice: string;
   avgDaysOnMarket: string;
-  bestFor: string;
   imageSrc?: string;
   labels?: NeighborhoodCardLabels;
   /** Defaults to the English neighborhood page. */
@@ -25,7 +24,6 @@ export interface NeighborhoodCardLabels {
   medianPrice: string;
   avgDays: string;
   days: string;
-  bestFor: string;
 }
 
 const EN_LABELS: NeighborhoodCardLabels = {
@@ -33,7 +31,6 @@ const EN_LABELS: NeighborhoodCardLabels = {
   medianPrice: 'Median House Price',
   avgDays: 'Days on Market',
   days: 'days',
-  bestFor: 'Best for:',
 };
 
 // Warm gradient "photo" per neighborhood - swap for real photos later
@@ -68,7 +65,6 @@ export default function NeighborhoodCard({
   tagline,
   medianHomePrice,
   avgDaysOnMarket,
-  bestFor,
   imageSrc,
   labels = EN_LABELS,
   href,
@@ -114,15 +110,15 @@ export default function NeighborhoodCard({
       {/* Card body */}
       <div className="p-5">
         <p className="font-sans text-sm text-gray-600 leading-relaxed mb-4">{tagline}</p>
-        <div className="grid grid-cols-2 gap-3 mb-4">
+        <div className="grid grid-cols-2 gap-3">
           <div className="bg-cream rounded-lg p-3">
-            <p className="text-[10px] font-sans text-gray-400 flex items-center gap-1 mb-0.5">
+            <p className="text-[10px] font-sans text-gray-500 flex items-center gap-1 mb-0.5">
               <TrendingUp size={10} /> {labels.medianPrice}
             </p>
             <p className="font-sans font-bold text-navy text-sm">{medianHomePrice}</p>
           </div>
           <div className="bg-cream rounded-lg p-3">
-            <p className="text-[10px] font-sans text-gray-400 flex items-center gap-1 mb-0.5">
+            <p className="text-[10px] font-sans text-gray-500 flex items-center gap-1 mb-0.5">
               <Clock size={10} /> {labels.avgDays}
             </p>
             <p className="font-sans font-bold text-navy text-sm">
@@ -130,9 +126,6 @@ export default function NeighborhoodCard({
             </p>
           </div>
         </div>
-        <p className="text-xs font-sans text-gray-500 leading-snug">
-          <span className="font-semibold text-coral">{labels.bestFor}</span> {bestFor}
-        </p>
       </div>
     </Link>
     </motion.div>

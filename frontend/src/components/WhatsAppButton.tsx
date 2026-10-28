@@ -40,9 +40,9 @@ export default function WhatsAppButton() {
       style={{ backgroundColor: '#25D366', minWidth: 52, minHeight: 52 }}
     >
       <span className="relative flex items-center justify-center w-[52px] h-[52px] shrink-0">
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-whatsapp-pulse" aria-hidden="true" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] motion-safe:animate-whatsapp-pulse" aria-hidden="true" />
         <span
-          className="absolute inset-0 rounded-full bg-[#25D366] animate-whatsapp-pulse"
+          className="absolute inset-0 rounded-full bg-[#25D366] motion-safe:animate-whatsapp-pulse"
           style={{ animationDelay: '0.6s' }}
           aria-hidden="true"
         />

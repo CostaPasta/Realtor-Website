@@ -6,6 +6,7 @@ import { MessageCircle } from 'lucide-react';
 import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentVsBuyDictionary } from '@/i18n/pages/rent-vs-buy';
 import { whatsappHref } from '@/lib/whatsapp';
+import { buttonSecondary, buttonWhatsApp } from '@/lib/styles';
 
 // Rent and price start empty so the page only ever shows the visitor's own numbers.
 // The rest are editable assumptions most renters wouldn't know. The rate is roughly the
@@ -91,7 +92,7 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
         {label}
       </label>
       <div className="relative">
-        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-400">
+        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-500">
           $
         </span>
         <input
@@ -132,7 +133,7 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
           aria-describedby={hint ? `rvb-${field}-hint` : undefined}
           className={`${inputClass} pl-4 pr-9`}
         />
-        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-400">
+        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-500">
           %
         </span>
       </div>
@@ -186,7 +187,7 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
                   aria-label={t.inputs.down}
                   className={`${inputClass} py-2 pl-4 pr-8`}
                 />
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-400">
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-sans text-sm text-gray-500">
                   %
                 </span>
               </div>
@@ -287,14 +288,14 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
             href={whatsappHref(message)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center gap-2 px-6 py-4 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
+            className={`flex-1 ${buttonWhatsApp} px-6`}
           >
             <MessageCircle size={16} />
             {t.cta.whatsapp}
           </a>
           <Link
             href={localizedPath(locale, '/buy')}
-            className="inline-flex flex-1 items-center justify-center px-6 py-4 border border-navy/20 text-navy font-sans font-semibold rounded-full hover:border-gold transition-colors text-sm"
+            className={`flex-1 ${buttonSecondary} px-6`}
           >
             {t.cta.buy}
           </Link>
