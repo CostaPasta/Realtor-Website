@@ -4,7 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import StatBar from '@/components/StatBar';
 import CTASection from '@/components/CTASection';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
-import { type Locale, localizedPath } from '@/i18n/locales';
+import { type Locale, LANGUAGE_TAGS, localizedPath } from '@/i18n/locales';
 import { aboutDictionary } from '@/i18n/pages/about';
 import { cardOnWhite } from '@/lib/styles';
 
@@ -131,7 +131,7 @@ export default function AboutContent({ locale }: { locale: Locale }) {
               <AnimateOnScroll key={lang.code} delay={i * 0.08}>
                 <div className={`${cardOnWhite} h-full`}>
                   <div className="flex items-baseline gap-3 mb-4">
-                    <h3 className="font-serif text-2xl font-bold text-navy" lang={lang.code}>
+                    <h3 className="font-serif text-2xl font-bold text-navy" lang={LANGUAGE_TAGS[lang.code]}>
                       {lang.name}
                     </h3>
                     <span className="font-sans text-xs font-semibold text-gray-500 uppercase tracking-widest">

@@ -10,7 +10,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import WhyJoseBackground from '@/components/WhyJoseBackground';
 import { neighborhoods } from '@/data/neighborhoods';
 import { testimonials } from '@/data/testimonials';
-import { type Locale, TRANSLATED_NEIGHBORHOODS, localizedPath } from '@/i18n/locales';
+import { type Locale, LANGUAGE_TAGS, TRANSLATED_NEIGHBORHOODS, localizedPath } from '@/i18n/locales';
 import { homeDictionary } from '@/i18n/pages/home';
 import { buttonOnDark, buttonPrimary, card, eyebrowOnDark, iconTile } from '@/lib/styles';
 
@@ -108,7 +108,7 @@ export default function HomeContent({ locale }: { locale: Locale }) {
                     <Link
                       key={pill.locale}
                       href={localizedPath(pill.locale, '/')}
-                      hrefLang={pill.locale}
+                      hrefLang={LANGUAGE_TAGS[pill.locale]}
                       aria-current={active ? 'page' : undefined}
                       className={`font-sans text-xs font-semibold px-4 py-1.5 rounded-full border transition-colors ${
                         active

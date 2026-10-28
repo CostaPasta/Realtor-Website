@@ -7,6 +7,10 @@ export const LOCALE_LABELS: Record<Locale, { short: string; native: string }> = 
   pt: { short: 'PT', native: 'Português' },
 };
 
+// Language tags for lang and hreflang. The Portuguese on the site is Brazilian
+// Portuguese, so new copy should be too (você, aluguel, corretor de imóveis).
+export const LANGUAGE_TAGS: Record<Locale, string> = { en: 'en', es: 'es', pt: 'pt-BR' };
+
 // Pages that have Spanish and Portuguese versions at /es/... and /pt/...
 export const TRANSLATED_PATHS = ['/', '/rentals', '/buy', '/sell', '/about', '/contact', '/privacy', '/landlords', '/rent-vs-buy'] as const;
 

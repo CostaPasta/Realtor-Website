@@ -124,7 +124,7 @@ export const contactDictionary: Record<Locale, ContactDictionary> = {
       serves: 'Atende os condados de Palm Beach e Broward',
       license: 'Licença FL',
       office: 'Licença do escritório',
-      eho: 'Igualdade de Oportunidades na Habitação',
+      eho: 'Igualdade de Oportunidades na Moradia',
     },
   },
 };

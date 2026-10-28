@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import {
+  LANGUAGE_TAGS,
   type Locale,
   LOCALE_LABELS,
   locales,
@@ -59,8 +60,8 @@ function LanguageSwitcher({ pathname, current, large = false }: { pathname: stri
         <Link
           key={l}
           href={switchLocalePath(pathname, l)}
-          hrefLang={l}
-          lang={l}
+          hrefLang={LANGUAGE_TAGS[l]}
+          lang={LANGUAGE_TAGS[l]}
           title={LOCALE_LABELS[l].native}
           aria-current={l === current ? 'true' : undefined}
           className={`font-sans font-semibold rounded-full transition-colors ${

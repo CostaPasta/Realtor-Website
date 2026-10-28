@@ -258,7 +258,7 @@ export const landlordsDictionary: Record<Locale, LandlordsDictionary> = {
       city: 'Cidade',
       twoBed: '2 quartos',
       threeBed: '3 quartos',
-      days: 'Dias anunciado',
+      days: 'Dias no mercado',
       daysUnit: 'dias',
       note: 'São aluguéis pedidos, não contratos assinados. Fonte: dados de anúncios do Beaches MLS compilados pela PBP Real Estate. O aluguel da sua casa depende do tamanho, do estado e da rua.',
     },
