@@ -4,13 +4,13 @@ import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
 import MarketUpdatesSignup from '@/components/MarketUpdatesSignup';
 import { visibleMarketUpdates } from '@/data/market-updates';
+import { pageMetadata } from '@/i18n/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/market-updates', {
   title: 'Market Updates: Western Palm Beach County Rents and Prices',
   description:
     'Short, sourced reports on rents and home prices in Royal Palm Beach, The Acreage and Loxahatchee, and Lake Worth Beach, built from MLS data.',
-  alternates: { canonical: '/market-updates' },
-};
+});
 
 const COUNTY_COLORS: Record<string, string> = {
   'South Florida': 'bg-navy/10 text-navy',
