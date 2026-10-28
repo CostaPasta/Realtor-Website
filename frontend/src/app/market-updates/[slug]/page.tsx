@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Phone, MessageCircle } from 'lucide-react';
 import { visibleMarketUpdates } from '@/data/market-updates';
 import { whatsappLink } from '@/lib/whatsapp';
+import { pageMetadata } from '@/i18n/metadata';
 
 export async function generateStaticParams() {
   return visibleMarketUpdates().map((u) => ({ slug: u.slug }));
@@ -19,11 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const update = visibleMarketUpdates().find((u) => u.slug === slug);
   if (!update) return {};
-  return {
-    title: update.title,
-    description: update.summary,
-    alternates: { canonical: `/market-updates/${update.slug}` },
-  };
+  return pageMetadata(`/market-updates/${update.slug}`, { title: update.title, description: update.summary });
 }
 
 const COUNTY_COLORS: Record<string, string> = {

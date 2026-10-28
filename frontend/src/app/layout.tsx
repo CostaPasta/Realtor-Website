@@ -53,12 +53,8 @@ export const metadata: Metadata = {
     description:
       'Helping families rent, buy, and sell homes across western Palm Beach County, Broward, and South Florida, in English, Spanish, and Portuguese.',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Jose Costa | Palm Beach County Realtor',
-    description:
-      'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales.',
-  },
+  // Title and description come from each page's openGraph, so they match the page being shared.
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({
