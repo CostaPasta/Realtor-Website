@@ -6,7 +6,8 @@ Content on the site that only Jose can supply or approve. Each item says where i
 
 Every neighborhood page has a first-person "Jose's Take" box. The current text was AI-written, so the boxes are hidden until he approves them.
 
-- **Ask him for:** a 1–2 minute WhatsApp voice note per area he actually works (Portuguese is fine): who lives there, what renters and buyers should know, one honest caution.
+- **Ask him for:** a 1–2 minute WhatsApp voice note per area he actually works (Portuguese is fine): what the homes, parks, schools, and commute are like, what renters and buyers should know, one honest caution.
+- **Fair housing:** the note should describe the place, not the people. Leave out where residents are from, what languages they speak, their religion, age, or whether they have kids, and don't say who an area is "good for". Before it goes live, check it against the list in `marketing/posts.md`.
 - **Start with:** Royal Palm Beach, The Acreage / Loxahatchee, Wellington, West Palm Beach, Lake Worth Beach, Boynton Beach.
 - **Where it goes:** `joseNote` for that neighborhood in `frontend/src/data/neighborhoods.ts`, then set `joseNoteApproved: true`.
 
@@ -44,8 +45,8 @@ A three-language guide for renters, especially newcomers. We need his real-world
 
 ## 6. Quick confirmations
 
-- How fast does he actually reply on WhatsApp? The site promises a reply within 24 hours. If it's usually within the hour, we should say so.
 - The number strips say "400+ clients served", "$10M+ in closed sales", and "60+ homes listed and sold" (Home, Buy, Sell, About). Are these right? If any is a guess, change it in that page's `stats` list or remove it.
+- How fast does he actually reply on WhatsApp? The site promises a reply within 24 hours. If it's usually within the hour, we should say so.
 - Read the Spanish and Portuguese pages (`/es`, `/pt`) and flag anything that sounds off.
 
 ## 7. MLS access (for showing his listings on the site automatically)

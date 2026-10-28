@@ -44,7 +44,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Marketing Your Home',
-          body: "Jose's listings receive professional photography, targeted social media promotion, and placement on MLS, Zillow, Realtor.com, and international platforms that reach the Brazilian and Latin American buyer pool.",
+          body: "Jose's listings receive professional photography, targeted social media promotion, and placement on MLS, Zillow, Realtor.com, and international platforms, with marketing in English, Spanish, and Portuguese.",
         },
         {
           title: 'Showings and Offers',
@@ -121,7 +121,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Promoción de su casa',
-          body: 'Las propiedades de Jose reciben fotografía profesional, promoción dirigida en redes sociales y publicación en el MLS, Zillow, Realtor.com y plataformas internacionales que llegan a compradores de Brasil y América Latina.',
+          body: 'Las propiedades de Jose reciben fotografía profesional, promoción dirigida en redes sociales y publicación en el MLS, Zillow, Realtor.com y plataformas internacionales, con promoción en español, inglés y portugués.',
         },
         {
           title: 'Visitas y ofertas',
@@ -202,7 +202,7 @@ export const sellDictionary: Record<Locale, SellDictionary> = {
         },
         {
           title: 'Divulgação do seu imóvel',
-          body: 'Os imóveis do Jose recebem fotos profissionais, divulgação direcionada nas redes sociais e anúncio no MLS, Zillow, Realtor.com e plataformas internacionais que alcançam compradores do Brasil e da América Latina.',
+          body: 'Os imóveis do Jose recebem fotos profissionais, divulgação direcionada nas redes sociais e anúncio no MLS, Zillow, Realtor.com e plataformas internacionais, com divulgação em português, inglês e espanhol.',
         },
         {
           title: 'Visitas e propostas',

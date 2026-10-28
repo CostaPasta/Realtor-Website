@@ -20,7 +20,6 @@ export interface NeighborhoodUiDictionary {
   communityTitle: string;
   census: {
     population: string;
-    medianAge: string;
     medianHouseholdIncome: string;
     perCapitaIncome: string;
     ownerOccupied: string;
@@ -81,11 +80,10 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     whyEyebrow: 'Why Here',
     whyTitle: 'Why {name}?',
     joseTake: "Jose's Take",
-    communityEyebrow: 'The Community',
-    communityTitle: 'Who lives in {name}?',
+    communityEyebrow: 'By the Numbers',
+    communityTitle: '{name} at a glance',
     census: {
       population: 'Population',
-      medianAge: 'Median Age',
       medianHouseholdIncome: 'Median Household Income',
       perCapitaIncome: 'Per Capita Income',
       ownerOccupied: 'Owner-Occupied',
@@ -157,11 +155,10 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     whyEyebrow: 'Por qué aquí',
     whyTitle: '¿Por qué {name}?',
     joseTake: 'La opinión de Jose',
-    communityEyebrow: 'La comunidad',
-    communityTitle: '¿Quién vive en {name}?',
+    communityEyebrow: 'En cifras',
+    communityTitle: '{name} en cifras',
     census: {
       population: 'Población',
-      medianAge: 'Edad mediana',
       medianHouseholdIncome: 'Ingreso mediano por hogar',
       perCapitaIncome: 'Ingreso per cápita',
       ownerOccupied: 'Viviendas de sus dueños',
@@ -233,11 +230,10 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     whyEyebrow: 'Por que aqui',
     whyTitle: 'Por que {name}?',
     joseTake: 'A opinião do Jose',
-    communityEyebrow: 'A comunidade',
-    communityTitle: 'Quem mora em {name}?',
+    communityEyebrow: 'Em números',
+    communityTitle: '{name} em números',
     census: {
       population: 'População',
-      medianAge: 'Idade mediana',
       medianHouseholdIncome: 'Renda mediana por domicílio',
       perCapitaIncome: 'Renda per capita',
       ownerOccupied: 'Imóveis dos donos',

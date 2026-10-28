@@ -44,13 +44,10 @@ export interface Neighborhood {
   lifestyleTags?: string[];
   census?: {
     population: string;
-    medianAge: string;
     medianHouseholdIncome: string;
     perCapitaIncome: string;
     ownerOccupied: string;
     renterOccupied: string;
-    foreignBorn: string;
-    topLanguages: string[];
     source: string;
   };
   // MARKET DATA, update manually each quarter from MLS or Zillow Research
@@ -106,14 +103,13 @@ const neighborhoodData: NeighborhoodData[] = [
     slug: 'royal-palm-beach',
     county: 'Palm Beach',
     region: 'Palm Beach County',
-    tagline: 'Family homes, big parks, and a steady rental market, about 20 minutes west of downtown West Palm Beach.',
+    tagline: 'Houses with yards, big parks, and a steady rental market, about 20 minutes west of downtown West Palm Beach.',
     description:
-      "Royal Palm Beach was incorporated in 1959 and has grown into a village of about 39,000. Parks are a big part of daily life here: Commons Park covers about 160 acres around a 19-acre lake, smaller neighborhood parks are spread through the village, and the county's Royal Palm Beach Pines Natural Area adds roughly 770 acres of pine flatwoods with walking trails. The village has been a Tree City USA since 1990, and everything inside its limits is a designated bird sanctuary.\n\nMost of Jose's rental work happens here. Renters find three-bedroom houses with yards, and many families rent in the village before they buy in it. Buyers find the same family-sized houses, with elementary schools rated 7 to 10 out of 10. About 29% of residents were born outside the US, and Spanish, Portuguese, and Haitian Creole are the most common languages after English. For sellers, 82% of homes are owner-occupied, so the buyers who come looking are mostly families planning to stay.",
+      "Royal Palm Beach was incorporated in 1959 and has grown into a village of about 39,000. Parks are a big part of daily life here: Commons Park covers about 160 acres around a 19-acre lake, smaller neighborhood parks are spread through the village, and the county's Royal Palm Beach Pines Natural Area adds roughly 770 acres of pine flatwoods with walking trails. The village has been a Tree City USA since 1990, and everything inside its limits is a designated bird sanctuary.\n\nMost of Jose's rental work happens here. Renters find three-bedroom houses with yards, and many renters later buy in the village. Buyers find the same houses, with elementary schools rated 7 to 10 out of 10. For sellers, 82% of homes are owner-occupied, so most buyers who come looking plan to live in the home.",
     highlights: [
       'Commons Park: about 160 acres around a 19-acre lake, plus the 770-acre county Pines Natural Area',
       'Tree City USA since 1990, and the whole village is a designated bird sanctuary',
       'Elementary schools rated 7 to 10 on GreatSchools; Western Academy Charter is a 10',
-      'About 29% of residents born abroad, with Spanish, Portuguese, and Haitian Creole widely spoken',
       'Houses sold at a median of $566,000 in January through September 2026',
       '82 rentals listed in late October 2026, with three-bedrooms asking a median of $2,800',
     ],
@@ -128,7 +124,7 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "Royal Palm Beach is where I've done more deals than anywhere else, and honestly, it's home turf. People hear the name and picture something fancy, it's not. It's working families: Brazilian, Venezuelan, Colombian, Haitian, longtime Floridians, all on the same streets, shopping at the same Publix. The elementary schools are genuinely good, the parks are excellent for the price point, and you get more house and more yard here than almost anywhere else in the county for the same money. The high school isn't where I'd brag, and I tell people that straight up. If you're renting before you buy, or you're a first-time buyer trying to make the numbers work in Palm Beach County, this is usually the first place I point people to.",
+      "Royal Palm Beach is where I've done more deals than anywhere else, and honestly, it's home turf. People hear the name and picture something fancy, it's not. The elementary schools are genuinely good, the parks are excellent for the price point, and you get more house and more yard here than almost anywhere else in the county for the same money. The high school isn't where I'd brag, and I tell people that straight up. If you're renting before you buy, or you're a first-time buyer trying to make the numbers work in Palm Beach County, this is usually the first place I point people to.",
     lifestyleTags: [
       'First-Time Buyers',
       'Active Rental Market',
@@ -137,13 +133,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '39,089',
-      medianAge: '41.5',
       medianHouseholdIncome: '$92,382',
       perCapitaIncome: '$40,918',
       ownerOccupied: '82.3%',
       renterOccupied: '17.7%',
-      foreignBorn: '28.9%',
-      topLanguages: ['Spanish', 'Portuguese', 'Haitian Creole'],
       source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -205,7 +198,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Western Academy Charter rates 10/10 on GreatSchools, Cypress Trails Elementary and Western Pines Community Middle rate 8/10, and Royal Palm Beach and H.L. Johnson Elementary rate 7/10. Royal Palm Beach High School rates 3/10. Families with high schoolers should look at district choice and magnet programs early. Attendance zones are set by address, so confirm a specific home with the School District of Palm Beach County's boundary locator.",
+      "Western Academy Charter rates 10/10 on GreatSchools, Cypress Trails Elementary and Western Pines Community Middle rate 8/10, and Royal Palm Beach and H.L. Johnson Elementary rate 7/10. Royal Palm Beach High School rates 3/10. If high school matters to you, look at district choice and magnet programs early. Attendance zones are set by address, so confirm a specific home with the School District of Palm Beach County's boundary locator.",
     pointsOfInterest: [
       {
         name: 'Commons Park',
@@ -243,7 +236,7 @@ const neighborhoodData: NeighborhoodData[] = [
         name: 'Southern Blvd Dining Corridor',
         category: 'Dining',
         description:
-          'Latin American bakeries, restaurants, and family diners along Southern Blvd., most of them locally owned.',
+          'Bakeries, restaurants, and diners along Southern Blvd., most of them locally owned.',
       },
       {
         name: 'Royal Palm Beach Public Library',
@@ -305,7 +298,7 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "West Palm Beach gives families something none of the western suburbs can: real walkability, a downtown they'll actually use, and homes in Palm Beach County that still fit a family budget. I've helped buyers find solid 3-bedroom homes here for less than what a condo costs in Boca. And with SunFest, the GreenMarket, the Zoo, and Dreyfoos all in the same city, it adds up to something the suburbs don't have.",
+      "West Palm Beach gives buyers something none of the western suburbs can: real walkability, a downtown they'll actually use, and homes in Palm Beach County that still fit a modest budget. I've helped buyers find solid 3-bedroom homes here for less than what a condo costs in Boca. And with SunFest, the GreenMarket, the Zoo, and Dreyfoos all in the same city, it adds up to something the suburbs don't have.",
     lifestyleTags: [
       'Urban and Walkable',
       'Intracoastal Waterfront',
@@ -315,13 +308,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '120,000',
-      medianAge: '40',
       medianHouseholdIncome: '$69,261',
       perCapitaIncome: '$44,508',
       ownerOccupied: '50%',
       renterOccupied: '50%',
-      foreignBorn: '27.1%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     budgetGuide: [
@@ -455,7 +445,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: 'Home of the Winter Equestrian Festival, with two elementary schools rated 10/10 and houses on bigger lots.',
     description:
-      "Wellington is one of Jose's most consistent sales markets, with closed deals ranging from $420K to $560K across different property types. The village is known worldwide for equestrian sport and hosts the 13-week Winter Equestrian Festival every January through March. For families, the bigger draws are the schools, with Binks Forest and Equestrian Trails Elementary both rated 10/10, and houses on larger lots than in the older coastal cities.\n\nFrom January through September 2026, houses sold at a median of $755,000 and condos and townhouses at $420,000. Jose has lived in Wellington since 2004.",
+      "Wellington is one of Jose's most consistent sales markets, with closed deals ranging from $420K to $560K across different property types. The village is known worldwide for equestrian sport and hosts the 13-week Winter Equestrian Festival every January through March. Beyond the horses, the other big draw is the schools, with Binks Forest and Equestrian Trails Elementary both rated 10/10, and houses on larger lots than in the older coastal cities.\n\nFrom January through September 2026, houses sold at a median of $755,000 and condos and townhouses at $420,000. Jose has lived in Wellington since 2004.",
     highlights: [
       'Winter Equestrian Festival: 13 weeks each January through March, free general admission',
       'Binks Forest and Equestrian Trails Elementary both rate 10/10 on GreatSchools',
@@ -473,7 +463,7 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "I've lived in Wellington since 2004. I've watched it grow from a quiet equestrian community into one of the best places to raise a family in Palm Beach County. The schools are real, the parks are well-maintained, and you get a sense of neighborhood that just doesn't exist at this price point in most of South Florida. And you don't have to own a horse to love living here.",
+      "I've lived in Wellington since 2004. I've watched it grow from a quiet equestrian community into one of the most sought-after places to live in Palm Beach County. The schools are real, the parks are well-maintained, and you get a sense of neighborhood that just doesn't exist at this price point in most of South Florida. And you don't have to own a horse to love living here.",
     lifestyleTags: [
       'Equestrian Culture',
       'Top-Rated Schools',
@@ -483,13 +473,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '61,497',
-      medianAge: '42',
       medianHouseholdIncome: '$110,294',
       perCapitaIncome: '$53,964',
       ownerOccupied: '74%',
       renterOccupied: '26%',
-      foreignBorn: '24.2%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     budgetGuide: [
@@ -639,7 +626,7 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "When buyers ask me where they can get a real piece of land in Palm Beach County without an HOA telling them what color to paint their fence, I always point them to The Acreage. You're 15 minutes from Wellington, 20 minutes from West Palm Beach, and you come home to over an acre that's yours. For a family that wants space to raise kids, keep animals, and park the boat with no monthly fees eating into their budget, this is usually the answer.",
+      "When buyers ask me where they can get a real piece of land in Palm Beach County without an HOA telling them what color to paint their fence, I always point them to The Acreage. You're 15 minutes from Wellington, 20 minutes from West Palm Beach, and you come home to over an acre that's yours. For buyers who want space, room for animals, and a place to park the boat with no monthly fees eating into the budget, this is usually the answer.",
     lifestyleTags: [
       'No HOA',
       '1+ Acre Lots',
@@ -650,13 +637,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '40,000',
-      medianAge: '43',
       medianHouseholdIncome: '$105,405',
       perCapitaIncome: '$40,975',
       ownerOccupied: '92%',
       renterOccupied: '8%',
-      foreignBorn: '19.8%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     budgetGuide: [
@@ -668,7 +652,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
       {
         tier: '$450K – $650K',
-        label: 'Established Family Homes',
+        label: 'Established Homes',
         description:
           'Three-bedroom, two-bath concrete block houses of 1,500 to 2,200 sq ft, 20 to 40 years old, on fenced 1.25-acre lots, often with a pool and a detached garage or workshop. This range is below the 12-month median of $700,000, so expect older finishes. Ask about the roof age, well, and septic.',
       },
@@ -776,7 +760,7 @@ const neighborhoodData: NeighborhoodData[] = [
       rangeMin: '$1,800',
       rangeMax: '$4,800',
       description:
-        "Rental supply is limited and mostly single-family homes. This summer, three-bedroom rentals in the 33470 ZIP code asked roughly $3,600 to $3,950 a month and four-bedrooms around $4,500. Jose has placed renters here, including in Arden, for families who want to try the lifestyle before buying.",
+        "Rental supply is limited and mostly single-family homes. This summer, three-bedroom rentals in the 33470 ZIP code asked roughly $3,600 to $3,950 a month and four-bedrooms around $4,500. Jose has placed renters here, including in Arden, for renters who want to try the lifestyle before buying.",
     },
     buyerNote: "More than half of current house listings have cut their price, and homes still for sale had been listed a median of 76 days in late October 2026. Budget for well and septic inspections and check the flood zone for the specific lot.",
     sellerNote: "Houses that sold in September 2026 went under contract in a median of 28 days at 98% of their final asking price, while overpriced listings sat for months. Jose's free CMA prices for the land as well as the house.",
@@ -789,11 +773,10 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: 'A walkable historic downtown two miles from the Atlantic, with Tri-Rail access and no-HOA bungalows still in the $400s.',
     description:
-      "Lake Worth Beach is a coastal city with a walkable downtown of independent restaurants, galleries, and a historic theater. It was renamed from \"Lake Worth\" in 2019, sits within two miles of the Atlantic, and has a Tri-Rail station inside city limits. It has a large Spanish-speaking community, which makes it a natural fit for Jose's multilingual practice.\n\nThe market is split by property type. From January through September 2026, houses sold at a median of $560,000 while condos and townhouses sold at $207,500, with 6.1 months of condo inventory. About 54% of residents rent.",
+      "Lake Worth Beach is a coastal city with a walkable downtown of independent restaurants, galleries, and a historic theater. It was renamed from \"Lake Worth\" in 2019, sits within two miles of the Atlantic, and has a Tri-Rail station inside city limits.\n\nThe market is split by property type. From January through September 2026, houses sold at a median of $560,000 while condos and townhouses sold at $207,500, with 6.1 months of condo inventory. About 54% of residents rent.",
     highlights: [
       'Walkable downtown on Lake and Lucerne Avenues with independent dining and arts',
       'Condos and townhouses at a 2026 median of $207,500, within two miles of the beach',
-      'Large Spanish-speaking community',
       'City beach with a fishing pier and the rebuilt 1920s Casino Building',
     ],
     coordinates: { lat: 26.6167, lng: -80.0584 },
@@ -805,7 +788,7 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     // TODO: Have Jose review and adjust in his own words
     joseNote:
-      "Lake Worth Beach is the kind of place where you can walk to the beach, grab breakfast at Benny's on the pier, and still have money left over for a down payment, because unlike the towns just across the bridge, it hasn't been priced out of reach for regular families. And with Tri-Rail right in the city, buyers who commute to Fort Lauderdale or Miami can actually make this work. I've helped Spanish-speaking families plant roots here for years.",
+      "Lake Worth Beach is the kind of place where you can walk to the beach, grab breakfast at Benny's on the pier, and still have money left over for a down payment, because unlike the towns just across the bridge, it hasn't been priced out of reach for most buyers. And with Tri-Rail right in the city, buyers who commute to Fort Lauderdale or Miami can actually make this work. I've helped buyers and renters settle here for years.",
     lifestyleTags: [
       'Walkable and Arts-Forward',
       'Tri-Rail Access',
@@ -815,13 +798,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '43,000',
-      medianAge: '37',
       medianHouseholdIncome: '$60,978',
       perCapitaIncome: '$29,711',
       ownerOccupied: '46%',
       renterOccupied: '54%',
-      foreignBorn: '35%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2025',
     },
     budgetGuide: [
@@ -871,7 +851,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "North Grade and South Grade Elementary both rate 5/10 on GreatSchools, and both are magnet schools. Lake Worth Community Middle rates 3/10 and Lake Worth High 2/10. Many families here use Palm Beach County's school choice and magnet programs. Confirm a specific address with the School District of Palm Beach County's boundary locator and visit before deciding.",
+      "North Grade and South Grade Elementary both rate 5/10 on GreatSchools, and both are magnet schools. Lake Worth Community Middle rates 3/10 and Lake Worth High 2/10. Many students here use Palm Beach County's school choice and magnet programs. Confirm a specific address with the School District of Palm Beach County's boundary locator and visit before deciding.",
     pointsOfInterest: [
       {
         name: 'Lake Worth Beach Park and Municipal Pier',
@@ -955,11 +935,10 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: 'A lower house median than Delray Beach or Lake Worth Beach, 55+ condos under $200K, and a city beach.',
     description:
-      "Boynton Beach sits between Delray Beach and Lake Worth Beach. From January through September 2026, its houses sold at a median of $525,000, below Lake Worth Beach ($560,000) and well below Delray ($872,500), and condos and townhouses at $266,750. Housing runs from 55+ condos near the coast to gated communities out west, and residents can park at the city's guarded beach for $65 a year.\n\nThe Federal Highway corridor downtown has been redeveloping, with 500 Ocean built and the city-owned Boynton Harbor Marina rebuilt in phases. The city has large Haitian and Spanish-speaking communities, and Jose works with families from both.",
+      "Boynton Beach sits between Delray Beach and Lake Worth Beach. From January through September 2026, its houses sold at a median of $525,000, below Lake Worth Beach ($560,000) and well below Delray ($872,500), and condos and townhouses at $266,750. Housing runs from 55+ condos near the coast to gated communities out west, and residents can park at the city's guarded beach for $65 a year.\n\nThe Federal Highway corridor downtown has been redeveloping, with 500 Ocean built and the city-owned Boynton Harbor Marina rebuilt in phases.",
     highlights: [
       'Houses at a 2026 median of $525,000, below Delray Beach and Lake Worth Beach',
       'City-owned Boynton Harbor Marina, rebuilt in phases',
-      'Large Haitian and Spanish-speaking communities',
       "Easy access to I-95 and Florida's Turnpike",
     ],
     coordinates: { lat: 26.5317, lng: -80.0906 },
@@ -970,10 +949,8 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Palm Beach County Property Appraiser', url: 'https://www.pbcgov.org/papa', category: 'property-appraiser' },
       { label: 'Greater Boynton Beach Chamber', url: 'https://www.boyntonbeachchamber.org', category: 'chamber' },
     ],
-    joseNote: "Boynton Beach has the widest range of options of any city I work in. A $150,000 condo in a 55+ building and a $750,000 home in a gated community on the west side are both Boynton Beach. I've helped Haitian families settle near Seacrest, Latin families near Congress, and families from up north who want the beach without the Delray price. The Federal Highway corridor has been changing fast and I've watched what that's done to values in the streets around it.",
+    joseNote: "Boynton Beach has the widest range of options of any city I work in. A $150,000 condo in a 55+ building and a $750,000 home in a gated community on the west side are both Boynton Beach. I've helped buyers settle near Seacrest, along Congress, and closer to the beach for less than Delray prices. The Federal Highway corridor has been changing fast and I've watched what that's done to values in the streets around it.",
     lifestyleTags: [
-      'Family-Friendly',
-      'Diverse Community',
       'Federal Highway Redevelopment',
       'Congress Avenue Corridor',
       'Active Adult Communities',
@@ -981,13 +958,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '81,000',
-      medianAge: '43',
       medianHouseholdIncome: '$71,378',
       perCapitaIncome: '$39,198',
       ownerOccupied: '64%',
       renterOccupied: '36%',
-      foreignBorn: '',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     budgetGuide: [
@@ -1121,13 +1095,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '67,000',
-      medianAge: '52',
       medianHouseholdIncome: '$79,393',
       perCapitaIncome: '$56,068',
       ownerOccupied: '65%',
       renterOccupied: '35%',
-      foreignBorn: '',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'RPR/BeachesMLS + U.S. Census via Esri, 2026',
     },
     budgetGuide: [
@@ -1135,7 +1106,7 @@ const neighborhoodData: NeighborhoodData[] = [
         tier: 'Under $200K',
         label: '55+ Community Condos',
         description:
-          'Primarily age-restricted communities on the far west side, Kings Point and similar developments where one-bedroom units have listed near $90K and two-bedrooms near $150K. Not representative of the general family-buyer market; largely retirement-oriented with strict HOA age restrictions.',
+          'Primarily age-restricted communities on the far west side, Kings Point and similar developments where one-bedroom units have listed near $90K and two-bedrooms near $150K. Most of these communities are age-restricted (55+), so check the age rules before you look.',
       },
       {
         tier: '$300K – $550K',
@@ -1250,7 +1221,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: 'Marsh Pointe and Timber Trace Elementary both rate 10/10. PGA National is in the backyard.',
     description:
-      "Palm Beach Gardens is a planned city of 61,000 built around a championship golf identity that has grown into a full-service suburban community with a wide range of housing, from golf-community condos to newer single-family subdivisions. Marsh Pointe and Timber Trace Elementary are among the top-rated public elementary schools in Palm Beach County. The Gardens Mall, Legacy Place, and PGA Commons put retail and dining within the city without a highway drive.\n\nThe trade-offs are real. The median resident age of 51.8 skews toward active adults and retirees; the energy is quieter than Jupiter, and the beach is a 15-minute drive rather than a walk. A family budget under $550,000 now buys a condo or older townhome rather than a move-in-ready single-family home with a yard, and HOA fees in golf communities add meaningfully to monthly costs. The high school carries a 3/10 GreatSchools rating, a real concern for families with teenagers, even accounting for its Cambridge and AP magnet programs. Many families with high-school-aged children in PBG supplement with Benjamin School, Oxbridge Academy, or other private options. For K–8 families, few cities in Palm Beach County can match the public school options at this price point.",
+      "Palm Beach Gardens is a planned city of 61,000 built around a championship golf identity that has grown into a full-service suburban community with a wide range of housing, from golf-community condos to newer single-family subdivisions. Marsh Pointe and Timber Trace Elementary are among the top-rated public elementary schools in Palm Beach County. The Gardens Mall, Legacy Place, and PGA Commons put retail and dining within the city without a highway drive.\n\nThe trade-offs are real. The pace is quieter than Jupiter, and the beach is a 15-minute drive rather than a walk. A budget under $550,000 now buys a condo or older townhome rather than a move-in-ready single-family home with a yard, and HOA fees in golf communities add meaningfully to monthly costs. The high school carries a 3/10 GreatSchools rating, worth weighing if high school matters to you, even accounting for its Cambridge and AP magnet programs. Some high school students in PBG attend Benjamin School, Oxbridge Academy, or other private schools. For elementary and middle school, few cities in Palm Beach County can match the public school options at this price point.",
     highlights: [
       'Marsh Pointe and Timber Trace Elementary each hold a 10/10 GreatSchools rating',
       'PGA National Resort, host of the annual Cognizant Classic PGA Tour event',
@@ -1268,7 +1239,7 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Palm Beach Gardens Chamber', url: 'https://www.pbgchamber.com', category: 'chamber' },
     ],
     joseNote:
-      "Palm Beach Gardens is where I send families relocating from the Northeast who want good elementary schools and don't want to deal with a long commute to retail. Marsh Pointe and Timber Trace are two of the highest-rated public elementary schools in Palm Beach County. The Gardens Mall and Legacy Place handle most errands without leaving the city. The conversation I have with buyers who have high-school-aged kids is straightforward: PBG High is a 3/10, and they should budget Benjamin School or Oxbridge Academy into their monthly costs before committing.",
+      "Palm Beach Gardens is where I send buyers relocating from the Northeast who want good elementary schools and don't want to deal with a long commute to retail. Marsh Pointe and Timber Trace are two of the highest-rated public elementary schools in Palm Beach County. The Gardens Mall and Legacy Place handle most errands without leaving the city. When high school matters to a buyer, the conversation is straightforward: PBG High is a 3/10, so private options like Benjamin School or Oxbridge Academy belong in the monthly budget before committing.",
     lifestyleTags: [
       'Top-Rated Elementary Schools',
       'Golf Communities',
@@ -1277,13 +1248,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '60,959',
-      medianAge: '51.8',
       medianHouseholdIncome: '$106,947',
       perCapitaIncome: '$83,250',
       ownerOccupied: '73%',
       renterOccupied: '27%',
-      foreignBorn: '14.2%',
-      topLanguages: ['Spanish', 'Italian', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -1295,9 +1263,9 @@ const neighborhoodData: NeighborhoodData[] = [
       },
       {
         tier: '$550K – $850K',
-        label: 'Single-Family Homes, Family Sweet Spot',
+        label: 'Single-Family Homes',
         description:
-          'Single-family homes in Evergrene, Bent Tree, Mirasol\'s non-golf sections, or newer northern subdivisions. Buyers find 3–4 bedrooms and 1,800–2,800 sq ft, private yards, and proximity to the 10/10-rated elementary schools. This bracket draws the most family buyers and moves faster than the condo tier.',
+          'Single-family homes in Evergrene, Bent Tree, Mirasol\'s non-golf sections, or newer northern subdivisions. Buyers find 3–4 bedrooms and 1,800–2,800 sq ft, private yards, and proximity to the 10/10-rated elementary schools. This bracket draws the most buyers and moves faster than the condo tier.',
       },
       {
         tier: '$850K – $2.5M+',
@@ -1333,7 +1301,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Marsh Pointe and Timber Trace Elementary both hold 10/10 GreatSchools ratings and offer gifted programming. Watson B. Duncan Middle is rated 8/10. Palm Beach Gardens High is rated 3/10, a metric weighted toward equity and proficiency across its full student population. The school does offer Cambridge International and AP tracks. Many families with high-school-aged children in PBG enroll at Benjamin School or Oxbridge Academy instead. Use the district's school locator to confirm attendance boundaries before making an offer.",
+      "Marsh Pointe and Timber Trace Elementary both hold 10/10 GreatSchools ratings and offer gifted programming. Watson B. Duncan Middle is rated 8/10. Palm Beach Gardens High is rated 3/10, a metric weighted toward equity and proficiency across its full student population. The school does offer Cambridge International and AP tracks. Some high school students in PBG attend Benjamin School or Oxbridge Academy instead. Use the district's school locator to confirm attendance boundaries before making an offer.",
     pointsOfInterest: [
       {
         name: 'PGA National Resort',
@@ -1389,9 +1357,9 @@ const neighborhoodData: NeighborhoodData[] = [
       rangeMin: '',
       rangeMax: '',
       description:
-        "Golf communities attract seasonal renters, mostly snowbirds renting 3–6 months while evaluating a permanent purchase. Apartment complexes along I-95 serve young professionals working across the county. About 27% of housing units are renter-occupied, and demand runs year-round.",
+        "Golf communities attract seasonal renters, mostly snowbirds renting 3–6 months while evaluating a permanent purchase. Apartment complexes along I-95 serve renters working across the county. About 27% of housing units are renter-occupied, and demand runs year-round.",
     },
-    buyerNote: "Marsh Pointe and Timber Trace at 10/10, PGA National out the back door, and The Gardens Mall and Legacy Place covering retail without a long drive. For families with elementary-age kids, the infrastructure case is strong. Buyers with teenagers need to do the high school math before committing.",
+    buyerNote: "Marsh Pointe and Timber Trace at 10/10, PGA National out the back door, and The Gardens Mall and Legacy Place covering retail without a long drive. If elementary schools matter to you, the case is strong. Buyers with teenagers need to do the high school math before committing.",
     sellerNote: "Palm Beach Gardens inventory has grown, giving sellers more competition than in 2022–2023. Jose's free CMA shows where your home sits and what pricing strategy moves it at full value.",
   },
   {
@@ -1402,7 +1370,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: 'Strong public schools K–12, the Loxahatchee River, and less density than anywhere south of here.',
     description:
-      "Jupiter is a town of 62,000 wedged between the Atlantic, the Wild and Scenic Loxahatchee River, and Jonathan Dickinson State Park. The geography limits density and keeps the scale small for a city its size. Weekend life runs toward kayaking the river, fishing from the pier, hiking the park system, catching spring training games, and biking through Abacoa.\n\nThe public school system runs from Beacon Cove Intermediate at 10/10 through both middle schools at 8/10 to Jupiter High at 7/10, with Cambridge AICE and AP programming at the high school level. That K–12 arc is one of the few in Palm Beach County where families don't need to factor in private school costs at every stage.\n\nThe trade-offs are real. There is no luxury retail center; real shopping means a drive to Palm Beach Gardens or Boca. US-1 traffic through the core is slow at peak hours. The waterfront premium is steep: a home with Loxahatchee River access or ocean views runs $500,000–$1,000,000 more than an inland comparable. Sub-$500,000 buys a condo or townhome, not a single-family home.",
+      "Jupiter is a town of 62,000 wedged between the Atlantic, the Wild and Scenic Loxahatchee River, and Jonathan Dickinson State Park. The geography limits density and keeps the scale small for a city its size. Weekend life runs toward kayaking the river, fishing from the pier, hiking the park system, catching spring training games, and biking through Abacoa.\n\nThe public school system runs from Beacon Cove Intermediate at 10/10 through both middle schools at 8/10 to Jupiter High at 7/10, with Cambridge AICE and AP programming at the high school level. That K–12 arc is one of the few in Palm Beach County where private school isn't needed at any stage.\n\nThe trade-offs are real. There is no luxury retail center; real shopping means a drive to Palm Beach Gardens or Boca. US-1 traffic through the core is slow at peak hours. The waterfront premium is steep: a home with Loxahatchee River access or ocean views runs $500,000–$1,000,000 more than an inland comparable. Sub-$500,000 buys a condo or townhome, not a single-family home.",
     highlights: [
       'Beacon Cove Intermediate 10/10, both middle schools 8/10, Jupiter High 7/10 with Cambridge AICE',
       'Loxahatchee River with Wild and Scenic federal designation for kayaking, fishing, and paddle tours',
@@ -1420,7 +1388,7 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Jupiter-Tequesta Chamber', url: 'https://www.jupiterinletchamber.com', category: 'chamber' },
     ],
     joseNote:
-      "Jupiter is the town I point families to when they want strong public schools all the way through high school, not just elementary. That K–12 arc from Beacon Cove's 10/10 through Jupiter High's 7/10 is real, not marketing. The outdoor access is also real: the river, Jonathan Dickinson, DuBois Park at the inlet, Guanabanas on the water. The market has gotten more expensive. Under $500K is condos, not single-family. Families that can get to $600K will find more options here than in most towns at that price point in the county.",
+      "Jupiter is the town I point buyers to when they want strong public schools all the way through high school, not just elementary. That K–12 arc from Beacon Cove's 10/10 through Jupiter High's 7/10 is real, not marketing. The outdoor access is also real: the river, Jonathan Dickinson, DuBois Park at the inlet, Guanabanas on the water. The market has gotten more expensive. Under $500K is condos, not single-family. Buyers who can get to $600K will find more options here than in most towns at that price point in the county.",
     lifestyleTags: [
       'Natural Florida',
       'Beach and River Access',
@@ -1431,13 +1399,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '61,883',
-      medianAge: '47.5',
       medianHouseholdIncome: '$110,240',
       perCapitaIncome: '$71,255',
       ownerOccupied: '78.5%',
       renterOccupied: '21.5%',
-      foreignBorn: '17.5%',
-      topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -1449,9 +1414,9 @@ const neighborhoodData: NeighborhoodData[] = [
       },
       {
         tier: '$550K – $825K',
-        label: 'Single-Family Homes, Family Sweet Spot',
+        label: 'Single-Family Homes',
         description:
-          'Single-family homes in Abacoa, Egret Landing, Shores at Jupiter, or established neighborhoods near the river. Buyers find 3–4 bedrooms, 1,800–2,600 sq ft, mature landscaping, and proximity to the rated schools. Inventory here moves faster than the condo tier and draws the most family buyers.',
+          'Single-family homes in Abacoa, Egret Landing, Shores at Jupiter, or established neighborhoods near the river. Buyers find 3–4 bedrooms, 1,800–2,600 sq ft, mature landscaping, and proximity to the rated schools. Inventory here moves faster than the condo tier and draws the most buyers.',
       },
       {
         tier: '$825K+',
@@ -1549,10 +1514,10 @@ const neighborhoodData: NeighborhoodData[] = [
       rangeMin: '',
       rangeMax: '',
       description:
-        "About 21.5% of housing units are renter-occupied, lower than most surrounding cities. Most rental households are families renting while searching for a home to buy. Single-family rentals and townhomes make up most of the inventory; purpose-built apartment buildings are limited.",
+        "About 21.5% of housing units are renter-occupied, lower than most surrounding cities. Many renters here are renting while they search for a home to buy. Single-family rentals and townhomes make up most of the inventory; purpose-built apartment buildings are limited.",
     },
     buyerNote: "Beacon Cove at 10/10 through Jupiter High at 7/10 with Cambridge AICE. That K–12 public arc is real and uncommon in Palm Beach County. The river, Jonathan Dickinson, and DuBois Park are all within the town footprint. Jose has worked every corner of this market and knows which streets carry a waterfront premium worth paying and which don't.",
-    sellerNote: "School-driven demand keeps buyer activity consistent across price points in Jupiter, particularly in the $550K–$825K family bracket. Jose's free CMA shows exactly where your home sits in today's market.",
+    sellerNote: "School-driven demand keeps buyer activity consistent across price points in Jupiter, particularly in the $550K–$825K bracket. Jose's free CMA shows exactly where your home sits in today's market.",
   },
   {
     name: 'Palm Beach',
@@ -1562,7 +1527,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Palm Beach County',
     tagline: '4.2 square miles, bounded by water, 84% cash transactions, and a fixed supply that has not changed in a century.',
     description:
-      "The Town of Palm Beach is not a neighborhood in any conventional sense. It is a 4.2-square-mile barrier island municipality that functions as one of the most exclusive residential enclaves in the United States, a community whose physical supply cannot be expanded, whose social architecture was established over a century, and whose wealth has become self-reinforcing in ways most American cities have never experienced. Approximately 58 billionaires maintain residences here. The year-round population of 9,400 expands to nearly 30,000 during the October-through-April social season, when the island's clubs, cultural institutions, charitable galas, and real estate market operate at full intensity.\n\nFor the buyer who qualifies, Palm Beach offers something without a direct American equivalent: a recognized American aristocratic address, Florida's zero state income tax, streets maintained under direct municipal control, and private club access that provides the island's real social infrastructure. Everglades Club, Bath and Tennis Club, and Mar-a-Lago anchor a social life that is entry-gated in ways the real estate itself only partially reflects. The built environment of Addison Mizner-designed Spanish-Moorish architecture cannot be replicated, and the Town's strict architectural controls are not a burden for buyers who understand them; they are the mechanism that has preserved the island's character and, therefore, its value.\n\nWhat this market is not: a family neighborhood. The median resident age of 70.4 is not a coincidence. There are no public middle or high schools in the town limits. The minimum 90-day rental rule and the prohibition on short-term rentals mean there is no Airbnb market and no transient investor profile. Approximately 84% of all transactions close in cash with no mortgage contingency. For the international high-net-worth buyer, relocating from New York, London, São Paulo, or Paris, Palm Beach represents a convergence of tax efficiency, physical beauty, and social structure that the American real estate market offers in very few other locations.",
+      "The Town of Palm Beach is not a neighborhood in any conventional sense. It is a 4.2-square-mile barrier island municipality that functions as one of the most expensive residential areas in the United States, a community whose physical supply cannot be expanded, whose social architecture was established over a century, and whose wealth has become self-reinforcing in ways most American cities have never experienced. Approximately 58 billionaires maintain residences here. The year-round population of 9,400 expands to nearly 30,000 during the October-through-April social season, when the island's clubs, cultural institutions, charitable galas, and real estate market operate at full intensity.\n\nFor the buyer who qualifies, Palm Beach offers something without a direct American equivalent: a recognized American aristocratic address, Florida's zero state income tax, streets maintained under direct municipal control, and private club access that provides the island's real social infrastructure. Everglades Club, Bath and Tennis Club, and Mar-a-Lago anchor a social life that is entry-gated in ways the real estate itself only partially reflects. The built environment of Addison Mizner-designed Spanish-Moorish architecture cannot be replicated, and the Town's strict architectural controls are not a burden for buyers who understand them; they are the mechanism that has preserved the island's character and, therefore, its value.\n\nThere are no public middle or high schools in the town limits. The minimum 90-day rental rule and the prohibition on short-term rentals mean there is no Airbnb market and no transient investor profile. Approximately 84% of all transactions close in cash with no mortgage contingency. For the international high-net-worth buyer, relocating from New York, London, São Paulo, or Paris, Palm Beach represents a convergence of tax efficiency, physical beauty, and social structure that the American real estate market offers in very few other locations.",
     highlights: [
       'Worth Avenue, Chanel, Gucci, Hermès, Cartier, and galleries in Addison Mizner architecture',
       'Zero Florida state income tax, the primary driver for most high-net-worth relocators',
@@ -1592,13 +1557,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '9,348',
-      medianAge: '70.4',
       medianHouseholdIncome: '$168,403',
       perCapitaIncome: '$211,607',
       ownerOccupied: '83.7%',
       renterOccupied: '16.3%',
-      foreignBorn: '17.5%',
-      topLanguages: ['Spanish', 'French', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates (small-sample; estimates carry wider margins of error)',
     },
     marketSnapshot: {
@@ -1636,7 +1598,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "The Town of Palm Beach has one public school within its boundaries, Palm Beach Public, a magnet PK–5 with Gifted and Talented programming and an 8/10 GreatSchools rating. There are no public middle or high schools in the town. In practice, families with school-age children use Palm Beach Day Academy (established 1921, PK–8, tuition in the $39,000–$41,000 range) or Oxbridge Academy in West Palm Beach for older students. The resident population's median age of 70.4 means school-age families are a small minority; most buyers in this market are not selecting it for school-district access.",
+      "The Town of Palm Beach has one public school within its boundaries, Palm Beach Public, a magnet PK–5 with Gifted and Talented programming and an 8/10 GreatSchools rating. There are no public middle or high schools in the town. Many students in the town attend Palm Beach Day Academy (established 1921, PK–8, tuition in the $39,000–$41,000 range) or Oxbridge Academy in West Palm Beach. Most buyers here are not choosing the town for school-district access.",
     pointsOfInterest: [
       {
         name: 'Worth Avenue',
@@ -1705,12 +1667,11 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Broward County',
     tagline: "More house and more land than coastal Broward, with equestrian zoning and Nova Southeastern anchoring the west side.",
     description:
-      "Davie occupies an unusual position in Broward County: a town of over 112,000 that has deliberately preserved its horse-country character even as it grew into a fully suburban city. Equestrian zoning protects riding trails along residential streets in designated sections, Bergeron Grounds hosts Wednesday jackpot rodeos and a handful of PRCA events each year, and ranch-style homes on larger lots remain available at prices impossible in coastal Broward. The Latino community, drawn heavily from Venezuela, Colombia, and Central America, gives Davie's commercial corridors, restaurants, and social fabric a South American cultural character that distinguishes it from whiter, more insular Broward suburbs.\n\nNova Southeastern University's campus provides a stable professional and academic anchor, employment base, and rental demand that protects the market against the seasonal volatility that affects beach cities. The South Florida Education Center corridor (Nova Southeastern, Broward College, and FAU's Davie campus in close proximity) reinforces this dynamic. Commutes to downtown Fort Lauderdale, Miami, and Boca Raton are all managed via I-595 and the Florida Turnpike.\n\nThe honest tradeoffs: Davie is not walkable, and almost nothing is accessible without a car. Traffic on University Drive and Davie Road can be heavy. Houses sold at a median of $810,000 from January through September 2026, so buyers under $420K will mostly be looking at condos and townhomes rather than the single-family homes that define the neighborhood. HOA fees in condo and gated communities can significantly affect true monthly cost. The eastern sections near the Broward College campus feel denser and more urban; the western sections near the Everglades edge are quieter and more rural, these micro-zones carry meaningfully different lifestyles, and buyers should tour both.",
+      "Davie occupies an unusual position in Broward County: a town of over 112,000 that has deliberately preserved its horse-country character even as it grew into a fully suburban city. Equestrian zoning protects riding trails along residential streets in designated sections, Bergeron Grounds hosts Wednesday jackpot rodeos and a handful of PRCA events each year, and ranch-style homes on larger lots remain available at prices impossible in coastal Broward.\n\nNova Southeastern University's campus provides a stable professional and academic anchor, employment base, and rental demand that protects the market against the seasonal volatility that affects beach cities. The South Florida Education Center corridor (Nova Southeastern, Broward College, and FAU's Davie campus in close proximity) reinforces this dynamic. Commutes to downtown Fort Lauderdale, Miami, and Boca Raton are all managed via I-595 and the Florida Turnpike.\n\nThe honest tradeoffs: Davie is not walkable, and almost nothing is accessible without a car. Traffic on University Drive and Davie Road can be heavy. Houses sold at a median of $810,000 from January through September 2026, so buyers under $420K will mostly be looking at condos and townhomes rather than the single-family homes that define the neighborhood. HOA fees in condo and gated communities can significantly affect true monthly cost. The eastern sections near the Broward College campus feel denser and more urban; the western sections near the Everglades edge are quieter and more rural, these micro-zones carry meaningfully different lifestyles, and buyers should tour both.",
     highlights: [
       'Equestrian zoning, horse trails protected by town ordinance in designated areas',
       'Nova Southeastern University, major employment anchor and year-round rental demand',
       'Larger lots at lower prices than coastal Broward cities',
-      'Strong Latino community, Venezuelan, Colombian, and Central American cultural presence',
       'Flamingo Gardens, 60-acre botanical garden and Everglades wildlife sanctuary',
       'Accessible to I-595, Florida Turnpike, Fort Lauderdale, Miami, and Boca Raton',
     ],
@@ -1723,23 +1684,19 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Davie/Cooper City Chamber', url: 'https://www.davie-coopercity.org', category: 'chamber' },
     ],
     joseNote:
-      "Davie is where my Venezuelan and Colombian clients feel most at home in Broward County. The community is there, the restaurants are there, and the space the beach cities can't offer at this price is there. The NSU campus means stable rental demand and a workforce that keeps values from swinging seasonally. I always make sure buyers understand the HOA situation in the gated communities before they commit; the dues can significantly change the real monthly cost.",
+      "Davie is where I send buyers who want horse country and room to spread out in Broward County. The space the beach cities can't offer at this price is there. The NSU campus means stable rental demand and a workforce that keeps values from swinging seasonally. I always make sure buyers understand the HOA situation in the gated communities before they commit; the dues can significantly change the real monthly cost.",
     lifestyleTags: [
       'Equestrian-Friendly',
-      'Latino Cultural Hub',
       'University Town',
       'Tree-Lined Suburbs',
       'NSU Stable Demand',
     ],
     census: {
       population: '112,040',
-      medianAge: '39',
       medianHouseholdIncome: '$86,560',
       perCapitaIncome: '$51,109',
       ownerOccupied: '67.1%',
       renterOccupied: '32.9%',
-      foreignBorn: '32.2%',
-      topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -1847,7 +1804,7 @@ const neighborhoodData: NeighborhoodData[] = [
       description:
         "Davie's rental market is driven primarily by Nova Southeastern University's students, health sciences residents, and professional staff rather than seasonal tourism or coastal desirability, creating year-round, non-seasonal demand concentrated in the 1–2BR segment near University Drive and College Avenue. For investors, the NSU/Broward College pipeline provides a stable tenant base with predictable occupancy cycles.",
     },
-    buyerNote: "More house and more land than coastal Broward at this price, with a strong Venezuelan and Colombian community presence. Jose knows which HOA communities carry surprise dues and which are priced fairly, a real differentiator in this market.",
+    buyerNote: "More house and more land than coastal Broward at this price. Jose knows which HOA communities carry surprise dues and which are priced fairly, a real differentiator in this market.",
     sellerNote: "Davie's value appeal draws a consistent buyer pool from price-pressured coastal Broward. Jose's free CMA shows exactly where your home sits, and how to price for the buyers who are actively looking here.",
   },
   {
@@ -1858,14 +1815,13 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Broward County',
     tagline: "Single-family homes from the low $300Ks, immediately north of Fort Lauderdale, with a Culinary Arts District that most people don't expect.",
     description:
-      "Oakland Park sits immediately north of Fort Lauderdale and is one of the few cities in Broward County where a $300K–$450K budget still reaches a detached single-family home with a yard. Access to I-95, Fort Lauderdale-Hollywood International Airport, and the Tri-Rail commuter line is straightforward from most of the city. The Culinary Arts District on NE 12th Avenue is a real neighborhood asset: independent restaurants, craft breweries, and a monthly Art Walk in a walkable block that most buyers at this price point wouldn't expect.\n\nThe community is diverse across racial, ethnic, and income lines, reflecting Oakland Park's working-class roots and ongoing change. The revitalization is real but uneven: the Culinary District looks and feels very different from residential blocks three streets away, and the city's character shifts meaningfully between its eastern sections (near Fort Lauderdale) and its western sections (less investment to date).\n\nThe honest tradeoffs: the high school has a 2/10 GreatSchools rating, a real concern for families with older children who can't access a magnet or charter alternative. Crime rates vary by address; buyers should use Broward County Sheriff's crime mapping for specific streets rather than relying on city-level averages.",
+      "Oakland Park sits immediately north of Fort Lauderdale and is one of the few cities in Broward County where a $300K–$450K budget still reaches a detached single-family home with a yard. Access to I-95, Fort Lauderdale-Hollywood International Airport, and the Tri-Rail commuter line is straightforward from most of the city. The Culinary Arts District on NE 12th Avenue is a real neighborhood asset: independent restaurants, craft breweries, and a monthly Art Walk in a walkable block that most buyers at this price point wouldn't expect.\n\nThe revitalization is real but uneven: the Culinary District looks and feels very different from residential blocks three streets away, and the city's character shifts meaningfully between its eastern sections (near Fort Lauderdale) and its western sections (less investment to date).\n\nThe honest tradeoffs: the high school has a 2/10 GreatSchools rating, worth weighing if you don't plan to use a magnet or charter school. Crime rates vary by address; buyers should use Broward County Sheriff's crime mapping for specific streets rather than relying on city-level averages.",
     highlights: [
       'Single-family detached homes from the low $300Ks, a price range that no longer reaches a house in most of Broward County',
       'Culinary Arts District, independent restaurants, Funky Buddha Brewery, monthly Art Walk',
       'Steps from Fort Lauderdale employment, I-95, and Tri-Rail',
       'Easterlin Park, 250-year-old cypress trees in an urban wilderness preserve',
       'Interior canals for kayaking and paddleboarding without a waterfront premium',
-      'Diverse community, Hispanic, Haitian-American, and Caribbean cultural presence',
     ],
     coordinates: { lat: 26.1726, lng: -80.132 },
     resources: [
@@ -1885,13 +1841,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '44,682',
-      medianAge: '38.1',
       medianHouseholdIncome: '$72,708',
       perCapitaIncome: '$39,645',
       ownerOccupied: '56.4%',
       renterOccupied: '43.6%',
-      foreignBorn: '35.1%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -1935,7 +1888,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Oakland Park Elementary rates 7/10. Rickards Middle rates 5/10. Northeast High rates 2/10; the school does offer AP courses and Cambridge AICE, but the rating reflects well below-average academic outcomes by Florida standards. Families with school-age children should research Broward County's magnet school application process and charter school options before committing. Verify school assignment for any specific address using the district locator.",
+      "Oakland Park Elementary rates 7/10. Rickards Middle rates 5/10. Northeast High rates 2/10; the school does offer AP courses and Cambridge AICE, but the rating reflects well below-average academic outcomes by Florida standards. If schools matter to you, research Broward County's magnet school application process and charter school options before committing. Verify school assignment for any specific address using the district locator.",
     pointsOfInterest: [
       {
         name: 'Lakeside Sand Pine Preserve',
@@ -1990,7 +1943,7 @@ const neighborhoodData: NeighborhoodData[] = [
       rangeMin: '',
       rangeMax: '',
       description:
-        "About 43.6% of housing units are renter-occupied, driven by residents priced out of Fort Lauderdale, service workers, and diverse immigrant households. Demand is year-round. Purchase prices in the $320K–$420K range on small 3BR homes still pencil for investors in a way that most of Broward County no longer does.",
+        "About 43.6% of housing units are renter-occupied, driven by renters priced out of Fort Lauderdale. Demand is year-round. Purchase prices in the $320K–$420K range on small 3BR homes still pencil for investors in a way that most of Broward County no longer does.",
     },
     buyerNote: "One of the only places in Broward County where the $300K–$400K budget still reaches a detached single-family home with a yard. The Culinary Arts District is real and growing. Buyers need to do address-level homework, Jose knows which streets work and which to approach carefully.",
     sellerNote: "Oakland Park's value appeal draws a consistent first-time buyer pool from higher-priced Fort Lauderdale. Jose's free CMA shows exactly where your home sits in this evolving market.",
@@ -2003,7 +1956,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Broward County',
     tagline: "A 2.5-square-mile island city bounded by canals, with Wilton Drive putting restaurants and retail within walking distance of most addresses.",
     description:
-      "Wilton Manors is a 2.5-square-mile island city bounded by canals that functions as a walkable urban village in an otherwise car-dependent county. Wilton Drive puts independent dining, nightlife, retail, and community life within walking distance of most residential addresses. The city has an active civic identity: neighborhood associations are engaged, events are frequent, and residents tend to know each other in a way that's uncommon in larger Broward suburbs.\n\nWilton Manors has a well-established LGBTQ+ community reflected across its businesses, events, and civic culture. The median resident age of 55 reflects a community that skews toward established professionals and retirees rather than young families.\n\nThe honest tradeoffs: the overall median (all types) ran $613K–$685K in late 2025, and single-family homes averaged around $730K. Buyers at $400K–$550K are working in the condo segment or heavily dated single-family inventory. The city's small size keeps inventory consistently tight. There is no major grocery store in the city; Fort Lauderdale's infrastructure handles most daily needs. Flood insurance is a due-diligence priority given the canal-bounded topography.",
+      "Wilton Manors is a 2.5-square-mile island city bounded by canals that functions as a walkable urban village in an otherwise car-dependent county. Wilton Drive puts independent dining, nightlife, retail, and community life within walking distance of most residential addresses. The city has an active civic identity: neighborhood associations are engaged, events are frequent, and residents tend to know each other in a way that's uncommon in larger Broward suburbs.\n\nThe honest tradeoffs: the overall median (all types) ran $613K–$685K in late 2025, and single-family homes averaged around $730K. Buyers at $400K–$550K are working in the condo segment or heavily dated single-family inventory. The city's small size keeps inventory consistently tight. There is no major grocery store in the city; Fort Lauderdale's infrastructure handles most daily needs. Flood insurance is a due-diligence priority given the canal-bounded topography.",
     highlights: [
       'Wilton Drive puts restaurants, bars, and retail within walking distance of most residential addresses',
       'Canal-bounded 2.5-square-mile footprint keeps supply permanently tight and turnover low',
@@ -2029,13 +1982,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '11,511',
-      medianAge: '55.1',
       medianHouseholdIncome: '$85,392',
       perCapitaIncome: '$77,234',
       ownerOccupied: '61.6%',
       renterOccupied: '38.4%',
-      foreignBorn: '20.8%',
-      topLanguages: ['Spanish', 'Portuguese', 'French'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -2079,7 +2029,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Wilton Manors Elementary rates 5/10 and is an IB World School offering the Primary Years Programme. The feeder middle and high schools are both in Fort Lauderdale: Sunrise Middle rates 6/10, Fort Lauderdale High rates 6/10 and offers Cambridge AICE and a Pre-Law and Public Affairs magnet with graduation rates above 88%. The city's median age of 55 means school-age families are a smaller share of the community here than in most Broward cities. Verify school assignment using the Broward County district locator.",
+      "Wilton Manors Elementary rates 5/10 and is an IB World School offering the Primary Years Programme. The feeder middle and high schools are both in Fort Lauderdale: Sunrise Middle rates 6/10, Fort Lauderdale High rates 6/10 and offers Cambridge AICE and a Pre-Law and Public Affairs magnet with graduation rates above 88%. Verify school assignment using the Broward County district locator.",
     pointsOfInterest: [
       {
         name: 'Wilton Drive',
@@ -2132,7 +2082,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Broward County',
     tagline: "Broward's coastal value play, Intracoastal access, active redevelopment, and a National Blue Ribbon high school.",
     description:
-      "Pompano Beach is in the middle of a real transition, and buyers in 2025–2026 are entering at an interesting moment. Years of targeted investment, the Fishing Village renovation, The Amp, the downtown corridor upgrades, and now the massive Pomp project anchored by Topgolf and Live! entertainment, are changing the city's offer to residents in ways that won't fully materialize for several more years. For buyers who want coastal Broward County proximity without Fort Lauderdale or Deerfield Beach pricing, Pompano is one of few options still available. The Intracoastal runs the length of the city's eastern portion, and waterfront or water-adjacent homes in the $500K–$600K range exist here that simply don't exist in neighboring cities at those prices.\n\nThe city's market is internally split by property type in a way that requires explanation. The overall median (all types) runs $330K–$380K, largely influenced by a large inventory of older condos that declined about 11% year-over-year through 2025. Single-family houses went the other way: they sold at a median of $530,000 from January through September 2026, up 6% from $500,000 in the same months of 2025. Buyers should understand which market they're actually in.\n\nThe foreign-born population (nearly 40%) is among the highest in Broward, reflected in a diverse cultural landscape with Caribbean, Central American, South American, and Haitian communities all meaningfully present. Pompano Beach High School is an all-magnet campus with Cambridge AICE curriculum and a Florida A state grade, worth knowing for families with high-school-age children.\n\nThe honest caution: Pompano Beach is a large city internally inconsistent in ways that require block-level research. The western sections along the Turnpike corridor have seen less investment than the eastern and central areas. Crime statistics vary significantly by area, city-level averages are not reliable for specific address decisions. The older condo inventory carries heightened insurance and special assessment exposure in the post-Ian environment.",
+      "Pompano Beach is in the middle of a real transition, and buyers in 2025–2026 are entering at an interesting moment. Years of targeted investment, the Fishing Village renovation, The Amp, the downtown corridor upgrades, and now the massive Pomp project anchored by Topgolf and Live! entertainment, are changing the city's offer to residents in ways that won't fully materialize for several more years. For buyers who want coastal Broward County proximity without Fort Lauderdale or Deerfield Beach pricing, Pompano is one of few options still available. The Intracoastal runs the length of the city's eastern portion, and waterfront or water-adjacent homes in the $500K–$600K range exist here that simply don't exist in neighboring cities at those prices.\n\nThe city's market is internally split by property type in a way that requires explanation. The overall median (all types) runs $330K–$380K, largely influenced by a large inventory of older condos that declined about 11% year-over-year through 2025. Single-family houses went the other way: they sold at a median of $530,000 from January through September 2026, up 6% from $500,000 in the same months of 2025. Buyers should understand which market they're actually in.\n\nPompano Beach High School is an all-magnet campus with Cambridge AICE curriculum and a Florida A state grade, worth knowing if high school matters to you.\n\nThe honest caution: Pompano Beach is a large city internally inconsistent in ways that require block-level research. The western sections along the Turnpike corridor have seen less investment than the eastern and central areas. Crime statistics vary significantly by area, city-level averages are not reliable for specific address decisions. The older condo inventory carries heightened insurance and special assessment exposure in the post-Ian environment.",
     highlights: [
       'Pompano Beach High is a National Blue Ribbon, all-magnet campus with Cambridge AICE and a Florida A state grade',
       'The Pomp, 223-acre redevelopment with Topgolf and Live! entertainment (now open)',
@@ -2150,7 +2100,7 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Pompano Beach Chamber', url: 'https://www.pompanobeachchamber.com', category: 'chamber' },
     ],
     joseNote:
-      "Pompano Beach is where I tell buyers to pay attention to the property-type split before they get too excited about the overall median. The overall number includes a lot of older condos that have been declining, single-family homes have been going the other direction. The Pomp and the Fishing Village redevelopment are real, and the timeline on them matters for the investment case. Pompano Beach High is all-magnet with Cambridge AICE and an A state grade, worth knowing for family buyers with high-schoolers. I always recommend buyers research specific neighborhoods and streets carefully here, because the city is internally inconsistent in ways that the zip code doesn't capture.",
+      "Pompano Beach is where I tell buyers to pay attention to the property-type split before they get too excited about the overall median. The overall number includes a lot of older condos that have been declining, single-family homes have been going the other direction. The Pomp and the Fishing Village redevelopment are real, and the timeline on them matters for the investment case. Pompano Beach High is all-magnet with Cambridge AICE and an A state grade, worth knowing if high school matters to you. I always recommend buyers research specific neighborhoods and streets carefully here, because the city is internally inconsistent in ways that the zip code doesn't capture.",
     lifestyleTags: [
       'Coastal Value Play',
       'Active Redevelopment',
@@ -2159,13 +2109,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '118,110',
-      medianAge: '41.9',
       medianHouseholdIncome: '$72,224',
       perCapitaIncome: '$38,538',
       ownerOccupied: '55.4%',
       renterOccupied: '44.6%',
-      foreignBorn: '39.8%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2019–2023 5-Year Estimates',
     },
     budgetGuide: [
@@ -2215,7 +2162,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "McNab Elementary rates 5/10 and Cresthaven Elementary 6/10 on GreatSchools; Pompano Beach Middle rates 5/10. Pompano Beach High School is the standout: an all-magnet campus with Cambridge AICE curriculum, a National Blue Ribbon designation, and a Florida A state grade. The gap between the elementary and middle experience and the high school is notable, families with middle-schoolers should research district magnet options. Attendance zones are address-specific; use the Broward County Public Schools district locator to confirm.",
+      "McNab Elementary rates 5/10 and Cresthaven Elementary 6/10 on GreatSchools; Pompano Beach Middle rates 5/10. Pompano Beach High School is the standout: an all-magnet campus with Cambridge AICE curriculum, a National Blue Ribbon designation, and a Florida A state grade. The gap between the elementary and middle experience and the high school is notable, if middle school matters to you, research district magnet options. Attendance zones are address-specific; use the Broward County Public Schools district locator to confirm.",
     pointsOfInterest: [
       {
         name: 'The Amp (Pompano Beach Amphitheater)',
@@ -2255,9 +2202,9 @@ const neighborhoodData: NeighborhoodData[] = [
       rangeMin: '',
       rangeMax: '',
       description:
-        "Pompano Beach has one of the larger renter populations among Broward's mid-sized cities (44.6% renter-occupied), with demand driven by the city's diverse immigrant workforce and households priced out of Fort Lauderdale. As The Pomp development activates and the downtown corridor matures, rents in the eastern and central neighborhoods are likely to rise. The large older condo inventory provides rental options at price points that don't exist in supply-constrained smaller Broward cities.",
+        "Pompano Beach has one of the larger renter populations among Broward's mid-sized cities (44.6% renter-occupied), with demand from renters priced out of Fort Lauderdale. As The Pomp development activates and the downtown corridor matures, rents in the eastern and central neighborhoods are likely to rise. The large older condo inventory provides rental options at price points that don't exist in supply-constrained smaller Broward cities.",
     },
-    buyerNote: "The Pomp redevelopment is real and underway. Pompano Beach High is a National Blue Ribbon, all-magnet campus with Cambridge AICE and a Florida A state grade, worth knowing for families with high-schoolers. And there are still water-adjacent single-family homes in the $500K–$600K range that don't exist at that price in Fort Lauderdale. Block-level research matters more here than in most Broward cities.",
+    buyerNote: "The Pomp redevelopment is real and underway. Pompano Beach High is a National Blue Ribbon, all-magnet campus with Cambridge AICE and a Florida A state grade, worth knowing if high school matters to you. And there are still water-adjacent single-family homes in the $500K–$600K range that don't exist at that price in Fort Lauderdale. Block-level research matters more here than in most Broward cities.",
     sellerNote: "Pompano Beach's redevelopment is driving values unevenly across the eastern and central sections. Jose's free CMA shows exactly where your property sits in today's market.",
   },
 
@@ -2270,7 +2217,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Treasure Coast',
     tagline: "Florida's sixth-largest city, growing faster than most, with new construction single-family from $340K.",
     description:
-      "Port St. Lucie is Florida's sixth-largest city. In four decades it went from undeveloped scrubland to a community of over 232,000, and it is still adding residents, subdivisions, and commercial development faster than most large Florida cities. For middle-class families, that growth has translated into a tangible advantage: more housing supply, more new construction, and home prices that are meaningfully lower than anything comparable in Palm Beach County to the south. A 3-bedroom home with a 2-car garage in a clean neighborhood, the baseline family ask, costs $340,000–$420,000 here.\n\nThe Tradition community has an actual walkable town square, a pedestrian gathering place built around weekly farmers markets, outdoor dining, and a full community events calendar. Outdoor recreation is stronger than the suburban reputation suggests: Savannas Preserve State Park, the Botanical Gardens, and river access to the St. Lucie system all provide real natural escapes.\n\nThe honest tradeoffs need to be said. High school ratings in the St. Lucie County district run below the state average, and families should research charter school options. Commuting is the other friction point: Palm Beach County jobs and amenities are on the far side of Martin County, and the drive to Palm Beach Gardens runs 50–70 minutes in traffic. For remote workers or those who work locally, a dollar goes further in Port St. Lucie than in any coastal county south of it.",
+      "Port St. Lucie is Florida's sixth-largest city. In four decades it went from undeveloped scrubland to a community of over 232,000, and it is still adding residents, subdivisions, and commercial development faster than most large Florida cities. For buyers, that growth has translated into a tangible advantage: more housing supply, more new construction, and home prices that are meaningfully lower than anything comparable in Palm Beach County to the south. A 3-bedroom home with a 2-car garage costs $340,000–$420,000 here.\n\nThe Tradition community has an actual walkable town square, a pedestrian gathering place built around weekly farmers markets, outdoor dining, and a full community events calendar. Outdoor recreation is stronger than the suburban reputation suggests: Savannas Preserve State Park, the Botanical Gardens, and river access to the St. Lucie system all provide real natural escapes.\n\nThe honest tradeoffs need to be said. High school ratings in the St. Lucie County district run below the state average, and buyers who care about schools should research charter school options. Commuting is the other friction point: Palm Beach County jobs and amenities are on the far side of Martin County, and the drive to Palm Beach Gardens runs 50–70 minutes in traffic. For remote workers or those who work locally, a dollar goes further in Port St. Lucie than in any coastal county south of it.",
     highlights: [
       'New construction single-family from $340K in planned communities with HOA amenities',
       'Tradition community, walkable town square with farmers market and outdoor dining',
@@ -2290,7 +2237,7 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'St. Lucie Chamber of Commerce', url: 'https://www.slchamber.com', category: 'chamber' },
     ],
     joseNote:
-      "Port St. Lucie is where I send buyers who tell me they want real space and a real house but can't stretch to Palm Beach County prices, and I've helped multiple families close here in the past few years. The Tradition area delivers: a real town square, farmers market, good restaurants, events on the calendar. You're getting more house per dollar than you'll find in Broward or Palm Beach County. I want to be straight with clients about the schools, St. Lucie County isn't where I'd brag, and the commute to jobs in Palm Beach County is real. For remote workers or anyone whose work is local, a 3BR/2BA in a clean neighborhood for $380K tends to settle the argument.",
+      "Port St. Lucie is where I send buyers who tell me they want real space and a real house but can't stretch to Palm Beach County prices, and I've helped multiple buyers close here in the past few years. The Tradition area delivers: a real town square, farmers market, good restaurants, events on the calendar. You're getting more house per dollar than you'll find in Broward or Palm Beach County. I want to be straight with clients about the schools, St. Lucie County isn't where I'd brag, and the commute to jobs in Palm Beach County is real. For remote workers or anyone whose work is local, a 3BR/2BA in a clean neighborhood for $380K tends to settle the argument.",
     lifestyleTags: [
       'New Construction',
       'Affordable South Florida Entry',
@@ -2301,13 +2248,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '232,491',
-      medianAge: '43.9',
       medianHouseholdIncome: '$80,648',
       perCapitaIncome: '$37,990',
       ownerOccupied: '84%',
       renterOccupied: '16%',
-      foreignBorn: '19.7%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'Portuguese'],
       source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
     },
     marketSnapshot: {
@@ -2369,7 +2313,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Treasure Coast High rates 5/10 and Port St. Lucie High 3/10 on GreatSchools, both below the state average. The elementary picture is better: Windmill Point and Parkway Elementary both rate 6/10, and Southport Middle is the strongest traditional public option at 7/10. Families for whom school quality is a primary driver should research the charter school landscape: Manatee Academy K-8 (5/10) is frequently mentioned within the public system. Attendance zones are address-specific; verify with the St. Lucie County School District locator.",
+      "Treasure Coast High rates 5/10 and Port St. Lucie High 3/10 on GreatSchools, both below the state average. The elementary picture is better: Windmill Point and Parkway Elementary both rate 6/10, and Southport Middle is the strongest traditional public option at 7/10. If school quality is a priority, research the charter school landscape: Manatee Academy K-8 (5/10) is frequently mentioned within the public system. Attendance zones are address-specific; verify with the St. Lucie County School District locator.",
     pointsOfInterest: [
       {
         name: 'Clover Park',
@@ -2432,7 +2376,7 @@ const neighborhoodData: NeighborhoodData[] = [
     region: 'Treasure Coast',
     tagline: 'The Sailfish Capital of the World, great schools, real downtown, quieter pace.',
     description:
-      "Stuart and Martin County occupy an unusual position in Florida real estate: a place that genuinely delivers on the small-town promise without sacrificing quality of life. The combination of a walkable historic downtown, some of Florida's best-ranked public schools, direct water access to the St. Lucie River and Intracoastal Waterway, and lower density than Palm Beach County makes it a natural choice for families who want to live well without paying Palm Beach prices.\n\nThe school story is real and worth leading with. Martin County's district ranks 11th of 67 Florida counties by state accountability. The elementary schools, Felix A. Williams, Crystal Lake, Bessey Creek, carry 8–9/10 GreatSchools ratings that are rare outside the most affluent Florida suburbs. Clark Advanced Learning Center, the public charter high school in Stuart, earns a 10/10 rating and sits in the top 5% of all Florida public schools nationally. For parents who want genuinely excellent public schools without paying private school tuition, Martin County is one of South Florida's best-kept open secrets.\n\nThe lifestyle centers on water and community. The St. Lucie River and Intracoastal are not backdrop, they are the point. The 'Sailfish Capital of the World' designation reflects a real fishing culture that's built into daily life here. The downtown is the kind of place Florida lost in most cities decades ago: human-scaled, locally owned, and animated by actual foot traffic. The honest tradeoffs: Stuart city is small, the commercial ecosystem is limited compared to Palm Beach County, and the commute to Palm Beach Gardens runs 40–55 minutes. Buyers who need maximum square footage for minimum cost will find Port St. Lucie a stronger value. Buyers prioritizing school quality, community character, and water access will find Stuart hard to beat.",
+      "Stuart and Martin County occupy an unusual position in Florida real estate: a place that genuinely delivers on the small-town promise without sacrificing quality of life. The combination of a walkable historic downtown, some of Florida's best-ranked public schools, direct water access to the St. Lucie River and Intracoastal Waterway, and lower density than Palm Beach County makes it a natural choice for buyers who want to live well without paying Palm Beach prices.\n\nThe school story is real and worth leading with. Martin County's district ranks 11th of 67 Florida counties by state accountability. The elementary schools, Felix A. Williams, Crystal Lake, Bessey Creek, carry 8–9/10 GreatSchools ratings that are rare outside the most affluent Florida suburbs. Clark Advanced Learning Center, the public charter high school in Stuart, earns a 10/10 rating and sits in the top 5% of all Florida public schools nationally. For buyers who want excellent public schools without paying private school tuition, Martin County is one of South Florida's best-kept open secrets.\n\nThe lifestyle centers on water and community. The St. Lucie River and Intracoastal are not backdrop, they are the point. The 'Sailfish Capital of the World' designation reflects a real fishing culture that's built into daily life here. The downtown is the kind of place Florida lost in most cities decades ago: human-scaled, locally owned, and animated by actual foot traffic. The honest tradeoffs: Stuart city is small, the commercial ecosystem is limited compared to Palm Beach County, and the commute to Palm Beach Gardens runs 40–55 minutes. Buyers who need maximum square footage for minimum cost will find Port St. Lucie a stronger value. Buyers prioritizing school quality, community character, and water access will find Stuart hard to beat.",
     highlights: [
       'Martin County schools rank 11th of 67 Florida counties, Clark Advanced Learning Center is 10/10',
       'Historic walkable downtown, independent dining, galleries, and weekly farmers market',
@@ -2452,7 +2396,7 @@ const neighborhoodData: NeighborhoodData[] = [
       { label: 'Stuart/Martin County Chamber', url: 'https://www.stuartmartinchamber.org', category: 'chamber' },
     ],
     joseNote:
-      "Stuart is where I point families who want great schools and don't want to stretch to Wellington prices. Martin County's school district is legitimately excellent, not just good by Florida standards, but good by any standard. Clark Advanced Learning Center is a 10/10 public charter school that rivals anything in Palm Beach County. The downtown is genuinely walkable and charming in a way you don't see much anymore. And you're on the water, real boating and fishing country. The trade is a longer drive south if your job is in Palm Beach County, and a smaller commercial footprint. But for families who work remotely or locally, Stuart is one of the best-value family communities in all of South Florida.",
+      "Stuart is where I point buyers who want great schools and don't want to stretch to Wellington prices. Martin County's school district is legitimately excellent, not just good by Florida standards, but good by any standard. Clark Advanced Learning Center is a 10/10 public charter school that rivals anything in Palm Beach County. The downtown is genuinely walkable and charming in a way you don't see much anymore. And you're on the water, real boating and fishing country. The trade is a longer drive south if your job is in Palm Beach County, and a smaller commercial footprint. But for buyers who work remotely or locally, Stuart is one of the best values in South Florida.",
     lifestyleTags: [
       'Top-Ranked Public Schools',
       'Historic Walkable Downtown',
@@ -2463,13 +2407,10 @@ const neighborhoodData: NeighborhoodData[] = [
     ],
     census: {
       population: '18,520',
-      medianAge: '48.6',
       medianHouseholdIncome: '$60,225',
       perCapitaIncome: '$40,500',
       ownerOccupied: '58.9%',
       renterOccupied: '41.1%',
-      foreignBorn: '13.5%',
-      topLanguages: ['Spanish', 'Haitian Creole', 'English'],
       source: 'U.S. Census Bureau, ACS 2023 5-Year Estimates',
     },
     marketSnapshot: {
@@ -2487,9 +2428,9 @@ const neighborhoodData: NeighborhoodData[] = [
       },
       {
         tier: '$400K – $575K',
-        label: 'Family Single-Family Homes',
+        label: 'Single-Family Homes',
         description:
-          'The heart of the Martin County family market, 3–4 bedroom single-family homes in established Palm City subdivisions, newer Hobe Sound developments, or well-maintained neighborhoods near Martin County High. Many homes have pools, 2-car garages, and larger lots than comparable Palm Beach County properties at this price.',
+          'The core of the Martin County market, 3–4 bedroom single-family homes in established Palm City subdivisions, newer Hobe Sound developments, or well-maintained neighborhoods near Martin County High. Many homes have pools, 2-car garages, and larger lots than comparable Palm Beach County properties at this price.',
       },
       {
         tier: '$575K+',
@@ -2537,7 +2478,7 @@ const neighborhoodData: NeighborhoodData[] = [
       },
     ],
     schoolNote:
-      "Martin County's public school system is one of the most compelling arguments for choosing this area. The district ranks 11th of 67 Florida counties in state accountability, Felix A. Williams and Crystal Lake Elementary both rate 8/10, Bessey Creek Elementary in Palm City hits 9/10, and attendance rates at these schools run 10–20 points above the Florida average. The standout is Clark Advanced Learning Center, a public charter high school rated 10/10 nationally, placing it in the top 5% of all Florida public schools. Clark serves grades 10–12 in partnership with Indian River State College, so families should plan for 9th grade separately. Martin County High and Stuart Middle both rate 6/10, solid but not exceptional. Overall, this is one of the strongest public school districts in South Florida at this price point.",
+      "Martin County's public school system is one of the most compelling arguments for choosing this area. The district ranks 11th of 67 Florida counties in state accountability, Felix A. Williams and Crystal Lake Elementary both rate 8/10, Bessey Creek Elementary in Palm City hits 9/10, and attendance rates at these schools run 10–20 points above the Florida average. The standout is Clark Advanced Learning Center, a public charter high school rated 10/10 nationally, placing it in the top 5% of all Florida public schools. Clark serves grades 10–12 in partnership with Indian River State College, so plan for 9th grade separately. Martin County High and Stuart Middle both rate 6/10, solid but not exceptional. Overall, this is one of the strongest public school districts in South Florida at this price point.",
     pointsOfInterest: [
       {
         name: 'Historic Downtown Stuart',
@@ -2557,7 +2498,7 @@ const neighborhoodData: NeighborhoodData[] = [
         name: 'Halpatiokee Regional Park',
         category: 'Park',
         description:
-          "A 4,700-acre natural area along the South Fork of the St. Lucie River with hiking, mountain biking, equestrian trails, and picnic areas, Martin County's premier natural space and a reliable destination for active families.",
+          "A 4,700-acre natural area along the South Fork of the St. Lucie River with hiking, mountain biking, equestrian trails, and picnic areas, Martin County's premier natural space and a reliable weekend destination.",
         url: 'https://www.martin.fl.us/halpatiokee-regional-park',
       },
       {
@@ -2571,7 +2512,7 @@ const neighborhoodData: NeighborhoodData[] = [
         name: 'Sailfish Splash Waterpark',
         category: 'Recreation',
         description:
-          "Martin County's full-service waterpark with slides, a lazy river, a lap pool, and splash zones for small children. Open during the warm months and a staple summer destination for local families.",
+          "Martin County's full-service waterpark with slides, a lazy river, a lap pool, and splash zones for small children. Open during the warm months and a staple summer destination.",
       },
       {
         name: 'St. Lucie River and Intracoastal Waterway',
@@ -2583,14 +2524,14 @@ const neighborhoodData: NeighborhoodData[] = [
         name: 'Children\'s Museum of the Treasure Coast',
         category: 'Community',
         description:
-          'Located in nearby Jensen Beach, this interactive museum features hands-on exhibits, STEM-focused programs, and dedicated play spaces for children up to age 12. A popular local institution for families with young children.',
+          'Located in nearby Jensen Beach, this interactive museum features hands-on exhibits, STEM-focused programs, and dedicated play spaces for children up to age 12. A popular local museum for young children.',
         url: 'https://cmtc.us',
       },
       {
         name: 'Florida Oceanographic Coastal Center',
         category: 'Community',
         description:
-          "A nonprofit environmental education center on Hutchinson Island with a 750,000-gallon stingray lagoon, native saltwater tanks, nature trails, and kayak eco-tours through the Indian River Lagoon system. A standout family destination and environmental advocate for the St. Lucie waterway.",
+          "A nonprofit environmental education center on Hutchinson Island with a 750,000-gallon stingray lagoon, native saltwater tanks, nature trails, and kayak eco-tours through the Indian River Lagoon system. A standout destination and environmental advocate for the St. Lucie waterway.",
         url: 'https://www.floridaocean.org/',
       },
     ],
@@ -2601,7 +2542,7 @@ const neighborhoodData: NeighborhoodData[] = [
       description:
         "Stuart's rental market is smaller and more concentrated than Port St. Lucie's, apartments and condos dominate in and around downtown, with single-family rentals available in surrounding Martin County communities. With 41% of Stuart city households renting, demand is consistent. Jose can help renters navigate what's available and connect them to listings before they hit the public market.",
     },
-    buyerNote: "Martin County's public schools rank 11th in the state and Clark Advanced Learning Center is a 10/10 public charter. For families where school quality is the deciding factor, Stuart is one of the strongest value plays in all of South Florida.",
+    buyerNote: "Martin County's public schools rank 11th in the state and Clark Advanced Learning Center is a 10/10 public charter. If school quality is the deciding factor, Stuart is one of the strongest value plays in all of South Florida.",
     sellerNote: "Martin County home values have held better than most Florida markets. Jose's free CMA shows exactly what your home is worth in a county where school-driven demand keeps competition real.",
   },
 

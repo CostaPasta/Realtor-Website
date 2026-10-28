@@ -20,7 +20,7 @@ export default function HomePage() {
             name: 'Jose Costa',
             jobTitle: 'Realtor',
             description:
-              'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and family home sales across western Palm Beach County, Broward County, and South Florida.',
+              'Trilingual Palm Beach County realtor specializing in rentals, first-time home purchases, and home sales across western Palm Beach County, Broward County, and South Florida.',
             worksFor: {
               '@type': 'RealEstateAgent',
               name: 'Atlantic Florida Properties',

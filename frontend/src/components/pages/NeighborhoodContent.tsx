@@ -17,7 +17,6 @@ import {
   Sparkles,
   KeyRound,
   DollarSign,
-  Calendar,
   Waves,
   Wallet,
 } from 'lucide-react';
@@ -51,7 +50,7 @@ const HIGHLIGHT_ICONS = [Star, Home, TreePine, ShieldCheck, Users, Sparkles];
 
 function getHighlightIcon(text: string) {
   const t = text.toLowerCase();
-  if (/divers|brazilian|venezuelan|colombian|caribbean|haitian|cultur|multilingual|spanish-speaking|latin american|cuban|nació|nasceram|hispanohablante|fala espanhol|haitiano/.test(t)) return Users;
+  if (/cultur|community|comunidad|comunidade/.test(t)) return Users;
   if (/waterfront|intracoastal|oceanfront|beachfront|canal|marina|inlet|boating|fishing|sailfish/.test(t)) return Waves;
   if (/\bpark(?!ing)|acre|trail|nature|\blake|bird sanctuary|tree city|green space|parque|santuario|santuário|wildlife/.test(t)) return TreePine;
   if (/school|education|a-rated|escuela|escola/.test(t)) return GraduationCap;
@@ -67,7 +66,6 @@ function getHighlightIcon(text: string) {
 
 const CENSUS_ICONS = {
   population: Users,
-  medianAge: Calendar,
   medianHouseholdIncome: DollarSign,
   perCapitaIncome: Wallet,
   ownerOccupied: Home,
@@ -299,7 +297,6 @@ export default function NeighborhoodContent({
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {[
                     { key: 'population' as const, label: t.census.population, value: census.population },
-                    { key: 'medianAge' as const, label: t.census.medianAge, value: census.medianAge },
                     { key: 'medianHouseholdIncome' as const, label: t.census.medianHouseholdIncome, value: census.medianHouseholdIncome },
                     { key: 'perCapitaIncome' as const, label: t.census.perCapitaIncome, value: census.perCapitaIncome },
                     { key: 'ownerOccupied' as const, label: t.census.ownerOccupied, value: census.ownerOccupied },

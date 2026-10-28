@@ -35,7 +35,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Palm Beach County Realtor | Rentals, Sales & More',
       description:
-        'Jose Costa helps families rent, buy, and sell homes across western Palm Beach County, in English, Spanish, and Portuguese.',
+        'Jose Costa helps people rent, buy, and sell homes across western Palm Beach County, in English, Spanish, and Portuguese.',
     },
     hero: {
       imageAlt: 'South Florida waterfront',
@@ -44,7 +44,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'language you trust',
       titleEnd: '.',
       intro:
-        'Jose Costa has helped South Florida families rent, buy, and sell homes for over 15 years. Based in Palm Beach County, he works in English, Portuguese, and Spanish so every client can communicate comfortably and confidently.',
+        'Jose Costa has helped people across South Florida rent, buy, and sell homes for over 15 years. Based in Palm Beach County, he works in English, Portuguese, and Spanish so every client can communicate comfortably and confidently.',
       primaryCta: 'Find a Rental Home',
       secondaryCta: 'Contact Jose',
       licensed: 'Licensed with Atlantic Florida Properties',
@@ -123,7 +123,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Agente de bienes raíces en Palm Beach | Alquiler, compra y venta',
       description:
-        'Jose Costa ayuda a familias a alquilar, comprar y vender casas en el oeste del condado de Palm Beach, en español, inglés y portugués.',
+        'Jose Costa ayuda a sus clientes a alquilar, comprar y vender casas en el oeste del condado de Palm Beach, en español, inglés y portugués.',
     },
     hero: {
       imageAlt: 'Costa del sur de la Florida',
@@ -132,7 +132,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'idioma en que confía',
       titleEnd: '.',
       intro:
-        'Jose Costa ha ayudado a familias del sur de la Florida a alquilar, comprar y vender casas por más de 15 años. Desde el condado de Palm Beach, trabaja en español, inglés y portugués para que cada cliente entienda cada paso y decida con confianza.',
+        'Jose Costa ha ayudado a clientes de todo el sur de la Florida a alquilar, comprar y vender casas por más de 15 años. Desde el condado de Palm Beach, trabaja en español, inglés y portugués para que cada cliente entienda cada paso y decida con confianza.',
       primaryCta: 'Buscar casa para alquilar',
       secondaryCta: 'Contactar a Jose',
       licensed: 'Agente con licencia, afiliado a Atlantic Florida Properties',
@@ -230,7 +230,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
     meta: {
       title: 'Jose Costa | Corretor de imóveis em Palm Beach | Aluguel, compra e venda',
       description:
-        'Jose Costa ajuda famílias a alugar, comprar e vender imóveis no oeste do condado de Palm Beach, em português, inglês e espanhol.',
+        'Jose Costa ajuda clientes a alugar, comprar e vender imóveis no oeste do condado de Palm Beach, em português, inglês e espanhol.',
     },
     hero: {
       imageAlt: 'Litoral do sul da Flórida',
@@ -239,7 +239,7 @@ export const homeDictionary: Record<Locale, HomeDictionary> = {
       titleEmphasis: 'idioma em que você confia',
       titleEnd: '.',
       intro:
-        'Há mais de 15 anos, Jose Costa ajuda famílias do sul da Flórida a alugar, comprar e vender imóveis. Baseado no condado de Palm Beach, ele atende em português, inglês e espanhol, para que cada cliente entenda cada etapa e decida com segurança.',
+        'Há mais de 15 anos, Jose Costa ajuda clientes de todo o sul da Flórida a alugar, comprar e vender imóveis. Baseado no condado de Palm Beach, ele atende em português, inglês e espanhol, para que cada cliente entenda cada etapa e decida com segurança.',
       primaryCta: 'Encontrar casa para alugar',
       secondaryCta: 'Falar com o Jose',
       licensed: 'Corretor licenciado, afiliado à Atlantic Florida Properties',

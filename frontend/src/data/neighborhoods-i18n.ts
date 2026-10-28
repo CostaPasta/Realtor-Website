@@ -39,12 +39,11 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       tagline:
         'Casas con patio, parques grandes y un mercado de alquiler estable, a unos 20 minutos al oeste del centro de West Palm Beach.',
       description:
-        'Royal Palm Beach se fundó como municipio en 1959 y hoy es una villa de unos 39,000 habitantes. Los parques son parte de la vida diaria: Commons Park ocupa unos 160 acres alrededor de un lago de 19 acres, hay parques de barrio por toda la villa, y el Royal Palm Beach Pines Natural Area del condado suma unos 770 acres de pinares con senderos. La villa es Tree City USA desde 1990 y todo su territorio es santuario de aves.\n\nAquí ocurre la mayor parte del trabajo de alquiler de Jose. Los inquilinos encuentran casas de tres habitaciones con patio, y muchas familias alquilan en la villa antes de comprar en ella. Los compradores encuentran esas mismas casas familiares, con escuelas primarias calificadas de 7 a 10 sobre 10. Cerca del 29% de los residentes nació fuera de Estados Unidos, y después del inglés los idiomas más hablados son el español, el portugués y el criollo haitiano. Para los vendedores, el 82% de las viviendas está ocupado por sus dueños, así que los compradores que llegan son en su mayoría familias que piensan quedarse.',
+        'Royal Palm Beach se fundó como municipio en 1959 y hoy es una villa de unos 39,000 habitantes. Los parques son parte de la vida diaria: Commons Park ocupa unos 160 acres alrededor de un lago de 19 acres, hay parques de barrio por toda la villa, y el Royal Palm Beach Pines Natural Area del condado suma unos 770 acres de pinares con senderos. La villa es Tree City USA desde 1990 y todo su territorio es santuario de aves.\n\nAquí ocurre la mayor parte del trabajo de alquiler de Jose. Los inquilinos encuentran casas de tres habitaciones con patio, y muchos inquilinos después compran en la villa. Los compradores encuentran esas mismas casas, con escuelas primarias calificadas de 7 a 10 sobre 10. Para los vendedores, el 82% de las viviendas está ocupado por sus dueños, así que la mayoría de los compradores que llegan piensan vivir en la casa.',
       highlights: [
         'Commons Park: unos 160 acres alrededor de un lago de 19 acres, más los 770 acres del Pines Natural Area del condado',
         'Tree City USA desde 1990, y toda la villa es santuario de aves',
         'Escuelas primarias calificadas de 7 a 10 en GreatSchools; Western Academy Charter tiene un 10',
-        'Cerca del 29% de los residentes nació en otro país; se habla mucho español, portugués y criollo haitiano',
         'Las casas se vendieron a una mediana de $566,000 entre enero y septiembre de 2026',
         '82 alquileres anunciados a fines de octubre de 2026; las de tres habitaciones pedían una mediana de $2,800',
       ],
@@ -72,7 +71,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         },
       ],
       schoolNote:
-        'Western Academy Charter tiene 10/10 en GreatSchools, Cypress Trails Elementary y Western Pines Community Middle tienen 8/10, y Royal Palm Beach Elementary y H.L. Johnson Elementary tienen 7/10. Royal Palm Beach High School tiene 3/10. Las familias con hijos en secundaria deberían revisar temprano las opciones de elección escolar y los programas magnet del distrito. La escuela asignada depende de la dirección, así que confirme cada casa con el localizador de zonas del School District of Palm Beach County.',
+        'Western Academy Charter tiene 10/10 en GreatSchools, Cypress Trails Elementary y Western Pines Community Middle tienen 8/10, y Royal Palm Beach Elementary y H.L. Johnson Elementary tienen 7/10. Royal Palm Beach High School tiene 3/10. Si la secundaria le importa, revise temprano las opciones de elección escolar y los programas magnet del distrito. La escuela asignada depende de la dirección, así que confirme cada casa con el localizador de zonas del School District of Palm Beach County.',
       pois: {
         'Commons Park':
           'Unos 160 acres alrededor de un lago de 19 acres, con senderos, una fuente para mojarse y el complejo deportivo de la villa.',
@@ -83,7 +82,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         'Mall at Wellington Green':
           "Centro comercial regional a unos 10 minutos al sur, en Wellington, con Macy's, Dillard's, JCPenney, una Apple Store y un cine CMX.",
         'Southern Blvd Dining Corridor':
-          'Panaderías, restaurantes latinoamericanos y restaurantes familiares a lo largo de Southern Blvd., la mayoría de dueños locales.',
+          'Panaderías, restaurantes y cafeterías a lo largo de Southern Blvd., la mayoría de dueños locales.',
         'Royal Palm Beach Public Library':
           'Biblioteca del condado con actividades para niños, salas de estudio y espacio para reuniones comunitarias.',
         'Royal Palm Beach Cultural Center':
@@ -189,7 +188,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
             'Terrenos vacíos de 1.25 acres para quien quiere construir, o a veces una casa antigua que necesita mucho trabajo. Las casas en mal estado pueden ser difíciles de financiar, así que los vendedores suelen preferir ofertas en efectivo. Cuente con más tiempo.',
         },
         {
-          label: 'Casas familiares establecidas',
+          label: 'Casas establecidas',
           description:
             'Casas de bloque de concreto de tres habitaciones y dos baños, de 1,500 a 2,200 pies cuadrados y de 20 a 40 años, en terrenos cercados de 1.25 acres, muchas veces con piscina y garaje o taller aparte. Este rango está por debajo de la mediana de 12 meses de $700,000, así que espere acabados más viejos. Pregunte por la edad del techo, el pozo y el séptico.',
         },
@@ -218,7 +217,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
           'Alimento para animales, cercas, suministros para ganado y equipo de granja para propiedades con caballos y huertos.',
       },
       rental:
-        'Hay pocos alquileres y casi todos son casas unifamiliares. Este verano, las casas de tres habitaciones en el código postal 33470 pedían entre unos $3,600 y $3,950 al mes, y las de cuatro alrededor de $4,500. Jose ha colocado inquilinos aquí, incluso en Arden, para familias que quieren probar este estilo de vida antes de comprar.',
+        'Hay pocos alquileres y casi todos son casas unifamiliares. Este verano, las casas de tres habitaciones en el código postal 33470 pedían entre unos $3,600 y $3,950 al mes, y las de cuatro alrededor de $4,500. Jose ha colocado inquilinos aquí, incluso en Arden, para inquilinos que quieren probar este estilo de vida antes de comprar.',
       buyerNote:
         'Más de la mitad de los anuncios de casas actuales ya bajó su precio, y las casas que seguían a la venta a fines de octubre de 2026 llevaban una mediana de 76 días anunciadas. Incluya en su presupuesto las inspecciones del pozo y del séptico, y revise la zona de inundación del terreno.',
       sellerNote:
@@ -229,7 +228,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       tagline:
         'Un centro histórico para recorrer a pie a dos millas del Atlántico, con Tri-Rail y bungalows sin HOA todavía por debajo de $500,000.',
       description:
-        'Lake Worth Beach es una ciudad costera con un centro para recorrer a pie lleno de restaurantes independientes, galerías y un teatro histórico. Se llamaba "Lake Worth" hasta 2019, está a menos de dos millas del Atlántico y tiene una estación de Tri-Rail dentro de la ciudad. Tiene una gran comunidad hispanohablante, algo que encaja naturalmente con el trabajo multilingüe de Jose.\n\nEl mercado está dividido por tipo de propiedad. Entre enero y septiembre de 2026, las casas se vendieron a una mediana de $560,000, mientras que los condominios y townhouses se vendieron a $207,500, con 6.1 meses de inventario de condominios. Cerca del 54% de los residentes alquila.',
+        'Lake Worth Beach es una ciudad costera con un centro para recorrer a pie lleno de restaurantes independientes, galerías y un teatro histórico. Se llamaba "Lake Worth" hasta 2019, está a menos de dos millas del Atlántico y tiene una estación de Tri-Rail dentro de la ciudad.\n\nEl mercado está dividido por tipo de propiedad. Entre enero y septiembre de 2026, las casas se vendieron a una mediana de $560,000, mientras que los condominios y townhouses se vendieron a $207,500, con 6.1 meses de inventario de condominios. Cerca del 54% de los residentes alquila.',
       highlights: [
         'Centro para recorrer a pie en Lake Avenue y Lucerne Avenue, con restaurantes independientes y arte',
         'Condominios y townhouses a una mediana de $207,500 en 2026, a menos de dos millas de la playa',
@@ -260,7 +259,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         },
       ],
       schoolNote:
-        'North Grade Elementary y South Grade Elementary tienen 5/10 en GreatSchools, y ambas son escuelas magnet. Lake Worth Community Middle tiene 3/10 y Lake Worth High 2/10. Muchas familias de aquí usan las opciones de elección escolar y los programas magnet del condado de Palm Beach. Confirme cada dirección con el localizador de zonas del School District of Palm Beach County y visite las escuelas antes de decidir.',
+        'North Grade Elementary y South Grade Elementary tienen 5/10 en GreatSchools, y ambas son escuelas magnet. Lake Worth Community Middle tiene 3/10 y Lake Worth High 2/10. Muchos estudiantes de aquí usan las opciones de elección escolar y los programas magnet del condado de Palm Beach. Confirme cada dirección con el localizador de zonas del School District of Palm Beach County y visite las escuelas antes de decidir.',
       pois: {
         'Lake Worth Beach Park and Municipal Pier':
           "Playa de la ciudad con zona vigilada para nadar, muelle de pesca, piscina pública y el Casino Building, con Benny's on the Beach al pie del muelle.",
@@ -284,7 +283,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       buyerNote:
         'Los compradores de condominios tienen ventaja: 6.1 meses de inventario y una rebaja mediana del 10.4% en octubre de 2026. Para casas el mercado está más ajustado, con 3.2 meses de inventario, y las casas bien de precio quedan bajo contrato en más o menos un mes.',
       sellerNote:
-        'Como cerca del 54% de los residentes alquila, Lake Worth Beach atrae tanto a familias que van a vivir en la casa como a inversionistas. Los precios de las casas subieron un 11% interanual en septiembre de 2026. El análisis comparativo de mercado gratis de Jose le muestra dónde está su casa.',
+        'Como cerca del 54% de los residentes alquila, Lake Worth Beach atrae tanto a compradores que van a vivir en la casa como a inversionistas. Los precios de las casas subieron un 11% interanual en septiembre de 2026. El análisis comparativo de mercado gratis de Jose le muestra dónde está su casa.',
     },
   },
 
@@ -293,12 +292,11 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       tagline:
         'Casas com quintal, parques grandes e um mercado de aluguel estável, a uns 20 minutos a oeste do centro de West Palm Beach.',
       description:
-        'Royal Palm Beach virou município em 1959 e hoje é uma vila de uns 39 mil moradores. Os parques fazem parte do dia a dia: o Commons Park tem cerca de 160 acres em volta de um lago de 19 acres, há parques de bairro espalhados pela vila, e o Royal Palm Beach Pines Natural Area, do condado, soma uns 770 acres de pinheirais com trilhas. A vila é Tree City USA desde 1990, e todo o seu território é santuário de aves.\n\nÉ aqui que acontece a maior parte do trabalho de aluguel do Jose. Os inquilinos encontram casas de três quartos com quintal, e muitas famílias alugam na vila antes de comprar nela. Os compradores encontram essas mesmas casas de família, com escolas de ensino fundamental com notas de 7 a 10. Cerca de 29% dos moradores nasceram fora dos EUA, e depois do inglês os idiomas mais falados são o espanhol, o português e o crioulo haitiano. Para quem vende, 82% dos imóveis são ocupados pelos donos, então quem aparece para comprar são, na maioria, famílias que pretendem ficar.',
+        'Royal Palm Beach virou município em 1959 e hoje é uma vila de uns 39 mil moradores. Os parques fazem parte do dia a dia: o Commons Park tem cerca de 160 acres em volta de um lago de 19 acres, há parques de bairro espalhados pela vila, e o Royal Palm Beach Pines Natural Area, do condado, soma uns 770 acres de pinheirais com trilhas. A vila é Tree City USA desde 1990, e todo o seu território é santuário de aves.\n\nÉ aqui que acontece a maior parte do trabalho de aluguel do Jose. Os inquilinos encontram casas de três quartos com quintal, e muitos inquilinos depois compram na vila. Os compradores encontram essas mesmas casas, com escolas de ensino fundamental com notas de 7 a 10. Para quem vende, 82% dos imóveis são ocupados pelos donos, então a maioria de quem aparece para comprar pretende morar no imóvel.',
       highlights: [
         'Commons Park: cerca de 160 acres em volta de um lago de 19 acres, mais os 770 acres do Pines Natural Area do condado',
         'Tree City USA desde 1990, e a vila inteira é santuário de aves',
         'Escolas de ensino fundamental com notas de 7 a 10 no GreatSchools; a Western Academy Charter tem 10',
-        'Cerca de 29% dos moradores nasceram em outro país; fala-se muito espanhol, português e crioulo haitiano',
         'As casas foram vendidas a uma mediana de US$ 566 mil entre janeiro e setembro de 2026',
         '82 imóveis para alugar anunciados no fim de outubro de 2026; os de três quartos pediam uma mediana de US$ 2.800',
       ],
@@ -326,7 +324,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         },
       ],
       schoolNote:
-        'A Western Academy Charter tem nota 10 no GreatSchools, a Cypress Trails Elementary e a Western Pines Community Middle têm 8, e a Royal Palm Beach Elementary e a H.L. Johnson Elementary têm 7. A Royal Palm Beach High School tem nota 3. Famílias com filhos no ensino médio devem olhar cedo as opções de escolha de escola e os programas magnet do distrito. A escola depende do endereço, então confirme cada casa no localizador de zonas do School District of Palm Beach County.',
+        'A Western Academy Charter tem nota 10 no GreatSchools, a Cypress Trails Elementary e a Western Pines Community Middle têm 8, e a Royal Palm Beach Elementary e a H.L. Johnson Elementary têm 7. A Royal Palm Beach High School tem nota 3. Se o ensino médio importa para você, olhe cedo as opções de escolha de escola e os programas magnet do distrito. A escola depende do endereço, então confirme cada casa no localizador de zonas do School District of Palm Beach County.',
       pois: {
         'Commons Park':
           'Cerca de 160 acres em volta de um lago de 19 acres, com caminhos, uma fonte para as crianças se molharem e o complexo esportivo da vila.',
@@ -337,7 +335,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         'Mall at Wellington Green':
           "Shopping regional a uns 10 minutos ao sul, em Wellington, com Macy's, Dillard's, JCPenney, uma Apple Store e um cinema CMX.",
         'Southern Blvd Dining Corridor':
-          'Padarias, restaurantes latino-americanos e lanchonetes de família ao longo da Southern Blvd., quase todos de donos locais.',
+          'Padarias, restaurantes e lanchonetes ao longo da Southern Blvd., quase todos de donos locais.',
         'Royal Palm Beach Public Library':
           'Biblioteca do condado com atividades para crianças, salas de estudo e espaço para reuniões da comunidade.',
         'Royal Palm Beach Cultural Center':
@@ -443,7 +441,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
             'Terrenos vazios de 1,25 acre para quem quer construir, ou às vezes uma casa antiga que precisa de muita obra. Casas em mau estado podem ser difíceis de financiar, então os vendedores costumam preferir propostas à vista. Conte com um prazo maior.',
         },
         {
-          label: 'Casas de família estabelecidas',
+          label: 'Casas estabelecidas',
           description:
             'Casas de bloco de concreto de três quartos e dois banheiros, de 1.500 a 2.200 pés quadrados e 20 a 40 anos, em terrenos cercados de 1,25 acre, muitas vezes com piscina e garagem ou oficina separada. Esta faixa fica abaixo da mediana de 12 meses, de US$ 700 mil, então espere acabamentos mais antigos. Pergunte a idade do telhado, do poço e da fossa.',
         },
@@ -472,7 +470,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
           'Ração, cercas, produtos para animais e equipamentos agrícolas para propriedades com cavalos e hortas.',
       },
       rental:
-        'Há poucos imóveis para alugar, quase todos casas. Neste verão, casas de três quartos no CEP 33470 pediam entre US$ 3.600 e US$ 3.950 por mês, e as de quatro, cerca de US$ 4.500. O Jose já colocou inquilinos aqui, inclusive no Arden, para famílias que querem experimentar esse estilo de vida antes de comprar.',
+        'Há poucos imóveis para alugar, quase todos casas. Neste verão, casas de três quartos no CEP 33470 pediam entre US$ 3.600 e US$ 3.950 por mês, e as de quatro, cerca de US$ 4.500. O Jose já colocou inquilinos aqui, inclusive no Arden, para inquilinos que querem experimentar esse estilo de vida antes de comprar.',
       buyerNote:
         'Mais da metade dos anúncios de casas atuais já baixou o preço, e as casas ainda à venda no fim de outubro de 2026 estavam anunciadas havia uma mediana de 76 dias. Inclua no orçamento a inspeção do poço e da fossa e confira a zona de enchente do terreno.',
       sellerNote:
@@ -483,7 +481,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       tagline:
         'Um centro histórico para fazer tudo a pé, a duas milhas do Atlântico, com Tri-Rail e bangalôs sem HOA ainda abaixo de US$ 500 mil.',
       description:
-        'Lake Worth Beach é uma cidade litorânea com um centro para fazer tudo a pé, cheio de restaurantes independentes, galerias e um teatro histórico. Chamava-se "Lake Worth" até 2019, fica a menos de duas milhas do Atlântico e tem uma estação do Tri-Rail dentro da cidade. Tem uma grande comunidade que fala espanhol, o que combina naturalmente com o trabalho em vários idiomas do Jose.\n\nO mercado é dividido por tipo de imóvel. Entre janeiro e setembro de 2026, as casas foram vendidas a uma mediana de US$ 560 mil, enquanto condomínios e townhouses saíram por US$ 207.500, com 6,1 meses de estoque de condomínios. Cerca de 54% dos moradores alugam.',
+        'Lake Worth Beach é uma cidade litorânea com um centro para fazer tudo a pé, cheio de restaurantes independentes, galerias e um teatro histórico. Chamava-se "Lake Worth" até 2019, fica a menos de duas milhas do Atlântico e tem uma estação do Tri-Rail dentro da cidade.\n\nO mercado é dividido por tipo de imóvel. Entre janeiro e setembro de 2026, as casas foram vendidas a uma mediana de US$ 560 mil, enquanto condomínios e townhouses saíram por US$ 207.500, com 6,1 meses de estoque de condomínios. Cerca de 54% dos moradores alugam.',
       highlights: [
         'Centro para fazer tudo a pé na Lake Avenue e na Lucerne Avenue, com restaurantes independentes e arte',
         'Condomínios e townhouses a uma mediana de US$ 207.500 em 2026, a menos de duas milhas da praia',
@@ -514,7 +512,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
         },
       ],
       schoolNote:
-        'A North Grade Elementary e a South Grade Elementary têm nota 5 no GreatSchools, e as duas são escolas magnet. A Lake Worth Community Middle tem nota 3 e a Lake Worth High, 2. Muitas famílias daqui usam as opções de escolha de escola e os programas magnet do condado de Palm Beach. Confirme cada endereço no localizador de zonas do School District of Palm Beach County e visite as escolas antes de decidir.',
+        'A North Grade Elementary e a South Grade Elementary têm nota 5 no GreatSchools, e as duas são escolas magnet. A Lake Worth Community Middle tem nota 3 e a Lake Worth High, 2. Muitos estudantes daqui usam as opções de escolha de escola e os programas magnet do condado de Palm Beach. Confirme cada endereço no localizador de zonas do School District of Palm Beach County e visite as escolas antes de decidir.',
       pois: {
         'Lake Worth Beach Park and Municipal Pier':
           "Praia da cidade com área vigiada para nadar, píer de pesca, piscina pública e o Casino Building, com o Benny's on the Beach na entrada do píer.",
@@ -538,7 +536,7 @@ const translations: Record<TranslatedLocale, Record<string, NeighborhoodTranslat
       buyerNote:
         'Quem compra condomínio tem vantagem: 6,1 meses de estoque e um desconto mediano de 10,4% em outubro de 2026. Para casas o mercado está mais apertado, com 3,2 meses de estoque, e casas com preço certo fecham contrato em cerca de um mês.',
       sellerNote:
-        'Como cerca de 54% dos moradores alugam, Lake Worth Beach atrai tanto famílias que vão morar no imóvel quanto investidores. Os preços das casas subiram 11% em um ano até setembro de 2026. A análise comparativa de mercado gratuita do Jose mostra onde a sua casa se encaixa.',
+        'Como cerca de 54% dos moradores alugam, Lake Worth Beach atrai tanto compradores que vão morar no imóvel quanto investidores. Os preços das casas subiram 11% em um ano até setembro de 2026. A análise comparativa de mercado gratuita do Jose mostra onde a sua casa se encaixa.',
     },
   },
 };

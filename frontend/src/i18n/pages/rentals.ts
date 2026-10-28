@@ -52,13 +52,13 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       eyebrow: 'Rentals',
       title: 'Find your next home to rent in Palm Beach County.',
       intro:
-        'Jose Costa has placed hundreds of families in rental homes across western Palm Beach County, working in English, Spanish, and Portuguese. He works with renters and landlords both, and he knows this market well.',
+        'Jose Costa has placed hundreds of renters in homes across western Palm Beach County, working in English, Spanish, and Portuguese. He works with renters and landlords both, and he knows this market well.',
       renterCta: 'Find a Rental Home',
       landlordCta: "I'm a Landlord",
     },
     renters: {
       eyebrow: 'For Renters',
-      title: 'Find the right home for your family.',
+      title: 'Find the right home for you.',
       perMonth: '/ mo',
       rangeNote: 'Typical range for 2–4 bedroom homes across western Palm Beach County',
       cards: [
@@ -121,13 +121,13 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       eyebrow: 'Alquileres',
       title: 'Encuentre su próxima casa de alquiler en el condado de Palm Beach.',
       intro:
-        'Jose Costa ha ayudado a cientos de familias a alquilar casa en el oeste del condado de Palm Beach, en español, inglés y portugués. Trabaja con inquilinos y con dueños, y conoce bien este mercado.',
+        'Jose Costa ha ayudado a cientos de inquilinos a alquilar casa en el oeste del condado de Palm Beach, en español, inglés y portugués. Trabaja con inquilinos y con dueños, y conoce bien este mercado.',
       renterCta: 'Buscar casa para alquilar',
       landlordCta: 'Soy dueño de una propiedad',
     },
     renters: {
       eyebrow: 'Para inquilinos',
-      title: 'Encuentre la casa adecuada para su familia.',
+      title: 'Encuentre la casa adecuada para usted.',
       perMonth: '/ mes',
       rangeNote: 'Rango típico para casas de 2 a 4 habitaciones en el oeste del condado de Palm Beach',
       cards: [
@@ -190,13 +190,13 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       eyebrow: 'Aluguel',
       title: 'Encontre sua próxima casa para alugar no condado de Palm Beach.',
       intro:
-        'Jose Costa já ajudou centenas de famílias a alugar casa no oeste do condado de Palm Beach, atendendo em português, inglês e espanhol. Ele trabalha com inquilinos e com proprietários, e conhece bem este mercado.',
+        'Jose Costa já ajudou centenas de inquilinos a alugar casa no oeste do condado de Palm Beach, atendendo em português, inglês e espanhol. Ele trabalha com inquilinos e com proprietários, e conhece bem este mercado.',
       renterCta: 'Encontrar casa para alugar',
       landlordCta: 'Sou proprietário',
     },
     renters: {
       eyebrow: 'Para inquilinos',
-      title: 'Encontre a casa certa para sua família.',
+      title: 'Encontre a casa certa para você.',
       perMonth: '/ mês',
       rangeNote: 'Faixa comum para casas de 2 a 4 quartos no oeste do condado de Palm Beach',
       cards: [
