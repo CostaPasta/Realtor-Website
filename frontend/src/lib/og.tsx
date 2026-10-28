@@ -246,9 +246,9 @@ export async function renderCalculatorOgImage(locale: Locale) {
   const t = CALCULATOR_COPY[locale];
   // Two bars, like the calculator's results, with no numbers: the visitor brings their own.
   const bar = (label: string, height: number, color: string) => (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 170 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 210 }}>
       <div style={{ width: 130, height, background: color, borderRadius: '14px 14px 0 0' }} />
-      <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', marginTop: 20 }}>{label}</div>
+      <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', marginTop: 20, whiteSpace: 'nowrap' }}>{label}</div>
     </div>
   );
   const chart = (
@@ -257,7 +257,7 @@ export async function renderCalculatorOgImage(locale: Locale) {
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        gap: 56,
+        gap: 32,
         width: '100%',
         height: '100%',
         paddingBottom: 110,
