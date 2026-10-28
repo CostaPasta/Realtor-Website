@@ -366,6 +366,20 @@ export default function NeighborhoodContent({
               </div>
             )}
 
+            {/* Rent vs. buy */}
+            <div className="bg-navy rounded-2xl p-8 flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <h2 className="font-serif text-2xl font-bold text-white">{f(t.calcTitle)}</h2>
+                <p className="mt-3 font-sans text-sm text-white/75 leading-relaxed">{t.calcBody}</p>
+              </div>
+              <Link
+                href={localizedPath(locale, '/rent-vs-buy')}
+                className="shrink-0 inline-flex items-center justify-center px-6 py-3 bg-gold text-navy font-sans font-semibold rounded-full hover:bg-gold-light transition-colors text-sm"
+              >
+                {t.calcCta}
+              </Link>
+            </div>
+
             {/* Section 7: Schools */}
             {schools && schools.length > 0 && (
               <div>

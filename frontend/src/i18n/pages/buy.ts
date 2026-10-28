@@ -4,7 +4,7 @@ type Copy = { title: string; body: string };
 
 export interface BuyDictionary {
   meta: { title: string; description: string };
-  hero: { imageAlt: string; eyebrow: string; title: string; intro: string; cta: string; fine: string };
+  hero: { imageAlt: string; eyebrow: string; title: string; intro: string; cta: string; calculator: string; fine: string };
   stats: { clients: string; years: string; languages: string };
   process: { eyebrow: string; title: string; subtitle: string; stepLabel: string; steps: Copy[] };
   local: { eyebrow: string; titleLine1: string; titleLine2: string; body: string; link: string };
@@ -36,6 +36,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       intro:
         "You can browse listings on Zillow. What you can't get from Zillow is someone who negotiates on your behalf, spots red flags before you're locked in, and has relationships with listing agents before properties hit the market.",
       cta: 'Book a Buyer Consultation',
+      calculator: 'Compare Rent vs. Buying',
       fine: 'No obligation · Costs in writing · In your language',
     },
     stats: { clients: 'Clients Served', years: 'Years Experience', languages: 'Languages' },
@@ -151,6 +152,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       intro:
         'Puede ver casas en Zillow. Lo que Zillow no le da es alguien que negocie por usted, que detecte los problemas antes de que usted se comprometa y que conozca a los agentes vendedores antes de que las propiedades salgan al mercado.',
       cta: 'Agendar una consulta para compradores',
+      calculator: 'Comparar alquilar y comprar',
       fine: 'Sin compromiso · Costos por escrito · En su idioma',
     },
     stats: { clients: 'Clientes atendidos', years: 'Años de experiencia', languages: 'Idiomas' },
@@ -266,6 +268,7 @@ export const buyDictionary: Record<Locale, BuyDictionary> = {
       intro:
         'Você pode olhar casas no Zillow. O que o Zillow não oferece é alguém que negocie por você, perceba os problemas antes de você se comprometer e tenha contato com os corretores dos vendedores antes de os imóveis entrarem no mercado.',
       cta: 'Agendar uma consulta para compradores',
+      calculator: 'Comparar aluguel e compra',
       fine: 'Sem compromisso · Custos por escrito · No seu idioma',
     },
     stats: { clients: 'Clientes atendidos', years: 'Anos de experiência', languages: 'Idiomas' },

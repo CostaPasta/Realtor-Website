@@ -32,6 +32,9 @@ export interface NeighborhoodUiDictionary {
   sellerHookTitle: string;
   sellerHookBody: string;
   sellerHookCta: string;
+  calcTitle: string;
+  calcBody: string;
+  calcCta: string;
   schoolsEyebrow: string;
   schoolsTitle: string;
   schoolsSubtitle: string;
@@ -95,6 +98,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       "Jose does a free comparative market analysis: what it's worth today, recent comparable sales, and realistic days on market.",
     sellerHookCta: "What's my home worth?",
+    calcTitle: 'Renting in {name}? Compare it with owning.',
+    calcBody: 'Put in what you pay now and the price of a home you like. The calculator adds up the mortgage, taxes, and insurance so you can compare.',
+    calcCta: 'Open the Calculator',
     schoolsEyebrow: 'The Schools',
     schoolsTitle: 'Schools in {name}',
     schoolsSubtitle: 'Ratings from GreatSchools.org. Always visit in person.',
@@ -168,6 +174,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       'Jose hace un análisis comparativo de mercado gratis: cuánto vale hoy, ventas comparables recientes y cuánto tardaría en venderse.',
     sellerHookCta: '¿Cuánto vale mi casa?',
+    calcTitle: '¿Alquila en {name}? Compárelo con ser dueño.',
+    calcBody: 'Escriba lo que paga hoy y el precio de una casa que le guste. La calculadora suma la hipoteca, los impuestos y el seguro para que pueda comparar.',
+    calcCta: 'Abrir la calculadora',
     schoolsEyebrow: 'Las escuelas',
     schoolsTitle: 'Escuelas en {name}',
     schoolsSubtitle: 'Calificaciones de GreatSchools.org. Visítelas siempre en persona.',
@@ -241,6 +250,9 @@ export const neighborhoodUi: Record<Locale, NeighborhoodUiDictionary> = {
     sellerHookBody:
       'O Jose faz uma análise comparativa de mercado gratuita: quanto vale hoje, vendas recentes de imóveis parecidos e o tempo realista de venda.',
     sellerHookCta: 'Quanto vale a minha casa?',
+    calcTitle: 'Paga aluguel em {name}? Compare com a casa própria.',
+    calcBody: 'Informe quanto você paga hoje e o preço de uma casa de que você gostou. A calculadora soma o financiamento, o imposto e o seguro para você comparar.',
+    calcCta: 'Abrir a calculadora',
     schoolsEyebrow: 'As escolas',
     schoolsTitle: 'Escolas em {name}',
     schoolsSubtitle: 'Notas do GreatSchools.org. Visite sempre pessoalmente.',

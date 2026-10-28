@@ -33,6 +33,7 @@ export interface RentalsDictionary {
     formSubtitle: string;
     pageLink: string;
   };
+  ownBand: { title: string; body: string; cta: string };
   available: {
     eyebrow: string;
     title: string;
@@ -117,6 +118,11 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       formTitle: 'Contact Jose about your property',
       formSubtitle: "Tell Jose about your rental and he'll follow up with next steps.",
       pageLink: 'See current rents by city and how Jose works with owners',
+    },
+    ownBand: {
+      title: 'Thinking about buying someday?',
+      body: 'See what owning a home would cost you each month next to what you pay in rent now, including taxes, insurance, and the cash you need to buy.',
+      cta: 'Compare Rent vs. Buying',
     },
     available: {
       eyebrow: 'Available Now',
@@ -207,6 +213,11 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       formSubtitle: 'Cuéntele sobre su propiedad y él le dirá cuáles son los siguientes pasos.',
       pageLink: 'Vea los alquileres actuales por ciudad y cómo trabaja Jose con los dueños',
     },
+    ownBand: {
+      title: '¿Piensa comprar algún día?',
+      body: 'Vea cuánto le costaría cada mes ser dueño de una casa al lado de lo que paga de alquiler hoy, con impuestos, seguro y el efectivo que necesita para comprar.',
+      cta: 'Comparar alquilar y comprar',
+    },
     available: {
       eyebrow: 'Disponibles ahora',
       title: 'Casas en alquiler disponibles',
@@ -295,6 +306,11 @@ export const rentalsDictionary: Record<Locale, RentalsDictionary> = {
       formTitle: 'Fale com o Jose sobre seu imóvel',
       formSubtitle: 'Conte sobre o seu imóvel e ele retorna com os próximos passos.',
       pageLink: 'Veja os aluguéis atuais por cidade e como o Jose trabalha com proprietários',
+    },
+    ownBand: {
+      title: 'Pensa em comprar um dia?',
+      body: 'Veja quanto custaria por mês ter a casa própria ao lado do que você paga de aluguel hoje, com imposto, seguro e o dinheiro necessário para comprar.',
+      cta: 'Comparar aluguel e compra',
     },
     available: {
       eyebrow: 'Disponíveis agora',

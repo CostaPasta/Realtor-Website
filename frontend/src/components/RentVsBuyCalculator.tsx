@@ -7,12 +7,12 @@ import { type Locale, localizedPath } from '@/i18n/locales';
 import { rentVsBuyDictionary } from '@/i18n/pages/rent-vs-buy';
 import { whatsappHref } from '@/lib/whatsapp';
 
-// Starting values. Rent and price sit near the Royal Palm Beach 3-bedroom rent and
-// median house price in data/market-stats.ts. The rate is roughly the 30-year fixed
-// average in October 2026 (Freddie Mac); visitors are told to replace it with a quote.
+// Rent and price start empty so the page only ever shows the visitor's own numbers.
+// The rest are editable assumptions most renters wouldn't know. The rate is roughly the
+// 30-year fixed average in October 2026 (Freddie Mac); visitors are told to replace it.
 const DEFAULTS = {
-  rent: '2800',
-  price: '450000',
+  rent: '',
+  price: '',
   down: '5',
   rate: '7.4',
   tax: '1.8',
@@ -80,7 +80,10 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
     ...(mortgageInsurance > 0 ? [{ label: t.results.mortgageInsurance, value: mortgageInsurance }] : []),
   ];
 
-  const message = t.cta.message.replace('{rent}', money.format(rent)).replace('{price}', money.format(price));
+  const ready = rent > 0 && price > 0;
+  const message = ready
+    ? t.cta.message.replace('{rent}', money.format(rent)).replace('{price}', money.format(price))
+    : t.cta.messageEmpty;
 
   const moneyInput = (field: Field, label: string, hint?: string) => (
     <div>
@@ -207,69 +210,77 @@ export default function RentVsBuyCalculator({ locale }: { locale: Locale }) {
             {t.results.title}
           </h3>
 
-          <div className="space-y-5">
-            {[
-              { label: t.results.own, value: ownTotal, bar: 'bg-gold' },
-              { label: t.results.rent, value: rent, bar: 'bg-white/50' },
-            ].map((row) => (
-              <div key={row.label}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-sans text-sm text-white/80">{row.label}</span>
-                  <span className="font-serif text-3xl font-bold tabular-nums">
-                    {money.format(row.value)}
-                    <span className="font-sans text-sm font-normal text-white/60">{t.results.perMonth}</span>
-                  </span>
-                </div>
-                <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${row.bar} transition-[width] duration-300 motion-reduce:transition-none`}
-                    style={{ width: `${(row.value / barMax) * 100}%` }}
-                  />
-                </div>
+          {!ready && <p className="font-sans text-base text-white/80 leading-relaxed">{t.results.empty}</p>}
+          {ready && (
+            <>
+              <div className="space-y-5">
+                {[
+                  { label: t.results.own, value: ownTotal, bar: 'bg-gold' },
+                  { label: t.results.rent, value: rent, bar: 'bg-white/50' },
+                ].map((row) => (
+                  <div key={row.label}>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <span className="font-sans text-sm text-white/80">{row.label}</span>
+                      <span className="font-serif text-3xl font-bold tabular-nums">
+                        {money.format(row.value)}
+                        <span className="font-sans text-sm font-normal text-white/60">{t.results.perMonth}</span>
+                      </span>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${row.bar} transition-[width] duration-300 motion-reduce:transition-none`}
+                        style={{ width: `${(row.value / barMax) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <p className="mt-6 font-sans text-base font-semibold text-gold">{summary}</p>
+              <p className="mt-6 font-sans text-base font-semibold text-gold">{summary}</p>
 
-          <dl className="mt-6 pt-6 border-t border-white/10 space-y-2.5 font-sans text-sm">
-            {breakdown.map((item) => (
-              <div key={item.label} className="flex justify-between gap-4">
-                <dt className="text-white/70">{item.label}</dt>
-                <dd className="tabular-nums">{money.format(item.value)}</dd>
-              </div>
-            ))}
-          </dl>
+              <dl className="mt-6 pt-6 border-t border-white/10 space-y-2.5 font-sans text-sm">
+                {breakdown.map((item) => (
+                  <div key={item.label} className="flex justify-between gap-4">
+                    <dt className="text-white/70">{item.label}</dt>
+                    <dd className="tabular-nums">{money.format(item.value)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </>
+          )}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 border border-cream-dark">
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
-              {t.results.cashTitle}
-            </h3>
-            <dl className="space-y-2 font-sans text-sm">
-              <div className="flex justify-between gap-4">
-                <dt className="text-gray-600">{t.results.downPayment}</dt>
-                <dd className="tabular-nums text-gray-800">{money.format(downPayment)}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-gray-600">{t.results.closing}</dt>
-                <dd className="tabular-nums text-gray-800">{money.format(closing)}</dd>
-              </div>
-              <div className="flex justify-between gap-4 pt-2 border-t border-cream-dark font-semibold text-navy">
-                <dt>{t.results.cashTotal}</dt>
-                <dd className="tabular-nums">{money.format(downPayment + closing)}</dd>
-              </div>
-            </dl>
+        {ready && (
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl p-6 border border-cream-dark">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
+                {t.results.cashTitle}
+              </h3>
+              <dl className="space-y-2 font-sans text-sm">
+                <div className="flex justify-between gap-4">
+                  <dt className="text-gray-600">{t.results.downPayment}</dt>
+                  <dd className="tabular-nums text-gray-800">{money.format(downPayment)}</dd>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <dt className="text-gray-600">{t.results.closing}</dt>
+                  <dd className="tabular-nums text-gray-800">{money.format(closing)}</dd>
+                </div>
+                <div className="flex justify-between gap-4 pt-2 border-t border-cream-dark font-semibold text-navy">
+                  <dt>{t.results.cashTotal}</dt>
+                  <dd className="tabular-nums">{money.format(downPayment + closing)}</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="bg-white rounded-2xl p-6 border border-cream-dark">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
+                {t.results.equityTitle}
+              </h3>
+              <p className="font-serif text-3xl font-bold text-navy tabular-nums">{money.format(firstYearPrincipal)}</p>
+              <p className="mt-2 font-sans text-xs text-gray-600 leading-relaxed">{t.results.equityBody}</p>
+            </div>
           </div>
-          <div className="bg-white rounded-2xl p-6 border border-cream-dark">
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">
-              {t.results.equityTitle}
-            </h3>
-            <p className="font-serif text-3xl font-bold text-navy tabular-nums">{money.format(firstYearPrincipal)}</p>
-            <p className="mt-2 font-sans text-xs text-gray-600 leading-relaxed">{t.results.equityBody}</p>
-          </div>
-        </div>
+
+        )}
 
         <div className="flex flex-col sm:flex-row gap-3">
           <a
